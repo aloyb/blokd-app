@@ -67,7 +67,7 @@ export default function Home() {
   return (
     <div style={styles.container}>
       <header style={styles.header}>
-        <img src="/logo.png" alt="Logo" style={{height:'60px', marginBottom:'10px'}} />
+        <img src="/logo.png" alt="Logo" style={{height:'80px', marginBottom:'10px'}} />
         <h1 style={styles.h1}>BLOK D</h1>
         <div style={styles.subtitle}>Iuran Bulanan Tahun 2026</div>
       </header>
