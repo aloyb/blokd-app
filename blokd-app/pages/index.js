@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import Head from 'next/head';
 
 const MONTHS = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
 const MONTH_NAMES = {
@@ -65,8 +66,22 @@ export default function Home() {
   if (error) return <div style={styles.container}><div style={styles.error}>{error}</div></div>;
 
   return (
-    <div style={styles.container}>
-      <header style={styles.header}>
+    <>
+      <Head>
+        <title>BlokD - Iuran RT</title>
+        <meta name="description" content="BlokD Iuran RT. Pantau 3 arus uang: Total Dana, Setor ke Ketua, Hold Bendahara." />
+        <meta property="og:title" content="BlokD - Iuran RT" />
+        <meta property="og:description" content="BlokD Iuran RT. Pantau 3 arus uang: Total Dana, Setor ke Ketua, Hold Bendahara." />
+        <meta property="og:image" content="https://blokd-iamr.vercel.app/og-image.png" />
+        <meta property="og:url" content="https://blokd-iamr.vercel.app" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="BlokD - Iuran RT" />
+        <meta name="twitter:description" content="BlokD Iuran RT. Pantau 3 arus uang: Total Dana, Setor ke Ketua, Hold Bendahara." />
+        <meta name="twitter:image" content="https://blokd-iamr.vercel.app/og-image.png" />
+      </Head>
+      <div style={styles.container}>
+        <header style={styles.header}>
         <img src="/logo.png" alt="Logo" style={{height:'80px', marginBottom:'10px'}} />
         <h1 style={styles.h1}>BLOK D</h1>
         <div style={styles.subtitle}>Iuran Bulanan Tahun 2026</div>
@@ -135,7 +150,7 @@ export default function Home() {
 
       <div style={styles.footer}>Blok D Iuran 2026 • Updated otomatis</div>
     </div>
-  );
+    </>
 }
 
 const styles = {
