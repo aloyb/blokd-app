@@ -151,6 +151,7 @@ export default function Home() {
       <div style={styles.footer}>Blok D Iuran 2026 • Updated otomatis</div>
     </div>
     </>
+  );
 }
 
 const styles = {
