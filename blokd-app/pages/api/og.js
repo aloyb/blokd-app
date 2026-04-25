@@ -1,9 +1,6 @@
-import { ImageResponse } from '@vercel/og';
-import { NextRequest } from 'next/server';
+import { ImageResponse } from 'next/og';
 
-export const runtime = 'edge';
-
-export async function GET(Request) {
+export async function GET() {
   const data = await fetch(`${process.env.VERCEL_URL ? 'https://' + process.env.VERCEL_URL : 'http://localhost:3000'}/api/stats`).then(r => r.json()).catch(() => null);
 
   const totalDana = data ? `Rp ${Number(data.totalExpected / 100).toLocaleString('id-ID')}` : 'Rp 0';
@@ -11,7 +8,7 @@ export async function GET(Request) {
   const bendahara = data ? `Rp ${Number(data.bendahara / 100).toLocaleString('id-ID')}` : 'Rp 0';
   const collectedPct = data?.collectedPercent || '0';
 
-  return new ImageResponse(
+  return ImageResponse(
     (
       <div
         style={{
