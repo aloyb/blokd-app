@@ -75,6 +75,10 @@ export default function Home() {
         <meta property="og:image" content="https://blokd-iamr.vercel.app/og-image.png" />
         <meta property="og:url" content="https://blokd-iamr.vercel.app" />
         <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="BLOK D - Iuran 2026" />
+        <meta name="twitter:description" content="Data iuran bulanan BLOK D tahun 2026. Pantau pembayaran anggota dan total dana." />
+        <meta name="twitter:image" content="https://blokd-iamr.vercel.app/og-image.png" />
       </Head>
       <div style={styles.container}>
         <header style={styles.header}>
@@ -182,6 +186,3 @@ const styles = {
   footer: { textAlign: 'center', padding: '30px', color: '#555', fontSize: '12px' },
 };
 
-export async function getServerSideProps() {
-  return { props: {} };
-}
