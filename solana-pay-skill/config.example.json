@@ -1,0 +1,10 @@
+{
+  "rpcUrl": "https://api.mainnet-beta.solana.com",
+  "privateKey": "",
+  "aviciAddress": "",
+  "moonshotApiKey": "",
+  "telegramBotToken": "",
+  "telegramChatId": "",
+  "maxSolPerTx": 5,
+  "maxUsdcPerTx": 500
+}

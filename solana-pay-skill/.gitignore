@@ -1,0 +1,7 @@
+config.json
+*.bak
+*.log
+nohup.out
+node_modules/
+.env
+.DS_Store

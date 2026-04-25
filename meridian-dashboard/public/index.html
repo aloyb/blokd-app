@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meridian Monitor</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      background: #0a0a0f;
+      color: #ffffff;
+      min-height: 100vh;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+      border-bottom: 1px solid #1a1a2e;
+      margin-bottom: 30px;
+    }
+    
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #00ff88;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    .logo img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+    
+    .logo-text span {
+      color: #ffffff;
+      font-size: 18px;
+    }
+    
+    .refresh-btn {
+      background: #1a1a2e;
+      border: 1px solid #333;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    
+    .refresh-btn:hover {
+      background: #2a2a4e;
+    }
+    
+    .live-indicator {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #00ff8820;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      color: #00ff88;
+    }
+    
+    .live-dot {
+      width: 8px;
+      height: 8px;
+      background: #00ff88;
+      border-radius: 50%;
+      animation: pulse 1.5s infinite;
+    }
+    
+    .price-tags {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    
+    @media (max-width: 600px) {
+      .wallet-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .wallet-left {
+        width: 100%;
+        flex-wrap: wrap;
+      }
+      
+      .wallet-address-text {
+        font-size: 12px;
+        max-width: 100%;
+      }
+      
+      .price-tags {
+        width: 100%;
+        justify-content: flex-start;
+      }
+      
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+      }
+      
+      .positions-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        justify-content: center;
+      }
+      
+      .position-card {
+        padding: 12px !important;
+        font-size: 12px;
+      }
+      
+      .position-header {
+        margin-bottom: 10px;
+      }
+      
+      .pool-name {
+        font-size: 14px !important;
+      }
+      
+      .position-details {
+        gap: 6px !important;
+      }
+      
+      .detail-item {
+        padding: 8px !important;
+      }
+    }
+    
+    .price-tag {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: #1a1a2e;
+      padding: 6px 12px;
+      border-radius: 20px;
+      border: 1px solid #2a2a4e;
+    }
+    
+    .price-label {
+      font-size: 11px;
+      font-weight: bold;
+      color: #888;
+    }
+    
+    .price-value {
+      font-size: 13px;
+      font-weight: bold;
+      color: #fff;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.8); }
+    }
+    
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-bottom: 30px;
+    }
+    
+    .stat-card {
+      background: linear-gradient(135deg, #1a1a2e 0%, #0f0f1a 100%);
+      border: 1px solid #2a2a4e;
+      border-radius: 16px;
+      padding: 20px;
+    }
+    
+    .stat-label {
+      font-size: 12px;
+      color: #888;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    
+    .stat-value {
+      font-size: 28px;
+      font-weight: bold;
+      margin-bottom: 4px;
+    }
+    
+    .stat-sub {
+      font-size: 11px;
+      color: #666;
+    }
+    
+    .positive { color: #00ff88; }
+    .negative { color: #ff4757; }
+    
+    .positions-section {
+      background: #0f0f1a;
+      border: 1px solid #1a1a2e;
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 20px;
+    }
+    
+    .section-title {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .position-card {
+      background: #1a1a2e;
+      border: 1px solid #2a2a4e;
+      border-radius: 12px;
+      padding: 20px;
+    }
+    
+    .positions-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 16px;
+    }
+    
+    .position-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+    
+    .pool-name {
+      font-size: 18px;
+      font-weight: bold;
+      color: #00ff88;
+    }
+    
+    .position-status {
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+    
+    .status-active {
+      background: #00ff8820;
+      color: #00ff88;
+      border: 1px solid #00ff88;
+    }
+    
+    .status-closed {
+      background: #33333340;
+      color: #888;
+    }
+    
+    .position-details {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 12px;
+    }
+    
+    .detail-item {
+      background: #0f0f1a;
+      padding: 12px;
+      border-radius: 8px;
+    }
+    
+    .detail-label {
+      font-size: 10px;
+      color: #666;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+    }
+    
+    .detail-value {
+      font-size: 15px;
+      font-weight: 600;
+    }
+    
+    .detail-value.positive { color: #00ff88; }
+    .detail-value.negative { color: #ff4757; }
+    
+    .no-positions {
+      text-align: center;
+      padding: 40px;
+      color: #666;
+    }
+    
+    .wallet-section {
+      background: #1a1a2e;
+      border: 1px solid #2a2a4e;
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin-bottom: 20px;
+    }
+    
+    .wallet-label {
+      font-size: 12px;
+      color: #888;
+      margin-bottom: 8px;
+    }
+    
+    .wallet-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    
+    .wallet-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex: 1;
+      min-width: 0;
+    }
+    
+    .wallet-address-text {
+      font-family: monospace;
+      font-size: 14px;
+      color: #00ff88;
+      word-break: break-all;
+      min-width: 0;
+    }
+    
+    .wallet-actions {
+      display: flex;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+    
+    .wallet-btn {
+      background: #0f0f1a;
+      border: 1px solid #333;
+      color: #fff;
+      width: 32px;
+      height: 32px;
+      border-radius: 6px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    
+    .wallet-btn:hover {
+      background: #2a2a4e;
+      border-color: #00ff88;
+    }
+    
+    .footer {
+      text-align: center;
+      padding: 20px;
+      color: #444;
+      font-size: 12px;
+      margin-top: 30px;
+    }
+    
+    .loading {
+      animation: pulse 1s infinite;
+    }
+    
+    .error {
+      color: #ff4757;
+      padding: 20px;
+      text-align: center;
+    }
+    
+    .history-section {
+      background: #0f0f1a;
+      border: 1px solid #1a1a2e;
+      border-radius: 16px;
+      padding: 24px;
+    }
+    
+    .history-toggle {
+      background: transparent;
+      border: none;
+      color: #888;
+      cursor: pointer;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 0;
+      width: 100%;
+      text-align: left;
+    }
+    
+    .history-toggle:hover {
+      color: #fff;
+    }
+    
+    .accordion-header {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 16px;
+      font-weight: bold;
+      color: #fff;
+    }
+    
+    .accordion-header.static {
+      cursor: default;
+      opacity: 0.8;
+    }
+    
+    .accordion-header.static:hover {
+      background: rgba(255,255,255,0.05);
+      border-color: rgba(255,255,255,0.1);
+    }
+    
+    .history-list {
+      margin-top: 16px;
+    }
+    
+    .history-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px;
+      background: #1a1a2e;
+      border-radius: 8px;
+      margin-bottom: 8px;
+    }
+    
+    .history-item:last-child {
+      margin-bottom: 0;
+    }
+    
+    .history-name {
+      font-weight: 600;
+    }
+    
+    .history-pnl {
+      font-weight: bold;
+    }
+    
+    .history-pnl.positive { color: #00ff88; }
+    .history-pnl.negative { color: #ff4757; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo"><img src="avatar.jpg" alt="Z"><div class="logo-text"><span>Zero Meridian</span></div></div>
+      <div style="display: flex; gap: 12px; align-items: center;">
+        <div class="live-indicator">
+          <div class="live-dot"></div>
+          LIVE
+        </div>
+        <button class="refresh-btn" onclick="fetchAll()">🔄 Refresh</button>
+      </div>
+    </header>
+    
+    <div class="wallet-section">
+      <div class="wallet-label">🔗 Wallet</div>
+      <div class="wallet-row">
+        <div class="wallet-left">
+          <div class="wallet-address-text" id="wallet-address">6qSukCpLp5kg8jMMTXVG2zy2d1XNpF7n8c8xvoaaJEej</div>
+          <div class="wallet-actions">
+            <button class="wallet-btn" onclick="copyWallet()" title="Copy Address">📋</button>
+            <a class="wallet-btn" href="https://solscan.io/account/6qSukCpLp5kg8jMMTXVG2zy2d1XNpF7n8c8xvoaaJEej" target="_blank" title="View on Solscan">
+              <img src="https://solscan.io/favicon.ico" alt="Solscan" width="16" height="16" onerror="this.parentElement.innerHTML='🔍'">
+            </a>
+          </div>
+        </div>
+        <div class="price-tags">
+          <div class="price-tag">
+            <span class="price-label">SOL</span>
+            <span class="price-value" id="sol-price">-</span>
+          </div>
+          <div class="price-tag">
+            <span class="price-label">BTC</span>
+            <span class="price-value" id="btc-price">-</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-label">💰 Net Worth</div>
+        <div class="stat-value" id="sol-balance">-</div>
+        <div class="stat-sub" id="usd-value">-</div>
+        <div class="stat-sub" id="sol-info">-</div>
+      </div>
+      
+      <div class="stat-card">
+        <div class="stat-label">📈 Total PnL</div>
+        <div class="stat-value" id="total-pnl">-</div>
+        <div class="stat-sub" id="realized-pnl">Realized: -</div>
+        <div class="stat-sub" id="unrealized-pnl">Unrealized: -</div>
+      </div>
+      
+      <div class="stat-card">
+        <div class="stat-label">🎯 Profit / Loss</div>
+        <div class="stat-value" id="win-lose">- / -</div>
+        <div class="stat-sub" id="win-rate">Win Rate: -%</div>
+      </div>
+      
+      <div class="stat-card">
+        <div class="stat-label">📊 Positions</div>
+        <div class="stat-value" id="total-positions">-</div>
+        <div class="stat-sub" id="active-positions">Active: -</div>
+        <div class="stat-sub" id="closed-positions">Closed: -</div>
+      </div>
+    </div>
+    
+    <div class="positions-section">
+      <div class="accordion-header static">
+        📍 Active LP Positions
+      </div>
+      <div id="positions-container">
+        <div class="no-positions loading">Loading positions...</div>
+      </div>
+    </div>
+    
+    <div class="history-section">
+      <div class="accordion-header" onclick="toggleHistory()">
+        Closed Positions History
+      </div>
+      <div id="history-list" class="history-list" style="display: none;">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+    
+    <div class="footer">
+      Meridian DLMM Agent Monitor • Auto-refresh every 30s
+    </div>
+  </div>
+  
+  <script>
+    let historyVisible = false;
+    let activeVisible = true;
+    
+    async function fetchAll() {
+      await Promise.all([
+        fetchWallet(),
+        fetchStats(),
+        fetchAllPositions(),
+        fetchPrices()
+      ]);
+    }
+    
+    async function fetchPrices() {
+      try {
+        const res = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=solana,bitcoin&vs_currencies=usd');
+        const data = await res.json();
+        if (data.solana) {
+          document.getElementById('sol-price').textContent = '$' + data.solana.usd.toLocaleString();
+        }
+        if (data.bitcoin) {
+          document.getElementById('btc-price').textContent = '$' + data.bitcoin.usd.toLocaleString();
+        }
+      } catch (e) {
+        console.error('Price fetch error:', e);
+      }
+    }
+    
+    async function fetchWallet() {
+      try {
+        const res = await fetch('/api/wallet');
+        const data = await res.json();
+        
+        if (data.success) {
+          const totalNetWorth = data.totalNetWorth || 0;
+          const initialInvestment = 40;
+          const realPnl = totalNetWorth - initialInvestment;
+          const pnlClass = realPnl >= 0 ? 'positive' : 'negative';
+          const pnlSign = realPnl >= 0 ? '+$' : '-$';
+          const lpValue = data.lpValueUsd || 0;
+          const lpSol = data.solPrice ? (lpValue / data.solPrice).toFixed(4) : '-';
+          document.getElementById('sol-balance').textContent = `$${totalNetWorth.toFixed(2)}`;
+          document.getElementById('total-pnl').textContent = `${pnlSign}${Math.abs(realPnl).toFixed(2)}`;
+          document.getElementById('total-pnl').className = `stat-value ${pnlClass}`;
+          document.getElementById('usd-value').textContent = `Wallet: $${data.walletUsd?.toFixed(2)} • ${data.solBalance?.toFixed(4)} SOL`;
+          document.getElementById('sol-info').textContent = `LP: $${lpValue.toFixed(2)} • ${lpSol} SOL`;
+        }
+      } catch (e) {
+        console.error('Wallet fetch error:', e);
+      }
+    }
+    
+    async function fetchStats() {
+      try {
+        const res = await fetch('/api/stats');
+        const data = await res.json();
+        
+        if (data.success) {
+          const stats = data.stats;
+          
+          // Realized PnL (from closed positions)
+          const realizedClass = stats.realizedPnlUsd >= 0 ? 'positive' : 'negative';
+          const realizedSign = stats.realizedPnlUsd >= 0 ? '+$' : '-$';
+          document.getElementById('realized-pnl').textContent = `Realized: ${realizedSign}${Math.abs(stats.realizedPnlUsd).toFixed(2)}`;
+          document.getElementById('realized-pnl').className = `stat-sub ${realizedClass}`;
+          
+          // Unrealized PnL (from active positions)
+          const unrealizedClass = stats.unrealizedPnlUsd >= 0 ? 'positive' : 'negative';
+          const unrealizedSign = stats.unrealizedPnlUsd >= 0 ? '+$' : '-$';
+          document.getElementById('unrealized-pnl').textContent = `Unrealized: ${unrealizedSign}${Math.abs(stats.unrealizedPnlUsd).toFixed(2)}`;
+          document.getElementById('unrealized-pnl').className = `stat-sub ${unrealizedClass}`;
+          
+          // Win Rate
+          document.getElementById('win-rate').textContent = `Win Rate: ${stats.winRate}%`;
+          
+          // Win/Lose (from closed positions)
+          document.getElementById('win-lose').textContent = `${stats.wins} / ${stats.losses}`;
+          
+          // Total Positions
+          document.getElementById('total-positions').textContent = stats.totalTrades;
+          document.getElementById('active-positions').textContent = `Active: ${stats.activeCount}`;
+          document.getElementById('closed-positions').textContent = `Closed: ${stats.closedCount}`;
+        }
+      } catch (e) {
+        console.error('Stats fetch error:', e);
+      }
+    }
+    
+    async function fetchAllPositions() {
+      try {
+        const res = await fetch('/api/all-positions');
+        const data = await res.json();
+        const container = document.getElementById('positions-container');
+        const historyContainer = document.getElementById('history-list');
+        
+        if (data.success && data.positions.length > 0) {
+          const activePositions = data.positions.filter(p => p.status === 'ACTIVE');
+          const closedPositions = data.positions.filter(p => p.status === 'CLOSED');
+          
+          // Active positions
+          if (activePositions.length > 0) {
+            let html = '<div class="positions-grid">';
+            activePositions.forEach(pos => {
+              const pnlClass = pos.pnl_usd >= 0 ? 'positive' : 'negative';
+              const pnlSign = pos.pnl_usd >= 0 ? '+$' : '-$';
+              
+              html += `
+                <div class="position-card">
+                  <div class="position-header">
+                    <div class="pool-name">${pos.name || 'Unknown'}</div>
+                    <div class="position-status status-active">🔥 ACTIVE</div>
+                  </div>
+                  <div class="position-details">
+                    <div class="detail-item">
+                      <div class="detail-label">Pool</div>
+                      <div class="detail-value" style="font-size: 12px; word-break: break-all;">${pos.pool?.slice(0, 8)}...${pos.pool?.slice(-6)}</div>
+                    </div>
+                    <div class="detail-item">
+                      <div class="detail-label">Amount (USD)</div>
+                      <div class="detail-value">$${pos.amount_usd?.toFixed(2) || '-'}</div>
+                    </div>
+                    <div class="detail-item">
+                      <div class="detail-label">PnL (USD)</div>
+                      <div class="detail-value ${pnlClass}">${pnlSign}${Math.abs(pos.pnl_usd)?.toFixed(2) || '0.00'}</div>
+                    </div>
+                    <div class="detail-item">
+                      <div class="detail-label">Deployed</div>
+                      <div class="detail-value" style="font-size: 12px;">${formatDate(pos.deployed_at)}</div>
+                    </div>
+                  </div>
+                </div>
+              `;
+            });
+            html += '</div>';
+            container.innerHTML = html;
+          } else {
+            container.innerHTML = '<div class="no-positions">No active positions • Agent will deploy when opportunity is found</div>';
+          }
+          
+          // Closed positions history
+          if (closedPositions.length > 0) {
+            let html = '';
+            closedPositions.slice().reverse().forEach(pos => {
+              const reason = (pos.closed_reason || '').toLowerCase();
+              const pnlPct = pos.pnl_pct || 0;
+              
+              // Determine WIN/LOSS
+              const isStopLoss = reason.includes('stop loss');
+              const isLowYield = reason.includes('low yield');
+              const isOutRange = reason.includes('out of range');
+              const isRugged = reason.includes('rugged') || reason.includes('rug');
+              const isTrailingTP = reason.includes('trailing tp') || reason.includes('take profit');
+              
+              // Logic: LOSS if stop loss/out of range/low yield, otherwise PROFIT
+              let isLoss = true;
+              let statusIcon = '🔴 LOSS';
+              let statusClass = 'negative';
+              
+              if (isStopLoss || isLowYield || isOutRange || isRugged) {
+                isLoss = true;
+                statusIcon = '🔴 LOSS';
+                statusClass = 'negative';
+              } else {
+                isLoss = false;
+                statusIcon = '🟢 PROFIT';
+                statusClass = 'positive';
+              }
+              
+              html += `
+                <div class="history-item">
+                  <div>
+                    <div class="history-name">${pos.name || 'Unknown'}</div>
+                    <div style="font-size: 11px; color: #666;">${formatDate(pos.deployed_at)}</div>
+                  </div>
+                  <div class="history-pnl ${statusClass}">${statusIcon}</div>
+                </div>
+              `;
+            });
+            historyContainer.innerHTML = html;
+          }
+        } else {
+          container.innerHTML = '<div class="no-positions">No positions yet • Agent will deploy when opportunity is found</div>';
+        }
+      } catch (e) {
+        console.error('Positions fetch error:', e);
+        document.getElementById('positions-container').innerHTML = 
+          '<div class="error">Error loading positions</div>';
+      }
+    }
+    
+    function formatDate(isoString) {
+      if (!isoString) return '-';
+      const date = new Date(isoString);
+      return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+    }
+    
+    function toggleHistory() {
+      historyVisible = !historyVisible;
+      const list = document.getElementById('history-list');
+      const arrow = document.getElementById('history-arrow');
+      list.style.display = historyVisible ? 'block' : 'none';
+      arrow.textContent = historyVisible ? '▲' : '▼';
+    }
+    
+    function toggleActivePositions() {
+      activeVisible = !activeVisible;
+      const container = document.getElementById('positions-container');
+      const arrow = document.getElementById('active-arrow');
+      container.style.display = activeVisible ? 'block' : 'none';
+      arrow.textContent = activeVisible ? '▼' : '▶';
+    }
+    
+    function copyWallet() {
+      const addr = document.getElementById('wallet-address').textContent;
+      const textarea = document.createElement('textarea');
+      textarea.value = addr;
+      textarea.style.position = 'fixed';
+      textarea.style.opacity = '0';
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textarea);
+      alert('Wallet address copied!');
+    }
+    
+    // Initial load
+    fetchAll();
+    
+    // Auto-refresh every 30 seconds
+    setInterval(fetchAll, 30000);
+  </script>
+</body>
+</html>
