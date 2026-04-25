@@ -1,78 +1,45 @@
-import { ImageResponse } from 'next/og';
-
 export const dynamic = 'force-dynamic';
 
 export async function GET() {
-  try {
-    let data = null;
-    try {
-      const res = await fetch('https://blokd-iamr.vercel.app/api/stats');
-      data = await res.json();
-    } catch (e) {
-      console.log('fetch error', e);
-    }
+  const data = await fetch('https://blokd-iamr.vercel.app/api/stats').then(r => r.json()).catch(() => null);
 
-    const totalDana = data ? `Rp ${Number(data.totalExpected / 100).toLocaleString('id-ID')}` : 'Rp 270.000';
-    const setorKetua = data ? `Rp ${Number(data.setorKeKetua / 100).toLocaleString('id-ID')}` : 'Rp 53.800';
-    const bendahara = data ? `Rp ${Number(data.bendahara / 100).toLocaleString('id-ID')}` : 'Rp 12.300';
-    const collectedPct = data?.collectedPercent || '24.5';
+  const totalDana = data ? `Rp ${Number(data.totalExpected / 100).toLocaleString('id-ID')}` : 'Rp 270.000';
+  const setorKetua = data ? `Rp ${Number(data.setorKeKetua / 100).toLocaleString('id-ID')}` : 'Rp 53.800';
+  const bendahara = data ? `Rp ${Number(data.bendahara / 100).toLocaleString('id-ID')}` : 'Rp 12.300';
+  const collectedPct = data?.collectedPercent || '24.5';
 
-    return new ImageResponse(
-      (
-        <div
-          style={{
-            height: '100%',
-            width: '100%',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-            backgroundColor: '#1a1a2e',
-            padding: '40px',
-          }}
-        >
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '40px' }}>
-            <div style={{ fontSize: '64px', fontWeight: 'bold', color: '#fff', marginBottom: '10px' }}>BLOKD</div>
-            <div style={{ fontSize: '28px', color: '#8b8b8b' }}>Iuran Bulanan RT</div>
-            <div style={{ fontSize: '22px', color: '#666', marginTop: '10px' }}>Collected: {collectedPct}%</div>
-          </div>
+  const svg = `
+  <svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="630" fill="#1a1a2e"/>
+    
+    <!-- Header -->
+    <text x="600" y="80" font-size="64" font-weight="bold" fill="white" text-anchor="middle" font-family="Arial">BLOKD</text>
+    <text x="600" y="130" font-size="28" fill="#8b8b8b" text-anchor="middle" font-family="Arial">Iuran Bulanan RT</text>
+    <text x="600" y="170" font-size="22" fill="#666" text-anchor="middle" font-family="Arial">Collected: ${collectedPct}%</text>
+    
+    <!-- Total Dana Box -->
+    <rect x="60" y="210" width="1080" height="100" rx="16" fill="#16213e" stroke="#e94560" stroke-width="4"/>
+    <text x="100" y="270" font-size="36" fill="#fff" font-family="Arial">💰 Total Dana</text>
+    <text x="1000" y="270" font-size="36" fill="#e94560" font-weight="bold" text-anchor="end" font-family="Arial">${totalDana}</text>
+    
+    <!-- Setor Ketua Box -->
+    <rect x="60" y="330" width="1080" height="100" rx="16" fill="#16213e" stroke="#0f3460" stroke-width="4"/>
+    <text x="100" y="390" font-size="36" fill="#fff" font-family="Arial">📤 Setor ke Ketua</text>
+    <text x="1000" y="390" font-size="36" fill="#4ecca3" font-weight="bold" text-anchor="end" font-family="Arial">${setorKetua}</text>
+    
+    <!-- Bendahara Box -->
+    <rect x="60" y="450" width="1080" height="100" rx="16" fill="#16213e" stroke="#4ecca3" stroke-width="4"/>
+    <text x="100" y="510" font-size="36" fill="#fff" font-family="Arial">👤 Hold Bendahara</text>
+    <text x="1000" y="510" font-size="36" fill="white" font-weight="bold" text-anchor="end" font-family="Arial">${bendahara}</text>
+    
+    <!-- Footer -->
+    <text x="600" y="590" font-size="20" fill="#666" text-anchor="middle" font-family="Arial">blokd-iamr.vercel.app</text>
+  </svg>`;
 
-          <div style={{ display: 'flex', flexDirection: 'column', width: '100%', padding: '0 40px', gap: '20px' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', backgroundColor: '#16213e', padding: '24px 32px', borderRadius: '16px', border: '2px solid #e94560' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-                <span style={{ fontSize: '36px' }}>💰</span>
-                <span style={{ fontSize: '28px', color: '#fff' }}>Total Dana</span>
-              </div>
-              <span style={{ fontSize: '36px', color: '#e94560', fontWeight: 'bold' }}>{totalDana}</span>
-            </div>
-
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', backgroundColor: '#16213e', padding: '24px 32px', borderRadius: '16px', border: '2px solid #0f3460' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-                <span style={{ fontSize: '36px' }}>📤</span>
-                <span style={{ fontSize: '28px', color: '#fff' }}>Setor ke Ketua</span>
-              </div>
-              <span style={{ fontSize: '36px', color: '#4ecca3', fontWeight: 'bold' }}>{setorKetua}</span>
-            </div>
-
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', backgroundColor: '#16213e', padding: '24px 32px', borderRadius: '16px', border: '2px solid #4ecca3' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-                <span style={{ fontSize: '36px' }}>👤</span>
-                <span style={{ fontSize: '28px', color: '#fff' }}>Hold Bendahara</span>
-              </div>
-              <span style={{ fontSize: '36px', color: '#fff', fontWeight: 'bold' }}>{bendahara}</span>
-            </div>
-          </div>
-
-          <div style={{ marginTop: '40px', fontSize: '20px', color: '#666' }}>blokd-iamr.vercel.app</div>
-        </div>
-      ),
-      {
-        width: 1200,
-        height: 630,
-      }
-    );
-  } catch (e) {
-    console.log('ImageResponse error', e);
-    return new Response('error generating image', { status: 500 });
-  }
+  return new Response(svg, {
+    headers: {
+      'Content-Type': 'image/svg+xml',
+      'Cache-Control': 'public, max-age=0, must-revalidate',
+    },
+  });
 }
