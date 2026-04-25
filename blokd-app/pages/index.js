@@ -69,16 +69,12 @@ export default function Home() {
     <>
       <Head>
         <title>BlokD - Iuran RT</title>
-        <meta name="description" content="BlokD Iuran RT. Pantau 3 arus uang: Total Dana, Setor ke Ketua, Hold Bendahara." />
+        <meta name="description" content="Data iuran bulanan BLOK D tahun 2026. Pantau pembayaran anggota dan total dana." />
         <meta property="og:title" content="BLOK D - Iuran 2026" />
         <meta property="og:description" content="Data iuran bulanan BLOK D tahun 2026. Pantau pembayaran anggota dan total dana." />
         <meta property="og:image" content="https://blokd-iamr.vercel.app/og-image.png" />
         <meta property="og:url" content="https://blokd-iamr.vercel.app" />
         <meta property="og:type" content="website" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="BlokD - Iuran RT" />
-        <meta name="twitter:description" content="BlokD Iuran RT. Pantau 3 arus uang: Total Dana, Setor ke Ketua, Hold Bendahara." />
-        <meta name="twitter:image" content="https://blokd-iamr.vercel.app/og-image.png" />
       </Head>
       <div style={styles.container}>
         <header style={styles.header}>
@@ -185,3 +181,7 @@ const styles = {
   pageInfo: { color: '#888', fontSize: '14px' },
   footer: { textAlign: 'center', padding: '30px', color: '#555', fontSize: '12px' },
 };
+
+export async function getServerSideProps() {
+  return { props: {} };
+}
