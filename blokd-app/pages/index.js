@@ -70,8 +70,8 @@ export default function Home() {
       <Head>
         <title>BlokD - Iuran RT</title>
         <meta name="description" content="BlokD Iuran RT. Pantau 3 arus uang: Total Dana, Setor ke Ketua, Hold Bendahara." />
-        <meta property="og:title" content="BlokD - Iuran RT" />
-        <meta property="og:description" content="BlokD Iuran RT. Pantau 3 arus uang: Total Dana, Setor ke Ketua, Hold Bendahara." />
+        <meta property="og:title" content="BLOK D - Iuran 2026" />
+        <meta property="og:description" content="Data iuran bulanan BLOK D tahun 2026. Pantau pembayaran anggota dan total dana." />
         <meta property="og:image" content="https://blokd-iamr.vercel.app/og-image.png" />
         <meta property="og:url" content="https://blokd-iamr.vercel.app" />
         <meta property="og:type" content="website" />
