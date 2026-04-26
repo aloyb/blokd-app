@@ -82,9 +82,11 @@ export default function Home() {
       </Head>
       <div style={styles.container}>
         <header style={styles.header}>
-        <img src="/logo.png" alt="Logo" style={{height:'80px', marginBottom:'10px'}} />
-        <h1 style={styles.h1}>BLOK D</h1>
-        <div style={styles.subtitle}>Iuran Bulanan Tahun 2026</div>
+        <img src="/logo.png" alt="Logo" style={{height:'60px', marginRight:'15px'}} />
+        <div>
+          <h1 style={styles.h1}>BLOK D</h1>
+          <div style={styles.subtitle}>Iuran Bulanan Tahun 2026</div>
+        </div>
       </header>
 
       <div style={styles.statsGrid}>
@@ -172,7 +174,7 @@ export default function Home() {
 
 const styles = {
   container: { maxWidth: '900px', margin: '0 auto', padding: '20px', fontFamily: '-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif', background: 'linear-gradient(135deg, #E8F4FD 0%, #FFFFFF 100%)', minHeight: '100vh', color: '#333' },
-  header: { textAlign: 'center', padding: '40px 0' },
+  header: { display: 'flex', alignItems: 'center', padding: '20px 40px', gap: '15px' },
   h1: { fontSize: '32px', color: '#000', marginBottom: '5px' },
   subtitle: { color: '#888', fontSize: '14px' },
   loading: { textAlign: 'center', padding: '40px', color: '#888' },
