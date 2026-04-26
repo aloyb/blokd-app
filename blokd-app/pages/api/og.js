@@ -2,15 +2,47 @@ import sharp from 'sharp';
 import fs from 'fs';
 import path from 'path';
 
+const DATA_FILE = path.join(process.cwd(), 'data.json');
+
+function loadData() {
+  return JSON.parse(fs.readFileSync(DATA_FILE, 'utf8'));
+}
+
+function calculateStats(data) {
+  const months = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
+  
+  let totalPaid = 0;
+  data.members.forEach(member => {
+    const monthlyAmount = member.isException ? 40000 : member.amount;
+    months.forEach(month => {
+      if (member.payments[month]) {
+        totalPaid += monthlyAmount;
+      }
+    });
+  });
+
+  let setorKeKetua = 0;
+  if (data.setorHistory) {
+    data.setorHistory.forEach(item => {
+      setorKeKetua += item.amount;
+    });
+  }
+
+  return {
+    totalPaid,
+    setorKeKetua,
+    bendahara: totalPaid - setorKeKetua
+  };
+}
+
 export default async function handler(req, res) {
   try {
-    // Read directly from data.json
-    const dataPath = path.join('./data.json');
-    const data = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
+    const data = loadData();
+    const stats = calculateStats(data);
 
-    const totalPaid = Number(data.totalPaid || 0).toLocaleString('id-ID');
-    const setorKeKetua = Number(data.setorKeKetua || 0).toLocaleString('id-ID');
-    const bendahara = Number(data.bendahara || 0).toLocaleString('id-ID');
+    const totalPaid = Number(stats.totalPaid).toLocaleString('id-ID');
+    const setorKeKetua = Number(stats.setorKeKetua).toLocaleString('id-ID');
+    const bendahara = Number(stats.bendahara).toLocaleString('id-ID');
 
     // Load logo
     const logoBuffer = fs.readFileSync('./public/logo.png');
