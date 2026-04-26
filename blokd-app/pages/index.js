@@ -188,7 +188,7 @@ const styles = {
   subtitle: { color: '#888', fontSize: '12px', lineHeight: '1.2', margin: '2px 0 0 0' },
   loading: { textAlign: 'center', padding: '40px', color: '#888' },
   error: { textAlign: 'center', padding: '40px', color: '#ff4757' },
-  statsGrid: { display: 'flex', flexDirection: 'column', gap: '2px', marginBottom: '15px', background: 'rgba(77,124,229,0.1)', borderRadius: '12px', padding: '5px', border: '1px solid rgba(77,124,229,0.3)' },
+  statsGrid: { display: 'flex', flexDirection: 'column', gap: '2px', marginTop: '25px', marginBottom: '15px', background: 'rgba(77,124,229,0.1)', borderRadius: '12px', padding: '5px', border: '1px solid rgba(77,124,229,0.3)' },
   statCard: { background: 'transparent', border: 'none', borderBottom: '1px solid rgba(77,124,229,0.3)', padding: '12px 10px', textAlign: 'center' },
   statCardWarning: { background: 'transparent', border: 'none', borderBottom: '1px solid rgba(77,124,229,0.3)' },
   lastStatCard: { background: 'transparent', border: 'none', padding: '12px 10px', textAlign: 'center' },
