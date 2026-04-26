@@ -92,16 +92,16 @@ export default function Home() {
 
       <div style={styles.statsGrid}>
         <div style={styles.statCard}>
-          <div style={styles.statValue}>{formatCurrency(stats?.totalPaid)}</div>
           <div style={styles.statLabel}>Total Dana Terkumpul</div>
+          <div style={styles.statValue}>{formatCurrency(stats?.totalPaid)}</div>
         </div>
         <div style={{...styles.statCard, ...styles.statCardWarning}}>
-          <div style={styles.statValueWarning}>{formatCurrency(stats?.setorKeKetua)}</div>
           <div style={styles.statLabel}>Dana Yang Sudah disetor ke ketua</div>
+          <div style={styles.statValueWarning}>{formatCurrency(stats?.setorKeKetua)}</div>
         </div>
         <div style={styles.statCard}>
-          <div style={styles.statValue}>{formatCurrency(stats?.bendahara)}</div>
           <div style={styles.statLabel}>Dana Yang dipegang bendahara saat ini</div>
+          <div style={styles.statValue}>{formatCurrency(stats?.bendahara)}</div>
         </div>
       </div>
 
