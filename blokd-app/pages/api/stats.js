@@ -33,6 +33,7 @@ export default function handler(req, res) {
   const totalExpected = 45 * 50000 * 12;
   const setorKeKetua = data.setorKeKetua || 0;
   const bendahara = data.bendahara || 0;
+  const setorHistory = data.setorHistory || [];
   
   res.status(200).json({
     totalMembers,
@@ -41,6 +42,7 @@ export default function handler(req, res) {
     totalArrears: totalExpected - totalPaid,
     bendahara,
     setorKeKetua,
+    setorHistory,
     collectedPercent: totalExpected > 0 ? ((totalPaid / totalExpected) * 100).toFixed(1) : 0
   });
 }

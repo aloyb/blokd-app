@@ -102,6 +102,22 @@ export default function Home() {
         </div>
       </div>
 
+      {/* Setor History */}
+      {stats?.setorHistory && stats.setorHistory.length > 0 && (
+        <div style={styles.historySection}>
+          <div style={styles.sectionTitle}>📤 Riwayat Setor ke Ketua</div>
+          {stats.setorHistory.slice().reverse().map((item, idx) => (
+            <div key={idx} style={styles.historyItem}>
+              <span style={styles.historyDate}>
+                {new Date(item.date).toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric' })}
+              </span>
+              <span style={styles.historyAmount}>{formatCurrency(item.amount)}</span>
+              {item.note && <span style={styles.historyNote}>({item.note})</span>}
+            </div>
+          ))}
+        </div>
+      )}
+
       <div style={styles.membersSection}>
         <div style={styles.sectionTitle}>👥 Anggota</div>
         <div style={styles.searchBox}>
@@ -183,6 +199,11 @@ const styles = {
   pagination: { display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '12px', marginTop: '20px', padding: '16px 0' },
   paginationButton: { background: 'rgba(128,128,128,0.25)', border: '1px solid rgba(128,128,128,0.3)', color: '#333', padding: '8px 16px', borderRadius: '8px', cursor: 'pointer', fontSize: '14px' },
   pageInfo: { color: '#888', fontSize: '14px' },
+  historySection: { marginTop: '30px', padding: '20px', background: '#f8f9fa', borderRadius: '12px' },
+  historyItem: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '12px 0', borderBottom: '1px solid #eee' },
+  historyDate: { color: '#333', fontSize: '14px' },
+  historyAmount: { color: '#0f3460', fontWeight: 'bold', fontSize: '16px' },
+  historyNote: { color: '#888', fontSize: '12px', marginLeft: '10px' },
   footer: { textAlign: 'center', padding: '30px', color: '#555', fontSize: '12px' },
 };
 

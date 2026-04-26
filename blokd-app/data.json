@@ -903,5 +903,17 @@
   ],
   "totalPeriods": 12,
   "bendahara": 0,
-  "setorKeKetua": 6660000
+  "setorKeKetua": 6660000,
+  "setorHistory": [
+    {
+      "date": "2026-03-10",
+      "amount": 5380000,
+      "note": "Setor pertama"
+    },
+    {
+      "date": "2026-04-26",
+      "amount": 1280000,
+      "note": "Setor dari bendahara"
+    }
+  ]
 }
