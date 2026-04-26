@@ -202,7 +202,7 @@ const styles = {
   searchIcon: { fontSize: '16px', color: '#888' },
   searchInput: { width: '100%', padding: '12px 0', background: 'transparent', border: 'none', color: '#333', fontSize: '14px', outline: 'none' },
   membersGrid: { display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '12px' },
-  memberCard: { background: 'rgba(128,128,128,0.15)', borderRadius: '12px', padding: '16px', minHeight: '100px' },
+  memberCard: { background: 'rgba(128,128,128,0.15)', borderRadius: '12px', padding: '16px', minHeight: '100px', border: '1px solid rgba(128,128,128,0.3)' },
   memberHouse: { fontSize: '18px', fontWeight: 'bold', color: '#000', marginBottom: '4px' },
   memberName: { fontSize: '14px', fontWeight: '600', marginBottom: '8px', color: '#000' },
   memberStatusNegative: { background: 'rgba(255,71,87,0.2)', border: '1px solid #ff4757', borderRadius: '6px', padding: '6px 4px', textAlign: 'center', color: '#ff4757', fontWeight: 'bold', fontSize: '13px' },
