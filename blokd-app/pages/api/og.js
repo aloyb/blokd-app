@@ -44,7 +44,7 @@ export default async function handler(req, res) {
     const setorKeKetua = Number(stats.setorKeKetua).toLocaleString('id-ID');
     const bendahara = Number(stats.bendahara).toLocaleString('id-ID');
 
-    // Load logo
+    // Load logo as base64
     const logoBuffer = fs.readFileSync('./public/logo.png');
     const logoBase64 = 'data:image/png;base64,' + logoBuffer.toString('base64');
 
@@ -82,7 +82,7 @@ export default async function handler(req, res) {
     const imageBuffer = await sharp(Buffer.from(svg)).png().toBuffer();
 
     res.setHeader('Content-Type', 'image/png');
-    res.setHeader('Cache-Control', 'public, max-age=300, must-revalidate');
+    res.setHeader('Cache-Control', 'public, max-age=0, must-revalidate');
     res.status(200).send(imageBuffer);
   } catch (e) {
     console.error(e);
