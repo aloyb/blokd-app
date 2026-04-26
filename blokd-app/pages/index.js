@@ -84,7 +84,10 @@ export default function Home() {
         {/* Header - logo dan judul */}
       <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '10px' }}>
         <img src="/logo.png" alt="Logo" style={{height:'45px'}} />
-        <h1 style={styles.h1}>Laporan Iuran Bulanan Blok D 2026</h1>
+        <div>
+          <h1 style={styles.h1}>Laporan Iuran Bulanan BLOK D</h1>
+          <div style={styles.subtitle}>Tahun 2026</div>
+        </div>
       </div>
 
       <div style={styles.statsGrid}>
