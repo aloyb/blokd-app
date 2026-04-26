@@ -193,7 +193,7 @@ const styles = {
   statLabel: { fontSize: '16px', color: '#000', fontWeight: '500' },
   membersSection: { background: 'rgba(77,124,229,0.05)', borderRadius: '20px', padding: '30px', marginBottom: '20px', paddingBottom: '60px' },
   sectionTitle: { fontSize: '18px', marginBottom: '15px', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '10px' },
-  searchBox: { marginBottom: '20px' },
+  searchBox: { marginBottom: '20px', display: 'flex', justifyContent: 'center' },
   searchInput: { width: '100%', padding: '12px 16px', background: 'rgba(128,128,128,0.15)', border: '1px solid rgba(128,128,128,0.25)', borderRadius: '10px', color: '#333', fontSize: '14px', outline: 'none' },
   membersGrid: { display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '12px' },
   memberCard: { background: 'rgba(128,128,128,0.15)', borderRadius: '12px', padding: '16px', minHeight: '100px' },
