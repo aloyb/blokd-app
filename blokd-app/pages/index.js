@@ -182,7 +182,7 @@ export default function Home() {
 }
 
 const styles = {
-  container: { maxWidth: '900px', margin: '0 auto', padding: '20px', paddingTop: '20px', fontFamily: '-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif', background: 'transparent', minHeight: '100vh', color: '#333', position: 'relative' },
+  container: { maxWidth: '900px', margin: '0 auto', padding: '20px', paddingTop: '20px', fontFamily: '-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif', background: '#E8F4FD', minHeight: '100vh', color: '#333', position: 'relative' },
   header: { display: 'flex', alignItems: 'center', padding: '20px 40px', gap: '15px' },
   h1: { fontSize: '16px', color: '#000', fontWeight: 'bold', lineHeight: '1.2', margin: '0' },
   subtitle: { color: '#888', fontSize: '12px', lineHeight: '1.2', margin: '2px 0 0 0' },
