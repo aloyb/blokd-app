@@ -15,6 +15,7 @@ export default function Home() {
   const [error, setError] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
+  const [showAllHistory, setShowAllHistory] = useState(false);
   const itemsPerPage = 6;
 
   useEffect(() => {
@@ -108,16 +109,20 @@ export default function Home() {
       {/* Setor History */}
       {stats?.setorHistory && stats.setorHistory.length > 0 && (
         <div style={styles.historySection}>
-          <div style={styles.sectionTitle}>📤 Riwayat Setor ke Ketua</div>
-          {stats.setorHistory.slice().reverse().map((item, idx) => (
+          <div style={styles.sectionTitle}>📤 Riwayat Setoran ke Ketua</div>
+          {stats.setorHistory.slice().reverse().slice(0, showAllHistory ? undefined : 2).map((item, idx) => (
             <div key={idx} style={styles.historyItem}>
               <span style={styles.historyDate}>
                 {new Date(item.date).toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric' })}
               </span>
               <span style={styles.historyAmount}>{formatCurrency(item.amount)}</span>
-              {item.note && <span style={styles.historyNote}>({item.note})</span>}
             </div>
           ))}
+          {stats.setorHistory.length > 2 && (
+            <div style={styles.showMoreBtn} onClick={() => setShowAllHistory(!showAllHistory)}>
+              {showAllHistory ? '▲ Sembunyikan' : `▼ Lihat ${stats.setorHistory.length - 2} lainnya`}
+            </div>
+          )}
         </div>
       )}
 
@@ -203,10 +208,10 @@ const styles = {
   paginationButton: { background: 'rgba(128,128,128,0.25)', border: '1px solid rgba(128,128,128,0.3)', color: '#333', padding: '8px 16px', borderRadius: '8px', cursor: 'pointer', fontSize: '14px' },
   pageInfo: { color: '#888', fontSize: '14px' },
   historySection: { marginTop: '30px', padding: '20px', background: '#f8f9fa', borderRadius: '12px' },
-  historyItem: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '12px 0', borderBottom: '1px solid #eee' },
-  historyDate: { color: '#333', fontSize: '14px' },
-  historyAmount: { color: '#0f3460', fontWeight: 'bold', fontSize: '16px' },
-  historyNote: { color: '#888', fontSize: '12px', marginLeft: '10px' },
+  historyItem: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '12px 0', borderBottom: '1px solid #eee', textAlign: 'center' },
+  historyDate: { color: '#333', fontSize: '14px', textAlign: 'center', flex: 1 },
+  historyAmount: { color: '#0f3460', fontWeight: 'bold', fontSize: '16px', textAlign: 'center', flex: 1 },
+  showMoreBtn: { textAlign: 'center', padding: '12px', color: '#4D7CE5', cursor: 'pointer', fontWeight: '500', fontSize: '14px' },
   footer: { textAlign: 'center', padding: '30px', color: '#555', fontSize: '12px' },
 };
 
