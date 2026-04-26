@@ -120,7 +120,7 @@ export default function Home() {
           ))}
           {stats.setorHistory.length > 2 && (
             <div style={styles.showMoreBtn} onClick={() => setShowAllHistory(!showAllHistory)}>
-              {showAllHistory ? '▲ Sembunyikan' : `▼ Lihat ${stats.setorHistory.length - 2} lainnya`}
+              {showAllHistory ? '▲ Sembunyikan' : '▼ Lihat lainnya'}
             </div>
           )}
         </div>
