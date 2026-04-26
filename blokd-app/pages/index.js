@@ -207,7 +207,7 @@ const styles = {
   memberName: { fontSize: '14px', fontWeight: '600', marginBottom: '8px', color: '#000' },
   memberStatusNegative: { background: 'rgba(255,71,87,0.2)', border: '1px solid #ff4757', borderRadius: '6px', padding: '6px 4px', textAlign: 'center', color: '#ff4757', fontWeight: 'bold', fontSize: '13px' },
   memberPaid: { fontSize: '11px', color: '#666', marginTop: '8px' },
-  monthsGrid: { display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '4px' },
+  monthsGrid: { display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '4px' },
   monthItem: { background: 'rgba(77,124,229,0.2)', border: '1px solid #4D7CE5', borderRadius: '6px', padding: '6px 4px', textAlign: 'center' },
   monthName: { fontSize: '10px', fontWeight: 'bold', textTransform: 'uppercase', color: '#4D7CE5' },
   pagination: { display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '12px', marginTop: '20px', padding: '16px 0' },
