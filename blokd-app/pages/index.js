@@ -180,7 +180,7 @@ const styles = {
   subtitle: { color: '#888', fontSize: '12px', lineHeight: '1.2', margin: '2px 0 0 0' },
   loading: { textAlign: 'center', padding: '40px', color: '#888' },
   error: { textAlign: 'center', padding: '40px', color: '#ff4757' },
-  statsGrid: { display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '10px', marginBottom: '15px' },
+  statsGrid: { display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '10px', marginBottom: '15px' },
   statCard: { background: 'rgba(255,255,255,0.9)', border: '1px solid rgba(128,128,128,0.3)', borderRadius: '12px', padding: '10px', textAlign: 'center', boxShadow: '0 2px 10px rgba(77,124,229,0.08)' },
   statCardWarning: { borderColor: 'rgba(255,159,67,0.5)' },
   statValue: { fontSize: '24px', fontWeight: 'bold', color: '#4D7CE5', marginBottom: '5px' },
