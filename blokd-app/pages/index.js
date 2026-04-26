@@ -182,7 +182,7 @@ export default function Home() {
 }
 
 const styles = {
-  container: { maxWidth: '900px', margin: '0 auto', padding: '20px', paddingTop: '20px', fontFamily: '-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif', background: 'linear-gradient(135deg, #E8F4FD 0%, #FFFFFF 100%)', minHeight: '100vh', color: '#333', position: 'relative' },
+  container: { maxWidth: '900px', margin: '0 auto', padding: '20px', paddingTop: '20px', fontFamily: '-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif', background: 'transparent', minHeight: '100vh', color: '#333', position: 'relative' },
   header: { display: 'flex', alignItems: 'center', padding: '20px 40px', gap: '15px' },
   h1: { fontSize: '16px', color: '#000', fontWeight: 'bold', lineHeight: '1.2', margin: '0' },
   subtitle: { color: '#888', fontSize: '12px', lineHeight: '1.2', margin: '2px 0 0 0' },
@@ -194,7 +194,7 @@ const styles = {
   statValue: { fontSize: '24px', fontWeight: 'bold', color: '#4D7CE5', marginBottom: '5px' },
   statValueWarning: { fontSize: '24px', fontWeight: 'bold', color: '#ff9f43', marginBottom: '5px' },
   statLabel: { fontSize: '16px', color: '#000', fontWeight: '500' },
-  membersSection: { background: 'rgba(77,124,229,0.05)', borderRadius: '20px', padding: '30px', marginBottom: '20px', paddingBottom: '60px' },
+  membersSection: { marginBottom: '20px', paddingBottom: '60px', background: 'transparent', borderRadius: '0' },
   sectionTitle: { fontSize: '18px', marginBottom: '15px', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '10px' },
   searchBox: { marginBottom: '20px', maxWidth: '280px', marginLeft: 'auto', marginRight: 'auto' },
   searchWrapper: { display: 'flex', alignItems: 'center', gap: '8px', background: 'rgba(128,128,128,0.15)', border: '1px solid rgba(128,128,128,0.25)', borderRadius: '10px', padding: '0 12px' },
@@ -212,7 +212,7 @@ const styles = {
   pagination: { display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '12px', marginTop: '20px', padding: '16px 0' },
   paginationButton: { background: 'rgba(128,128,128,0.25)', border: '1px solid rgba(128,128,128,0.3)', color: '#333', padding: '8px 16px', borderRadius: '8px', cursor: 'pointer', fontSize: '14px' },
   pageInfo: { color: '#888', fontSize: '14px' },
-  historySection: { marginTop: '30px', padding: '20px', background: '#f8f9fa', borderRadius: '12px' },
+  historySection: { marginTop: '20px', padding: '10px 0', background: 'transparent' },
   historyItem: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '12px 0', borderBottom: '1px solid #eee', textAlign: 'center' },
   historyDate: { color: '#333', fontSize: '14px', textAlign: 'center', flex: 1 },
   historyAmount: { color: '#0f3460', fontWeight: 'bold', fontSize: '16px', textAlign: 'center', flex: 1 },
