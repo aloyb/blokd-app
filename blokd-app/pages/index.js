@@ -127,14 +127,14 @@ export default function Home() {
       )}
 
       <div style={styles.membersSection}>
-        <div style={styles.sectionTitle}>👥 Anggota</div>
+        <div style={{...styles.sectionTitle, justifyContent: 'flex-start'}}>👥 Anggota</div>
         <div style={styles.searchBox}>
           <input
             type="text"
-            placeholder="Cari nama atau nomor rumah..."
+            placeholder="Tulis nama atau nomor rumah.."
             value={searchQuery}
             onChange={(e) => { setSearchQuery(e.target.value.toLowerCase()); setCurrentPage(1); }}
-            style={styles.searchInput}
+            style={{...styles.searchInput, textAlign: 'center'}}
           />
         </div>
 
