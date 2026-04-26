@@ -15,7 +15,7 @@ const svg = `
   
   <!-- Header -->
   <rect x="0" y="0" width="1200" height="100" fill="rgba(255,255,255,0.9)"/>
-  <text x="30" y="60" font-size="28" font-weight="bold" fill="#333" font-family="Arial">🏠 BLOK D</text>
+  <text x="30" y="62" font-size="32" font-weight="bold" fill="#4D7CE5" font-family="Arial">BLOK D</text>
   <text x="600" y="45" font-size="26" font-weight="bold" fill="#333" text-anchor="middle" font-family="Arial">Laporan Iuran Bulanan BLOK D</text>
   <text x="600" y="75" font-size="18" fill="#666" text-anchor="middle" font-family="Arial">Tahun 2026</text>
   
@@ -23,7 +23,6 @@ const svg = `
   <rect x="20" y="115" width="1160" height="320" rx="12" fill="rgba(77,124,229,0.1)" stroke="rgba(77,124,229,0.3)" stroke-width="1"/>
   
   <!-- Card 1: Total Dana -->
-  <rect x="20" y="115" width="1160" height="100" rx="0" fill="transparent" stroke="transparent"/>
   <text x="40" y="165" font-size="16" fill="#333" font-family="Arial">Total Dana Terkumpul</text>
   <text x="1160" y="195" font-size="24" font-weight="bold" fill="#4D7CE5" text-anchor="end" font-family="Arial">Rp ${totalPaid}</text>
   <line x1="40" y1="210" x2="1160" y2="210" stroke="rgba(77,124,229,0.3)" stroke-width="1"/>
