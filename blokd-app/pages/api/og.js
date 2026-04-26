@@ -1,16 +1,16 @@
-import fetch from 'node-fetch';
 import sharp from 'sharp';
 import fs from 'fs';
+import path from 'path';
 
 export default async function handler(req, res) {
   try {
-    const data = await fetch('https://blokd-iamr.vercel.app/api/stats')
-      .then(r => r.json())
-      .catch(() => null);
+    // Read directly from data.json
+    const dataPath = path.join('./data.json');
+    const data = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
 
-    const totalPaid = data ? Number(data.totalPaid / 100).toLocaleString('id-ID') : '0';
-    const setorKeKetua = data ? Number(data.setorKeKetua / 100).toLocaleString('id-ID') : '0';
-    const bendahara = data ? Number(data.bendahara / 100).toLocaleString('id-ID') : '0';
+    const totalPaid = Number(data.totalPaid || 0).toLocaleString('id-ID');
+    const setorKeKetua = Number(data.setorKeKetua || 0).toLocaleString('id-ID');
+    const bendahara = Number(data.bendahara || 0).toLocaleString('id-ID');
 
     // Load logo
     const logoBuffer = fs.readFileSync('./public/logo.png');
