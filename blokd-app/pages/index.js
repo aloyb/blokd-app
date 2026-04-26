@@ -129,13 +129,16 @@ export default function Home() {
       <div style={styles.membersSection}>
         <div style={{...styles.sectionTitle, justifyContent: 'flex-start'}}>👥 Anggota</div>
         <div style={styles.searchBox}>
-          <input
-            type="text"
-            placeholder="Tulis nama atau nomor rumah.."
-            value={searchQuery}
-            onChange={(e) => { setSearchQuery(e.target.value.toLowerCase()); setCurrentPage(1); }}
-            style={{...styles.searchInput, textAlign: 'center'}}
-          />
+          <div style={styles.searchWrapper}>
+            <span style={styles.searchIcon}>🔍</span>
+            <input
+              type="text"
+              placeholder="Tulis nama atau nomor rumah.."
+              value={searchQuery}
+              onChange={(e) => { setSearchQuery(e.target.value.toLowerCase()); setCurrentPage(1); }}
+              style={styles.searchInput}
+            />
+          </div>
         </div>
 
         <div style={styles.membersGrid}>
@@ -194,7 +197,9 @@ const styles = {
   membersSection: { background: 'rgba(77,124,229,0.05)', borderRadius: '20px', padding: '30px', marginBottom: '20px', paddingBottom: '60px' },
   sectionTitle: { fontSize: '18px', marginBottom: '15px', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '10px' },
   searchBox: { marginBottom: '20px', maxWidth: '280px', marginLeft: 'auto', marginRight: 'auto' },
-  searchInput: { width: '100%', padding: '12px 16px', background: 'rgba(128,128,128,0.15)', border: '1px solid rgba(128,128,128,0.25)', borderRadius: '10px', color: '#333', fontSize: '14px', outline: 'none' },
+  searchWrapper: { display: 'flex', alignItems: 'center', gap: '8px', background: 'rgba(128,128,128,0.15)', border: '1px solid rgba(128,128,128,0.25)', borderRadius: '10px', padding: '0 12px' },
+  searchIcon: { fontSize: '16px', color: '#888' },
+  searchInput: { width: '100%', padding: '12px 0', background: 'transparent', border: 'none', color: '#333', fontSize: '14px', outline: 'none' },
   membersGrid: { display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '12px' },
   memberCard: { background: 'rgba(128,128,128,0.15)', borderRadius: '12px', padding: '16px', minHeight: '100px' },
   memberHouse: { fontSize: '18px', fontWeight: 'bold', color: '#000', marginBottom: '4px' },
