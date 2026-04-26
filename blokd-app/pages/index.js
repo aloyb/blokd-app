@@ -212,7 +212,7 @@ const styles = {
   monthName: { fontSize: '10px', fontWeight: 'bold', textTransform: 'uppercase', color: '#4D7CE5' },
   pagination: { display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '12px', marginTop: '20px', padding: '16px 0' },
   paginationButton: { background: 'rgba(128,128,128,0.25)', border: '1px solid rgba(128,128,128,0.3)', color: '#333', padding: '8px 16px', borderRadius: '8px', cursor: 'pointer', fontSize: '14px' },
-  pageInfo: { color: '#888', fontSize: '14px' },
+  pageInfo: { color: '#888', fontSize: '14px', textAlign: 'center', minWidth: '80px' },
   historySection: { marginTop: '20px', padding: '15px', background: 'rgba(128,128,128,0.15)', borderRadius: '12px', border: '1px solid rgba(128,128,128,0.3)' },
   historyItem: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '12px 0', borderBottom: '1px solid rgba(128,128,128,0.5)', textAlign: 'center' },
   historyDate: { color: '#333', fontSize: '14px', textAlign: 'center', flex: 1 },
