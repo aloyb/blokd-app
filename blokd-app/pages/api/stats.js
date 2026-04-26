@@ -18,13 +18,12 @@ export default function handler(req, res) {
   const data = loadData();
   const months = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
   
-  let totalExpected = 0;
   let totalPaid = 0;
   const totalMembers = data.members.length;
   
   data.members.forEach(member => {
     const monthlyAmount = member.isException ? 40000 : member.amount;
-    totalExpected += monthlyAmount * data.totalPeriods;
+    totalPaid += monthlyAmount * data.totalPeriods * 12;
     
     months.forEach(month => {
       if (member.payments[month]) {
