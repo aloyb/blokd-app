@@ -81,13 +81,8 @@ export default function Home() {
         <meta name="twitter:image" content="https://blokd-iamr.vercel.app/og-image.png" />
       </Head>
       <div style={styles.container}>
-        <header style={styles.header}>
-        <img src="/logo.png" alt="Logo" style={{height:'60px', marginRight:'15px'}} />
-        <div>
-          <h1 style={styles.h1}>BLOK D</h1>
-          <div style={styles.subtitle}>Iuran Bulanan Tahun 2026</div>
-        </div>
-      </header>
+        {/* Logo - pojok kiri atas */}
+      <img src="/logo.png" alt="Logo" style={{height:'45px', position:'absolute', left:'20px', top:'20px'}} />
 
       <div style={styles.statsGrid}>
         <div style={styles.statCard}>
@@ -173,7 +168,7 @@ export default function Home() {
 }
 
 const styles = {
-  container: { maxWidth: '900px', margin: '0 auto', padding: '20px', fontFamily: '-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif', background: 'linear-gradient(135deg, #E8F4FD 0%, #FFFFFF 100%)', minHeight: '100vh', color: '#333' },
+  container: { maxWidth: '900px', margin: '0 auto', padding: '20px', fontFamily: '-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif', background: 'linear-gradient(135deg, #E8F4FD 0%, #FFFFFF 100%)', minHeight: '100vh', color: '#333', position: 'relative' },
   header: { display: 'flex', alignItems: 'center', padding: '20px 40px', gap: '15px' },
   h1: { fontSize: '32px', color: '#000', marginBottom: '5px' },
   subtitle: { color: '#888', fontSize: '14px' },
