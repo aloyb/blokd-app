@@ -9,6 +9,13 @@ _Learn about the person you're helping. Update this as you go._
 - **Notes:** Prefers Indonesian language. Setting up Meridian DLMM trading bot, BlokD iuran app, and Zmeridian dashboard.
 - **PRIORITAS!:** Selalu konfirmasi dulu sebelum ubah/aplikasi kode. User tidak suka tanpa izin.
 - **Exception:** Stop & restart meridian = langsung saja, tanpa konfirmasi.
+- **BlokD Workflow:** Setiap user laporan payment/setoran:
+  1. Update data.json
+  2. Regenerate og-image.png (dengan nilai terbaru)
+  3. Push + redeploy
+  4. Semua otomatis selesai
+- **BlokD URL:** https://blokd-iamr.vercel.app
+- **BlokD Git:** https://github.com/aloyb/blokd-app
 
 ## Context
 

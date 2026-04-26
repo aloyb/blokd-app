@@ -16,11 +16,11 @@ const svg = `
   
   <rect x="80" y="300" width="1040" height="90" rx="12" fill="#16213e" stroke="#0f3460" stroke-width="3"/>
   <text x="120" y="350" font-size="28" fill="#ffffff" font-family="Arial">📤 Setor ke Ketua</text>
-  <text x="1000" y="350" font-size="28" fill="#4ecca3" font-weight="bold" text-anchor="end" font-family="Arial">Rp 5.380.000</text>
+  <text x="1000" y="350" font-size="28" fill="#4ecca3" font-weight="bold" text-anchor="end" font-family="Arial">Rp 6.660.000</text>
   
   <rect x="80" y="410" width="1040" height="90" rx="12" fill="#16213e" stroke="#4ecca3" stroke-width="3"/>
   <text x="120" y="460" font-size="28" fill="#ffffff" font-family="Arial">👤 Dipegang Bendahara</text>
-  <text x="1000" y="460" font-size="28" fill="#ffffff" font-weight="bold" text-anchor="end" font-family="Arial">Rp 1.280.000</text>
+  <text x="1000" y="460" font-size="28" fill="#ffffff" font-weight="bold" text-anchor="end" font-family="Arial">Rp 0</text>
   
   <text x="600" y="590" font-size="18" fill="#666666" text-anchor="middle" font-family="Arial">blokd-iamr.vercel.app</text>
 </svg>`;
