@@ -25,19 +25,29 @@ export default function Home() {
   }, []);
 
   async function fetchData() {
-    try {
-      const [membersRes, statsRes] = await Promise.all([
-        fetch('/api/members'),
-        fetch('/api/stats')
-      ]);
-      const membersData = await membersRes.json();
-      const statsData = await statsRes.json();
-      setMembers(membersData.members || []);
-      setStats(statsData);
-      setLoading(false);
-    } catch (err) {
-      setError('Gagal memuat data');
-      setLoading(false);
+    let retries = 3;
+    while (retries > 0) {
+      try {
+        setError(null);
+        const [membersRes, statsRes] = await Promise.all([
+          fetch('/api/members'),
+          fetch('/api/stats')
+        ]);
+        const membersData = await membersRes.json();
+        const statsData = await statsRes.json();
+        setMembers(membersData.members || []);
+        setStats(statsData);
+        setLoading(false);
+        return;
+      } catch (err) {
+        retries--;
+        if (retries === 0) {
+          setError('Gagal memuat data');
+          setLoading(false);
+        } else {
+          await new Promise(r => setTimeout(r, 1000));
+        }
+      }
     }
   }
 
