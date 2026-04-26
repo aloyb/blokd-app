@@ -9,13 +9,18 @@ const totalPaid = (data.totalPaid || 0).toLocaleString('id-ID');
 const setorKeKetua = (data.setorKeKetua || 0).toLocaleString('id-ID');
 const bendahara = (data.bendahara || 0).toLocaleString('id-ID');
 
+// Load logo as base64
+const logoPath = './public/logo.png';
+const logoBuffer = fs.readFileSync(logoPath);
+const logoBase64 = 'data:image/png;base64,' + logoBuffer.toString('base64');
+
 const svg = `
 <svg width="${width}" height="${height}" xmlns="http://www.w3.org/2000/svg">
   <rect width="${width}" height="${height}" fill="#E8F4FD"/>
   
   <!-- Header -->
   <rect x="0" y="0" width="1200" height="100" fill="rgba(255,255,255,0.9)"/>
-  <text x="30" y="62" font-size="32" font-weight="bold" fill="#4D7CE5" font-family="Arial">BLOK D</text>
+  <image href="${logoBase64}" x="20" y="10" width="80" height="80"/>
   <text x="600" y="45" font-size="26" font-weight="bold" fill="#333" text-anchor="middle" font-family="Arial">Laporan Iuran Bulanan BLOK D</text>
   <text x="600" y="75" font-size="18" fill="#666" text-anchor="middle" font-family="Arial">Tahun 2026</text>
   
