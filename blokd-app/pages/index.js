@@ -168,19 +168,19 @@ export default function Home() {
 }
 
 const styles = {
-  container: { maxWidth: '900px', margin: '0 auto', padding: '20px', fontFamily: '-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif', background: 'linear-gradient(135deg, #E8F4FD 0%, #FFFFFF 100%)', minHeight: '100vh', color: '#333', position: 'relative' },
+  container: { maxWidth: '900px', margin: '0 auto', padding: '20px', paddingTop: '80px', fontFamily: '-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif', background: 'linear-gradient(135deg, #E8F4FD 0%, #FFFFFF 100%)', minHeight: '100vh', color: '#333', position: 'relative' },
   header: { display: 'flex', alignItems: 'center', padding: '20px 40px', gap: '15px' },
   h1: { fontSize: '32px', color: '#000', marginBottom: '5px' },
   subtitle: { color: '#888', fontSize: '14px' },
   loading: { textAlign: 'center', padding: '40px', color: '#888' },
   error: { textAlign: 'center', padding: '40px', color: '#ff4757' },
   statsGrid: { display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px', marginBottom: '30px' },
-  statCard: { background: 'rgba(255,255,255,0.9)', border: '1px solid rgba(128,128,128,0.3)', borderRadius: '16px', padding: '24px', textAlign: 'center', boxShadow: '0 2px 10px rgba(77,124,229,0.1)' },
+  statCard: { background: 'rgba(255,255,255,0.9)', border: '1px solid rgba(128,128,128,0.3)', borderRadius: '16px', padding: '16px', textAlign: 'center', boxShadow: '0 2px 10px rgba(77,124,229,0.08)' },
   statCardWarning: { borderColor: 'rgba(255,159,67,0.5)' },
   statValue: { fontSize: '32px', fontWeight: 'bold', color: '#4D7CE5', marginBottom: '5px' },
   statValueWarning: { fontSize: '32px', fontWeight: 'bold', color: '#ff9f43', marginBottom: '5px' },
   statLabel: { fontSize: '12px', color: '#888', textTransform: 'uppercase' },
-  membersSection: { background: 'rgba(77,124,229,0.05)', borderRadius: '20px', padding: '30px', marginBottom: '20px' },
+  membersSection: { background: 'rgba(77,124,229,0.05)', borderRadius: '20px', padding: '30px', marginBottom: '20px', paddingBottom: '60px' },
   sectionTitle: { fontSize: '20px', marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '10px' },
   searchBox: { marginBottom: '20px' },
   searchInput: { width: '100%', padding: '12px 16px', background: 'rgba(128,128,128,0.15)', border: '1px solid rgba(128,128,128,0.25)', borderRadius: '10px', color: '#333', fontSize: '14px', outline: 'none' },
