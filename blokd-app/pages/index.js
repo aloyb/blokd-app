@@ -176,8 +176,8 @@ export default function Home() {
 const styles = {
   container: { maxWidth: '900px', margin: '0 auto', padding: '20px', paddingTop: '80px', fontFamily: '-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif', background: 'linear-gradient(135deg, #E8F4FD 0%, #FFFFFF 100%)', minHeight: '100vh', color: '#333', position: 'relative' },
   header: { display: 'flex', alignItems: 'center', padding: '20px 40px', gap: '15px' },
-  h1: { fontSize: '18px', color: '#000', fontWeight: 'bold', lineHeight: '1.3' },
-  subtitle: { color: '#888', fontSize: '14px' },
+  h1: { fontSize: '16px', color: '#000', fontWeight: 'bold', lineHeight: '1.2', margin: '0' },
+  subtitle: { color: '#888', fontSize: '12px', lineHeight: '1.2', margin: '2px 0 0 0' },
   loading: { textAlign: 'center', padding: '40px', color: '#888' },
   error: { textAlign: 'center', padding: '40px', color: '#ff4757' },
   statsGrid: { display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px', marginBottom: '30px' },
