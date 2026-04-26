@@ -907,13 +907,11 @@
   "setorHistory": [
     {
       "date": "2026-03-10",
-      "amount": 5380000,
-      "note": "Setor pertama"
+      "amount": 5380000
     },
     {
       "date": "2026-04-26",
-      "amount": 1280000,
-      "note": "Setor dari bendahara"
+      "amount": 1280000
     }
   ]
 }
