@@ -23,11 +23,9 @@ export default function handler(req, res) {
   
   data.members.forEach(member => {
     const monthlyAmount = member.isException ? 40000 : member.amount;
-    totalPaid += monthlyAmount * data.totalPeriods * 12;
-    
     months.forEach(month => {
       if (member.payments[month]) {
-        totalPaid += member.isException ? 40000 : member.amount;
+        totalPaid += monthlyAmount;
       }
     });
   });
