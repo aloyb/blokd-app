@@ -100,7 +100,7 @@ export default function Home() {
           <div style={styles.statLabel}>Dana Yang Sudah disetor ke ketua</div>
           <div style={styles.statValueWarning}>{formatCurrency(stats?.setorKeKetua)}</div>
         </div>
-        <div style={styles.statCard}>
+        <div style={styles.lastStatCard}>
           <div style={styles.statLabel}>Dana Yang dipegang bendahara saat ini</div>
           <div style={styles.statValue}>{formatCurrency(stats?.bendahara)}</div>
         </div>
@@ -189,8 +189,9 @@ const styles = {
   loading: { textAlign: 'center', padding: '40px', color: '#888' },
   error: { textAlign: 'center', padding: '40px', color: '#ff4757' },
   statsGrid: { display: 'flex', flexDirection: 'column', gap: '2px', marginBottom: '15px', background: 'rgba(128,128,128,0.15)', borderRadius: '12px', padding: '5px' },
-  statCard: { background: 'transparent', border: 'none', padding: '10px', textAlign: 'center' },
-  statCardWarning: { background: 'transparent', border: 'none' },
+  statCard: { background: 'transparent', border: 'none', borderBottom: '1px solid rgba(77,124,229,0.3)', padding: '12px 10px', textAlign: 'center' },
+  statCardWarning: { background: 'transparent', border: 'none', borderBottom: '1px solid rgba(77,124,229,0.3)' },
+  lastStatCard: { background: 'transparent', border: 'none', padding: '12px 10px', textAlign: 'center' },
   statValue: { fontSize: '24px', fontWeight: 'bold', color: '#4D7CE5', marginBottom: '5px' },
   statValueWarning: { fontSize: '24px', fontWeight: 'bold', color: '#ff9f43', marginBottom: '5px' },
   statLabel: { fontSize: '16px', color: '#000', fontWeight: '500' },
