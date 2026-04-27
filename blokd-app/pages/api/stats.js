@@ -31,9 +31,10 @@ export default function handler(req, res) {
   });
   
   const totalExpected = 45 * 50000 * 12;
-  const setorKeKetua = data.setorKeKetua || 0;
-  const bendahara = data.bendahara || 0;
+  let setorKeKetua = 0;
   const setorHistory = data.setorHistory || [];
+  setorHistory.forEach(item => { setorKeKetua += item.amount; });
+  const bendahara = totalPaid - setorKeKetua;
   
   res.status(200).json({
     totalMembers,
