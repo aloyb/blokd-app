@@ -189,7 +189,7 @@
         "jan": true,
         "feb": true,
         "mar": true,
-        "apr": false,
+        "apr": true,
         "may": false,
         "jun": false,
         "jul": false,
