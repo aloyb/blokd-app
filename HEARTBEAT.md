@@ -4,9 +4,8 @@
 # Heartbeat Tasks
 
 ## Meridian Agent Monitor
-- Check if Meridian screen session is alive: `screen -ls | grep meridian`
-- If dead, restart: `screen -S meridian -X quit; screen -dmS meridian; screen -S meridian -X stuff "cd /home/ubuntu/.openclaw/skills/meridian && npm start\n"`
-- Check cron log: `/home/ubuntu/.openclaw/workspace/monitor.log`
+# DISABLED - manual start only
+# To start manually: screen -dmS meridian && screen -S meridian -X stuff "cd ~/.openclaw/skills/meridian && npm start\n"
 
 ## Dashboard Monitor  
 - Check if dashboard is running: `curl -s http://localhost:3000/api/wallet`
