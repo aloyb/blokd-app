@@ -1,0 +1,11 @@
+import PDFDocument from 'pdfkit';
+const doc = new PDFDocument();
+const stream = fs.createWriteStream('/tmp/test-sym.pdf');
+doc.pipe(stream);
+doc.fontSize(10);
+doc.text('Green check: ✓ (U+2713)');
+doc.text('Red X: ✗ (U+2717)');
+doc.text('Bold check: ✔ (U+2714)');
+doc.text('Bold X: ✘ (U+2718)');
+doc.end();
+stream.on('finish', () => console.log('done'));
