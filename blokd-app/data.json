@@ -610,7 +610,7 @@
         "feb": true,
         "mar": true,
         "apr": true,
-        "may": false,
+        "may": true,
         "jun": false,
         "jul": false,
         "aug": false,
