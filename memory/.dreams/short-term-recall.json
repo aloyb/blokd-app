@@ -1,0 +1,256 @@
+{
+  "version": 1,
+  "updatedAt": "2026-05-08T07:34:58.781Z",
+  "entries": {
+    "memory:memory/2026-04-08.md:70:85": {
+      "key": "memory:memory/2026-04-08.md:70:85",
+      "path": "memory/2026-04-08.md",
+      "startLine": 70,
+      "endLine": 85,
+      "source": "memory",
+      "snippet": "GSErga4: 41,268.707091 tokens (terus bertambah dari buy) EiqNgtwFz: 7.603167 EW7Zvfya: 3.651673 ``` ## Buy History - Last buy: 0.01 SOL → 8,563,021,081 GSErga4 (TX: 24agMmbKqVchys92DeNEqRWZodo6dw3zSdiuyzykQAoi3DBYmhS8NVHef91DCx2rzkxETWXJER4cEZgbK3WNKopn) ## USDC/SOL Swaps (via daemon) - Bought 0.01 SOL USDC → got 0.843963 USDC - Sold 0.843963 USDC → got 0.010047696 SOL ## Notes - User prefers Indonesian language - Swap daemon killed at user's request - Can restart anytime with: `node /home/ubuntu/.openclaw/workspace/solana-pay-skill/swapd.js &`",
+      "recallCount": 2,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1.6333914373426222,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-08T06:08:09.431Z",
+      "lastRecalledAt": "2026-05-08T07:34:58.781Z",
+      "queryHashes": [
+        "bef0e42ae8a0",
+        "56709fe31cea"
+      ],
+      "recallDays": [
+        "2026-05-08"
+      ],
+      "conceptTags": [
+        "268.707091",
+        "7.603167",
+        "3.651673",
+        "0.01",
+        "usdc/sol",
+        "0.843963",
+        "0.010047696",
+        "home/ubuntu"
+      ]
+    },
+    "memory:memory/2026-04-08.md:32:79": {
+      "key": "memory:memory/2026-04-08.md:32:79",
+      "path": "memory/2026-04-08.md",
+      "startLine": 32,
+      "endLine": 79,
+      "source": "memory",
+      "snippet": "- Swapped 0.03 SOL → ~27.5M tokens (buy) - Swapped 25,000 tokens → 0.0235 SOL (sell) - Remaining: ~32,705 tokens ## Meridian DLMM Bot - Running in screen 'meridian' - Config: `/home/ubuntu/.openclaw/skills/meridian/config.json` - Wallet: `6qSukCpLp5kg8jMMTXVG2zy2d1XNpF7n8c8xvoaaJEej` - RPC: `https://mainnet.helius-rpc.com/?api-key=...` - `minSolToOpen`: changed from 0.2 → 0.1 ## NARA Mining - 300 wallets, running in screen 'nara' - Solver mostly working (~12/15 question types) - Wallet: `Gjv5EMQKxkb4b9EjA97itzZz72Qvb2CxNCk9LCMSMJk4` ## User Preferences - Prefers Indonesian language - Wants fast/automated solutions (bot, not manual browser) - User: IkyNulil (Telegram: 381302378) ## Swap D",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-08T06:08:09.431Z",
+      "lastRecalledAt": "2026-05-08T06:08:09.431Z",
+      "queryHashes": [
+        "bef0e42ae8a0"
+      ],
+      "recallDays": [
+        "2026-05-08"
+      ],
+      "conceptTags": [
+        "0.03",
+        "27.5m",
+        "0.0235",
+        "home/ubuntu",
+        "mainnet.helius-rpc.com",
+        "api-key",
+        "0.2",
+        "0.1"
+      ]
+    },
+    "memory:memory/2026-04-09.md:1:43": {
+      "key": "memory:memory/2026-04-09.md:1:43",
+      "path": "memory/2026-04-09.md",
+      "startLine": 1,
+      "endLine": 43,
+      "source": "memory",
+      "snippet": "# Memory - April 9, 2026 ## Projects Status ### BlokD App ✅ DONE - Deployed: https://blokd-app.vercel.app - Converted from Express to Next.js (API routes compatible with Vercel serverless) - Data file: `/home/ubuntu/.openclaw/workspace/blokd-app/data.json` - Workflow: User chat → I update data.json → push to GitHub → Vercel auto-redeploy - Logo: 80px, visible at top of page - No localhost anymore - fully serverless ### Meridian DLMM Bot - Wallet: 6qSukCpLp5kg8jMMTXVG2zy2d1XNpF7n8c8xvoaaJEej - VPS: port 3000 (dashboard), screen session `meridian` - PNL discrepancy issue: price feed, fees, pool differences likely cause ### NARA Mining - Stuck: nara-sdk uses raw TypeScript in node_modules -",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-08T06:10:35.165Z",
+      "lastRecalledAt": "2026-05-08T06:10:35.165Z",
+      "queryHashes": [
+        "228fdc3ffda8"
+      ],
+      "recallDays": [
+        "2026-05-08"
+      ],
+      "conceptTags": [
+        "blokd-app.vercel.app",
+        "next.js",
+        "home/ubuntu",
+        "data.json",
+        "auto-redeploy",
+        "nara-sdk",
+        "node-modules",
+        "april"
+      ]
+    },
+    "memory:memory/2026-04-05.md:32:54": {
+      "key": "memory:memory/2026-04-05.md:32:54",
+      "path": "memory/2026-04-05.md",
+      "startLine": 32,
+      "endLine": 54,
+      "source": "memory",
+      "snippet": "- **Data:** /home/ubuntu/.openclaw/workspace/blokd-app/data.json - **Periode:** 2026, 50,000/bulan (1 orang exception 40,000) - **Members:** Not yet populated (need to add names) ## Technical Notes - Meridian agent screen session: `screen -S meridian` - Restart agent: `cd /home/ubuntu/.openclaw/skills/meridian && npm start` - Dashboard: `cd /home/ubuntu/.openclaw/workspace/meridian-dashboard && node server.js` - BlokD server: `cd /home/ubuntu/.openclaw/workspace/blokd-app && node server.js` - Cloudflare tunnel for BlokD: `cloudflared tunnel --url http://localhost:3001` ## User Preferences - User likes things quick (\"gas!\", \"cukup\", \"iya\") - Prefers Indonesian language responses - Wants ful",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-08T06:10:35.165Z",
+      "lastRecalledAt": "2026-05-08T06:10:35.165Z",
+      "queryHashes": [
+        "228fdc3ffda8"
+      ],
+      "recallDays": [
+        "2026-05-08"
+      ],
+      "conceptTags": [
+        "home/ubuntu",
+        "000/bulan",
+        "openclaw/skills/meridian",
+        "server.js",
+        "openclaw/workspace/blokd-app",
+        "data",
+        "home",
+        "ubuntu"
+      ]
+    },
+    "memory:memory/2026-04-09.md:37:44": {
+      "key": "memory:memory/2026-04-09.md:37:44",
+      "path": "memory/2026-04-09.md",
+      "startLine": 37,
+      "endLine": 44,
+      "source": "memory",
+      "snippet": "- User handles Vercel deployment for BlokD - Meridian frontend could be converted to Next.js like BlokD (user thinking) - LP tracking could use Helius DAS API instead of SolScan ## User Questions/In Progress - User thinking about converting Meridian dashboard to Next.js like BlokD - User wants real-time LP position tracking with Helius - PNL discrepancy discussion - unresolved",
+      "recallCount": 2,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1.6350019577223884,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-08T06:10:35.165Z",
+      "lastRecalledAt": "2026-05-08T07:34:58.781Z",
+      "queryHashes": [
+        "228fdc3ffda8",
+        "56709fe31cea"
+      ],
+      "recallDays": [
+        "2026-05-08"
+      ],
+      "conceptTags": [
+        "next.js",
+        "questions/in",
+        "real-time",
+        "handles",
+        "vercel",
+        "deployment",
+        "blokd",
+        "meridian"
+      ]
+    },
+    "memory:memory/2026-04-26.md:1:38": {
+      "key": "memory:memory/2026-04-26.md:1:38",
+      "path": "memory/2026-04-26.md",
+      "startLine": 1,
+      "endLine": 38,
+      "source": "memory",
+      "snippet": "# Memory - 2026-04-26 ## BlokD App Updates (Continuation) ### UI Changes Done Today - Search bar: centered with magnifying glass icon (🔍) - Members section: transparent background (no white frame/bingkai) - Riwayat setoran section: blue background (#E8F4FD) with visible border - 3 stat cards (Total Dana, Dana Disetor, Dana Dipegang): merged into 1 gray column (#F5F5F5), separated by gray dividers (#E0E0E0) - Stats grid: marginBottom: 20px, no border/shadow - Members section: marginTop: 40px from history section, full-width search bar ### Current BlokD State - Website: https://blokd-iamr.vercel.app - GitHub: https://github.com/aloyb/blokd-app - Data file: /home/ubuntu/.openclaw/workspace/",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-08T06:10:35.165Z",
+      "lastRecalledAt": "2026-05-08T06:10:35.165Z",
+      "queryHashes": [
+        "228fdc3ffda8"
+      ],
+      "recallDays": [
+        "2026-05-08"
+      ],
+      "conceptTags": [
+        "frame/bingkai",
+        "border/shadow",
+        "full-width",
+        "blokd-iamr.vercel.app",
+        "github.com/aloyb/blokd-app",
+        "home/ubuntu",
+        "openclaw/workspace",
+        "blokd"
+      ]
+    },
+    "memory:memory/2026-04-21.md:1:28": {
+      "key": "memory:memory/2026-04-21.md:1:28",
+      "path": "memory/2026-04-21.md",
+      "startLine": 1,
+      "endLine": 28,
+      "source": "memory",
+      "snippet": "# Memory - 2026-04-21 ## Meridian Bollinger Band Fix ### Problem SyntaxError in `tools/chart-indicators.js` - `catch (error)` was placed inside switch statement instead of outside. ### Fix Applied - Closed switch statement properly with `}` before `catch (error)` - Block was: `case \"bollinger_reversion\": { ... }; }` then `catch` outside switch ### Current State - Meridian running in screen session 2558168 - bollinger_reversion strategy now working with new logic: - ENTRY: upper band rejection (prev >= upperBand * 0.995 && close < prevClose) - EXIT: disabled (confirms: false) - trailing TP handles exit ## BlokD App - Already deployed to Vercel: https://blokd-iamr.vercel.app - Data: `",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-08T06:10:35.165Z",
+      "lastRecalledAt": "2026-05-08T06:10:35.165Z",
+      "queryHashes": [
+        "228fdc3ffda8"
+      ],
+      "recallDays": [
+        "2026-05-08"
+      ],
+      "conceptTags": [
+        "tools/chart-indicators.js",
+        "bollinger-reversion",
+        "0.995",
+        "blokd-iamr.vercel.app",
+        "meridian",
+        "bollinger",
+        "band",
+        "fix"
+      ]
+    },
+    "memory:memory/2026-04-05.md:1:38": {
+      "key": "memory:memory/2026-04-05.md:1:38",
+      "path": "memory/2026-04-05.md",
+      "startLine": 1,
+      "endLine": 38,
+      "source": "memory",
+      "snippet": "# Memory - 2026-04-05 ## User Info - **User:** IkyNulil (Telegram: 381302378) - **Language:** Indonesian (Bahasa) - **VPS:** Ubuntu VM at 43.156.101.106 ## Active Projects ### 1. Meridian DLMM Trading Bot (LIVE) - **Status:** Running in screen session `meridian` - **Mode:** LIVE trading (dryRun: false) - **Wallet:** 6qSukCpLp5kg8jMMTXVG2zy2d1XNpF7n8c8xvoaaJEej - **Balance:** ~0.33 SOL (~$26) - **Config:** deployAmountSol = 0.1 SOL - **API:** HELIUS_API_KEY = ac6fa08c-32fd-414c-afc9-fd70149a974a - **LLM:** MiniMax via OPENAI_API_KEY in .env - **Deployed blocklist:** 29 addresses blocked (rugged/scammers) - **Positions:** 1 active (49-SOL), 10+ closed trades - **Win rate:** ~85% (6 wins / 1",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-08T06:10:35.165Z",
+      "lastRecalledAt": "2026-05-08T06:10:35.165Z",
+      "queryHashes": [
+        "228fdc3ffda8"
+      ],
+      "recallDays": [
+        "2026-05-08"
+      ],
+      "conceptTags": [
+        "openai",
+        "43.156.101.106",
+        "0.33",
+        "0.1",
+        "helius-api-key",
+        "openai-api-key",
+        "rugged/scammers",
+        "49-sol"
+      ]
+    }
+  }
+}
