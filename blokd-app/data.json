@@ -688,8 +688,8 @@
       "payments": {
         "jan": true,
         "feb": true,
-        "mar": false,
-        "apr": false,
+        "mar": true,
+        "apr": true,
         "may": false,
         "jun": false,
         "jul": false,
