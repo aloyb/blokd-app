@@ -903,7 +903,7 @@
   ],
   "totalPeriods": 12,
   "bendahara": 0,
-  "setorKeKetua": 6660000,
+  "setorKeKetua": 8060000,
   "setorHistory": [
     {
       "date": "2026-03-12",
@@ -916,6 +916,10 @@
     {
       "date": "2026-04-26",
       "amount": 1280000
+    },
+    {
+      "date": "2026-05-12",
+      "amount": 1400000
     }
   ]
 }
