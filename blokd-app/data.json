@@ -62,7 +62,7 @@
     },
     {
       "houseNumber": "D4",
-      "name": "Rizal",
+      "name": "Melly",
       "amount": 50000,
       "isException": false,
       "payments": {
@@ -342,7 +342,7 @@
     },
     {
       "houseNumber": "D18",
-      "name": "Ariyana",
+      "name": "Rizal",
       "amount": 50000,
       "isException": false,
       "payments": {
