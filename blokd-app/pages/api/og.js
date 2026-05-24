@@ -1,6 +1,10 @@
-import sharp from 'sharp';
+import { ImageResponse } from '@vercel/og';
 import fs from 'fs';
 import path from 'path';
+
+export const config = {
+  runtime: 'edge',
+};
 
 const DATA_FILE = path.join(process.cwd(), 'data.json');
 
@@ -39,57 +43,132 @@ function calculateStats(data) {
   };
 }
 
-export default async function handler(req, res) {
-  try {
-    const data = loadData();
-    const stats = calculateStats(data);
+export default function handler(req) {
+  const data = loadData();
+  const stats = calculateStats(data);
 
-    const totalPaid = formatRupiah(stats.totalPaid);
-    const setorKeKetua = formatRupiah(stats.setorKeKetua);
-    const bendahara = formatRupiah(stats.bendahara);
+  const totalPaid = formatRupiah(stats.totalPaid);
+  const setorKeKetua = formatRupiah(stats.setorKeKetua);
+  const bendahara = formatRupiah(stats.bendahara);
 
-    // Load logo as base64
-    const logoBuffer = fs.readFileSync('./public/logo.png');
-    const logoBase64 = 'data:image/png;base64,' + logoBuffer.toString('base64');
+  // Count paid members this month
+  const months = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
+  const now = new Date();
+  const currentMonth = months[now.getMonth()];
+  const paidThisMonth = data.members.filter(m => m.payments[currentMonth]).length;
+  const totalMembers = data.members.length;
 
-    const svg = `
-<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
-  <rect width="1200" height="630" fill="#E8F4FD"/>
-  
-  <!-- Header -->
-  <rect x="0" y="0" width="1200" height="100" fill="rgba(255,255,255,0.9)"/>
-  <image href="${logoBase64}" x="20" y="10" width="80" height="80"/>
-  <text x="600" y="45" font-size="26" font-weight="bold" fill="#333" text-anchor="middle">Laporan Iuran Bulanan BLOK D</text>
-  <text x="600" y="75" font-size="18" fill="#666" text-anchor="middle">Tahun 2026</text>
-  
-  <!-- Stats Column -->
-  <rect x="20" y="115" width="1160" height="320" rx="12" fill="rgba(77,124,229,0.1)" stroke="rgba(77,124,229,0.3)" stroke-width="1"/>
-  
-  <!-- Card 1: Total Dana -->
-  <text x="40" y="165" font-size="16" fill="#333">Total Dana Terkumpul</text>
-  <text x="1160" y="195" font-size="24" font-weight="bold" fill="#4D7CE5" text-anchor="end">${totalPaid}</text>
-  <line x1="40" y1="210" x2="1160" y2="210" stroke="rgba(77,124,229,0.3)" stroke-width="1"/>
-  
-  <!-- Card 2: Dana Disetor -->
-  <text x="40" y="265" font-size="16" fill="#333">Dana Yang Sudah disetor ke ketua</text>
-  <text x="1160" y="295" font-size="24" font-weight="bold" fill="#ff9f43" text-anchor="end">${setorKeKetua}</text>
-  <line x1="40" y1="310" x2="1160" y2="310" stroke="rgba(77,124,229,0.3)" stroke-width="1"/>
-  
-  <!-- Card 3: Bendahara -->
-  <text x="40" y="365" font-size="16" fill="#333">Dana Yang dipegang bendahara saat ini</text>
-  <text x="1160" y="395" font-size="24" font-weight="bold" fill="#333" text-anchor="end">${bendahara}</text>
-  
-  <!-- Footer -->
-  <text x="600" y="610" font-size="18" fill="#888" text-anchor="middle">blokd-iamr.vercel.app</text>
-</svg>`;
+  return new ImageResponse(
+    (
+      <div style={{
+        width: '1200px',
+        height: '630px',
+        display: 'flex',
+        flexDirection: 'column',
+        backgroundColor: '#E8F4FD',
+        fontFamily: 'Arial',
+      }}>
+        {/* Header */}
+        <div style={{
+          display: 'flex',
+          alignItems: 'center',
+          padding: '20px 40px',
+          backgroundColor: 'rgba(255,255,255,0.9)',
+          borderBottom: '1px solid rgba(77,124,229,0.2)',
+        }}>
+          <div style={{
+            display: 'flex',
+            fontSize: '32px',
+            fontWeight: 'bold',
+            color: '#333',
+            flexGrow: 1,
+            textAlign: 'center',
+          }}>
+            🏠 Laporan Iuran Bulanan BLOK D
+          </div>
+          <div style={{
+            fontSize: '18px',
+            color: '#666',
+          }}>
+            Tahun 2026
+          </div>
+        </div>
 
-    const imageBuffer = await sharp(Buffer.from(svg)).png().toBuffer();
+        {/* Stats */}
+        <div style={{
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '20px',
+          padding: '30px 40px',
+          flexGrow: 1,
+        }}>
+          {/* Total Dana */}
+          <div style={{
+            display: 'flex',
+            flexDirection: 'column',
+            backgroundColor: 'rgba(77,124,229,0.1)',
+            borderRadius: '12px',
+            padding: '20px 30px',
+            border: '1px solid rgba(77,124,229,0.3)',
+          }}>
+            <div style={{ fontSize: '16px', color: '#333', marginBottom: '8px' }}>
+              💰 Total Dana Terkumpul
+            </div>
+            <div style={{ fontSize: '28px', fontWeight: 'bold', color: '#4D7CE5' }}>
+              {totalPaid}
+            </div>
+          </div>
 
-    res.setHeader('Content-Type', 'image/png');
-    res.setHeader('Cache-Control', 'public, max-age=0, must-revalidate');
-    res.status(200).send(imageBuffer);
-  } catch (e) {
-    console.error(e);
-    res.status(500).send('error');
-  }
+          {/* Dana Disetor */}
+          <div style={{
+            display: 'flex',
+            flexDirection: 'column',
+            backgroundColor: 'rgba(255,159,67,0.1)',
+            borderRadius: '12px',
+            padding: '20px 30px',
+            border: '1px solid rgba(255,159,67,0.3)',
+          }}>
+            <div style={{ fontSize: '16px', color: '#333', marginBottom: '8px' }}>
+              📤 Dana Disetor ke Ketua
+            </div>
+            <div style={{ fontSize: '28px', fontWeight: 'bold', color: '#ff9f43' }}>
+              {setorKeKetua}
+            </div>
+          </div>
+
+          {/* Bendahara */}
+          <div style={{
+            display: 'flex',
+            flexDirection: 'column',
+            backgroundColor: 'rgba(51,51,51,0.1)',
+            borderRadius: '12px',
+            padding: '20px 30px',
+            border: '1px solid rgba(51,51,51,0.3)',
+          }}>
+            <div style={{ fontSize: '16px', color: '#333', marginBottom: '8px' }}>
+              🏦 Dana di Bendahara
+            </div>
+            <div style={{ fontSize: '28px', fontWeight: 'bold', color: '#333' }}>
+              {bendahara}
+            </div>
+          </div>
+        </div>
+
+        {/* Footer */}
+        <div style={{
+          display: 'flex',
+          justifyContent: 'center',
+          padding: '15px',
+          color: '#888',
+          fontSize: '16px',
+        }}>
+          blokd-iamr.vercel.app
+        </div>
+      </div>
+    ),
+    {
+      width: 1200,
+      height: 630,
+    }
+  );
 }
