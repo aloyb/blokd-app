@@ -1,0 +1,2 @@
+{"timestamp":"2026-05-18T14:00:09.061Z","tool":"get_my_positions","args":{},"result":{"wallet":null,"total_positions":0,"positions":[],"error":"Wallet not configured"},"duration_ms":1,"success":false}
+{"timestamp":"2026-05-18T14:00:09.061Z","tool":"get_wallet_balance","args":{},"result":{"wallet":null,"sol":0,"sol_price":0,"sol_usd":0,"usdc":0,"tokens":[],"total_usd":0,"error":"Wallet not configured"},"duration_ms":1,"success":false}

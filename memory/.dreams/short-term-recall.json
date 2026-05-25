@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-05-08T07:34:58.781Z",
+  "updatedAt": "2026-05-22T20:20:20.695Z",
   "entries": {
     "memory:memory/2026-04-08.md:70:85": {
       "key": "memory:memory/2026-04-08.md:70:85",
@@ -41,18 +41,22 @@
       "endLine": 79,
       "source": "memory",
       "snippet": "- Swapped 0.03 SOL → ~27.5M tokens (buy) - Swapped 25,000 tokens → 0.0235 SOL (sell) - Remaining: ~32,705 tokens ## Meridian DLMM Bot - Running in screen 'meridian' - Config: `/home/ubuntu/.openclaw/skills/meridian/config.json` - Wallet: `6qSukCpLp5kg8jMMTXVG2zy2d1XNpF7n8c8xvoaaJEej` - RPC: `https://mainnet.helius-rpc.com/?api-key=...` - `minSolToOpen`: changed from 0.2 → 0.1 ## NARA Mining - 300 wallets, running in screen 'nara' - Solver mostly working (~12/15 question types) - Wallet: `Gjv5EMQKxkb4b9EjA97itzZz72Qvb2CxNCk9LCMSMJk4` ## User Preferences - Prefers Indonesian language - Wants fast/automated solutions (bot, not manual browser) - User: IkyNulil (Telegram: 381302378) ## Swap D",
-      "recallCount": 1,
+      "recallCount": 3,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 1,
+      "totalScore": 3,
       "maxScore": 1,
       "firstRecalledAt": "2026-05-08T06:08:09.431Z",
-      "lastRecalledAt": "2026-05-08T06:08:09.431Z",
+      "lastRecalledAt": "2026-05-17T11:35:43.452Z",
       "queryHashes": [
-        "bef0e42ae8a0"
+        "bef0e42ae8a0",
+        "23fa3e390af3",
+        "3dc8d2d54cb5"
       ],
       "recallDays": [
-        "2026-05-08"
+        "2026-05-08",
+        "2026-05-16",
+        "2026-05-17"
       ],
       "conceptTags": [
         "0.03",
@@ -72,18 +76,24 @@
       "endLine": 43,
       "source": "memory",
       "snippet": "# Memory - April 9, 2026 ## Projects Status ### BlokD App ✅ DONE - Deployed: https://blokd-app.vercel.app - Converted from Express to Next.js (API routes compatible with Vercel serverless) - Data file: `/home/ubuntu/.openclaw/workspace/blokd-app/data.json` - Workflow: User chat → I update data.json → push to GitHub → Vercel auto-redeploy - Logo: 80px, visible at top of page - No localhost anymore - fully serverless ### Meridian DLMM Bot - Wallet: 6qSukCpLp5kg8jMMTXVG2zy2d1XNpF7n8c8xvoaaJEej - VPS: port 3000 (dashboard), screen session `meridian` - PNL discrepancy issue: price feed, fees, pool differences likely cause ### NARA Mining - Stuck: nara-sdk uses raw TypeScript in node_modules -",
-      "recallCount": 1,
+      "recallCount": 4,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 1,
+      "totalScore": 4,
       "maxScore": 1,
       "firstRecalledAt": "2026-05-08T06:10:35.165Z",
-      "lastRecalledAt": "2026-05-08T06:10:35.165Z",
+      "lastRecalledAt": "2026-05-19T00:44:19.151Z",
       "queryHashes": [
-        "228fdc3ffda8"
+        "228fdc3ffda8",
+        "23fa3e390af3",
+        "3dc8d2d54cb5",
+        "03663c1744ce"
       ],
       "recallDays": [
-        "2026-05-08"
+        "2026-05-08",
+        "2026-05-16",
+        "2026-05-17",
+        "2026-05-19"
       ],
       "conceptTags": [
         "blokd-app.vercel.app",
@@ -103,18 +113,25 @@
       "endLine": 54,
       "source": "memory",
       "snippet": "- **Data:** /home/ubuntu/.openclaw/workspace/blokd-app/data.json - **Periode:** 2026, 50,000/bulan (1 orang exception 40,000) - **Members:** Not yet populated (need to add names) ## Technical Notes - Meridian agent screen session: `screen -S meridian` - Restart agent: `cd /home/ubuntu/.openclaw/skills/meridian && npm start` - Dashboard: `cd /home/ubuntu/.openclaw/workspace/meridian-dashboard && node server.js` - BlokD server: `cd /home/ubuntu/.openclaw/workspace/blokd-app && node server.js` - Cloudflare tunnel for BlokD: `cloudflared tunnel --url http://localhost:3001` ## User Preferences - User likes things quick (\"gas!\", \"cukup\", \"iya\") - Prefers Indonesian language responses - Wants ful",
-      "recallCount": 1,
+      "recallCount": 5,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 1,
+      "totalScore": 5,
       "maxScore": 1,
       "firstRecalledAt": "2026-05-08T06:10:35.165Z",
-      "lastRecalledAt": "2026-05-08T06:10:35.165Z",
+      "lastRecalledAt": "2026-05-21T19:24:15.492Z",
       "queryHashes": [
-        "228fdc3ffda8"
+        "228fdc3ffda8",
+        "dd2ee206169d",
+        "e16c172589e9",
+        "03663c1744ce",
+        "c1027ef57bed"
       ],
       "recallDays": [
-        "2026-05-08"
+        "2026-05-08",
+        "2026-05-16",
+        "2026-05-19",
+        "2026-05-22"
       ],
       "conceptTags": [
         "home/ubuntu",
@@ -134,19 +151,21 @@
       "endLine": 44,
       "source": "memory",
       "snippet": "- User handles Vercel deployment for BlokD - Meridian frontend could be converted to Next.js like BlokD (user thinking) - LP tracking could use Helius DAS API instead of SolScan ## User Questions/In Progress - User thinking about converting Meridian dashboard to Next.js like BlokD - User wants real-time LP position tracking with Helius - PNL discrepancy discussion - unresolved",
-      "recallCount": 2,
+      "recallCount": 3,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 1.6350019577223884,
+      "totalScore": 2.6350019577223884,
       "maxScore": 1,
       "firstRecalledAt": "2026-05-08T06:10:35.165Z",
-      "lastRecalledAt": "2026-05-08T07:34:58.781Z",
+      "lastRecalledAt": "2026-05-17T11:35:40.350Z",
       "queryHashes": [
         "228fdc3ffda8",
-        "56709fe31cea"
+        "56709fe31cea",
+        "f6432594c5d9"
       ],
       "recallDays": [
-        "2026-05-08"
+        "2026-05-08",
+        "2026-05-17"
       ],
       "conceptTags": [
         "next.js",
@@ -166,18 +185,24 @@
       "endLine": 38,
       "source": "memory",
       "snippet": "# Memory - 2026-04-26 ## BlokD App Updates (Continuation) ### UI Changes Done Today - Search bar: centered with magnifying glass icon (🔍) - Members section: transparent background (no white frame/bingkai) - Riwayat setoran section: blue background (#E8F4FD) with visible border - 3 stat cards (Total Dana, Dana Disetor, Dana Dipegang): merged into 1 gray column (#F5F5F5), separated by gray dividers (#E0E0E0) - Stats grid: marginBottom: 20px, no border/shadow - Members section: marginTop: 40px from history section, full-width search bar ### Current BlokD State - Website: https://blokd-iamr.vercel.app - GitHub: https://github.com/aloyb/blokd-app - Data file: /home/ubuntu/.openclaw/workspace/",
-      "recallCount": 1,
+      "recallCount": 4,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 1,
+      "totalScore": 4,
       "maxScore": 1,
       "firstRecalledAt": "2026-05-08T06:10:35.165Z",
-      "lastRecalledAt": "2026-05-08T06:10:35.165Z",
+      "lastRecalledAt": "2026-05-19T00:44:19.151Z",
       "queryHashes": [
-        "228fdc3ffda8"
+        "228fdc3ffda8",
+        "23fa3e390af3",
+        "3dc8d2d54cb5",
+        "03663c1744ce"
       ],
       "recallDays": [
-        "2026-05-08"
+        "2026-05-08",
+        "2026-05-16",
+        "2026-05-17",
+        "2026-05-19"
       ],
       "conceptTags": [
         "frame/bingkai",
@@ -197,18 +222,22 @@
       "endLine": 28,
       "source": "memory",
       "snippet": "# Memory - 2026-04-21 ## Meridian Bollinger Band Fix ### Problem SyntaxError in `tools/chart-indicators.js` - `catch (error)` was placed inside switch statement instead of outside. ### Fix Applied - Closed switch statement properly with `}` before `catch (error)` - Block was: `case \"bollinger_reversion\": { ... }; }` then `catch` outside switch ### Current State - Meridian running in screen session 2558168 - bollinger_reversion strategy now working with new logic: - ENTRY: upper band rejection (prev >= upperBand * 0.995 && close < prevClose) - EXIT: disabled (confirms: false) - trailing TP handles exit ## BlokD App - Already deployed to Vercel: https://blokd-iamr.vercel.app - Data: `",
-      "recallCount": 1,
+      "recallCount": 3,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 1,
+      "totalScore": 3,
       "maxScore": 1,
       "firstRecalledAt": "2026-05-08T06:10:35.165Z",
-      "lastRecalledAt": "2026-05-08T06:10:35.165Z",
+      "lastRecalledAt": "2026-05-21T19:24:15.492Z",
       "queryHashes": [
-        "228fdc3ffda8"
+        "228fdc3ffda8",
+        "03663c1744ce",
+        "c1027ef57bed"
       ],
       "recallDays": [
-        "2026-05-08"
+        "2026-05-08",
+        "2026-05-19",
+        "2026-05-22"
       ],
       "conceptTags": [
         "tools/chart-indicators.js",
@@ -228,18 +257,23 @@
       "endLine": 38,
       "source": "memory",
       "snippet": "# Memory - 2026-04-05 ## User Info - **User:** IkyNulil (Telegram: 381302378) - **Language:** Indonesian (Bahasa) - **VPS:** Ubuntu VM at 43.156.101.106 ## Active Projects ### 1. Meridian DLMM Trading Bot (LIVE) - **Status:** Running in screen session `meridian` - **Mode:** LIVE trading (dryRun: false) - **Wallet:** 6qSukCpLp5kg8jMMTXVG2zy2d1XNpF7n8c8xvoaaJEej - **Balance:** ~0.33 SOL (~$26) - **Config:** deployAmountSol = 0.1 SOL - **API:** HELIUS_API_KEY = ac6fa08c-32fd-414c-afc9-fd70149a974a - **LLM:** MiniMax via OPENAI_API_KEY in .env - **Deployed blocklist:** 29 addresses blocked (rugged/scammers) - **Positions:** 1 active (49-SOL), 10+ closed trades - **Win rate:** ~85% (6 wins / 1",
-      "recallCount": 1,
+      "recallCount": 4,
       "dailyCount": 0,
       "groundedCount": 0,
-      "totalScore": 1,
+      "totalScore": 4,
       "maxScore": 1,
       "firstRecalledAt": "2026-05-08T06:10:35.165Z",
-      "lastRecalledAt": "2026-05-08T06:10:35.165Z",
+      "lastRecalledAt": "2026-05-19T00:44:19.151Z",
       "queryHashes": [
-        "228fdc3ffda8"
+        "228fdc3ffda8",
+        "dd2ee206169d",
+        "e16c172589e9",
+        "03663c1744ce"
       ],
       "recallDays": [
-        "2026-05-08"
+        "2026-05-08",
+        "2026-05-16",
+        "2026-05-19"
       ],
       "conceptTags": [
         "openai",
@@ -250,6 +284,199 @@
         "openai-api-key",
         "rugged/scammers",
         "49-sol"
+      ]
+    },
+    "memory:memory/2026-05-09.md:1:36": {
+      "key": "memory:memory/2026-05-09.md:1:36",
+      "path": "memory/2026-05-09.md",
+      "startLine": 1,
+      "endLine": 36,
+      "source": "memory",
+      "snippet": "# Memory - 2026-05-09 ## Important Notes for Future Sessions ### Writing Habit - ALWAYS write important info to memory files immediately, don't rely on transcript/search - User reminded me: \"suruh simpan ingatanmu jika penting\" - write first, don't search later - If user shares something important, write to memory/YYYY-MM-DD.md immediately ### BlokD Sub-Agent - Exists at: `~/.openclaw/agents/blokd/` - Workspace: `/home/ubuntu/.openclaw/agents/blokd/workspace/` - Bindings: Telegram account `blokd` → routes to agent `blokd` - Previous model: `openrouter/google/gemma-4-31b-it:free` - Current model: `openrouter/minimax/minimax-m2.5:free` (changed today) - Used for: handling BlokD iuran warga",
+      "recallCount": 3,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 3,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-16T06:20:45.401Z",
+      "lastRecalledAt": "2026-05-17T11:35:43.452Z",
+      "queryHashes": [
+        "dd2ee206169d",
+        "f6432594c5d9",
+        "3dc8d2d54cb5"
+      ],
+      "recallDays": [
+        "2026-05-16",
+        "2026-05-17"
+      ],
+      "conceptTags": [
+        "router",
+        "transcript/search",
+        "memory/yyyy-mm-dd.md",
+        "sub-agent",
+        "openclaw/agents/blokd",
+        "home/ubuntu",
+        "openclaw/agents/blokd/workspace",
+        "openrouter/google/gemma-4-31b-it"
+      ]
+    },
+    "memory:memory/2026-05-17.md:1:26": {
+      "key": "memory:memory/2026-05-17.md:1:26",
+      "path": "memory/2026-05-17.md",
+      "startLine": 1,
+      "endLine": 26,
+      "source": "memory",
+      "snippet": "# Memory - 2026-05-17 ## Important Reminders - ALWAYS write important discussion topics to memory immediately - User reminded: \"kamu kok gak simpan\" - must write to memory when important topics are discussed - If user shares something important, write to memory/YYYY-MM-DD.md immediately ## BlokD PDF Laporan Iuran (17 Mei 2026) - Forwarded dari @IAMRblok_bot (16 Mei 2026) - File: ~/.openclaw/media/inbound/iuran-report---298a63fe-5398-41e2-b601-baf74b24ab24---6848d4a8-d692-48ce-9041-e2c71e5a9099.pdf - Total Dana: Rp 8.060.000 | Disetor ke Ketua: Rp 8.060.000 | Bendahara: Rp 0 - Data: JAN-MAY 2026, rumah D1-D47 - Topik: analisis siapa yang belum bayar MAY dan konsekuensi ## STOP LOSS BUG PAT",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-18T20:02:52.740Z",
+      "lastRecalledAt": "2026-05-18T20:02:52.740Z",
+      "queryHashes": [
+        "e16c172589e9"
+      ],
+      "recallDays": [
+        "2026-05-19"
+      ],
+      "conceptTags": [
+        "memory/yyyy-mm-dd.md",
+        "iamrblok-bot",
+        "8.060.000",
+        "jan-may",
+        "d1-d47",
+        "important",
+        "reminders",
+        "always"
+      ]
+    },
+    "memory:memory/2026-05-17.md:21:30": {
+      "key": "memory:memory/2026-05-17.md:21:30",
+      "path": "memory/2026-05-17.md",
+      "startLine": 21,
+      "endLine": 30,
+      "source": "memory",
+      "snippet": "- **Pattern**: Happens after every code update that touches PnL check logic - **Prevention**: Always check stop loss condition as `pnl <= -stopLossPct` not `pnl <= stopLossPct` - **Last occurred**: 2026-05-17 (Apple-SOL closed at +0.02% PnL) ## Meridian Fix Applied (2026-05-17) - **Bug**: `currentPnlPct <= mgmtConfig.stopLossPct` (positive PnL也会trigger stop loss!) - **Fix**: `currentPnlPct <= -mgmtConfig.stopLossPct` (only triggers on actual loss) - **Files**: state.js line 432, index.js line 944 - **Root cause**: Apple-SOL closed at +0.02% PnL because condition was wrong (stopLossPct: 15, so condition was `0.02 <= 15` = true!) - **Do NOT apply**: minAgeBeforeTrailingTP 5min (user said NO)",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-18T20:02:52.740Z",
+      "lastRecalledAt": "2026-05-18T20:02:52.740Z",
+      "queryHashes": [
+        "e16c172589e9"
+      ],
+      "recallDays": [
+        "2026-05-19"
+      ],
+      "conceptTags": [
+        "apple-sol",
+        "0.02",
+        "mgmtconfig.stoplosspct",
+        "state.js",
+        "index.js",
+        "pattern",
+        "happens",
+        "code"
+      ]
+    },
+    "memory:memory/2026-05-18.md:1:52": {
+      "key": "memory:memory/2026-05-18.md:1:52",
+      "path": "memory/2026-05-18.md",
+      "startLine": 1,
+      "endLine": 52,
+      "source": "memory",
+      "snippet": "# 2026-05-18 ## Hari ini ### Setup Charon - Clone Charon dari GitHub (`~/.openclaw/skills/charon/`) - Charon adalah Telegram trading bot untuk Pump tokens di Solana - Sama kayak Meridian - standalone bot jalan di PM2 (kemudian switch ke screen) - Disetup dengan NVIDIA MiniMax M2.7 API (`https://integrate.api.nvidia.com/v1`) - Model: `nvidia/minimaxai/minimax-m2.7` ### Setup PM2 untuk semua bot - Install PM2 (`npm install -g pm2`) - Screen session meridian (`3593584.meridian`) dimatikan - Meridian sekarang jalan di PM2: `pm2 start index.js --name meridian` - Charon jalan di PM2: `pm2 start index.js --name charon` ### Status Bot (18 Mei) | Bot | Status | Mode | |---|---|---| | meridian | ✅",
+      "recallCount": 2,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 2,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-19T00:44:19.151Z",
+      "lastRecalledAt": "2026-05-21T19:24:15.492Z",
+      "queryHashes": [
+        "03663c1744ce",
+        "c1027ef57bed"
+      ],
+      "recallDays": [
+        "2026-05-19",
+        "2026-05-22"
+      ],
+      "conceptTags": [
+        "openclaw/skills/charon",
+        "m2.7",
+        "integrate.api.nvidia.com/v1",
+        "nvidia/minimaxai/minimax-m2.7",
+        "3593584.meridian",
+        "index.js",
+        "hari",
+        "ini"
+      ]
+    },
+    "memory:memory/2026-05-19.md:34:75": {
+      "key": "memory:memory/2026-05-19.md:34:75",
+      "path": "memory/2026-05-19.md",
+      "startLine": 34,
+      "endLine": 75,
+      "source": "memory",
+      "snippet": "reason: { type: \"string\", description: \"Why this cycle is being skipped\" } }, required: [\"reason\"] } } } ``` 3. **`agent.js`** — Tambah `skip_cycle` ke SCREENER_TOOLS set ```javascript const SCREENER_TOOLS = new Set([ \"deploy_position\", \"skip_cycle\", \"get_active_bin\", \"get_top_candidates\", ... ]); ``` 4. **`executor.js`** — Handle `skip_cycle` tool call ```javascript case \"skip_cycle\": { const reason = args?.reason ?? \"No reason provided\"; return { skipped: true, reason }; } ``` 5. **`index.js`** — Update screening prompt + onToolFinish handler - Prompt: tambah \"If no candidate qualifies, you MUS",
+      "recallCount": 2,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 2,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-21T19:24:15.492Z",
+      "lastRecalledAt": "2026-05-22T20:20:20.695Z",
+      "queryHashes": [
+        "c1027ef57bed",
+        "12a8f49f7866"
+      ],
+      "recallDays": [
+        "2026-05-22",
+        "2026-05-23"
+      ],
+      "conceptTags": [
+        "agent.js",
+        "skip-cycle",
+        "screener-tools",
+        "deploy-position",
+        "get-active-bin",
+        "get-top-candidates",
+        "executor.js",
+        "index.js"
+      ]
+    },
+    "memory:memory/2026-05-19.md:1:47": {
+      "key": "memory:memory/2026-05-19.md:1:47",
+      "path": "memory/2026-05-19.md",
+      "startLine": 1,
+      "endLine": 47,
+      "source": "memory",
+      "snippet": "# 2026-05-19 ## Hari ini ### Meridian Screening Error Fix **Problem:** LLM sering gagal dengan error \"no tool call was made\" saat screening cycle, padahal semua candidate di-reject oleh indicators. **Root cause:** 1. `getTopCandidates()` return empty → masih coba call LLM 2. Ada candidate tapi semua difilter oleh indicators → LLM mau respond text \"no deploy\" → sistem forced tool_call=required → LLM bingung → error 3. SCREENER agent tidak punya tool \"skip\" → tidak ada cara untuk LLM skip tanpa deploy **Fixes yang Applied:** 1. **`index.js`** — Early return kalau `getTopCandidates()` return 0 candidates (line 450-461) ```javascript if (candidates.length === 0) { return \"No cand",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-05-22T20:20:20.695Z",
+      "lastRecalledAt": "2026-05-22T20:20:20.695Z",
+      "queryHashes": [
+        "12a8f49f7866"
+      ],
+      "recallDays": [
+        "2026-05-23"
+      ],
+      "conceptTags": [
+        "di-reject",
+        "tool-call",
+        "index.js",
+        "450-461",
+        "candidates.length",
+        "hari",
+        "ini",
+        "meridian"
       ]
     }
   }
