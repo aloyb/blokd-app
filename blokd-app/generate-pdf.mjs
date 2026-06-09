@@ -77,6 +77,7 @@ const bendahara = totalDana - setorKeKetua;
 const lunasSampaiBulanIni = data.members.filter(isPaidThroughCurrentMonth).length;
 const belumSampaiBulanIni = data.members.length - lunasSampaiBulanIni;
 const totalPeriodeBayar = data.members.reduce((sum, member) => sum + paidMonths(member), 0);
+const belumAdaBayarCount = data.members.filter((member) => paidMonths(member) === 0).length;
 
 const page = {
   width: doc.page.width,
@@ -86,13 +87,12 @@ const page = {
 const contentW = page.width - page.margin * 2;
 
 const col = {
-  no: { x: page.margin, w: 24, label: 'No' },
-  rumah: { x: page.margin + 24, w: 42, label: 'Rumah' },
-  nama: { x: page.margin + 66, w: 118, label: 'Nama' },
-  iuran: { x: page.margin + 184, w: 48, label: 'Iuran' },
+  rumah: { x: page.margin, w: 52, label: 'Nomor Rumah' },
+  nama: { x: page.margin + 52, w: 130, label: 'Nama' },
+  iuran: { x: page.margin + 182, w: 48, label: 'Iuran' },
 };
 
-let monthX = page.margin + 232;
+let monthX = page.margin + 230;
 for (const [, label] of months) {
   col[label.toLowerCase()] = { x: monthX, w: 36, label };
   monthX += 36;
@@ -145,14 +145,14 @@ function drawSummary() {
   drawSummaryCard(page.margin + (w + gap), y, w, 'Sudah Disetor ke Ketua', rupiah(setorKeKetua), colors.warning, `${setorHistory.length} kali setor`);
   drawSummaryCard(page.margin + (w + gap) * 2, y, w, 'Dipegang Bendahara', rupiah(bendahara), colors.ink);
   drawSummaryCard(page.margin + (w + gap) * 3, y, w, 'Lunas s/d Bulan Ini', `${lunasSampaiBulanIni} rumah`, colors.paid, `Belum: ${belumSampaiBulanIni}`);
-  drawSummaryCard(page.margin + (w + gap) * 4, y, w, 'Periode Terbayar', `${totalPeriodeBayar} bulan`, colors.brandDark);
+  drawSummaryCard(page.margin + (w + gap) * 4, y, w, 'Belum Ada Bayar', `${belumAdaBayarCount} rumah`, colors.unpaid);
 }
 
 function drawTableHeader(y) {
   doc.rect(page.margin, y, tableW, headerH).fill(colors.brandDark);
   doc.font('Helvetica-Bold').fontSize(7.6).fillColor(colors.white);
 
-  for (const key of ['no', 'rumah', 'nama', 'iuran']) {
+  for (const key of ['rumah', 'nama', 'iuran']) {
     doc.text(col[key].label, col[key].x + 3, y + 5, { width: col[key].w - 6, align: key === 'nama' ? 'left' : 'center' });
   }
 
@@ -165,9 +165,15 @@ function drawTableHeader(y) {
 }
 
 function drawStatusCell(x, y, w, paid) {
-  const cx = x + w / 2;
-  const cy = y + rowH / 2;
-  doc.circle(cx, cy, 3.2).fill(paid ? colors.paid : colors.unpaid);
+  const cx = x + w / 2 - 4;
+  const cy = y + rowH / 2 - 5;
+  if (paid) {
+    doc.font('Helvetica-Bold').fontSize(11).fillColor(colors.paid);
+    doc.text('✓', cx, cy, { width: 8, align: 'center' });
+  } else {
+    doc.font('Helvetica-Bold').fontSize(11).fillColor(colors.unpaid);
+    doc.text('✗', cx, cy, { width: 8, align: 'center' });
+  }
 }
 
 function drawRow(member, index, y) {
@@ -176,9 +182,8 @@ function drawRow(member, index, y) {
   doc.strokeColor(colors.line).lineWidth(0.3);
   doc.moveTo(page.margin, y + rowH).lineTo(page.margin + tableW, y + rowH).stroke();
 
-  doc.font('Helvetica').fontSize(7.8).fillColor(colors.ink);
-  doc.text(String(index + 1), col.no.x + 2, y + 4.2, { width: col.no.w - 4, align: 'center' });
-  doc.font('Helvetica-Bold').text(member.houseNumber, col.rumah.x + 2, y + 4.2, { width: col.rumah.w - 4, align: 'center' });
+  doc.font('Helvetica-Bold').fontSize(7.8).fillColor(colors.ink);
+  doc.text(member.houseNumber, col.rumah.x + 2, y + 4.2, { width: col.rumah.w - 4, align: 'center' });
   doc.font('Helvetica').text(member.name || '-', col.nama.x + 4, y + 4.2, { width: col.nama.w - 8, ellipsis: true });
   doc.text(member.isException ? '40rb' : '50rb', col.iuran.x + 2, y + 4.2, { width: col.iuran.w - 4, align: 'center' });
 
@@ -196,10 +201,14 @@ function drawRow(member, index, y) {
 function drawLegendAndFooter(pageNo) {
   const y = footerTop;
   doc.font('Helvetica').fontSize(7.5).fillColor(colors.muted);
-  doc.circle(page.margin + 4, y + 4, 3).fill(colors.paid);
-  doc.fillColor(colors.muted).text('Sudah bayar', page.margin + 12, y, { width: 80, lineBreak: false });
-  doc.circle(page.margin + 92, y + 4, 3).fill(colors.unpaid);
-  doc.fillColor(colors.muted).text('Belum bayar', page.margin + 100, y, { width: 90, lineBreak: false });
+  doc.font('Helvetica-Bold').fontSize(9).fillColor(colors.paid);
+  doc.text('✓', page.margin + 2, y - 1, { width: 12, align: 'center', lineBreak: false });
+  doc.font('Helvetica').fontSize(7.5).fillColor(colors.muted);
+  doc.text('Sudah bayar', page.margin + 14, y, { width: 70, lineBreak: false });
+  doc.font('Helvetica-Bold').fontSize(9).fillColor(colors.unpaid);
+  doc.text('✗', page.margin + 86, y - 1, { width: 12, align: 'center', lineBreak: false });
+  doc.font('Helvetica').fontSize(7.5).fillColor(colors.muted);
+  doc.text('Belum bayar', page.margin + 98, y, { width: 80, lineBreak: false });
   doc.text(`Halaman ${pageNo}`, page.margin, y, { width: contentW, align: 'right', lineBreak: false });
 }
 
