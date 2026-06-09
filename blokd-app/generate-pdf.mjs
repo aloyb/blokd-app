@@ -87,12 +87,12 @@ const page = {
 const contentW = page.width - page.margin * 2;
 
 const col = {
-  rumah: { x: page.margin, w: 52, label: 'Nomor Rumah' },
-  nama: { x: page.margin + 52, w: 130, label: 'Nama' },
-  iuran: { x: page.margin + 182, w: 48, label: 'Iuran' },
+  rumah: { x: page.margin, w: 56, label: 'No Rumah' },
+  nama: { x: page.margin + 56, w: 108, label: 'Nama' },
+  iuran: { x: page.margin + 164, w: 48, label: 'Iuran' },
 };
 
-let monthX = page.margin + 230;
+let monthX = page.margin + 212;
 for (const [, label] of months) {
   col[label.toLowerCase()] = { x: monthX, w: 36, label };
   monthX += 36;
