@@ -137,7 +137,10 @@ export default function Home() {
       )}
 
       <div style={styles.membersSection}>
-        <div style={{...styles.sectionTitle, justifyContent: 'flex-start'}}>👥 Anggota</div>
+        <div style={{...styles.sectionTitle, justifyContent: 'flex-start', gap: '10px'}}>
+          <span>👥 Anggota</span>
+          <a href="/api/pdf" download style={{...styles.downloadBtn}}>📄 Download PDF</a>
+        </div>
         <div style={styles.searchBox}>
           <div style={styles.searchWrapper}>
             <span style={styles.searchIcon}>🔍</span>
@@ -229,5 +232,6 @@ const styles = {
   historyAmount: { color: '#0f3460', fontWeight: 'bold', fontSize: '16px', textAlign: 'center', flex: 1 },
   showMoreBtn: { textAlign: 'center', padding: '12px', color: '#4D7CE5', cursor: 'pointer', fontWeight: '500', fontSize: '14px' },
   footer: { textAlign: 'center', padding: '30px', color: '#555', fontSize: '12px' },
+  downloadBtn: { background: '#4D7CE5', color: '#fff', padding: '6px 14px', borderRadius: '8px', fontSize: '13px', fontWeight: '600', textDecoration: 'none', whiteSpace: 'nowrap' },
 };
 
