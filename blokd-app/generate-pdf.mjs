@@ -165,14 +165,24 @@ function drawTableHeader(y) {
 }
 
 function drawStatusCell(x, y, w, paid) {
-  const cx = x + w / 2 - 4;
-  const cy = y + rowH / 2 - 5;
+  const cx = x + w / 2;
+  const cy = y + rowH / 2;
   if (paid) {
-    doc.font('Helvetica-Bold').fontSize(11).fillColor(colors.paid);
-    doc.text('✓', cx, cy, { width: 8, align: 'center' });
+    // Checkmark: two line segments forming a V shape
+    doc.save();
+    doc.lineWidth(1.8).strokeColor(colors.paid);
+    doc.moveTo(cx - 3.5, cy + 0.5)
+      .lineTo(cx - 1, cy + 3)
+      .lineTo(cx + 4, cy - 2.5)
+      .stroke();
+    doc.restore();
   } else {
-    doc.font('Helvetica-Bold').fontSize(11).fillColor(colors.unpaid);
-    doc.text('✗', cx, cy, { width: 8, align: 'center' });
+    // Cross: two diagonal lines forming an X
+    doc.save();
+    doc.lineWidth(1.5).strokeColor(colors.unpaid);
+    doc.moveTo(cx - 3, cy - 3).lineTo(cx + 3, cy + 3).stroke();
+    doc.moveTo(cx + 3, cy - 3).lineTo(cx - 3, cy + 3).stroke();
+    doc.restore();
   }
 }
 
@@ -201,14 +211,22 @@ function drawRow(member, index, y) {
 function drawLegendAndFooter(pageNo) {
   const y = footerTop;
   doc.font('Helvetica').fontSize(7.5).fillColor(colors.muted);
-  doc.font('Helvetica-Bold').fontSize(9).fillColor(colors.paid);
-  doc.text('✓', page.margin + 2, y - 1, { width: 12, align: 'center', lineBreak: false });
+  // Legend checkmark
+  doc.save();
+  doc.lineWidth(1.5).strokeColor(colors.paid);
+  const ly = y + 3;
+  doc.moveTo(page.margin + 1, ly + 0.5).lineTo(page.margin + 3.5, ly + 3).lineTo(page.margin + 8, ly - 2).stroke();
+  doc.restore();
   doc.font('Helvetica').fontSize(7.5).fillColor(colors.muted);
-  doc.text('Sudah bayar', page.margin + 14, y, { width: 70, lineBreak: false });
-  doc.font('Helvetica-Bold').fontSize(9).fillColor(colors.unpaid);
-  doc.text('✗', page.margin + 86, y - 1, { width: 12, align: 'center', lineBreak: false });
+  doc.text('Sudah bayar', page.margin + 12, y, { width: 70, lineBreak: false });
+  // Legend cross
+  doc.save();
+  doc.lineWidth(1.3).strokeColor(colors.unpaid);
+  doc.moveTo(page.margin + 84, ly - 2.5).lineTo(page.margin + 90, ly + 3.5).stroke();
+  doc.moveTo(page.margin + 90, ly - 2.5).lineTo(page.margin + 84, ly + 3.5).stroke();
+  doc.restore();
   doc.font('Helvetica').fontSize(7.5).fillColor(colors.muted);
-  doc.text('Belum bayar', page.margin + 98, y, { width: 80, lineBreak: false });
+  doc.text('Belum bayar', page.margin + 94, y, { width: 80, lineBreak: false });
   doc.text(`Halaman ${pageNo}`, page.margin, y, { width: contentW, align: 'right', lineBreak: false });
 }
 
