@@ -120,6 +120,11 @@ export default function Home() {
       {stats?.pengeluaranHistory && stats.pengeluaranHistory.length > 0 && (
         <div style={styles.historySection}>
           <div style={styles.sectionTitle}>📤 Riwayat Pengeluaran</div>
+          <div style={styles.historyHeader}>
+            <span style={styles.historyHeaderLabel}>Tanggal</span>
+            <span style={styles.historyHeaderLabel}>Keterangan</span>
+            <span style={styles.historyHeaderLabel}>Nominal</span>
+          </div>
             {stats.pengeluaranHistory.slice().reverse().slice(0, showAllHistory ? undefined : 2).map((item, idx) => (
               <div key={idx} style={styles.historyItem}>
                 <span style={styles.historyDate}>
@@ -227,11 +232,13 @@ const styles = {
   pagination: { display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '12px', marginTop: '20px', padding: '16px 0' },
   paginationButton: { background: 'rgba(128,128,128,0.25)', border: '1px solid rgba(128,128,128,0.3)', color: '#333', padding: '8px 16px', borderRadius: '8px', cursor: 'pointer', fontSize: '14px' },
   pageInfo: { color: '#888', fontSize: '14px', textAlign: 'center', minWidth: '80px' },
-  historySection: { marginTop: '20px', padding: '15px', background: 'rgba(128,128,128,0.15)', borderRadius: '12px', border: '1px solid rgba(128,128,128,0.3)' },
-  historyItem: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '12px 0', borderBottom: '1px solid rgba(128,128,128,0.5)', textAlign: 'center' },
-  historyDate: { color: '#333', fontSize: '14px', textAlign: 'center', flex: 1 },
-  historyKeterangan: { color: '#666', fontSize: '13px', textAlign: 'center', flex: 1 },
-  historyAmount: { color: '#ff4757', fontWeight: 'bold', fontSize: '16px', textAlign: 'center', flex: 1 },
+  historySection: { marginTop: '20px', padding: '0', background: 'rgba(128,128,128,0.15)', borderRadius: '12px', border: '1px solid rgba(128,128,128,0.3)', overflow: 'hidden' },
+  historyHeader: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '12px 16px', background: 'rgba(77,124,229,0.1)', borderBottom: '1px solid rgba(77,124,229,0.2)' },
+  historyHeaderLabel: { color: '#4D7CE5', fontSize: '12px', fontWeight: '600', textAlign: 'center', flex: 1, textTransform: 'uppercase', letterSpacing: '0.5px' },
+  historyItem: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px 16px', borderBottom: '1px solid rgba(128,128,128,0.15)' },
+  historyDate: { color: '#555', fontSize: '13px', textAlign: 'center', flex: 1 },
+  historyKeterangan: { color: '#333', fontSize: '13px', textAlign: 'center', flex: 1 },
+  historyAmount: { color: '#e67e22', fontWeight: '600', fontSize: '14px', textAlign: 'center', flex: 1 },
   showMoreBtn: { textAlign: 'center', padding: '12px', color: '#4D7CE5', cursor: 'pointer', fontWeight: '500', fontSize: '14px' },
   footer: { textAlign: 'center', padding: '30px', color: '#555', fontSize: '12px' },
   downloadBtn: { background: '#4D7CE5', color: '#fff', padding: '6px 14px', borderRadius: '8px', fontSize: '13px', fontWeight: '600', textDecoration: 'none', whiteSpace: 'nowrap' },
