@@ -924,14 +924,11 @@
       "date": "2026-05-12",
       "amount": 1400000,
       "keterangan": "Setor ke Ketua"
-    }
-  ],
-  "pengeluaranHistory": [
+    },
     {
       "date": "2026-06-20",
       "amount": 100000,
       "keterangan": "Konsumsi gotong royong"
     }
-  ],
-  "totalPengeluaran": 100000
+  ]
 }

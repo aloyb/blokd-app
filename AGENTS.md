@@ -7,14 +7,27 @@
 
 ```
 1. Read IDENTITY.md, SOUL.md, TOOLS.md  → load self
-2. Read skills/m0.md                     → load skill registry + reflection loop
-3. Read USER.md                          → operator profile
-4. Read MEMORY.md                        → long-term context
-5. Read memory/[today].md (if exists)    → today's session log
-6. Await operator input
+2. Read TIME.md                          → time-awareness architecture
+3. Check for [RUNTIME CONTEXT] block     → determine time source (Layer 1-5)
+4. Read skills/m0.md                     → load skill registry + reflection loop
+5. Read USER.md                          → operator profile
+6. Read MEMORY.md                        → long-term context
+7. Read memory/[today].md (if exists)    → today's session log
+8. Await operator input
 ```
 
-Token budget on boot: ~3.5k. Skill files loaded on-demand only.
+Token budget on boot: ~4k. Skill files loaded on-demand only.
+
+### Time-awareness rule (always on)
+
+Before any time-sensitive output (cron, deadline, claim window, listing time, vesting, "kapan", "berapa lama lagi", "udah lewat?"):
+- If `[RUNTIME CONTEXT]` present → use it
+- Else → call `get_current_time` tool if available
+- Else → use cached session time if <30min old
+- Else → infer from user clues + tag as assumption
+- Else → disclose honestly, never fabricate
+
+For crypto cron / vesting / claim ops in strict mode: REQUIRE Layer 1 or 2 source, refuse without it. See `TIME.md` for full 5-layer architecture.
 
 ---
 
@@ -47,6 +60,13 @@ m10   | wallet, airdrop, on-chain, RPC, ethers     | crypto, web3, token, blockc
 m11   | audit, vulnerability, exploit, scam check  | security, review, safe, malicious    | check, verify
 m12   | batch, parallel, bulk, mass, queue, worker | concurrent, throughput, snapshot     | many, multi
 m13   | mint, opensea, manifold, zora, seadrop     | NFT, claim, drop, collection         | collect, art
+H1    | swap, 1inch, jupiter, jual token, sell     | DEX, slippage, aggregator            | trade
+H2    | bridge, LayerZero, stargate, LI.FI, across | cross-chain, layer zero, hop         | move
+H3    | aave, lido, GMX, hyperliquid, pendle, defi | lending, staking, restaking, perp    | yield
+H4    | snipe, honeypot, PairCreated, sniping      | launch, rugcheck, GoPlus             | fast
+H5    | mempool, whale, nansen, arkham, smart money| tracker, copy-trade, frontrun        | watch
+H6    | beli NFT, blur, magic eden, tensor         | listing, fulfill, floor, reservoir   | buy nft
+H7    | SIWE, walletconnect, EIP-712, ENS, permit  | sign-in, typed data, signature       | login
 x1    | improve system, self-audit, refactor brain | audit me, review agent, upgrade self | optimize
 x2    | strategy, architecture, decompose, plan    | complex, multi-step, design system   | think
 x3    | error, bug, debug, gagal, rusak, stack     | failed, broken, fix, crash, traceback| issue
@@ -62,6 +82,29 @@ SUPPORTING: load m10 (airdrop section), m6 (API call pattern), m3 (post template
 ```
 
 When 2+ skills tie → ask once: `"Mau fokus ke [A] atau [B] dulu?"` then execute.
+
+### Hermes deep-dive dispatch (H1-H7)
+
+H-skills are NOT loaded standalone. They route into `skills/hermes/references/<topic>.md` for deep technical content (multi-chain SDKs, DEX aggregators, DeFi protocol ABIs, NFT marketplace APIs, mempool/whale tracking).
+
+Flow:
+```
+H-keyword matched →
+  1. Load skills/hermes/DISPATCH.md (router map, env var checklist)
+  2. Load skills/hermes/references/<topic>.md (deep content for the matched cluster)
+  3. (combo) Load m10 if any EVM ops, m12 if batch, m13 if mint, m11 if audit
+```
+
+Mapping H → reference:
+- H1 → `swap.md`
+- H2 → `bridge.md`
+- H3 → `defi.md`
+- H4 → `sniping.md`
+- H5 → `monitoring.md` (sections 8-11: mempool sniffer, smart money, NFT whale, contract deploy listener)
+- H6 → `nft.md`
+- H7 → `web3_connect.md`
+
+Reference scripts in `skills/hermes/scripts/` are copy-paste templates — adapt to operator env, never run as-is without env var check.
 
 ---
 

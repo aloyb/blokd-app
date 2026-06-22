@@ -12,12 +12,9 @@ data.members.forEach(m => {
   months.forEach(month => { if (m.payments[month]) totalPaidCalc += amount; });
 });
 const setorTotal = (data.setorKeKetua || 0);
-const pengeluaranTotal = (data.pengeluaranHistory || []).reduce((s, e) => s + e.amount, 0);
-const bendaharaCalc = totalPaidCalc - setorTotal - pengeluaranTotal;
-
+const pengeluaranTotal = setorTotal.toLocaleString('id-ID');
+const bendaharaCalc = totalPaidCalc - setorTotal;
 const totalPaid = totalPaidCalc.toLocaleString('id-ID');
-const setorKeKetua = setorTotal.toLocaleString('id-ID');
-const totalPengeluaran = pengeluaranTotal.toLocaleString('id-ID');
 const bendahara = bendaharaCalc.toLocaleString('id-ID');
 
 // Load logo as base64
@@ -43,19 +40,14 @@ const svg = `
   <text x="1160" y="195" font-size="24" font-weight="bold" fill="#4D7CE5" text-anchor="end" font-family="Arial">Rp ${totalPaid}</text>
   <line x1="40" y1="210" x2="1160" y2="210" stroke="rgba(77,124,229,0.3)" stroke-width="1"/>
   
-  <!-- Card 2: Dana Disetor -->
-  <text x="40" y="265" font-size="16" fill="#333" font-family="Arial">Dana Yang Sudah disetor ke ketua</text>
-  <text x="1160" y="295" font-size="24" font-weight="bold" fill="#ff9f43" text-anchor="end" font-family="Arial">Rp ${setorKeKetua}</text>
+  <!-- Card 2: Total Pengeluaran -->
+  <text x="40" y="265" font-size="16" fill="#333" font-family="Arial">Total Pengeluaran</text>
+  <text x="1160" y="295" font-size="24" font-weight="bold" fill="#ff9f43" text-anchor="end" font-family="Arial">Rp ${pengeluaranTotal}</text>
   <line x1="40" y1="310" x2="1160" y2="310" stroke="rgba(77,124,229,0.3)" stroke-width="1"/>
   
-  <!-- Card 3: Pengeluaran -->
-  <text x="40" y="355" font-size="16" fill="#333" font-family="Arial">Pengeluaran Operasional</text>
-  <text x="1160" y="385" font-size="24" font-weight="bold" fill="#ff4757" text-anchor="end" font-family="Arial">Rp ${totalPengeluaran}</text>
-  <line x1="40" y1="400" x2="1160" y2="400" stroke="rgba(77,124,229,0.3)" stroke-width="1"/>
-  
-  <!-- Card 4: Bendahara -->
-  <text x="40" y="440" font-size="16" fill="#333" font-family="Arial">Dana Yang dipegang bendahara saat ini</text>
-  <text x="1160" y="470" font-size="24" font-weight="bold" fill="#333" text-anchor="end" font-family="Arial">Rp ${bendahara}</text>
+  <!-- Card 3: Bendahara -->
+  <text x="40" y="365" font-size="16" fill="#333" font-family="Arial">Dana Yang dipegang bendahara saat ini</text>
+  <text x="1160" y="395" font-size="24" font-weight="bold" fill="#333" text-anchor="end" font-family="Arial">Rp ${bendahara}</text>
   
   <!-- Footer -->
   <text x="600" y="610" font-size="18" fill="#888" text-anchor="middle" font-family="Arial">blokd-iamr.vercel.app</text>

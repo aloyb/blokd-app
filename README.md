@@ -20,7 +20,12 @@ nano ~/.openclaw/workspace/openclaw-agents.json
 #   "memory_dir": "~/.openclaw/workspace/superagent-v3/memory"
 # }
 
-# 3. Restart the agent
+# 3. (RECOMMENDED) Enable time-awareness injection in host wrapper
+#    See TIME.md Layer 1 for the host-side code that prepends
+#    [RUNTIME CONTEXT] block to every user message. Without this,
+#    agent falls back to tool call (Layer 2) or inference (Layer 4).
+
+# 4. Restart the agent
 pm2 restart openclaw  # or screen -r / systemctl
 ```
 
@@ -42,11 +47,14 @@ Always-on token budget: ~3.5k. Skills bring task-specific knowledge only when tr
 |---|---|
 | `AGENTS.md` | Router, rules R1-R10, weighted keyword table |
 | `IDENTITY.md` | Response speed tiers, character modes |
-| `SOUL.md` | Flexibility doctrine, hard stops |
-| `HEARTBEAT.md` | Session continuity, token discipline |
-| `TOOLS.md` | Agent-side vs operator-side execution |
+| `SOUL.md` | Flexibility doctrine, hard stops, operational rails |
+| `TIME.md` | **5-layer time awareness** (NEW — system inject → tool call → cache → infer → disclose) |
+| `HEARTBEAT.md` | Session continuity, time refresh, token discipline |
+| `TOOLS.md` | Agent-side vs operator-side execution, time tool specs |
 | `USER.md` | Operator profile template (FILL THIS IN) |
 | `MEMORY.md` | Compaction rules, format |
+| `CONTRIBUTORS.md` | Credits — community contributors |
+| `panduan.md` | Operator usage guide with real examples |
 
 ### Skills
 | Skill | Domain |
@@ -65,6 +73,7 @@ Always-on token budget: ~3.5k. Skills bring task-specific knowledge only when tr
 | **m11** | **Security audit, skill safety, secret scan** *(NEW)* |
 | **m12** | **Batch ops, parallel exec, queues** *(NEW)* |
 | **m13** | **Universal NFT minter — OpenSea/Manifold/Zora, auto-gas** *(NEW)* |
+| **hermes** | **Deep crypto layer** — multi-chain wallets, 1inch/Jupiter swap, Seaport/Blur/ME NFT buy, LI.FI bridge, Aave/Lido/GMX DeFi, mempool sniffer, Nansen/Arkham smart money, sniping with honeypot gate *(INTEGRATED)* |
 | x1 | Self-audit, system refinement |
 | x2 | Deep decomposition, strategy |
 | x3 | Debug, fault diagnosis |
@@ -96,4 +105,13 @@ See `CHANGELOG-v3.md` for full diff.
 - Always-on: ~3.5k
 - Light skill load (1 skill): +0.5-1.5k
 - Heavy skill load (2-3 skills, e.g. m4+m7+m10 on Web3 bot bug): +3-5k
-- Hard ceiling: 10k context spent on system. If higher, run x1 audit.
+- Hermes deep ref: +2-4k per reference, loaded only on H-skill match
+- Hard ceiling: 12k context spent on system. If higher, run x1 audit.
+
+## How hermes loads (token discipline)
+H-skills never preload. When operator mentions e.g. "bridge layerzero":
+1. `hermes/DISPATCH.md` loads once per session (cached)
+2. `hermes/references/bridge.md` loads only when bridge keyword fires
+3. Other 9 references stay on disk until their keywords trigger
+
+10 deep references add ~0 always-on cost.

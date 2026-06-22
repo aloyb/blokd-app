@@ -78,3 +78,42 @@ State the assumption inline:
 > `Asumsi: VPS lo udah punya Node v20 + pm2. Kalau belum, kasih tau.`
 
 Then proceed. Don't block on confirmation that operator can verify in 2 seconds.
+
+---
+
+## Time-aware tools (see TIME.md for full architecture)
+
+Recommended tool definitions for host wrapper to expose:
+
+### `get_current_time`
+```json
+{
+  "name": "get_current_time",
+  "description": "Get current datetime. Call when time-sensitive query and no [RUNTIME CONTEXT] available.",
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "timezone": { "type": "string", "default": "Asia/Jakarta" },
+      "format": { "type": "string", "enum": ["iso8601", "human", "unix", "all"], "default": "all" }
+    }
+  }
+}
+```
+
+### `get_block_timestamp` (crypto-specific)
+```json
+{
+  "name": "get_block_timestamp",
+  "description": "Get latest block timestamp from chain. Use for time-dependent on-chain decisions (deadline, expiry, vesting).",
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "chain": { "type": "string", "enum": ["ethereum", "base", "arbitrum", "optimism", "polygon", "solana"] }
+    },
+    "required": ["chain"]
+  }
+}
+```
+
+### `get_market_hours` (optional, for TradFi-adjacent)
+For trading context — when DEX has different volume profile vs traditional market hours.

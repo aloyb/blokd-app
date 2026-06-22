@@ -107,12 +107,8 @@ export default function Home() {
           <div style={styles.statValue}>{formatCurrency(stats?.totalPaid)}</div>
         </div>
         <div style={{...styles.statCard, ...styles.statCardWarning}}>
-          <div style={styles.statLabel}>Dana yang disetor ke Ketua</div>
-          <div style={styles.statValueWarning}>{formatCurrency(stats?.setorKeKetua)}</div>
-        </div>
-        <div style={{...styles.statCard, ...styles.statCardDanger}}>
-          <div style={styles.statLabel}>Pengeluaran Operasional</div>
-          <div style={styles.statValueDanger}>{formatCurrency(stats?.totalPengeluaran)}</div>
+          <div style={styles.statLabel}>Total Pengeluaran</div>
+          <div style={styles.statValueWarning}>{formatCurrency(stats?.totalPengeluaran)}</div>
         </div>
         <div style={styles.lastStatCard}>
           <div style={styles.statLabel}>Dana Yang dipegang bendahara saat ini</div>
@@ -120,27 +116,11 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Pengeluaran History */}
+      {/* Riwayat Pengeluaran */}
       {stats?.pengeluaranHistory && stats.pengeluaranHistory.length > 0 && (
         <div style={styles.historySection}>
-          <div style={styles.sectionTitle}>📝 Riwayat Pengeluaran (Operasional)</div>
-            {stats.pengeluaranHistory.slice().reverse().map((item, idx) => (
-              <div key={idx} style={styles.historyItem}>
-                <span style={styles.historyDate}>
-                  {new Date(item.date).toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric' })}
-                </span>
-                <span style={styles.historyKeterangan}>{item.keterangan || '-'}</span>
-                <span style={styles.historyAmountPengeluaran}>{formatCurrency(item.amount)}</span>
-              </div>
-            ))}
-        </div>
-      )}
-
-      {/* Setor History */}
-      {stats?.setorHistory && stats.setorHistory.length > 0 && (
-        <div style={styles.historySection}>
-          <div style={styles.sectionTitle}>📤 Riwayat Setor ke Ketua</div>
-            {stats.setorHistory.slice().reverse().slice(0, showAllHistory ? undefined : 2).map((item, idx) => (
+          <div style={styles.sectionTitle}>📤 Riwayat Pengeluaran</div>
+            {stats.pengeluaranHistory.slice().reverse().slice(0, showAllHistory ? undefined : 3).map((item, idx) => (
               <div key={idx} style={styles.historyItem}>
                 <span style={styles.historyDate}>
                   {new Date(item.date).toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric' })}
@@ -149,7 +129,7 @@ export default function Home() {
                 <span style={styles.historyAmount}>{formatCurrency(item.amount)}</span>
               </div>
             ))}
-          {stats.setorHistory.length > 2 && (
+          {stats.pengeluaranHistory.length > 3 && (
             <div style={styles.showMoreBtn} onClick={() => setShowAllHistory(!showAllHistory)}>
               {showAllHistory ? '▲ Sembunyikan' : '▼ Lihat lainnya'}
             </div>
@@ -225,11 +205,9 @@ const styles = {
   statsGrid: { display: 'flex', flexDirection: 'column', gap: '2px', marginTop: '25px', marginBottom: '15px', background: 'rgba(77,124,229,0.1)', borderRadius: '12px', padding: '5px', border: '1px solid rgba(77,124,229,0.3)' },
   statCard: { background: 'transparent', border: 'none', borderBottom: '1px solid rgba(77,124,229,0.3)', padding: '12px 10px', textAlign: 'center' },
   statCardWarning: { background: 'transparent', border: 'none', borderBottom: '1px solid rgba(77,124,229,0.3)' },
-  statCardDanger: { background: 'transparent', border: 'none', borderBottom: '1px solid rgba(77,124,229,0.3)' },
   lastStatCard: { background: 'transparent', border: 'none', padding: '12px 10px', textAlign: 'center' },
   statValue: { fontSize: '24px', fontWeight: 'bold', color: '#4D7CE5', marginBottom: '5px' },
   statValueWarning: { fontSize: '24px', fontWeight: 'bold', color: '#ff9f43', marginBottom: '5px' },
-  statValueDanger: { fontSize: '24px', fontWeight: 'bold', color: '#ff4757', marginBottom: '5px' },
   statLabel: { fontSize: '16px', color: '#000', fontWeight: '500' },
   membersSection: { marginTop: '40px', marginBottom: '20px', paddingBottom: '60px' },
   sectionTitle: { fontSize: '18px', marginBottom: '15px', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '10px' },
@@ -253,10 +231,8 @@ const styles = {
   historyItem: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '12px 0', borderBottom: '1px solid rgba(128,128,128,0.5)', textAlign: 'center' },
   historyDate: { color: '#333', fontSize: '14px', textAlign: 'center', flex: 1 },
   historyKeterangan: { color: '#666', fontSize: '13px', textAlign: 'center', flex: 1 },
-  historyAmount: { color: '#0f3460', fontWeight: 'bold', fontSize: '16px', textAlign: 'center', flex: 1 },
-  historyAmountPengeluaran: { color: '#ff4757', fontWeight: 'bold', fontSize: '16px', textAlign: 'center', flex: 1 },
+  historyAmount: { color: '#ff4757', fontWeight: 'bold', fontSize: '16px', textAlign: 'center', flex: 1 },
   showMoreBtn: { textAlign: 'center', padding: '12px', color: '#4D7CE5', cursor: 'pointer', fontWeight: '500', fontSize: '14px' },
   footer: { textAlign: 'center', padding: '30px', color: '#555', fontSize: '12px' },
   downloadBtn: { background: '#4D7CE5', color: '#fff', padding: '6px 14px', borderRadius: '8px', fontSize: '13px', fontWeight: '600', textDecoration: 'none', whiteSpace: 'nowrap' },
 };
-

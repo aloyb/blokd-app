@@ -31,13 +31,10 @@ export default function handler(req, res) {
   });
   
   const totalExpected = 45 * 50000 * 12;
-  let setorKeKetua = 0;
-  const setorHistory = data.setorHistory || [];
-  setorHistory.forEach(item => { setorKeKetua += item.amount; });
   let totalPengeluaran = 0;
-  const pengeluaranHistory = data.pengeluaranHistory || [];
+  const pengeluaranHistory = data.setorHistory || [];
   pengeluaranHistory.forEach(item => { totalPengeluaran += item.amount; });
-  const bendahara = totalPaid - setorKeKetua - totalPengeluaran;
+  const bendahara = totalPaid - totalPengeluaran;
   
   res.status(200).json({
     totalMembers,
@@ -45,8 +42,6 @@ export default function handler(req, res) {
     totalPaid,
     totalArrears: totalExpected - totalPaid,
     bendahara,
-    setorKeKetua,
-    setorHistory,
     totalPengeluaran,
     pengeluaranHistory,
     collectedPercent: totalExpected > 0 ? ((totalPaid / totalExpected) * 100).toFixed(1) : 0

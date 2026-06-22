@@ -10,9 +10,9 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static('public'));
 
-// Config
+// Config (from user-config.json)
 const HELIUS_API_KEY = 'ac6fa08c-32fd-414c-afc9-fd70149a974a';
-const WALLET = '6qSukCpLp5kg8jMMTXVG2zy2d1XNpF7n8c8xvoaaJEej';
+const WALLET = 'h2QA5p5qCpQ5MqaZtwiSzeWrSVUNTyvxB1LbKn9z1gD';
 const RPC_URL = `https://mainnet.helius-rpc.com/?api-key=${HELIUS_API_KEY}`;
 const AGENT_STATE_FILE = '/home/ubuntu/.openclaw/skills/meridian/state.json';
 
@@ -38,7 +38,7 @@ async function getSolBalance() {
   return balance.value / 1e9;
 }
 
-// ─── HELPER: Get SOL Price ────────────────────────────────
+// ─── HELPER: Get SOL Price ──────────────────────────────────
 async function getSolPrice() {
   const now = Date.now();
   if (now - solPriceCacheTime < SOL_PRICE_CACHE_MS) {
@@ -187,7 +187,7 @@ app.get('/api/stats', async (req, res) => {
         totalPnlUsd,
         realizedPnlUsd,
         unrealizedPnlUsd,
-        totalTrades: closedPositions.length + activePositions.length, // 15 total
+        totalTrades: closedPositions.length + activePositions.length,
         wins,
         losses,
         winRate: parseFloat(winRate),
