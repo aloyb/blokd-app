@@ -107,7 +107,7 @@ export default function Home() {
           <div style={styles.statValue}>{formatCurrency(stats?.totalPaid)}</div>
         </div>
         <div style={{...styles.statCard, ...styles.statCardWarning}}>
-          <div style={styles.statLabel}>Total Pengeluaran</div>
+          <div style={styles.statLabel}>Dana Yang Dikeluarkan</div>
           <div style={styles.statValueWarning}>{formatCurrency(stats?.totalPengeluaran)}</div>
         </div>
         <div style={styles.lastStatCard}>
