@@ -907,19 +907,23 @@
   "setorHistory": [
     {
       "date": "2026-03-12",
-      "amount": 4130000
+      "amount": 4130000,
+      "keterangan": "Setor ke Ketua"
     },
     {
       "date": "2026-03-26",
-      "amount": 1250000
+      "amount": 1250000,
+      "keterangan": "Setor ke Ketua"
     },
     {
       "date": "2026-04-26",
-      "amount": 1280000
+      "amount": 1280000,
+      "keterangan": "Setor ke Ketua"
     },
     {
       "date": "2026-05-12",
-      "amount": 1400000
+      "amount": 1400000,
+      "keterangan": "Setor ke Ketua"
     }
   ]
 }

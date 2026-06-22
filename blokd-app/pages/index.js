@@ -107,7 +107,7 @@ export default function Home() {
           <div style={styles.statValue}>{formatCurrency(stats?.totalPaid)}</div>
         </div>
         <div style={{...styles.statCard, ...styles.statCardWarning}}>
-          <div style={styles.statLabel}>Dana Yang Sudah disetor ke ketua</div>
+          <div style={styles.statLabel}>Dana yang dikeluarkan</div>
           <div style={styles.statValueWarning}>{formatCurrency(stats?.setorKeKetua)}</div>
         </div>
         <div style={styles.lastStatCard}>
@@ -119,15 +119,16 @@ export default function Home() {
       {/* Setor History */}
       {stats?.setorHistory && stats.setorHistory.length > 0 && (
         <div style={styles.historySection}>
-          <div style={styles.sectionTitle}>📤 Riwayat Setoran ke Ketua</div>
-          {stats.setorHistory.slice().reverse().slice(0, showAllHistory ? undefined : 2).map((item, idx) => (
-            <div key={idx} style={styles.historyItem}>
-              <span style={styles.historyDate}>
-                {new Date(item.date).toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric' })}
-              </span>
-              <span style={styles.historyAmount}>{formatCurrency(item.amount)}</span>
-            </div>
-          ))}
+          <div style={styles.sectionTitle}>📤 Riwayat Pengeluaran Dana</div>
+            {stats.setorHistory.slice().reverse().slice(0, showAllHistory ? undefined : 2).map((item, idx) => (
+              <div key={idx} style={styles.historyItem}>
+                <span style={styles.historyDate}>
+                  {new Date(item.date).toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric' })}
+                </span>
+                <span style={styles.historyKeterangan}>{item.keterangan || '-'}</span>
+                <span style={styles.historyAmount}>{formatCurrency(item.amount)}</span>
+              </div>
+            ))}
           {stats.setorHistory.length > 2 && (
             <div style={styles.showMoreBtn} onClick={() => setShowAllHistory(!showAllHistory)}>
               {showAllHistory ? '▲ Sembunyikan' : '▼ Lihat lainnya'}
@@ -229,6 +230,7 @@ const styles = {
   historySection: { marginTop: '20px', padding: '15px', background: 'rgba(128,128,128,0.15)', borderRadius: '12px', border: '1px solid rgba(128,128,128,0.3)' },
   historyItem: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '12px 0', borderBottom: '1px solid rgba(128,128,128,0.5)', textAlign: 'center' },
   historyDate: { color: '#333', fontSize: '14px', textAlign: 'center', flex: 1 },
+  historyKeterangan: { color: '#666', fontSize: '13px', textAlign: 'center', flex: 1 },
   historyAmount: { color: '#0f3460', fontWeight: 'bold', fontSize: '16px', textAlign: 'center', flex: 1 },
   showMoreBtn: { textAlign: 'center', padding: '12px', color: '#4D7CE5', cursor: 'pointer', fontWeight: '500', fontSize: '14px' },
   footer: { textAlign: 'center', padding: '30px', color: '#555', fontSize: '12px' },
