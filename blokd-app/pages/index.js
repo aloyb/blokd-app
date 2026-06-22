@@ -15,6 +15,7 @@ export default function Home() {
   const [error, setError] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
+  const [showAllHistory, setShowAllHistory] = useState(false);
   const itemsPerPage = 6;
 
   useEffect(() => {
@@ -119,7 +120,7 @@ export default function Home() {
       {stats?.pengeluaranHistory && stats.pengeluaranHistory.length > 0 && (
         <div style={styles.historySection}>
           <div style={styles.sectionTitle}>📤 Riwayat Pengeluaran</div>
-            {stats.pengeluaranHistory.slice().reverse().map((item, idx) => (
+            {stats.pengeluaranHistory.slice().reverse().slice(0, showAllHistory ? undefined : 2).map((item, idx) => (
               <div key={idx} style={styles.historyItem}>
                 <span style={styles.historyDate}>
                   {new Date(item.date).toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric' })}
@@ -128,6 +129,11 @@ export default function Home() {
                 <span style={styles.historyAmount}>{formatCurrency(item.amount)}</span>
               </div>
             ))}
+          {stats.pengeluaranHistory.length > 2 && (
+            <div style={styles.showMoreBtn} onClick={() => setShowAllHistory(!showAllHistory)}>
+              {showAllHistory ? '▲ Sembunyikan' : '▼ Lihat lainnya'}
+            </div>
+          )}
         </div>
       )}
 
