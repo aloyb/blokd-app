@@ -892,7 +892,7 @@
         "apr": true,
         "may": true,
         "jun": true,
-        "jul": false,
+        "jul": true,
         "aug": false,
         "sep": false,
         "oct": false,
@@ -902,7 +902,7 @@
     }
   ],
   "totalPeriods": 12,
-  "bendahara": 0,
+  "bendahara": 1100000,
   "setorKeKetua": 8060000,
   "setorHistory": [
     {
@@ -929,6 +929,11 @@
       "date": "2026-06-20",
       "amount": 100000,
       "keterangan": "Konsumsi gotong royong"
+    },
+    {
+      "date": "2026-06-24",
+      "amount": 200000,
+      "keterangan": "Beli lampu sorot"
     }
   ]
 }
