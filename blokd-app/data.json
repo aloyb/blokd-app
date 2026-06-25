@@ -832,12 +832,12 @@
         "apr": true,
         "may": true,
         "jun": true,
-        "jul": false,
-        "aug": false,
-        "sep": false,
-        "oct": false,
-        "nov": false,
-        "dec": false
+        "jul": true,
+        "aug": true,
+        "sep": true,
+        "oct": true,
+        "nov": true,
+        "dec": true
       }
     },
     {
