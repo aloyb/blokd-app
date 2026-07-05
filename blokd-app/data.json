@@ -929,6 +929,11 @@
       "date": "2026-06-20",
       "amount": 100000,
       "keterangan": "Konsumsi gotong royong"
+    },
+    {
+      "date": "2026-06-27",
+      "amount": 640000,
+      "keterangan": "Setor ke Ketua"
     }
   ]
 }
