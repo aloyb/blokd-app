@@ -7,9 +7,20 @@ export const config = {
 };
 
 const DATA_FILE = path.join(process.cwd(), 'data.json');
+const HOUSE_IMAGE = path.join(process.cwd(), 'public', 'reference.jpg');
 
 function loadData() {
   return JSON.parse(fs.readFileSync(DATA_FILE, 'utf8'));
+}
+
+function loadHouseImage() {
+  try {
+    const buf = fs.readFileSync(HOUSE_IMAGE);
+    const b64 = buf.toString('base64');
+    return 'data:image/jpeg;base64,' + b64;
+  } catch (e) {
+    return null;
+  }
 }
 
 function formatRupiah(num) {
@@ -46,17 +57,11 @@ function calculateStats(data) {
 export default function handler(req) {
   const data = loadData();
   const stats = calculateStats(data);
+  const houseImage = loadHouseImage();
 
   const totalPaid = formatRupiah(stats.totalPaid);
   const setorKeKetua = formatRupiah(stats.setorKeKetua);
   const bendahara = formatRupiah(stats.bendahara);
-
-  // Count paid members this month
-  const months = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
-  const now = new Date();
-  const currentMonth = months[now.getMonth()];
-  const paidThisMonth = data.members.filter(m => m.payments[currentMonth]).length;
-  const totalMembers = data.members.length;
 
   return new ImageResponse(
     (
@@ -67,8 +72,9 @@ export default function handler(req) {
         flexDirection: 'column',
         backgroundColor: '#E8F4FD',
         fontFamily: 'Arial',
+        position: 'relative',
       }}>
-        {/* Header */}
+        {/* Header Bar */}
         <div style={{
           display: 'flex',
           alignItems: 'center',
@@ -94,63 +100,120 @@ export default function handler(req) {
           </div>
         </div>
 
-        {/* Stats */}
+        {/* Main content: two columns */}
         <div style={{
           display: 'flex',
-          flexDirection: 'column',
-          gap: '20px',
-          padding: '30px 40px',
+          flexDirection: 'row',
+          padding: '20px 30px',
           flexGrow: 1,
+          gap: '20px',
+          alignItems: 'stretch',
         }}>
-          {/* Total Dana */}
+          {/* Left column: Stats */}
           <div style={{
             display: 'flex',
             flexDirection: 'column',
-            backgroundColor: 'rgba(77,124,229,0.1)',
-            borderRadius: '12px',
-            padding: '20px 30px',
+            width: '500px',
+            gap: '12px',
+            justifyContent: 'center',
+          }}>
+            {/* Total Dana */}
+            <div style={{
+              display: 'flex',
+              flexDirection: 'column',
+              backgroundColor: 'rgba(77,124,229,0.1)',
+              borderRadius: '12px',
+              padding: '16px 24px',
+              border: '1px solid rgba(77,124,229,0.3)',
+            }}>
+              <div style={{ fontSize: '14px', color: '#333', marginBottom: '4px' }}>
+                💰 Total Dana Terkumpul
+              </div>
+              <div style={{ fontSize: '26px', fontWeight: 'bold', color: '#4D7CE5' }}>
+                {totalPaid}
+              </div>
+            </div>
+
+            {/* Dana Disetor */}
+            <div style={{
+              display: 'flex',
+              flexDirection: 'column',
+              backgroundColor: 'rgba(255,159,67,0.1)',
+              borderRadius: '12px',
+              padding: '16px 24px',
+              border: '1px solid rgba(255,159,67,0.3)',
+            }}>
+              <div style={{ fontSize: '14px', color: '#333', marginBottom: '4px' }}>
+                📤 Dana Disetor ke Ketua
+              </div>
+              <div style={{ fontSize: '26px', fontWeight: 'bold', color: '#ff9f43' }}>
+                {setorKeKetua}
+              </div>
+            </div>
+
+            {/* Bendahara */}
+            <div style={{
+              display: 'flex',
+              flexDirection: 'column',
+              backgroundColor: 'rgba(51,51,51,0.1)',
+              borderRadius: '12px',
+              padding: '16px 24px',
+              border: '1px solid rgba(51,51,51,0.3)',
+            }}>
+              <div style={{ fontSize: '14px', color: '#333', marginBottom: '4px' }}>
+                🏦 Dana di Bendahara
+              </div>
+              <div style={{ fontSize: '26px', fontWeight: 'bold', color: '#333' }}>
+                {bendahara}
+              </div>
+            </div>
+
+            {/* Total Anggota */}
+            <div style={{
+              display: 'flex',
+              flexDirection: 'column',
+              backgroundColor: 'rgba(0,204,106,0.1)',
+              borderRadius: '12px',
+              padding: '16px 24px',
+              border: '1px solid rgba(0,204,106,0.3)',
+            }}>
+              <div style={{ fontSize: '14px', color: '#333', marginBottom: '4px' }}>
+                👥 Total Anggota
+              </div>
+              <div style={{ fontSize: '26px', fontWeight: 'bold', color: '#00cc6a' }}>
+                {data.members.length} Rumah
+              </div>
+            </div>
+          </div>
+
+          {/* Right column: House illustration */}
+          <div style={{
+            display: 'flex',
+            flexDirection: 'column',
+            flexGrow: 1,
+            justifyContent: 'center',
+            alignItems: 'center',
+            borderRadius: '16px',
             border: '1px solid rgba(77,124,229,0.3)',
+            overflow: 'hidden',
+            backgroundColor: 'rgba(255,255,255,0.5)',
+            padding: '10px',
           }}>
-            <div style={{ fontSize: '16px', color: '#333', marginBottom: '8px' }}>
-              💰 Total Dana Terkumpul
-            </div>
-            <div style={{ fontSize: '28px', fontWeight: 'bold', color: '#4D7CE5' }}>
-              {totalPaid}
-            </div>
-          </div>
-
-          {/* Dana Disetor */}
-          <div style={{
-            display: 'flex',
-            flexDirection: 'column',
-            backgroundColor: 'rgba(255,159,67,0.1)',
-            borderRadius: '12px',
-            padding: '20px 30px',
-            border: '1px solid rgba(255,159,67,0.3)',
-          }}>
-            <div style={{ fontSize: '16px', color: '#333', marginBottom: '8px' }}>
-              📤 Dana Disetor ke Ketua
-            </div>
-            <div style={{ fontSize: '28px', fontWeight: 'bold', color: '#ff9f43' }}>
-              {setorKeKetua}
-            </div>
-          </div>
-
-          {/* Bendahara */}
-          <div style={{
-            display: 'flex',
-            flexDirection: 'column',
-            backgroundColor: 'rgba(51,51,51,0.1)',
-            borderRadius: '12px',
-            padding: '20px 30px',
-            border: '1px solid rgba(51,51,51,0.3)',
-          }}>
-            <div style={{ fontSize: '16px', color: '#333', marginBottom: '8px' }}>
-              🏦 Dana di Bendahara
-            </div>
-            <div style={{ fontSize: '28px', fontWeight: 'bold', color: '#333' }}>
-              {bendahara}
-            </div>
+            {houseImage ? (
+              <img 
+                src={houseImage}
+                style={{ width: '100%', height: 'auto', objectFit: 'contain', borderRadius: '8px' }}
+                alt="Blok D"
+              />
+            ) : (
+              <div style={{
+                fontSize: '60px',
+                color: '#4D7CE5',
+                textAlign: 'center',
+              }}>
+                🏠
+              </div>
+            )}
           </div>
         </div>
 
