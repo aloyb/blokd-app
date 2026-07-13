@@ -1,237 +1,73 @@
+// @ts-nocheck
 import { ImageResponse } from '@vercel/og';
-import fs from 'fs';
-import path from 'path';
 
-export const config = {
-  runtime: 'edge',
-};
+export const config = { runtime: 'edge' };
 
-const DATA_FILE = path.join(process.cwd(), 'data.json');
-const HOUSE_IMAGE = path.join(process.cwd(), 'public', 'reference.jpg');
+// Embedded data (snapshot - regenerated on deploy)
+const DATA = {"members":[{"houseNumber":"D1","name":"Adit","amount":50000,"isException":false,"payments":{"jan":true,"feb":true,"mar":true,"apr":true,"may":true,"jun":false,"jul":false,"aug":false,"sep":false,"oct":false,"nov":false,"dec":false}},{"houseNumber":"D2","name":"Jumbri","amount":50000,"isException":false,"payments":{"jan":true,"feb":true,"mar":true,"apr":true,"may":false,"jun":false,"jul":false,"aug":false,"sep":false,"oct":false,"nov":false,"dec":false}},{"houseNumber":"D3","name":"Habibie","amount":50000,"isException":false,"payments":{"jan":true,"feb":true,"mar":true,"apr":false,"may":false,"jun":false,"jul":false,"aug":false,"sep":false,"oct":false,"nov":false,"dec":false}},{"houseNumber":"D4","name":"Melly","amount":50000,"isException":false,"payments":{"jan":true,"feb":true,"mar":true,"apr":true,"may":true,"jun":true,"jul":false,"aug":false,"sep":false,"oct":false,"nov":false,"dec":false}},{"houseNumber":"D5","name":"Rif'at","amount":50000,"isException":false,"payments":{"jan":true,"feb":true,"mar":true,"apr":true,"may":true,"jun":true,"jul":true,"aug":false,"sep":false,"oct":false,"nov":false,"dec":false}},{"houseNumber":"D6","name":"Hasan","amount":50000,"isException":false,"payments":{"jan":false,"feb":false,"mar":false,"apr":false,"may":false,"jun":false,"jul":false,"aug":false,"sep":false,"oct":false,"nov":false,"dec":false}},{"houseNumber":"D7","name":"Toni","amount":40000,"isException":true,"payments":{"jan":true,"feb":true,"mar":true,"apr":true,"may":true,"jun":true,"jul":true,"aug":false,"sep":false,"oct":false,"nov":false,"dec":false}},{"houseNumber":"D8","name":"Fathur","amount":50000,"isException":false,"payments":{"jan":true,"feb":true,"mar":true,"apr":true,"may":true,"jun":true,"jul":true,"aug":false,"sep":false,"oct":false,"nov":false,"dec":false}},{"houseNumber":"D9","name":"Supiyan","amount":50000,"isException":false,"payments":{"jan":true,"feb":true,"mar":true,"apr":true,"may":true,"jun":false,"jul":false,"aug":false,"sep":false,"oct":false,"nov":false,"dec":false}},{"houseNumber":"D10","name":"Ajay","amount":50000,"isException":false,"payments":{"jan":true,"feb":true,"mar":true,"apr":true,"may":true,"jun":true,"jul":false,"aug":false,"sep":false,"oct":false,"nov":false,"dec":false}},{"houseNumber":"D11","name":"Ahmad","amount":50000,"isException":false,"payments":{"jan":true,"feb":true,"mar":true,"apr":true,"may":true,"jun":true,"jul":false,"aug":false,"sep":false,"oct":false,"nov":false,"dec":false}},{"houseNumber":"D12","name":"Ayu","amount":50000,"isException":false,"payments":{"jan":true,"feb":true,"mar":true,"apr":true,"may":true,"jun":true,"jul":false,"aug":false,"sep":false,"oct":false,"nov":false,"dec":false}},{"houseNumber":"D13","name":"","amount":50000,"isException":false,"payments":{"jan":false,"feb":false,"mar":false,"apr":false,"may":false,"jun":false,"jul":false,"aug":false,"sep":false,"oct":false,"nov":false,"dec":false}},{"houseNumber":"D14","name":"","amount":50000,"isException":false,"payments":{"jan":false,"feb":false,"mar":false,"apr":false,"may":false,"jun":false,"jul":false,"aug":false,"sep":false,"oct":false,"nov":false,"dec":false}},{"houseNumber":"D15","name":"Misran","amount":50000,"isException":false,"payments":{"jan":false,"feb":false,"mar":false,"apr":false,"may":false,"jun":false,"jul":false,"aug":false,"sep":false,"oct":false,"nov":false,"dec":false}},{"houseNumber":"D16","name":"Amelia","amount":50000,"isException":false,"payments":{"jan":false,"feb":false,"mar":false,"apr":false,"may":false,"jun":false,"jul":false,"aug":false,"sep":false,"oct":false,"nov":false,"dec":false}},{"houseNumber":"D17","name":"Sain","amount":50000,"isException":false,"payments":{"jan":true,"feb":true,"mar":true,"apr":true,"may":true,"jun":false,"jul":false,"aug":false,"sep":false,"oct":false,"nov":false,"dec":false}},{"houseNumber":"D18","name":"Rizal","amount":50000,"isException":false,"payments":{"jan":true,"feb":true,"mar":true,"apr":true,"may":true,"jun":true,"jul":false,"aug":false,"sep":false,"oct":false,"nov":false,"dec":false}},{"houseNumber":"D19","name":"Huda","amount":50000,"isException":false,"payments":{"jan":true,"feb":true,"mar":true,"apr":true,"may":true,"jun":true,"jul":true,"aug":true,"sep":true,"oct":false,"nov":false,"dec":false}},{"houseNumber":"D21","name":"Yazerin","amount":50000,"isException":false,"payments":{"jan":true,"feb":true,"mar":true,"apr":true,"may":true,"jun":true,"jul":false,"aug":false,"sep":false,"oct":false,"nov":false,"dec":false}},{"houseNumber":"D22","name":"Lina","amount":50000,"isException":false,"payments":{"jan":true,"feb":true,"mar":true,"apr":true,"may":true,"jun":true,"jul":true,"aug":false,"sep":false,"oct":false,"nov":false,"dec":false}},{"houseNumber":"D23","name":"Ulfan","amount":50000,"isException":false,"payments":{"jan":true,"feb":true,"mar":true,"apr":true,"may":true,"jun":false,"jul":false,"aug":false,"sep":false,"oct":false,"nov":false,"dec":false}},{"houseNumber":"D24","name":"Nazar","amount":50000,"isException":false,"payments":{"jan":true,"feb":true,"mar":true,"apr":true,"may":true,"jun":true,"jul":false,"aug":false,"sep":false,"oct":false,"nov":false,"dec":false}},{"houseNumber":"D25","name":"Wahyu","amount":50000,"isException":false,"payments":{"jan":true,"feb":true,"mar":true,"apr":true,"may":true,"jun":true,"jul":false,"aug":false,"sep":false,"oct":false,"nov":false,"dec":false}},{"houseNumber":"D26","name":"","amount":50000,"isException":false,"payments":{"jan":false,"feb":false,"mar":false,"apr":false,"may":false,"jun":false,"jul":false,"aug":false,"sep":false,"oct":false,"nov":false,"dec":false}},{"houseNumber":"D27","name":"Windy","amount":50000,"isException":false,"payments":{"jan":true,"feb":true,"mar":true,"apr":true,"may":true,"jun":true,"jul":false,"aug":false,"sep":false,"oct":false,"nov":false,"dec":false}},{"houseNumber":"D28","name":"Syarif","amount":50000,"isException":false,"payments":{"jan":true,"feb":true,"mar":true,"apr":false,"may":false,"jun":false,"jul":false,"aug":false,"sep":false,"oct":false,"nov":false,"dec":false}},{"houseNumber":"D29","name":"Apri","amount":50000,"isException":false,"payments":{"jan":true,"feb":true,"mar":true,"apr":true,"may":true,"jun":true,"jul":false,"aug":false,"sep":false,"oct":false,"nov":false,"dec":false}},{"houseNumber":"D31","name":"Rian","amount":50000,"isException":false,"payments":{"jan":true,"feb":true,"mar":true,"apr":true,"may":false,"jun":false,"jul":false,"aug":false,"sep":false,"oct":false,"nov":false,"dec":false}},{"houseNumber":"D32","name":"Syifa","amount":50000,"isException":false,"payments":{"jan":true,"feb":true,"mar":true,"apr":true,"may":true,"jun":true,"jul":true,"aug":false,"sep":false,"oct":false,"nov":false,"dec":false}},{"houseNumber":"D33","name":"Hanafi","amount":50000,"isException":false,"payments":{"jan":true,"feb":true,"mar":true,"apr":true,"may":true,"jun":true,"jul":true,"aug":false,"sep":false,"oct":false,"nov":false,"dec":false}},{"houseNumber":"D34","name":"Raisa","amount":50000,"isException":false,"payments":{"jan":true,"feb":true,"mar":true,"apr":true,"may":true,"jun":true,"jul":false,"aug":false,"sep":false,"oct":false,"nov":false,"dec":false}},{"houseNumber":"D35","name":"Danny","amount":50000,"isException":false,"payments":{"jan":true,"feb":true,"mar":true,"apr":true,"may":true,"jun":true,"jul":false,"aug":false,"sep":false,"oct":false,"nov":false,"dec":false}},{"houseNumber":"D36","name":"Latif","amount":50000,"isException":false,"payments":{"jan":true,"feb":true,"mar":true,"apr":true,"may":true,"jun":true,"jul":true,"aug":false,"sep":false,"oct":false,"nov":false,"dec":false}},{"houseNumber":"D37","name":"Hendy","amount":50000,"isException":false,"payments":{"jan":true,"feb":true,"mar":true,"apr":true,"may":false,"jun":false,"jul":false,"aug":false,"sep":false,"oct":false,"nov":false,"dec":false}},{"houseNumber":"D38","name":"","amount":50000,"isException":false,"payments":{"jan":false,"feb":false,"mar":false,"apr":false,"may":false,"jun":false,"jul":false,"aug":false,"sep":false,"oct":false,"nov":false,"dec":false}},{"houseNumber":"D39","name":"Aulia","amount":50000,"isException":false,"payments":{"jan":true,"feb":true,"mar":true,"apr":true,"may":true,"jun":true,"jul":false,"aug":false,"sep":false,"oct":false,"nov":false,"dec":false}},{"houseNumber":"D40","name":"Nurul","amount":50000,"isException":false,"payments":{"jan":true,"feb":true,"mar":true,"apr":false,"may":false,"jun":false,"jul":false,"aug":false,"sep":false,"oct":false,"nov":false,"dec":false}},{"houseNumber":"D41","name":"","amount":50000,"isException":false,"payments":{"jan":false,"feb":false,"mar":false,"apr":false,"may":false,"jun":false,"jul":false,"aug":false,"sep":false,"oct":false,"nov":false,"dec":false}},{"houseNumber":"D42","name":"Wahidi","amount":50000,"isException":false,"payments":{"jan":true,"feb":true,"mar":true,"apr":true,"may":true,"jun":true,"jul":false,"aug":false,"sep":false,"oct":false,"nov":false,"dec":false}},{"houseNumber":"D43","name":"Rifka","amount":50000,"isException":false,"payments":{"jan":true,"feb":true,"mar":true,"apr":true,"may":true,"jun":true,"jul":true,"aug":true,"sep":false,"oct":false,"nov":false,"dec":false}},{"houseNumber":"D44","name":"Ayda","amount":50000,"isException":false,"payments":{"jan":true,"feb":true,"mar":true,"apr":true,"may":true,"jun":true,"jul":true,"aug":true,"sep":true,"oct":true,"nov":true,"dec":true}},{"houseNumber":"D45","name":"Mahrita","amount":50000,"isException":false,"payments":{"jan":true,"feb":true,"mar":true,"apr":true,"may":true,"jun":true,"jul":true,"aug":false,"sep":false,"oct":false,"nov":false,"dec":false}},{"houseNumber":"D46","name":"Rifqi","amount":50000,"isException":false,"payments":{"jan":true,"feb":true,"mar":true,"apr":true,"may":true,"jun":true,"jul":true,"aug":false,"sep":false,"oct":false,"nov":false,"dec":false}},{"houseNumber":"D47","name":"Boy","amount":50000,"isException":false,"payments":{"jan":true,"feb":true,"mar":true,"apr":true,"may":true,"jun":true,"jul":true,"aug":false,"sep":false,"oct":false,"nov":false,"dec":false}}],"totalPeriods":12,"bendahara":1250000,"setorKeKetua":8060000,"setorHistory":[{"date":"2026-03-12","amount":4130000,"keterangan":"Setor ke Ketua"},{"date":"2026-03-26","amount":1250000,"keterangan":"Setor ke Ketua"},{"date":"2026-04-26","amount":1280000,"keterangan":"Setor ke Ketua"},{"date":"2026-05-12","amount":1400000,"keterangan":"Setor ke Ketua"},{"date":"2026-06-20","amount":100000,"keterangan":"Konsumsi gotong royong"},{"date":"2026-06-27","amount":640000,"keterangan":"Setor ke Ketua"},{"date":"2026-07-11","amount":506000,"keterangan":"Beli lampu sorot untuk lapangan"}]};
 
-function loadData() {
-  return JSON.parse(fs.readFileSync(DATA_FILE, 'utf8'));
-}
+// Embedded house illustration
+const HOUSE_IMG = 'data:image/jpeg;base64,' + "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";
 
-function loadHouseImage() {
-  try {
-    const buf = fs.readFileSync(HOUSE_IMAGE);
-    const b64 = buf.toString('base64');
-    return 'data:image/jpeg;base64,' + b64;
-  } catch (e) {
-    return null;
-  }
-}
+const MONTHS = ['jan','feb','mar','apr','may','jun','jul','aug','sep','oct','nov','dec'];
 
-function formatRupiah(num) {
-  return 'Rp ' + num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
-}
+function fmt(n) { return 'Rp ' + n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.'); }
 
-function calculateStats(data) {
-  const months = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
-  
+export default function handler() {
   let totalPaid = 0;
-  data.members.forEach(member => {
-    const monthlyAmount = member.isException ? 40000 : member.amount;
-    months.forEach(month => {
-      if (member.payments[month]) {
-        totalPaid += monthlyAmount;
-      }
-    });
+  DATA.members.forEach(m => {
+    const amt = m.isException ? 40000 : m.amount;
+    MONTHS.forEach(mo => { if (m.payments[mo]) totalPaid += amt; });
   });
-
-  let setorKeKetua = 0;
-  if (data.setorHistory) {
-    data.setorHistory.forEach(item => {
-      setorKeKetua += item.amount;
-    });
-  }
-
-  return {
-    totalPaid,
-    setorKeKetua,
-    bendahara: totalPaid - setorKeKetua
-  };
-}
-
-export default function handler(req) {
-  const data = loadData();
-  const stats = calculateStats(data);
-  const houseImage = loadHouseImage();
-
-  const totalPaid = formatRupiah(stats.totalPaid);
-  const setorKeKetua = formatRupiah(stats.setorKeKetua);
-  const bendahara = formatRupiah(stats.bendahara);
+  let setor = 0;
+  if (DATA.setorHistory) DATA.setorHistory.forEach(i => { setor += i.amount; });
 
   return new ImageResponse(
-    (
+    <div style={{
+      width:'1200px', height:'630px', display:'flex', flexDirection:'column',
+      backgroundColor:'#E8F4FD', fontFamily:'Arial',
+    }}>
       <div style={{
-        width: '1200px',
-        height: '630px',
-        display: 'flex',
-        flexDirection: 'column',
-        backgroundColor: '#E8F4FD',
-        fontFamily: 'Arial',
-        position: 'relative',
+        display:'flex', alignItems:'center', padding:'20px 40px',
+        backgroundColor:'rgba(255,255,255,0.9)',
+        borderBottom:'1px solid rgba(77,124,229,0.2)',
       }}>
-        {/* Header Bar */}
-        <div style={{
-          display: 'flex',
-          alignItems: 'center',
-          padding: '20px 40px',
-          backgroundColor: 'rgba(255,255,255,0.9)',
-          borderBottom: '1px solid rgba(77,124,229,0.2)',
-        }}>
-          <div style={{
-            display: 'flex',
-            fontSize: '32px',
-            fontWeight: 'bold',
-            color: '#333',
-            flexGrow: 1,
-            textAlign: 'center',
-          }}>
-            🏠 Laporan Iuran Bulanan BLOK D
+        <div style={{ display:'flex', fontSize:'32px', fontWeight:'bold', color:'#333', flexGrow:1, textAlign:'center' }}>
+          🏠 Laporan Iuran Bulanan BLOK D
+        </div>
+        <div style={{ fontSize:'18px', color:'#666' }}>Tahun 2026</div>
+      </div>
+      <div style={{ display:'flex', flexDirection:'row', padding:'20px 30px', flexGrow:1, gap:'20px', alignItems:'stretch' }}>
+        <div style={{ display:'flex', flexDirection:'column', width:'500px', gap:'12px', justifyContent:'center' }}>
+          <div style={{ backgroundColor:'rgba(77,124,229,0.1)', borderRadius:'12px', padding:'16px 24px', border:'1px solid rgba(77,124,229,0.3)' }}>
+            <div style={{ fontSize:'14px', color:'#333', marginBottom:'4px' }}>💰 Total Dana Terkumpul</div>
+            <div style={{ fontSize:'26px', fontWeight:'bold', color:'#4D7CE5' }}>{fmt(totalPaid)}</div>
           </div>
-          <div style={{
-            fontSize: '18px',
-            color: '#666',
-          }}>
-            Tahun 2026
+          <div style={{ backgroundColor:'rgba(255,159,67,0.1)', borderRadius:'12px', padding:'16px 24px', border:'1px solid rgba(255,159,67,0.3)' }}>
+            <div style={{ fontSize:'14px', color:'#333', marginBottom:'4px' }}>📤 Dana Disetor ke Ketua</div>
+            <div style={{ fontSize:'26px', fontWeight:'bold', color:'#ff9f43' }}>{fmt(setor)}</div>
+          </div>
+          <div style={{ backgroundColor:'rgba(51,51,51,0.1)', borderRadius:'12px', padding:'16px 24px', border:'1px solid rgba(51,51,51,0.3)' }}>
+            <div style={{ fontSize:'14px', color:'#333', marginBottom:'4px' }}>🏦 Dana di Bendahara</div>
+            <div style={{ fontSize:'26px', fontWeight:'bold', color:'#333' }}>{fmt(totalPaid - setor)}</div>
+          </div>
+          <div style={{ backgroundColor:'rgba(0,204,106,0.1)', borderRadius:'12px', padding:'16px 24px', border:'1px solid rgba(0,204,106,0.3)' }}>
+            <div style={{ fontSize:'14px', color:'#333', marginBottom:'4px' }}>👥 Total Anggota</div>
+            <div style={{ fontSize:'26px', fontWeight:'bold', color:'#00cc6a' }}>{DATA.members.length} Rumah</div>
           </div>
         </div>
-
-        {/* Main content: two columns */}
         <div style={{
-          display: 'flex',
-          flexDirection: 'row',
-          padding: '20px 30px',
-          flexGrow: 1,
-          gap: '20px',
-          alignItems: 'stretch',
+          display:'flex', flexDirection:'column', flexGrow:1, justifyContent:'center',
+          alignItems:'center', borderRadius:'16px', border:'1px solid rgba(77,124,229,0.3)',
+          overflow:'hidden', backgroundColor:'rgba(255,255,255,0.5)', padding:'10px',
         }}>
-          {/* Left column: Stats */}
-          <div style={{
-            display: 'flex',
-            flexDirection: 'column',
-            width: '500px',
-            gap: '12px',
-            justifyContent: 'center',
-          }}>
-            {/* Total Dana */}
-            <div style={{
-              display: 'flex',
-              flexDirection: 'column',
-              backgroundColor: 'rgba(77,124,229,0.1)',
-              borderRadius: '12px',
-              padding: '16px 24px',
-              border: '1px solid rgba(77,124,229,0.3)',
-            }}>
-              <div style={{ fontSize: '14px', color: '#333', marginBottom: '4px' }}>
-                💰 Total Dana Terkumpul
-              </div>
-              <div style={{ fontSize: '26px', fontWeight: 'bold', color: '#4D7CE5' }}>
-                {totalPaid}
-              </div>
-            </div>
-
-            {/* Dana Disetor */}
-            <div style={{
-              display: 'flex',
-              flexDirection: 'column',
-              backgroundColor: 'rgba(255,159,67,0.1)',
-              borderRadius: '12px',
-              padding: '16px 24px',
-              border: '1px solid rgba(255,159,67,0.3)',
-            }}>
-              <div style={{ fontSize: '14px', color: '#333', marginBottom: '4px' }}>
-                📤 Dana Disetor ke Ketua
-              </div>
-              <div style={{ fontSize: '26px', fontWeight: 'bold', color: '#ff9f43' }}>
-                {setorKeKetua}
-              </div>
-            </div>
-
-            {/* Bendahara */}
-            <div style={{
-              display: 'flex',
-              flexDirection: 'column',
-              backgroundColor: 'rgba(51,51,51,0.1)',
-              borderRadius: '12px',
-              padding: '16px 24px',
-              border: '1px solid rgba(51,51,51,0.3)',
-            }}>
-              <div style={{ fontSize: '14px', color: '#333', marginBottom: '4px' }}>
-                🏦 Dana di Bendahara
-              </div>
-              <div style={{ fontSize: '26px', fontWeight: 'bold', color: '#333' }}>
-                {bendahara}
-              </div>
-            </div>
-
-            {/* Total Anggota */}
-            <div style={{
-              display: 'flex',
-              flexDirection: 'column',
-              backgroundColor: 'rgba(0,204,106,0.1)',
-              borderRadius: '12px',
-              padding: '16px 24px',
-              border: '1px solid rgba(0,204,106,0.3)',
-            }}>
-              <div style={{ fontSize: '14px', color: '#333', marginBottom: '4px' }}>
-                👥 Total Anggota
-              </div>
-              <div style={{ fontSize: '26px', fontWeight: 'bold', color: '#00cc6a' }}>
-                {data.members.length} Rumah
-              </div>
-            </div>
-          </div>
-
-          {/* Right column: House illustration */}
-          <div style={{
-            display: 'flex',
-            flexDirection: 'column',
-            flexGrow: 1,
-            justifyContent: 'center',
-            alignItems: 'center',
-            borderRadius: '16px',
-            border: '1px solid rgba(77,124,229,0.3)',
-            overflow: 'hidden',
-            backgroundColor: 'rgba(255,255,255,0.5)',
-            padding: '10px',
-          }}>
-            {houseImage ? (
-              <img 
-                src={houseImage}
-                style={{ width: '100%', height: 'auto', objectFit: 'contain', borderRadius: '8px' }}
-                alt="Blok D"
-              />
-            ) : (
-              <div style={{
-                fontSize: '60px',
-                color: '#4D7CE5',
-                textAlign: 'center',
-              }}>
-                🏠
-              </div>
-            )}
-          </div>
-        </div>
-
-        {/* Footer */}
-        <div style={{
-          display: 'flex',
-          justifyContent: 'center',
-          padding: '15px',
-          color: '#888',
-          fontSize: '16px',
-        }}>
-          blokd-iamr.vercel.app
+          <img src={HOUSE_IMG} style={{ width:'100%', height:'auto', objectFit:'contain', borderRadius:'8px' }} alt="Blok D" />
         </div>
       </div>
-    ),
-    {
-      width: 1200,
-      height: 630,
-    }
+      <div style={{ display:'flex', justifyContent:'center', padding:'15px', color:'#888', fontSize:'16px' }}>
+        blokd-iamr.vercel.app
+      </div>
+    </div>,
+    { width: 1200, height: 630 }
   );
 }
