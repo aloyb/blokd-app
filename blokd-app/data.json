@@ -893,7 +893,7 @@
         "may": true,
         "jun": true,
         "jul": true,
-        "aug": false,
+        "aug": true,
         "sep": false,
         "oct": false,
         "nov": false,
