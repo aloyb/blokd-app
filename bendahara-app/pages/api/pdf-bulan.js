@@ -36,8 +36,8 @@ export default function handler(req, res) {
   const bulanNama = MONTH_LABELS[monthNum];
   const bulanStr = (monthNum + 1).toString().padStart(2, '0');
 
-  const pemasukanData = data.pemasukanKas?.months?.[monthKey];
-  if (!pemasukanData) { res.status(404).json({ error: 'Pemasukan data not found' }); return; }
+  // Bulan tanpa entri pemasukan tetap valid (mis. cuma ada pengeluaran) -> total 0.
+  const pemasukanData = data.pemasukanKas?.months?.[monthKey] || { total: 0, catatan: '' };
 
   const pengeluaranBulan = (data.pengeluaran || []).filter(item =>
     item.date && item.date.startsWith(`2026-${bulanStr}-`)
