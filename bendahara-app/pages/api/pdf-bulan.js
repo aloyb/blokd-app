@@ -14,7 +14,7 @@ export default function handler(req, res) {
 
   const monthKey = String(req.query.month || '').toLowerCase();
   const monthMap = { jan: 0, feb: 1, mar: 2, apr: 3, may: 4, jun: 5,
-                     jul: 6, aug: 7, sep: 8, oct: 9, nov: 10, dec: 11 };
+                     jul: 6, aug: 7, sep: 8, oct: 9, nov: 10, nov: 11, dec: 11 };
   const monthNum = monthMap[monthKey];
   if (monthNum === undefined) { res.status(400).json({ error: 'Invalid month' }); return; }
 
@@ -33,41 +33,39 @@ export default function handler(req, res) {
   const totalPengeluaran = pengeluaranBulan.reduce((s,i) => s + (Number(i.amount)||0), 0);
   const kasBersih = totalPemasukan - totalPengeluaran;
 
-  // Page geometry
-  const PAGE_W = 595.28;
-  const M = 45;
-  const RIGHT = PAGE_W - M;
-  const CONTENT_W = RIGHT - M;
-
-  const doc = new PDFDocument({ size: 'A4', margin: M });
-  res.setHeader('Content-Type', 'application/pdf');
-  res.setHeader('Content-Disposition', `attachment; filename="Laporan-Kas-${bulanNama}-2026.pdf"`);
-  doc.pipe(res);
-
-  // Colors
-  const ink = '#0f172a', muted = '#64748b', border = '#cbd5e1', accent = '#0f766e';
-  const green = '#16a34a', red = '#dc2626';
-
-  function rupiah(v) { return `Rp ${Number(v||0).toLocaleString('id-ID')}`; }
-
-  function textRight(str, y, color, font, size) {
-    doc.font(font).fontSize(size).fillColor(color);
-    doc.text(str, M, y, { width: CONTENT_W, align: 'right' });
+  // Hitung pemasukan per-blok dari catatan
+  const blockTotals = {};
+  const catatanRegex = /([A-G])(\d+)\s*\(([^)]+)\)\s*bayar\s*iuran\s+(\d+)\s+bulan/g;
+  let match;
+  while ((match = catatanRegex.exec(catatanPemasukan)) !== null) {
+    const blockKey = match[1].toLowerCase();
+    const house = match[3];
+    const amount = Number(match[4]);
+    // Cari member yang cocok di block
+    const block = data.blocks?.[blockKey.toUpperCase()];
+    let memberAmount = 0;
+    if (block) {
+      const member = block.members?.find(m => m.houseNumber === match[3] && m.name === match[3]);
+      if (member) memberAmount = member.amount || 0;
+    }
+    blockTotals[blockKey] = (blockTotals[blockKey] || 0) + amount;
   }
 
-  function line(y) {
-    doc.strokeColor(border).lineWidth(0.6).moveTo(M, y).lineTo(RIGHT, y).stroke();
+  // Tampilkan per-blok
+  const pemasukanPerBlok = [];
+  for (const [key, amount] of Object.entries(blockTotals)) {
+    const block = data.blocks?.[blockKey.toUpperCase()];
+    const label = block?.label || blockKey.toUpperCase();
+    if (amount > 0) {
+      pemasukanPerBlok.push({ label, amount });
+      totalPemasukan = Math.max(totalPemasukan, amount); // Update total
+    }
   }
 
-  let y = M;
-
-  // Title
-  doc.font('Helvetica-Bold').fontSize(22).fillColor(ink);
-  doc.text('LAPORAN KAS BULANAN', M, y, { width: CONTENT_W, align: 'center' });
-  y += 28;
-  doc.font('Helvetica-Bold').fontSize(15).fillColor(accent);
-  doc.text(bulanNama.toUpperCase() + ' 2026', M, y, { width: CONTENT_W, align: 'center' });
-  y += 34;
+  // Jika tidak ada data per-blok, gunakan total pemasukan langsung
+  if (pemasukanPerBlok.length === 0 && totalPemasukan > 0) {
+    pemasukanPerBlok.push({ label: 'Semua Blok', amount: totalPemasukan });
+  }
 
   // ---- PEMASUKAN ----
   doc.font('Helvetica-Bold').fontSize(13).fillColor(ink);
@@ -75,10 +73,27 @@ export default function handler(req, res) {
   y += 18;
   line(y);
   y += 9;
-  doc.font('Helvetica').fontSize(11).fillColor(ink);
+
+  // Tampilkan per-blok
+  for (const block of pemasukanPerBlok) {
+    doc.font('Helvetica').fontSize(11).fillColor(ink);
+    doc.text(`Pemasukan ${block.label}`, M, y);
+    textRight(rupiah(block.amount), y, green, 'Helvetica', 11);
+    y += 17;
+  }
+
+  // Total Pemasukan
+  y += 2;
+  doc.font('Helvetica-Bold').fontSize(12).fillColor(ink);
   doc.text('Total Pemasukan', M, y);
-  textRight(rupiah(totalPemasukan), y, green, 'Helvetica-Bold', 11);
-  y += 22;
+  textRight(rupiah(totalPemasukan), y, green, 'Helvetica-Bold', 12);
+  y += 20;
+
+  // Note
+  doc.font('Helvetica-Oblique').fontSize(9).fillColor(muted);
+  const catatanText = catatanPemasukan || 'Sumber: Rekap bendahara — gabungan seluruh blok (A–G).';
+  doc.text(catatanText, M, y, { width: CONTENT_W, lineBreak: true });
+  y = doc.y + 20;
 
   // ---- PENGELUARAN ----
   doc.font('Helvetica-Bold').fontSize(13).fillColor(ink);
