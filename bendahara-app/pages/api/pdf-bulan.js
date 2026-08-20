@@ -28,15 +28,40 @@ export default function handler(req, res) {
   const pengeluaranBulan = (data.pengeluaran || []).filter(item =>
     item.date && item.date.startsWith(`2026-${bulanStr}-`)
   );
-  const totalPemasukan = Number(pemasukanData.total || 0);
+
+  // Hitung pemasukan per-blok dari data.blocks members
+  const blocks = data.blocks || {};
+  const pemasukanPerBlok = [];
+  let totalPemasukan = 0;
+
+  for (const [blockKey, block] of Object.entries(blocks)) {
+    const members = block.members || [];
+    const label = block.label || blockKey.toUpperCase();
+    const paidAmount = members.reduce((sum, m) => {
+      if (m.payments?.[monthKey]) {
+        return sum + (Number(m.amount) || 0);
+      }
+      return sum;
+    }, 0);
+    if (paidAmount > 0) {
+      pemasukanPerBlok.push({ label, amount: paidAmount });
+      totalPemasukan += paidAmount;
+    }
+  }
+
+  // Fallback ke pemasukanKas.total kalau dari blocks hasilnya 0
+  if (totalPemasukan === 0) {
+    totalPemasukan = Number(pemasukanData.total || 0);
+  }
+
   const catatanPemasukan = pemasukanData.catatan || '';
   const totalPengeluaran = pengeluaranBulan.reduce((s,i) => s + (Number(i.amount)||0), 0);
   const kasBersih = totalPemasukan - totalPengeluaran;
 
   // Page geometry
   const PAGE_W = 595.28;
-  const M = 45;               // margin
-  const RIGHT = PAGE_W - M;   // 550.28 (right content edge)
+  const M = 45;
+  const RIGHT = PAGE_W - M;
   const CONTENT_W = RIGHT - M;
 
   const doc = new PDFDocument({ size: 'A4', margin: M });
@@ -49,11 +74,12 @@ export default function handler(req, res) {
   const green = '#16a34a', red = '#dc2626';
 
   function rupiah(v) { return `Rp ${Number(v||0).toLocaleString('id-ID')}`; }
-  // Right-aligned text bounded to content width so it never overflows.
+
   function textRight(str, y, color, font, size) {
     doc.font(font).fontSize(size).fillColor(color);
     doc.text(str, M, y, { width: CONTENT_W, align: 'right' });
   }
+
   function line(y) {
     doc.strokeColor(border).lineWidth(0.6).moveTo(M, y).lineTo(RIGHT, y).stroke();
   }
@@ -74,15 +100,21 @@ export default function handler(req, res) {
   y += 18;
   line(y);
   y += 9;
-  doc.font('Helvetica').fontSize(11).fillColor(ink);
+
+  // Show per-block breakdown
+  // Per-block breakdown (no per-house detail)
+  for (const block of pemasukanPerBlok) {
+    doc.font('Helvetica').fontSize(11).fillColor(ink);
+    doc.text(`Pemasukan ${block.label}`, M, y);
+    textRight(rupiah(block.amount), y, green, 'Helvetica', 11);
+    y += 17;
+  }
+  // Total Pemasukan line
+  y += 2;
+  doc.font('Helvetica-Bold').fontSize(12).fillColor(ink);
   doc.text('Total Pemasukan', M, y);
-  textRight(rupiah(totalPemasukan), y, green, 'Helvetica-Bold', 11);
-  y += 18;
-  // Note (per-blok, bukan per-rumah)
-  doc.font('Helvetica-Oblique').fontSize(9).fillColor(muted);
-  const catatanText = catatanPemasukan || 'Sumber: Rekap bendahara \u2014 gabungan seluruh blok (A\u2013G).';
-  doc.text(catatanText, M, y, { width: CONTENT_W, lineBreak: true });
-  y = doc.y + 20;
+  textRight(rupiah(totalPemasukan), y, green, 'Helvetica-Bold', 12);
+  y += 20;
 
   // ---- PENGELUARAN ----
   doc.font('Helvetica-Bold').fontSize(13).fillColor(ink);
@@ -92,9 +124,9 @@ export default function handler(req, res) {
   y += 9;
 
   // Column layout
-  const colTgl = M;              // date
-  const colKet = M + 95;         // description
-  const amountBoxX = M + 340;    // right-aligned amount block start
+  const colTgl = M;
+  const colKet = M + 95;
+  const amountBoxX = M + 340;
   const amountBoxW = RIGHT - amountBoxX;
   const ketW = amountBoxX - colKet - 12;
 
@@ -132,7 +164,7 @@ export default function handler(req, res) {
     y += 20;
   }
 
-  // ---- KAS BERSIH (highlight card) ----
+  // ---- KAS BERSIH ----
   y += 8;
   const cardH = 46;
   doc.rect(M, y, CONTENT_W, cardH).fill(accent);
@@ -141,7 +173,7 @@ export default function handler(req, res) {
   doc.font('Helvetica-Bold').fontSize(15).fillColor('#ffffff');
   doc.text(rupiah(kasBersih), M, y + 9, { width: CONTENT_W - 16, align: 'right' });
   doc.font('Helvetica').fontSize(9).fillColor('#d1fae5');
-  doc.text(kasBersih >= 0 ? 'Surplus kas bulan ini' : 'Defisit kas bulan ini', M + 16, y + 28);
+  doc.text(kasBersih >= 0 ? 'Surplus kas bulan ini' : 'Defisit kas bulan ini', M + 16, y + 26);
   y += cardH + 20;
 
   // Footer
