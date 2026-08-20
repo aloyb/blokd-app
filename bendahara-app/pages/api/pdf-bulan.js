@@ -39,60 +39,91 @@ export default function handler(req, res) {
   doc.pipe(res);
 
   // Colors
-  const ink='#0f172a', muted='#64748b', border='#cbd5e1', accent='#0f766e', green='#16a34a', red='#dc2626', gold='#b45309';
+  const ink = '#0f172a', muted = '#64748b', border = '#cbd5e1', accent = '#0f766e';
+  const green = '#16a34a', red = '#dc2626';
+
   function rupiah(v) { return `Rp ${Number(v||0).toLocaleString('id-ID')}`; }
-  function subH1(y, label) { doc.font('Helvetica-Bold').fontSize(14).fillColor(ink); doc.text(label.toUpperCase(), 45, y, { lineBreak: false }); }
-  function hr(y) { doc.strokeColor(border).lineWidth(0.6).moveTo(45, y).lineTo(555, y).stroke(); }
-  function rowY(y, left, right, color=ink, bold=false) { doc.font(bold ? 'Helvetica-Bold' : 'Helvetica').fontSize(11).fillColor(color); doc.text(left, 45, y); doc.text(right, 555, y, { align: 'right' }); return y + 17; }
-  function note(text) { doc.font('Helvetica-Oblique').fontSize(9).fillColor(muted); doc.text(text, 45, doc.y, { lineBreak: true, width: 510 }); }
-  function footer() { const y = 780; doc.fontSize(8).fillColor(muted).text('Laporan Kas IHM Rukun Manggallo', 45, y); doc.text(`Dicetak ${new Date().toLocaleDateString('id-ID')}`, 45, y+10); doc.text('Halaman 1', 555, y+10, { align: 'right' }); }
+
+  let y = 45; // start y position
 
   // Title
-  doc.font('Helvetica-Bold').fontSize(22).fillColor(ink).text('LAPORAN KAS BULANAN', { align: 'center' });
-  doc.font('Helvetica-Bold').fontSize(16).fillColor(accent).text(bulanNama.toUpperCase() + ' 2026', { align: 'center' });
-  doc.moveDown(0.5);
+  doc.font('Helvetica-Bold').fontSize(22).fillColor(ink);
+  doc.text('LAPORAN KAS BULANAN', 45, y, { align: 'center' });
+  y += 28;
+  doc.font('Helvetica-Bold').fontSize(16).fillColor(accent);
+  doc.text(bulanNama.toUpperCase() + ' 2026', 45, y, { align: 'center' });
+  y += 30;
 
   // ---- PEMASUKAN ----
-  subH1(doc.y, 'Pemasukan');
-  hr(doc.y + 3);
-  let y = doc.y + 10;
-  y = rowY(y, 'Total Pemasukan', rupiah(totalPemasukan), green, true);
-  if (catatanPemasukan) note(catatanPemasukan);
-  else note('Sumber: Rekap bendahara — gabungan seluruh blok (A–G).');
+  doc.font('Helvetica-Bold').fontSize(14).fillColor(ink);
+  doc.text('PEMASUKAN', 45, y);
+  y += 3;
+  doc.strokeColor(border).lineWidth(0.6).moveTo(45, y).lineTo(555, y).stroke();
+  y += 10;
+  doc.font('Helvetica').fontSize(11).fillColor(ink);
+  doc.text('Total Pemasukan', 45, y);
+  doc.fillColor(green).text(rupiah(totalPemasukan), 555, y, { align: 'right' });
+  y += 17;
+  // Note
+  doc.font('Helvetica-Oblique').fontSize(9).fillColor(muted);
+  const catatanText = catatanPemasukan || 'Sumber: Rekap bendahara — gabungan seluruh blok (A–G).';
+  doc.text(catatanText, 45, y, { width: 510, lineBreak: true });
+  y += 30;
 
   // ---- PENGELUARAN ----
-  subH1(y + 6, 'Pengeluaran');
-  hr(y + 9);
-  y = y + 14;
-  const colTgl = 45, colKet = 165, colJmlh = 480;
+  doc.font('Helvetica-Bold').fontSize(14).fillColor(ink);
+  doc.text('PENGELUARAN', 45, y);
+  y += 3;
+  doc.strokeColor(border).lineWidth(0.6).moveTo(45, y).lineTo(555, y).stroke();
+  y += 10;
+
+  // Column headers
   doc.font('Helvetica-Bold').fontSize(10).fillColor(muted);
-  doc.text('Tanggal', colTgl, y); doc.text('Keterangan', colKet, y); doc.text('Jumlah', colJmlh, y, { align: 'right' });
-  hr(y + 3);
+  doc.text('Tanggal', 45, y);
+  doc.text('Keterangan', 165, y);
+  doc.text('Jumlah', 480, y, { align: 'right' });
+  y += 3;
+  doc.strokeColor(border).lineWidth(0.6).moveTo(45, y).lineTo(555, y).stroke();
   y += 8;
+
+  // Rows
+  doc.font('Helvetica').fontSize(10).fillColor(ink);
   for (const item of pengeluaranBulan) {
     const tgl = new Date(item.date).toLocaleDateString('id-ID', { day:'numeric', month:'short', year:'numeric' });
-    doc.font('Helvetica').fontSize(10).fillColor(ink);
-    doc.text(tgl, colTgl, y); doc.text(item.keterangan || '-', colKet, y); doc.text(rupiah(item.amount), colJmlh, y, { align: 'right' });
-    hr(y + 16);
-    y += 17;
-  }
-  if (pengeluaranBulan.length > 0) {
-    y = rowY(y, 'Total Pengeluaran', rupiah(totalPengeluaran), red, true);
-  } else {
-    note('Tidak ada pengeluaran tercatat bulan ini.');
+    doc.text(tgl, 45, y);
+    doc.text(item.keterangan || '-', 165, y, { width: 310 });
+    doc.text(rupiah(item.amount), 480, y, { align: 'right' });
+    y += 3;
+    doc.strokeColor(border).lineWidth(0.3).moveTo(45, y).lineTo(555, y).stroke();
+    y += 14;
   }
 
-  // ---- KAS BERSIH (big card)
-  const cardY = y + 10;
-  doc.roundRect(45, cardY, 510, 42, 6).fill(accent);
+  if (pengeluaranBulan.length > 0) {
+    doc.font('Helvetica-Bold').fontSize(11).fillColor(red);
+    doc.text('Total Pengeluaran', 45, y);
+    doc.text(rupiah(totalPengeluaran), 555, y, { align: 'right' });
+    y += 20;
+  } else {
+    doc.font('Helvetica-Oblique').fontSize(9).fillColor(muted);
+    doc.text('Tidak ada pengeluaran tercatat bulan ini.', 45, y);
+    y += 20;
+  }
+
+  // ---- KAS BERSIH (highlight card) ----
+  y += 5;
+  doc.rect(45, y, 510, 40).fill(accent);
   doc.font('Helvetica-Bold').fontSize(13).fillColor('white');
-  doc.text('KAS BERSIH', 60, cardY + 8);
-  doc.text(rupiah(kasBersih), 545, cardY + 8, { align: 'right' });
+  doc.text('KAS BERSIH', 60, y + 12);
+  doc.text(rupiah(kasBersih), 545, y + 12, { align: 'right' });
   doc.font('Helvetica').fontSize(9).fillColor('white');
-  doc.text(kasBersih >= 0 ? 'Surplus kas bulan ini' : 'Defisit kas bulan ini', 60, cardY + 26);
-  const endY = cardY + 54;
+  doc.text(kasBersih >= 0 ? 'Surplus kas bulan ini' : 'Defisit kas bulan ini', 60, y + 26);
+  y += 55;
 
   // Footer
-  footer();
+  doc.fontSize(8).fillColor(muted);
+  doc.text('Laporan Kas IHM Rukun Manggallo', 45, 780);
+  doc.text(`Dicetak ${new Date().toLocaleDateString('id-ID')}`, 45, 790);
+  doc.text('Halaman 1', 555, 790, { align: 'right' });
+
   doc.end();
 }
