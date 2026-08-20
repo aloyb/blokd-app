@@ -28,32 +28,7 @@ export default function handler(req, res) {
   const pengeluaranBulan = (data.pengeluaran || []).filter(item =>
     item.date && item.date.startsWith(`2026-${bulanStr}-`)
   );
-
-  // Hitung pemasukan per-blok dari data.blocks members
-  const blocks = data.blocks || {};
-  const pemasukanPerBlok = [];
-  let totalPemasukan = 0;
-
-  for (const [blockKey, block] of Object.entries(blocks)) {
-    const members = block.members || [];
-    const label = block.label || blockKey.toUpperCase();
-    const paidAmount = members.reduce((sum, m) => {
-      if (m.payments?.[monthKey]) {
-        return sum + (Number(m.amount) || 0);
-      }
-      return sum;
-    }, 0);
-    if (paidAmount > 0) {
-      pemasukanPerBlok.push({ label, amount: paidAmount });
-      totalPemasukan += paidAmount;
-    }
-  }
-
-  // Fallback ke pemasukanKas.total kalau dari blocks hasilnya 0
-  if (totalPemasukan === 0) {
-    totalPemasukan = Number(pemasukanData.total || 0);
-  }
-
+  const totalPemasukan = Number(pemasukanData.total || 0);
   const catatanPemasukan = pemasukanData.catatan || '';
   const totalPengeluaran = pengeluaranBulan.reduce((s,i) => s + (Number(i.amount)||0), 0);
   const kasBersih = totalPemasukan - totalPengeluaran;
@@ -100,21 +75,15 @@ export default function handler(req, res) {
   y += 18;
   line(y);
   y += 9;
-
-  // Show per-block breakdown
-  // Per-block breakdown (no per-house detail)
-  for (const block of pemasukanPerBlok) {
-    doc.font('Helvetica').fontSize(11).fillColor(ink);
-    doc.text(`Pemasukan ${block.label}`, M, y);
-    textRight(rupiah(block.amount), y, green, 'Helvetica', 11);
-    y += 17;
-  }
-  // Total Pemasukan line
-  y += 2;
-  doc.font('Helvetica-Bold').fontSize(12).fillColor(ink);
+  doc.font('Helvetica').fontSize(11).fillColor(ink);
   doc.text('Total Pemasukan', M, y);
-  textRight(rupiah(totalPemasukan), y, green, 'Helvetica-Bold', 12);
-  y += 20;
+  textRight(rupiah(totalPemasukan), y, green, 'Helvetica-Bold', 11);
+  y += 18;
+  // Note
+  doc.font('Helvetica-Oblique').fontSize(9).fillColor(muted);
+  const catatanText = catatanPemasukan || 'Sumber: Rekap bendahara — gabungan seluruh blok (A–G).';
+  doc.text(catatanText, M, y, { width: CONTENT_W, lineBreak: true });
+  y = doc.y + 20;
 
   // ---- PENGELUARAN ----
   doc.font('Helvetica-Bold').fontSize(13).fillColor(ink);
