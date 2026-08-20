@@ -266,15 +266,15 @@ export default function Home() {
           {tab === 'beranda' && (
             <div>
               {/* HERO CARD: PERBENDAHARAAN KOMPLEK */}
-              <div style={styles.heroCard}>
+              <div style={isDesktop ? { ...styles.heroCard, ...styles.heroCardDesktop } : styles.heroCard}>
                 <div style={styles.heroLeft}>
-                  <div style={styles.heroTitle}>Perbendaharaan Komplek</div>
-                  <div style={styles.heroTagline}>Transparan, Teratur, dan Bersama</div>
-                  <div style={styles.heroBtn} onClick={() => setShowRingkasan(v => !v)}>
-                    Lihat Ringkasan <span style={{ fontSize: '15px' }}>{showRingkasan ? '‹' : '›'}</span>
+                  <div style={isDesktop ? { ...styles.heroTitle, ...styles.heroTitleDesktop } : styles.heroTitle}>Perbendaharaan Komplek</div>
+                  <div style={isDesktop ? { ...styles.heroTagline, ...styles.heroTaglineDesktop } : styles.heroTagline}>Transparan, Teratur, dan Bersama</div>
+                  <div style={isDesktop ? { ...styles.heroBtn, ...styles.heroBtnDesktop } : styles.heroBtn} onClick={() => setShowRingkasan(v => !v)}>
+                    Lihat Ringkasan <span style={{ fontSize: isDesktop ? '18px' : '15px' }}>{showRingkasan ? '‹' : '›'}</span>
                   </div>
                 </div>
-                <div style={styles.heroSlideshow}>
+                <div style={isDesktop ? { ...styles.heroSlideshow, ...styles.heroSlideshowDesktop } : styles.heroSlideshow}>
                   {HERO_PHOTOS.length > 0 ? (
                     HERO_PHOTOS.map((src, i) => (
                       <img
@@ -1114,15 +1114,33 @@ const styles = {
     display: 'flex', alignItems: 'stretch', gap: '14px',
     maxWidth: '920px',
   },
+  // Di desktop hero dibuat penuh selebar area konten + diperbesar,
+  // biar tidak ada ruang kosong menganggur di sebelah kanan.
+  heroCardDesktop: {
+    maxWidth: 'none', width: '100%', padding: '40px 44px',
+    borderRadius: '34px', gap: '28px', minHeight: '260px',
+    marginTop: '4px',
+  },
   heroLeft: { flex: 1, minWidth: 0, display: 'flex', flexDirection: 'column', justifyContent: 'center' },
   heroTitle: { fontSize: '18px', fontWeight: '800', lineHeight: 1.2, letterSpacing: '-0.5px' },
+  heroTitleDesktop: { fontSize: '34px', letterSpacing: '-1px' },
   heroTagline: { fontSize: '12px', opacity: 0.85, marginTop: '6px', lineHeight: 1.4 },
+  heroTaglineDesktop: { fontSize: '17px', marginTop: '12px' },
   heroBtn: {
     display: 'inline-flex', alignItems: 'center', gap: '6px',
     marginTop: '18px', background: 'rgba(255,255,255,0.18)',
     padding: '10px 16px', borderRadius: '14px',
     fontSize: '13px', fontWeight: '700', cursor: 'pointer',
     backdropFilter: 'blur(4px)',
+  },
+  heroBtnDesktop: {
+    marginTop: '26px', padding: '14px 24px', borderRadius: '16px',
+    fontSize: '15px', alignSelf: 'flex-start',
+  },
+  heroSlideshowDesktop: {
+    width: '46%', minWidth: '380px',
+    margin: '-40px -44px -40px 0',
+    borderRadius: '0 34px 34px 0',
   },
   heroSlideshow: {
     position: 'relative', width: '190px', flexShrink: 0,
