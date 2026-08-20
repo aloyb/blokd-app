@@ -78,12 +78,7 @@ export default function handler(req, res) {
   doc.font('Helvetica').fontSize(11).fillColor(ink);
   doc.text('Total Pemasukan', M, y);
   textRight(rupiah(totalPemasukan), y, green, 'Helvetica-Bold', 11);
-  y += 18;
-  // Note
-  doc.font('Helvetica-Oblique').fontSize(9).fillColor(muted);
-  const catatanText = catatanPemasukan || 'Sumber: Rekap bendahara — gabungan seluruh blok (A–G).';
-  doc.text(catatanText, M, y, { width: CONTENT_W, lineBreak: true });
-  y = doc.y + 20;
+  y += 22;
 
   // ---- PENGELUARAN ----
   doc.font('Helvetica-Bold').fontSize(13).fillColor(ink);
