@@ -1,0 +1,5846 @@
+{
+  "totalPeriods": 12,
+  "blocks": {
+    "A": {
+      "label": "Blok A",
+      "iuranDefault": 50000,
+      "members": [
+        {
+          "houseNumber": "A1",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "A2",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "A3",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "A4",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "A5",
+          "name": "-",
+          "amount": 30000,
+          "isException": true,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": true,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "A6",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "A7",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "A8",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "A9",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "A10",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "A11",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "A12",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "A13",
+          "name": "-",
+          "amount": 40000,
+          "isException": true,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "A14",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "A15",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "A16",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "A17",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "A18",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "A19",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "A20",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "A21",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "A22",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "A23",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": true,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "A24",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "A25",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "A26",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "A27",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
+            "sep": true,
+            "oct": true,
+            "nov": true,
+            "dec": true
+          }
+        },
+        {
+          "houseNumber": "A28",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
+            "sep": true,
+            "oct": true,
+            "nov": true,
+            "dec": true
+          }
+        },
+        {
+          "houseNumber": "A29",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "A30",
+          "name": "-",
+          "amount": 30000,
+          "isException": true,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "A31",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "A32",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "A33",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        }
+      ],
+      "setorHistory": []
+    },
+    "B": {
+      "label": "Blok B",
+      "iuranDefault": 50000,
+      "members": [
+        {
+          "houseNumber": "B1",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "B2",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "B3",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "B4",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "B5",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "B6",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "B7",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "B8",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "B9",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "B10",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "B11",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "B12",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "B13",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "B14",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "B15",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "B16",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "B17",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "B18",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "B19",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "B20",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "B21",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "B22",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "B23",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "B24",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "B25",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "B26",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "B27",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "B28",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "B29",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "B30",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        }
+      ],
+      "setorHistory": []
+    },
+    "C": {
+      "label": "Blok C",
+      "iuranDefault": 50000,
+      "members": [
+        {
+          "houseNumber": "C1",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          },
+          "vacant": true
+        },
+        {
+          "houseNumber": "C2",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          },
+          "vacant": true
+        },
+        {
+          "houseNumber": "C3",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          },
+          "vacant": true
+        },
+        {
+          "houseNumber": "C4",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "C5",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "C6",
+          "name": "-",
+          "amount": 30000,
+          "isException": true,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "C7",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "C8",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "C9",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "C10",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "C11",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "C12",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "C13",
+          "name": "-",
+          "amount": 30000,
+          "isException": true,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "C14",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "C15",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "C16",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": true,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "C17",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "C18",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "C19",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "C20",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "C21",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "C22",
+          "name": "-",
+          "amount": 30000,
+          "isException": true,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "C23",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "C24",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "C25",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": true,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "C26",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "C27",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "C28",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "C29",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "C30",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "C31",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "C32",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "C33",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "C34",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "C35",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": true,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "C36",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": true,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "C37",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "C38",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "C39",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "C40",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "C41",
+          "name": "-",
+          "amount": 30000,
+          "isException": true,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "C42",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "C43",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "C44",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "C45",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "C46",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "C47",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "C48",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "C49",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "C50",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "C51",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "C52",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "C53",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "C54",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "C55",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          },
+          "vacant": true
+        }
+      ],
+      "setorHistory": []
+    },
+    "D": {
+      "label": "Blok D",
+      "iuranDefault": 50000,
+      "members": [
+        {
+          "houseNumber": "D1",
+          "name": "Adit",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "D2",
+          "name": "Jumbri",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "D3",
+          "name": "Habibie",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "D4",
+          "name": "Melly",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "D5",
+          "name": "Rif'at",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "D6",
+          "name": "Hasan",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "D7",
+          "name": "Toni",
+          "amount": 40000,
+          "isException": true,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "D8",
+          "name": "Fathur",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "D9",
+          "name": "Supiyan",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": true,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "D10",
+          "name": "Ajay",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "D11",
+          "name": "Ahmad",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "D12",
+          "name": "Ayu",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "D13",
+          "name": "",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "D14",
+          "name": "",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "D15",
+          "name": "Misran",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "D16",
+          "name": "Amelia",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "D17",
+          "name": "Sain",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "D18",
+          "name": "Rizal",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "D19",
+          "name": "Huda",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
+            "sep": true,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "D21",
+          "name": "Yazerin",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "D22",
+          "name": "Lina",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "D23",
+          "name": "Ulfan",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": true,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "D24",
+          "name": "Nazar",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "D25",
+          "name": "Wahyu",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "D26",
+          "name": "",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "D27",
+          "name": "Windy",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "D28",
+          "name": "Syarif",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "D29",
+          "name": "Apri",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "D31",
+          "name": "Rian",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "D32",
+          "name": "Syifa",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "D33",
+          "name": "Hanafi",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "D34",
+          "name": "Raisa",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "D35",
+          "name": "Danny",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
+            "sep": true,
+            "oct": true,
+            "nov": true,
+            "dec": true
+          }
+        },
+        {
+          "houseNumber": "D36",
+          "name": "Latif",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "D37",
+          "name": "Hendy",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "D38",
+          "name": "",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "D39",
+          "name": "Aulia",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "D40",
+          "name": "Nurul",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "D41",
+          "name": "",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "D42",
+          "name": "Wahidi",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "D43",
+          "name": "Rifka",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "D44",
+          "name": "Ayda",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
+            "sep": true,
+            "oct": true,
+            "nov": true,
+            "dec": true
+          }
+        },
+        {
+          "houseNumber": "D45",
+          "name": "Mahrita",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "D46",
+          "name": "Rifqi",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "D47",
+          "name": "Boy",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        }
+      ],
+      "setorHistory": []
+    },
+    "E": {
+      "label": "Blok E",
+      "iuranDefault": 50000,
+      "members": [
+        {
+          "houseNumber": "E1",
+          "name": "-",
+          "amount": 30000,
+          "isException": true,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "E2",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "E3",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "E4",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "E5",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "E6",
+          "name": "-",
+          "amount": 50000,
+          "isException": true,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          },
+          "paidAmounts": {
+            "jan": 50000,
+            "feb": 30000,
+            "mar": 30000
+          }
+        },
+        {
+          "houseNumber": "E7",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
+            "sep": true,
+            "oct": true,
+            "nov": true,
+            "dec": true
+          }
+        },
+        {
+          "houseNumber": "E8",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "E9",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "E10",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "E11",
+          "name": "-",
+          "amount": 50000,
+          "isException": true,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          },
+          "paidAmounts": {
+            "jan": 50000,
+            "feb": 50000,
+            "mar": 30000
+          }
+        },
+        {
+          "houseNumber": "E12",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "E13",
+          "name": "-",
+          "amount": 30000,
+          "isException": true,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "E14",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          },
+          "vacant": true
+        },
+        {
+          "houseNumber": "E15",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "E16",
+          "name": "-",
+          "amount": 50000,
+          "isException": true,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          },
+          "paidAmounts": {
+            "jan": 50000,
+            "feb": 30000,
+            "mar": 30000,
+            "apr": 30000
+          }
+        },
+        {
+          "houseNumber": "E17",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
+            "sep": true,
+            "oct": true,
+            "nov": true,
+            "dec": true
+          }
+        },
+        {
+          "houseNumber": "E18",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "E19",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "E20",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "E21",
+          "name": "-",
+          "amount": 50000,
+          "isException": true,
+          "payments": {
+            "jan": false,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          },
+          "paidAmounts": {
+            "feb": 30000,
+            "mar": 50000,
+            "apr": 50000
+          }
+        },
+        {
+          "houseNumber": "E22",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "E23",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "E24",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "E25",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "E26",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "E27",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "E28",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "E29",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "E30",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          },
+          "vacant": true
+        },
+        {
+          "houseNumber": "E31",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "E32",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          },
+          "vacant": true
+        },
+        {
+          "houseNumber": "E33",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "E34",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          },
+          "vacant": true
+        },
+        {
+          "houseNumber": "E35",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "E36",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "E37",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": true,
+            "apr": true,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "E38",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          },
+          "vacant": true
+        },
+        {
+          "houseNumber": "E39",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          },
+          "vacant": true
+        },
+        {
+          "houseNumber": "E40",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          },
+          "vacant": true
+        },
+        {
+          "houseNumber": "E41",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          },
+          "vacant": true
+        },
+        {
+          "houseNumber": "E42",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          },
+          "vacant": true
+        },
+        {
+          "houseNumber": "E43",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": true,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        }
+      ],
+      "setorHistory": []
+    },
+    "F": {
+      "label": "Blok F",
+      "iuranDefault": 50000,
+      "members": [
+        {
+          "houseNumber": "F1",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "F2",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "F3",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "F4",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "F5",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "F6",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "F7",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "F8",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "F9",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "F10",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "F11",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "F12",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "F13",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "F14",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "F15",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "F16",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "F17",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "F18",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "F19",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "F20",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "F21",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "F22",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "F23",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "F24",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "F25",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "F26",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "F27",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "F28",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "F29",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        }
+      ],
+      "setorHistory": []
+    },
+    "G": {
+      "label": "Blok G",
+      "iuranDefault": 50000,
+      "members": [
+        {
+          "houseNumber": "G1",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "G2",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "G3",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "G4",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "G5",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "G6",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "G7",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "G8",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "G9",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "G10",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "G11",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "G12",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "G13",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "G14",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "G15",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "G16",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "G17",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "G18",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "G19",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "G20",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "G21",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "G22",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "G23",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "G24",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "G25",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "G26",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "G27",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "G28",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "G29",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "G30",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "G31",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "G32",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "G33",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "G34",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "G35",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "G36",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "G37",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "G38",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "G39",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "G40",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "G41",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "G42",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "G43",
+          "name": "-",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": false,
+            "feb": false,
+            "mar": false,
+            "apr": false,
+            "may": false,
+            "jun": false,
+            "jul": false,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        }
+      ],
+      "setorHistory": []
+    }
+  },
+  "activityLog": [],
+  "setoranBlok": {
+    "A": [],
+    "B": [],
+    "C": [],
+    "D": [],
+    "E": [],
+    "F": [],
+    "G": []
+  },
+  "pengeluaran": [
+    {
+      "date": "2026-01-01",
+      "amount": 1300000,
+      "keterangan": "Sampah"
+    },
+    {
+      "date": "2026-01-01",
+      "amount": 1200000,
+      "keterangan": "Wakar"
+    },
+    {
+      "date": "2026-01-01",
+      "amount": 3100000,
+      "keterangan": "Keperluan"
+    },
+    {
+      "date": "2026-02-01",
+      "amount": 2600000,
+      "keterangan": "Sampah"
+    },
+    {
+      "date": "2026-03-01",
+      "amount": 3600000,
+      "keterangan": "Wakar"
+    },
+    {
+      "date": "2026-04-01",
+      "amount": 1300000,
+      "keterangan": "Sampah"
+    },
+    {
+      "date": "2026-04-01",
+      "amount": 3600000,
+      "keterangan": "Wakar"
+    },
+    {
+      "date": "2026-04-01",
+      "amount": 200000,
+      "keterangan": "Dan lain-lain"
+    },
+    {
+      "date": "2026-05-01",
+      "amount": 3600000,
+      "keterangan": "Wakar"
+    },
+    {
+      "date": "2026-05-01",
+      "amount": 1600000,
+      "keterangan": "Pondasi Blok A"
+    },
+    {
+      "date": "2026-05-01",
+      "amount": 950000,
+      "keterangan": "Pasir Blok A"
+    },
+    {
+      "date": "2026-05-01",
+      "amount": 1150000,
+      "keterangan": "Perbaikan jalan"
+    },
+    {
+      "date": "2026-05-01",
+      "amount": 950000,
+      "keterangan": "Pasir lapangan"
+    },
+    {
+      "date": "2026-05-01",
+      "amount": 210000,
+      "keterangan": "Keperluan wakar"
+    },
+    {
+      "date": "2026-05-01",
+      "amount": 400000,
+      "keterangan": "Listrik pos"
+    },
+    {
+      "date": "2026-06-01",
+      "amount": 3600000,
+      "keterangan": "Wakar"
+    },
+    {
+      "date": "2026-06-01",
+      "amount": 2600000,
+      "keterangan": "Sampah"
+    },
+    {
+      "date": "2026-06-01",
+      "amount": 219000,
+      "keterangan": "Keperluan wakar"
+    },
+    {
+      "date": "2026-06-01",
+      "amount": 506000,
+      "keterangan": "Lampu dan taso lapangan"
+    },
+    {
+      "date": "2026-06-01",
+      "amount": 950000,
+      "keterangan": "Pasir lapangan"
+    },
+    {
+      "date": "2026-07-01",
+      "amount": 3600000,
+      "keterangan": "Wakar"
+    },
+    {
+      "date": "2026-07-01",
+      "amount": 1300000,
+      "keterangan": "Sampah"
+    },
+    {
+      "date": "2026-07-01",
+      "amount": 6000000,
+      "keterangan": "Serba suruh Barabai"
+    },
+    {
+      "date": "2026-08-01",
+      "amount": 203000,
+      "keterangan": "Keperluan wakar"
+    },
+    {
+      "date": "2026-08-01",
+      "amount": 1957000,
+      "keterangan": "Acara lomba 17 Agustus (sisa anggaran 3.043.000)"
+    },
+    {
+      "date": "2026-08-01",
+      "amount": 160000,
+      "keterangan": "Penyemprotan rumput"
+    },
+    {
+      "date": "2026-08-01",
+      "amount": 1330000,
+      "keterangan": "Pemasangan pondasi Blok A"
+    },
+    {
+      "date": "2026-08-20",
+      "amount": 1387000,
+      "keterangan": "Beli taso untuk tiang lampu lapangan"
+    }
+  ],
+  "pemasukanKas": {
+    "catatan": "Uang masuk NYATA yang diterima bendahara per bulan, dari rekap resmi bendahara. Sudah termasuk seluruh blok (A-G). Angka ini yang dipakai untuk menghitung saldo, BUKAN hasil penjumlahan `blocks.X.payments` - field itu hanya menandai bulan mana yang lunas per rumah dan datanya belum lengkap untuk semua blok.",
+    "sumber": "Rekap bendahara IAMR, dikirim 2026-08-14 (Januari-Juli 2026)",
+    "months": {
+      "jan": {
+        "total": 6340000,
+        "catatan": "Rekap resmi bendahara, gabungan seluruh blok (A-G)"
+      },
+      "feb": {
+        "total": 10350000,
+        "catatan": "Rekap resmi bendahara, gabungan seluruh blok (A-G)"
+      },
+      "mar": {
+        "total": 5300000,
+        "catatan": "Rekap resmi bendahara, gabungan seluruh blok (A-G)"
+      },
+      "apr": {
+        "total": 7430000,
+        "catatan": "Rekap resmi bendahara, gabungan seluruh blok (A-G)"
+      },
+      "may": {
+        "total": 6744000,
+        "catatan": "Rekap resmi bendahara, gabungan seluruh blok (A-G)"
+      },
+      "jun": {
+        "total": 8270000,
+        "catatan": "Rekap resmi bendahara, gabungan seluruh blok (A-G)"
+      },
+      "jul": {
+        "total": 5580000,
+        "catatan": "Rekap resmi bendahara, gabungan seluruh blok (A-G)"
+      },
+      "aug": {
+        "total": 50000,
+        "catatan": "D42 (Wahidi) bayar iuran 1 bulan"
+      }
+    }
+  },
+  "trackingMulai": "aug",
+  "kasMulai": {
+    "month": "aug",
+    "date": "2026-08-01",
+    "total": 32557000,
+    "rincian": [],
+    "catatan": "Total kas perumahan yang dipegang bendahara umum per awal Agustus 2026, gabungan seluruh blok. Bulan sebelumnya hanya arsip dan tidak ikut menghitung saldo."
+  }
+}
