@@ -8,19 +8,33 @@ export const config = {
   },
 };
 
+const MONTHS = ['jan','feb','mar','apr','may','jun','jul','aug','sep','oct','nov','dec'];
+const MONTH_LABELS = ['Januari','Februari','Maret','April','Mei','Juni',
+                      'Juli','Agustus','September','Oktober','November','Desember'];
+
+// Total pengeluaran untuk 1 bulan (index 0-11)
+function pengeluaranBulanTotal(data, monthIdx) {
+  const mm = (monthIdx + 1).toString().padStart(2, '0');
+  return (data.pengeluaran || [])
+    .filter(i => i.date && i.date.startsWith(`2026-${mm}-`))
+    .reduce((s, i) => s + (Number(i.amount) || 0), 0);
+}
+
+// Pemasukan riil untuk 1 bulan
+function pemasukanBulanTotal(data, monthKey) {
+  return Number(data.pemasukanKas?.months?.[monthKey]?.total || 0);
+}
+
 export default function handler(req, res) {
   const dataPath = path.join(process.cwd(), 'data.json');
   const data = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
 
   const monthKey = String(req.query.month || '').toLowerCase();
-  const monthMap = { jan: 0, feb: 1, mar: 2, apr: 3, may: 4, jun: 5,
-                     jul: 6, aug: 7, sep: 8, oct: 9, nov: 10, dec: 11 };
-  const monthNum = monthMap[monthKey];
-  if (monthNum === undefined) { res.status(400).json({ error: 'Invalid month' }); return; }
+  const monthNum = MONTHS.indexOf(monthKey);
+  if (monthNum === -1) { res.status(400).json({ error: 'Invalid month' }); return; }
 
-  const bulanNama = ['Januari','Februari','Maret','April','Mei','Juni',
-                     'Juli','Agustus','September','Oktober','November','Desember'][monthNum];
-  const bulanStr = (monthNum+1).toString().padStart(2,'0');
+  const bulanNama = MONTH_LABELS[monthNum];
+  const bulanStr = (monthNum + 1).toString().padStart(2, '0');
 
   const pemasukanData = data.pemasukanKas?.months?.[monthKey];
   if (!pemasukanData) { res.status(404).json({ error: 'Pemasukan data not found' }); return; }
@@ -30,26 +44,42 @@ export default function handler(req, res) {
   );
   const totalPemasukan = Number(pemasukanData.total || 0);
   const catatanPemasukan = pemasukanData.catatan || '';
-  const totalPengeluaran = pengeluaranBulan.reduce((s,i) => s + (Number(i.amount)||0), 0);
-  const kasBersih = totalPemasukan - totalPengeluaran;
+  const totalPengeluaran = pengeluaranBulan.reduce((s, i) => s + (Number(i.amount) || 0), 0);
+  const kasBersihBulan = totalPemasukan - totalPengeluaran;
 
-  // Hitung pemasukan per-blok dari catatan
+  // ---- Pemasukan per-blok (parse dari catatan) ----
+  // Contoh catatan: "D42 (Wahidi) bayar iuran 1 bulan" -> Blok D, jumlah = amount member * bulan
   const blockTotals = {};
-  const catatanRegex = /([A-G])(\d+)\s*\(([^)]+)\)\s*bayar\s*iuran\s+(\d+)\s+bulan/g;
-  let match;
-  while ((match = catatanRegex.exec(catatanPemasukan)) !== null) {
-    const blockKey = match[1].toLowerCase();
-    const house = match[3];
-    const amount = Number(match[4]);
+  const re = /([A-G])(\d+)\s*\(([^)]+)\)\s*bayar\s*iuran\s*(\d+)\s*bulan/gi;
+  let m;
+  while ((m = re.exec(catatanPemasukan)) !== null) {
+    const blockKey = m[1].toUpperCase();
+    const houseNum = m[1].toUpperCase() + m[2];
+    const bulan = Number(m[4]) || 1;
+    const block = data.blocks?.[blockKey];
+    const member = block?.members?.find(x => x.houseNumber === houseNum);
+    const amount = (member ? Number(member.amount) || 0 : 0) * bulan;
     blockTotals[blockKey] = (blockTotals[blockKey] || 0) + amount;
   }
+  const pemasukanPerBlok = Object.entries(blockTotals)
+    .filter(([, amt]) => amt > 0)
+    .map(([key, amt]) => ({ label: data.blocks?.[key]?.label || `Blok ${key}`, amount: amt }));
 
-  // Convert ke array
-  const pemasukanPerBlok = [];
-  for (const [key, amount] of Object.entries(blockTotals)) {
-    const block = data.blocks?.[key.toUpperCase()];
-    const label = block?.label || key.toUpperCase();
-    pemasukanPerBlok.push({ label, amount });
+  // ---- Total Saldo (uang riil yang dipegang bendahara) di akhir bulan ini ----
+  // Jangkar (kasMulai) = saldo fisik per awal bulan tertentu.
+  const anchor = data.kasMulai || null;
+  const anchorIdx = anchor ? MONTHS.indexOf(anchor.month) : -1;
+  const anchorTotal = anchor ? Number(anchor.total || 0) : Number(data.saldoAwal || 0);
+
+  let totalSaldo = null; // saldo akhir bulan ini
+  if (anchorIdx !== -1 && monthNum >= anchorIdx) {
+    // saldo = jangkar + arus kas dari bulan jangkar s/d bulan ini
+    let saldo = anchorTotal;
+    for (let i = anchorIdx; i <= monthNum; i++) {
+      saldo += pemasukanBulanTotal(data, MONTHS[i]);
+      saldo -= pengeluaranBulanTotal(data, i);
+    }
+    totalSaldo = saldo;
   }
 
   // Page geometry
@@ -67,15 +97,13 @@ export default function handler(req, res) {
   const ink = '#0f172a', muted = '#64748b', border = '#cbd5e1', accent = '#0f766e';
   const green = '#16a34a', red = '#dc2626';
 
-  function rupiah(v) { return `Rp ${Number(v||0).toLocaleString('id-ID')}`; }
-
-  function textRight(str, y, color, font, size) {
+  function rupiah(v) { return `Rp ${Number(v || 0).toLocaleString('id-ID')}`; }
+  function textRight(str, yy, color, font, size) {
     doc.font(font).fontSize(size).fillColor(color);
-    doc.text(str, M, y, { width: CONTENT_W, align: 'right' });
+    doc.text(str, M, yy, { width: CONTENT_W, align: 'right' });
   }
-
-  function line(y) {
-    doc.strokeColor(border).lineWidth(0.6).moveTo(M, y).lineTo(RIGHT, y).stroke();
+  function line(yy) {
+    doc.strokeColor(border).lineWidth(0.6).moveTo(M, yy).lineTo(RIGHT, yy).stroke();
   }
 
   let y = M;
@@ -95,28 +123,32 @@ export default function handler(req, res) {
   line(y);
   y += 9;
 
-  // Tampilkan per-blok
   if (pemasukanPerBlok.length > 0) {
-    for (const block of pemasukanPerBlok) {
+    for (const b of pemasukanPerBlok) {
       doc.font('Helvetica').fontSize(11).fillColor(ink);
-      doc.text(`Pemasukan ${block.label}`, M, y);
-      textRight(rupiah(block.amount), y, green, 'Helvetica', 11);
+      doc.text(`Pemasukan ${b.label}`, M, y);
+      textRight(rupiah(b.amount), y, green, 'Helvetica', 11);
       y += 17;
     }
-  } else {
-    // Fallback: tampilkan total
+  } else if (totalPemasukan > 0) {
     doc.font('Helvetica').fontSize(11).fillColor(ink);
-    doc.text('Total Pemasukan', M, y);
-    textRight(rupiah(totalPemasukan), y, green, 'Helvetica-Bold', 11);
+    doc.text('Pemasukan (gabungan seluruh blok)', M, y);
+    textRight(rupiah(totalPemasukan), y, green, 'Helvetica', 11);
+    y += 17;
+  } else {
+    doc.font('Helvetica-Oblique').fontSize(10).fillColor(muted);
+    doc.text('Belum ada pemasukan bulan ini.', M, y);
     y += 17;
   }
 
-  // Total Pemasukan line
-  y += 2;
+  // Total Pemasukan
+  y += 3;
+  line(y);
+  y += 8;
   doc.font('Helvetica-Bold').fontSize(12).fillColor(ink);
   doc.text('Total Pemasukan', M, y);
   textRight(rupiah(totalPemasukan), y, green, 'Helvetica-Bold', 12);
-  y += 20;
+  y += 26;
 
   // ---- PENGELUARAN ----
   doc.font('Helvetica-Bold').fontSize(13).fillColor(ink);
@@ -125,14 +157,12 @@ export default function handler(req, res) {
   line(y);
   y += 9;
 
-  // Column layout
   const colTgl = M;
   const colKet = M + 95;
   const amountBoxX = M + 340;
   const amountBoxW = RIGHT - amountBoxX;
   const ketW = amountBoxX - colKet - 12;
 
-  // Header row
   doc.font('Helvetica-Bold').fontSize(9.5).fillColor(muted);
   doc.text('TANGGAL', colTgl, y);
   doc.text('KETERANGAN', colKet, y);
@@ -141,42 +171,49 @@ export default function handler(req, res) {
   line(y);
   y += 8;
 
-  // Data rows
   for (const item of pengeluaranBulan) {
-    const tgl = new Date(item.date).toLocaleDateString('id-ID', { day:'numeric', month:'short', year:'numeric' });
+    const tgl = new Date(item.date).toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric' });
     doc.font('Helvetica').fontSize(10).fillColor(ink);
     doc.text(tgl, colTgl, y, { width: 90 });
     doc.text(item.keterangan || '-', colKet, y, { width: ketW });
     doc.font('Helvetica').fontSize(10).fillColor(ink);
     doc.text(rupiah(item.amount), amountBoxX, y, { width: amountBoxW, align: 'right' });
-    y += 16;
+    const rowH = Math.max(16, doc.heightOfString(item.keterangan || '-', { width: ketW }) + 4);
+    y += rowH;
     doc.strokeColor(border).lineWidth(0.3).moveTo(M, y - 2).lineTo(RIGHT, y - 2).stroke();
     y += 4;
   }
 
   if (pengeluaranBulan.length > 0) {
     y += 4;
-    doc.font('Helvetica-Bold').fontSize(11).fillColor(ink);
+    doc.font('Helvetica-Bold').fontSize(12).fillColor(ink);
     doc.text('Total Pengeluaran', M, y);
-    textRight(rupiah(totalPengeluaran), y, red, 'Helvetica-Bold', 11);
-    y += 20;
+    textRight(rupiah(totalPengeluaran), y, red, 'Helvetica-Bold', 12);
+    y += 24;
   } else {
     doc.font('Helvetica-Oblique').fontSize(9).fillColor(muted);
     doc.text('Tidak ada pengeluaran tercatat bulan ini.', M, y);
-    y += 20;
+    y += 24;
   }
 
-  // ---- KAS BERSIH (highlight card) ----
-  y += 8;
-  const cardH = 46;
-  doc.rect(M, y, CONTENT_W, cardH).fill(accent);
-  doc.font('Helvetica-Bold').fontSize(13).fillColor('#ffffff');
-  doc.text('KAS BERSIH', M + 16, y + 10);
-  doc.font('Helvetica-Bold').fontSize(15).fillColor('#ffffff');
-  doc.text(rupiah(kasBersih), M, y + 9, { width: CONTENT_W - 16, align: 'right' });
-  doc.font('Helvetica').fontSize(9).fillColor('#d1fae5');
-  doc.text(kasBersih >= 0 ? 'Surplus kas bulan ini' : 'Defisit kas bulan ini', M + 16, y + 26);
-  y += cardH + 20;
+  // ---- KAS BERSIH BULAN INI (net arus kas) ----
+  doc.font('Helvetica-Bold').fontSize(11).fillColor(ink);
+  doc.text('Kas Bersih Bulan Ini (masuk - keluar)', M, y);
+  textRight(rupiah(kasBersihBulan), y, kasBersihBulan >= 0 ? green : red, 'Helvetica-Bold', 11);
+  y += 22;
+
+  // ---- TOTAL SALDO (uang riil yang dipegang) ----
+  if (totalSaldo !== null) {
+    const cardH = 52;
+    doc.rect(M, y, CONTENT_W, cardH).fill(accent);
+    doc.font('Helvetica-Bold').fontSize(14).fillColor('#ffffff');
+    doc.text('TOTAL SALDO', M + 16, y + 11);
+    doc.font('Helvetica-Bold').fontSize(17).fillColor('#ffffff');
+    doc.text(rupiah(totalSaldo), M, y + 10, { width: CONTENT_W - 16, align: 'right' });
+    doc.font('Helvetica').fontSize(9).fillColor('#d1fae5');
+    doc.text(`Saldo yang dipegang bendahara per akhir ${bulanNama} 2026`, M + 16, y + 32);
+    y += cardH + 20;
+  }
 
   // Footer
   doc.font('Helvetica').fontSize(8).fillColor(muted);
