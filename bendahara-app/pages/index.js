@@ -7,6 +7,11 @@ const MONTH_NAMES = {
   may: 'Mei', jun: 'Jun', jul: 'Jul', aug: 'Agu',
   sep: 'Sep', oct: 'Okt', nov: 'Nov', dec: 'Des'
 };
+const MONTH_FULL = {
+  jan: 'Januari', feb: 'Februari', mar: 'Maret', apr: 'April',
+  may: 'Mei', jun: 'Juni', jul: 'Juli', aug: 'Agustus',
+  sep: 'September', oct: 'Oktober', nov: 'November', dec: 'Desember'
+};
 
 const NavIcon = ({ name }) => {
   const p = { width: 22, height: 22, viewBox: '0 0 24 24', fill: 'none', stroke: 'currentColor', strokeWidth: 1.8, strokeLinecap: 'round', strokeLinejoin: 'round' };
@@ -28,25 +33,29 @@ const NAV = [
 // Taruh file gambar di folder public/kegiatan/ lalu daftarkan path-nya di sini.
 // Contoh: '/kegiatan/gotong-royong.jpg'. Kalau kosong, tampil placeholder.
 const HERO_PHOTOS = [
+  '/kegiatan/kegiatan-1.jpg',
+  '/kegiatan/kegiatan-2.jpg',
   '/kegiatan/kegiatan-3.jpg',
   '/kegiatan/kegiatan-4.jpg',
   '/kegiatan/kegiatan-5.jpg',
-  '/kegiatan/kegiatan-6.jpg',
-  '/kegiatan/kegiatan-7.jpg',
 ];
 
 function formatCurrency(num) {
   return `Rp ${(num || 0).toLocaleString('id-ID')}`;
 }
 
-// Target tahunan per rumah: Rp 50.000 x 12 bulan.
-const IURAN_PER_BULAN = 50000;
-function blockTarget(memberCount) {
-  return (memberCount || 0) * IURAN_PER_BULAN * 12;
-}
+// Target tahunan sekarang dihitung di /api/stats berdasarkan tarif masing-masing
+// rumah (ada yang Rp 30.000/40.000), bukan asumsi rata Rp 50.000.
 function pct(paid, target) {
   if (!target) return 0;
   return Math.min(100, Math.round(((paid || 0) / target) * 100));
+}
+
+// "2026-08-12" -> "12 Agu 2026". Kalau formatnya tak terduga, kembalikan apa adanya.
+function formatTanggal(iso) {
+  const d = new Date(iso);
+  if (Number.isNaN(d.getTime())) return iso;
+  return d.toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric' });
 }
 
 export default function Home() {
@@ -63,6 +72,7 @@ export default function Home() {
   const [heroSlide, setHeroSlide] = useState(0);
   const [showRingkasan, setShowRingkasan] = useState(false);
   const [pemasukanBlock, setPemasukanBlock] = useState(null);
+  const [setoranBlok, setSetoranBlok] = useState({});
   const [pengeluaranMonth, setPengeluaranMonth] = useState(null);
   const [statusOpen, setStatusOpen] = useState(null);
   const [showNotif, setShowNotif] = useState(false);
@@ -89,6 +99,7 @@ export default function Home() {
         setBlockList((await blocksRes.json()).blocks || []);
         setGlobalStats(statsJson);
         setNotifList(statsJson.activityLog || []);
+        setSetoranBlok(statsJson.setoranBlok || {});
         setLoading(false);
       } catch (err) {
         setError('Gagal memuat data');
@@ -128,10 +139,7 @@ export default function Home() {
     setSearchQuery('');
     async function loadBlock() {
       try {
-        const [mRes, sRes] = await Promise.all([
-          fetch(`/api/members?block=${selectedBlock}`),
-          fetch(`/api/stats?block=${selectedBlock}`),
-        ]);
+        const mRes = await fetch(`/api/members?block=${selectedBlock}`);
         setMembers((await mRes.json()).members || []);
       } catch (err) {
         setError('Gagal memuat data blok');
@@ -146,6 +154,10 @@ export default function Home() {
     setSearchQuery('');
     setCurrentPage(1);
   }
+
+  // Catatan: fungsi submitSetoran() dihapus.
+  // Web ini read-only untuk umum — pencatatan setoran/pembayaran dilakukan
+  // lewat asisten (edit data.json + redeploy), bukan lewat form publik.
 
   const sortedMembers = [...members].sort((a, b) => {
     const aNum = parseInt((a.houseNumber || '0').replace(/\D/g, ''));
@@ -167,6 +179,23 @@ export default function Home() {
   if (error) return <div style={styles.container}><div style={styles.error}>{error}</div></div>;
 
   const g = globalStats?.global;
+
+  // Bulan berjalan dipakai sebagai tampilan default tab Pemasukan:
+  // status setoran bulan ini tampil di depan, bulan lain disembunyikan
+  // sampai kartu bloknya diklik.
+  const thisMonth = MONTHS[Math.min(11, new Date().getMonth())];
+  const sudahSetorBulanIni = blockList.filter(
+    b => (setoranBlok[b.block] || []).some(s => s.month === thisMonth)
+  ).length;
+
+  // Blok dianggap "terdata" kalau sudah ada catatan uang masuk per rumah.
+  // Blok B/F/G baru punya angka total, belum tahu rumah mana yang setor.
+  const blokTerdata = blockList.filter(
+    b => (globalStats?.blocks?.[b.block]?.totalPaid || 0) > 0
+  ).length;
+
+  // Rincian uang masuk nyata per bulan (dari data.json `pemasukanKas`).
+  const kas = globalStats?.pemasukanKas || null;
 
   return (
     <>
@@ -269,37 +298,93 @@ export default function Home() {
                 <div style={styles.ringkasanCard}>
                   <div style={styles.ringkasanRow}>
                     <span style={styles.ringkasanLabel}>Total Kas Bersih</span>
-                    <span style={styles.ringkasanValueBig}>{formatCurrency(g?.bendahara)}</span>
+                    <span style={{
+                      ...styles.ringkasanValueBig,
+                      color: (g?.bendahara ?? 0) < 0 ? '#EF4444' : styles.ringkasanValueBig.color,
+                    }}>{formatCurrency(g?.bendahara)}</span>
                   </div>
+                  {/* Kas bersih sekarang dihitung dari uang masuk NYATA
+                     (`pemasukanKas`), bukan dari data `payments` per rumah.
+                     Jadi angka ini sudah mencakup blok yang belum punya
+                     rincian per rumah (B/F/G). */}
+                  {(g?.bendahara ?? 0) < 0 && (
+                    <div style={styles.ringkasanWarn}>
+                      Angka minus karena masih ada uang masuk yang belum tercatat,
+                      sedangkan pengeluaran sudah tercatat lengkap.
+                    </div>
+                  )}
+                  {g?.saldoAwalPending && !g?.kasMulai && (
+                    <div style={styles.ringkasanWarn}>
+                      Angka ini murni arus kas 2026. Sisa kas dari tahun 2025 belum
+                      diketahui, jadi belum termasuk di sini.
+                    </div>
+                  )}
+                  {g?.kasMulai && (
+                    <div style={styles.ringkasanInfo}>
+                      Dihitung dari uang nyata yang dipegang bendahara umum per
+                      {' '}{MONTH_FULL[g.kasMulai.month]} 2026, ditambah pemasukan dan
+                      dikurangi pengeluaran sejak bulan itu. Bulan sebelumnya jadi arsip.
+                    </div>
+                  )}
                   <div style={styles.ringkasanDivider} />
                   <div style={styles.ringkasanTop}>
                     <div style={styles.ringkasanMini}>
-                      <div style={styles.ringkasanMiniLabel}>Total Rumah</div>
+                      <div style={styles.ringkasanMiniLabel}>Rumah Aktif</div>
                       <div style={styles.ringkasanMiniValue}>{g?.totalMembers || 0}</div>
                     </div>
                     <div style={styles.ringkasanStatSep} />
                     <div style={styles.ringkasanMini}>
-                      <div style={styles.ringkasanMiniLabel}>Pencapaian</div>
+                      <div style={styles.ringkasanMiniLabel}>Blok Terdata</div>
                       <div style={{ ...styles.ringkasanMiniValue, color: '#128F55' }}>
-                        {pct(g?.totalPaid, blockTarget(g?.totalMembers))}%
+                        {blokTerdata}/{blockList.length || 7}
                       </div>
                     </div>
                   </div>
                   <div style={styles.ringkasanDivider} />
                   <div style={styles.ringkasanStatsRow}>
-                    <div style={styles.ringkasanStatRow}>
-                      <span style={styles.ringkasanStatLabel}>Pemasukan</span>
-                      <span style={{ ...styles.ringkasanStatValue, color: '#128F55' }}>{formatCurrency(g?.totalPaid)}</span>
-                    </div>
-                    <div style={styles.ringkasanStatRow}>
-                      <span style={styles.ringkasanStatLabel}>Pengeluaran</span>
-                      <span style={{ ...styles.ringkasanStatValue, color: '#EF4444' }}>{formatCurrency(g?.totalPengeluaran)}</span>
-                    </div>
+                    {g?.kasMulai ? (
+                      <>
+                        <div style={styles.ringkasanStatRow}>
+                          <span style={styles.ringkasanStatLabel}>
+                            Saldo awal {MONTH_FULL[g.kasMulai.month]}
+                          </span>
+                          <span style={{ ...styles.ringkasanStatValue, color: '#0EA5E9' }}>{formatCurrency(g.kasMulai.total)}</span>
+                        </div>
+                        <div style={styles.ringkasanStatRow}>
+                          <span style={styles.ringkasanStatLabel}>Pemasukan sejak {MONTH_FULL[g.kasMulai.month]}</span>
+                          <span style={{ ...styles.ringkasanStatValue, color: '#128F55' }}>{formatCurrency(g?.pemasukanSejakJangkar)}</span>
+                        </div>
+                        <div style={styles.ringkasanStatRow}>
+                          <span style={styles.ringkasanStatLabel}>Pengeluaran sejak {MONTH_FULL[g.kasMulai.month]}</span>
+                          <span style={{ ...styles.ringkasanStatValue, color: '#EF4444' }}>{formatCurrency(g?.pengeluaranSejakJangkar)}</span>
+                        </div>
+                      </>
+                    ) : (
+                      <>
+                        {(g?.saldoAwal ?? 0) > 0 && (
+                          <div style={styles.ringkasanStatRow}>
+                            <span style={styles.ringkasanStatLabel}>Saldo awal (sisa 2025)</span>
+                            <span style={{ ...styles.ringkasanStatValue, color: '#0EA5E9' }}>{formatCurrency(g?.saldoAwal)}</span>
+                          </div>
+                        )}
+                        <div style={styles.ringkasanStatRow}>
+                          <span style={styles.ringkasanStatLabel}>Pemasukan</span>
+                          <span style={{ ...styles.ringkasanStatValue, color: '#128F55' }}>{formatCurrency(g?.pemasukanKasTotal)}</span>
+                        </div>
+                        <div style={styles.ringkasanStatRow}>
+                          <span style={styles.ringkasanStatLabel}>Pengeluaran</span>
+                          <span style={{ ...styles.ringkasanStatValue, color: '#EF4444' }}>{formatCurrency(g?.totalPengeluaran)}</span>
+                        </div>
+                      </>
+                    )}
                   </div>
                 </div>
               )}
 
               {/* STATUS TILES */}
+              {/* Status per rumah dihitung mulai bulan `trackingMulai` saja
+                 (lihat stats.js). Sebelum bulan itu yang tercatat hanya total
+                 uang masuk per bulan, bukan siapa yang bayar. */}
               <div style={styles.gridContainer}>
                 <div style={styles.gridItem} onClick={() => setStatusOpen(statusOpen === 'lunas' ? null : 'lunas')}>
                   <div style={{...styles.gridIcon, background: '#ECFDF5', color: '#128F55'}}>✅</div>
@@ -317,6 +402,12 @@ export default function Home() {
                   <div style={{...styles.gridValue, color: '#EF4444'}}>{g?.belumAdaBayar}</div>
                 </div>
               </div>
+              {g?.trackingMulai && g.trackingMulaiIdx > 0 && (
+                <div style={styles.trackingNote}>
+                  Status per rumah dihitung mulai {MONTH_FULL[g.trackingMulai]} 2026.
+                  Bulan sebelumnya hanya tercatat sebagai total uang masuk.
+                </div>
+              )}
 
               {statusOpen && (() => {
                 const cfg = {
@@ -359,24 +450,32 @@ export default function Home() {
                 {blockList.map(b => {
                   const bs = globalStats?.blocks?.[b.block];
                   const totalRumah = bs?.totalMembers ?? b.memberCount;
-                  const bayarBulanIni = Math.max(0, totalRumah - (bs?.terlambat ?? totalRumah));
+                  const bayarBulanIni = bs?.bayarBulanIni ?? 0;
                   const persen = pct(bayarBulanIni, totalRumah);
+                  // Uang masuk nyata per blok kalau ada; kalau blok itu belum
+                  // terinci di `pemasukanKas`, jatuh ke hitungan dari `payments`.
+                  const uangMasuk = kas?.perBlockTotal?.[b.block] ?? bs?.totalPaid;
+                  const adaDataRumah = (bs?.totalPaid || 0) > 0;
                   return (
                     <div key={b.block} style={styles.blockCard} onClick={() => { setSelectedBlock(b.block); setTab('iuran'); }}>
                       <div style={styles.blockCardTop}>
                         <div style={styles.listBadge}>{b.block}</div>
                         <div style={styles.listContent}>
                           <div style={styles.listTitle}>{b.label}</div>
-                          <div style={styles.listSub}>{b.memberCount} Rumah</div>
+                          <div style={styles.listSub}>
+                            {b.memberCount} Rumah{adaDataRumah ? '' : ' · data per rumah belum masuk'}
+                          </div>
                         </div>
-                        <div style={styles.blockPct}>{persen}%</div>
+                        <div style={styles.blockPct}>{adaDataRumah ? `${persen}%` : '—'}</div>
                       </div>
                       <div style={styles.progressTrack}>
-                        <div style={{ ...styles.progressFill, width: `${persen}%` }} />
+                        <div style={{ ...styles.progressFill, width: `${adaDataRumah ? persen : 0}%` }} />
                       </div>
                       <div style={styles.blockCardBottom}>
-                        <span style={styles.blockPaid}>{formatCurrency(bs?.totalPaid)}</span>
-                        <span style={styles.blockTarget}>{bayarBulanIni}/{totalRumah} bayar bulan ini</span>
+                        <span style={styles.blockPaid}>{formatCurrency(uangMasuk)}</span>
+                        <span style={styles.blockTarget}>
+                          {adaDataRumah ? `${bayarBulanIni}/${totalRumah} bayar bulan ini` : 'baru total uang masuk'}
+                        </span>
                       </div>
                     </div>
                   );
@@ -414,7 +513,10 @@ export default function Home() {
               <div style={styles.blockInfoCard}>
                 <div style={styles.blockInfoText}>
                   <div style={styles.blockInfoBadge}>{globalStats?.blocks?.[selectedBlock]?.label || `Blok ${selectedBlock}`}</div>
-                  <div style={styles.blockInfoSub}>{members.length} Anggota</div>
+                  <div style={styles.blockInfoSub}>
+                    {members.filter(m => !m.vacant).length} Anggota
+                    {members.some(m => m.vacant) && ` · ${members.filter(m => m.vacant).length} rumah kosong`}
+                  </div>
                 </div>
                 <a href={`/api/pdf?block=${selectedBlock}`} style={styles.blockPdfBtn}>
                   ⬇️ Download PDF
@@ -439,10 +541,28 @@ export default function Home() {
                     <div key={i} style={styles.memberCard}>
                       <div style={styles.memberHeader}>
                         <div style={styles.memberHouse}>{m.houseNumber}</div>
-                        <div style={styles.memberName}>{m.name || '-'}</div>
-                        <div style={styles.memberCount}>{paidMonths.length}x</div>
+                        {/* Banyak rumah (Blok A/B/C/E) baru punya nomor, belum ada nama.
+                            Tampilkan keterangan halus daripada "-" yang terlihat
+                            seperti data rusak. */}
+                        {m.vacant ? (
+                          <div style={{ ...styles.memberName, color: '#C0C6D0', fontStyle: 'italic', fontWeight: '500' }}>
+                            rumah kosong
+                          </div>
+                        ) : m.name && m.name.trim() && m.name.trim() !== '-' ? (
+                          <div style={styles.memberName}>{m.name}</div>
+                        ) : (
+                          <div style={{ ...styles.memberName, color: '#C0C6D0', fontStyle: 'italic', fontWeight: '500' }}>
+                            belum ada nama
+                          </div>
+                        )}
+                        {!m.vacant && <div style={styles.memberCount}>{paidMonths.length}x</div>}
                       </div>
-                      {paidMonths.length > 0 ? (
+                      {m.vacant ? (
+                        /* Rumah kosong belum wajib iuran, jadi jangan dilabeli Nunggak. */
+                        <div style={{ ...styles.emptyStatus, background: '#F3F4F6', color: '#9CA3AF' }}>
+                          Belum ada penghuni
+                        </div>
+                      ) : paidMonths.length > 0 ? (
                         <div style={styles.chipContainer}>
                           {paidMonths.map(mo => <span key={mo} style={styles.monthChip}>{mo}</span>)}
                         </div>
@@ -467,9 +587,80 @@ export default function Home() {
           {/* ===== PENGELUARAN ===== */}
           {tab === 'pengeluaran' && (
             <div>
+              {/* FLOW CARD — ringkasan arus pengeluaran */}
+              <div style={styles.alurCard}>
+                <div style={styles.alurTitle}>
+                  {g?.kasMulai
+                    ? `Pengeluaran Sejak ${MONTH_FULL[g.kasMulai.month]} 2026`
+                    : 'Total Pengeluaran 2026'}
+                </div>
+                {g?.kasMulai ? (
+                  <>
+                    <div style={styles.alurRow}>
+                      <span style={{ ...styles.alurLabel, fontWeight: '800', color: '#111827' }}>
+                        Total pengeluaran
+                      </span>
+                      <span style={{ ...styles.alurValue, color: '#EF4444' }}>{formatCurrency(g.totalPengeluaran)}</span>
+                    </div>
+                    <div style={styles.alurRow}>
+                      <span style={styles.alurLabel}>Sejak {MONTH_FULL[g.kasMulai.month]}</span>
+                      <span style={{ ...styles.alurValue, color: '#EF4444' }}>-{formatCurrency(g?.pengeluaranSejakJangkar)}</span>
+                    </div>
+                    <div style={styles.alurRow}>
+                      <span style={styles.alurLabel}>Sebelum {MONTH_FULL[g.kasMulai.month]} (arsip)</span>
+                      <span style={{ ...styles.alurValue, color: '#9CA3AF' }}>-{formatCurrency(g?.pengeluaranArsip)}</span>
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <div style={styles.alurRow}>
+                      <span style={{ ...styles.alurLabel, fontWeight: '800', color: '#111827' }}>Total Pengeluaran</span>
+                      <span style={{ ...styles.alurValue, color: '#EF4444' }}>{formatCurrency(g?.totalPengeluaran)}</span>
+                    </div>
+                  </>
+                )}
+                <div style={styles.alurDivider} />
+                <div style={styles.alurRow}>
+                  <span style={{ ...styles.alurLabel, fontWeight: '800', color: '#111827' }}>Rata-rata / bulan</span>
+                  <span style={{ ...styles.alurValue, color: '#F59E0B' }}>
+                    {formatCurrency(g?.kasMulai
+                      ? Math.round(g.pengeluaranSejakJangkar / Object.keys(kas?.rincian || {}).length)
+                      : Math.round((g?.totalPengeluaran || 0) / 12))}
+                  </span>
+                </div>
+                <div style={styles.alurNote}>
+                  Data pengeluaran tercatat dari rekap bendahara. Sebagian masih estimasi bulanan.
+                  {!g?.kasMulai && ' Angka ini mencakup seluruh tahun 2026.'}
+                </div>
+              </div>
+
+              {/* ARSIP SEBELUM BULAN JANGKAR */}
+              {g?.kasMulai && g.kasMulai.monthIdx > 0 && (
+                <div style={styles.alurCard}>
+                  <div style={styles.alurTitle}>
+                    Arsip Sebelum {MONTH_FULL[g.kasMulai.month]} 2026
+                  </div>
+                  <div style={styles.alurRow}>
+                    <span style={styles.alurLabel}>Pengeluaran tercatat</span>
+                    <span style={{ ...styles.alurValue, color: '#EF4444' }}>-{formatCurrency(g?.pengeluaranArsip)}</span>
+                  </div>
+                  <div style={styles.alurNote}>
+                    Catatan lama, hanya untuk riwayat. Tidak mengurangi kas bersih
+                    karena ada uang iuran tahun 2025 yang angkanya belum diketahui.
+                  </div>
+                </div>
+              )}
+
+              {/* RINCIAN PENGELUARAN PER BULAN */}
               <div style={styles.sectionHeader}>
-                <div style={styles.sectionTitle}>Pengeluaran Per Bulan</div>
-                <div style={styles.sectionAction}>{formatCurrency(g?.totalPengeluaran)}</div>
+                <div style={styles.sectionTitle}>Rincian Per Bulan</div>
+                <div style={styles.sectionAction}>
+                  {(() => {
+                    const hist = globalStats?.pengeluaranHistory || [];
+                    const counts = hist.filter(it => new Date(it.date).getMonth() >= (g?.kasMulai?.monthIdx ?? 0)).length;
+                    return `${counts} bulan`;
+                  })()}
+                </div>
               </div>
               {(() => {
                 const hist = globalStats?.pengeluaranHistory || [];
@@ -488,22 +679,42 @@ export default function Home() {
                       return (
                         <div key={gr.mo}>
                           <div style={styles.listItem} onClick={() => setPengeluaranMonth(open ? null : gr.mo)}>
-                            <div style={{...styles.listBadge, background: '#FEF2F2', color: '#EF4444', fontSize: '18px'}}>📤</div>
+                            <div style={{
+                              ...styles.listBadge,
+                              background: '#FEF2F2',
+                              color: '#EF4444',
+                              fontSize: '18px',
+                            }}>{MONTH_NAMES[gr.mo]}</div>
                             <div style={styles.listContent}>
-                              <div style={styles.listTitle}>{MONTH_NAMES[gr.mo]} 2026</div>
+                              <div style={styles.listTitle}>{MONTH_FULL[gr.mo]} 2026</div>
                               <div style={styles.listSub}>{gr.items.length} transaksi • ketuk untuk detail</div>
                             </div>
-                            <div style={{...styles.listAmount, color: '#EF4444'}}>-{formatCurrency(gr.total)}</div>
+                            <div style={styles.listRight}>
+                              <div style={{ ...styles.listAmount, color: '#EF4444' }}>-{formatCurrency(gr.total)}</div>
+                              <div style={styles.listChevron}>{open ? 'Tutup ▲' : 'Detail ▼'}</div>
+                            </div>
                           </div>
                           {open && (
                             <div style={styles.drillBox}>
+                              <div style={{ ...styles.drillItem, borderBottom: 'none', justifyContent: 'center', padding: '8px 0' }}>
+                                <a href={`/api/pdf-bulan?month=${gr.mo}`} target="_blank" rel="noopener noreferrer"
+                                   style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: '#FEF2F2', border: '1px solid #FECACA', borderRadius: 8, padding: '6px 12px', fontSize: 12, fontWeight: 600, color: '#991b1b', textDecoration: 'none' }}>
+                                  ⬇️ Download PDF Kas {MONTH_NAMES[gr.mo]}
+                                </a>
+                              </div>
                               {gr.items.slice().reverse().map((item, idx) => (
                                 <div key={idx} style={styles.drillItem}>
                                   <div style={styles.drillContent}>
                                     <div style={styles.drillTitle}>{item.keterangan || '-'}</div>
-                                    <div style={styles.drillSub}>{new Date(item.date).toLocaleDateString('id-ID', { day: 'numeric', month: 'short' })} • {item.blockLabel}</div>
+                                    <div style={styles.drillSub}>
+                                      {item.dateApprox
+                                        ? MONTH_NAMES[MONTHS[new Date(item.date).getMonth()]]
+                                        : new Date(item.date).toLocaleDateString('id-ID', { day: 'numeric', month: 'short' })}
+                                      {item.kategori ? ` • ${item.kategori}` : ''}
+                                      {item.blockLabel ? ` • ${item.blockLabel}` : ''}
+                                    </div>
                                   </div>
-                                  <div style={styles.drillAmount}>-{formatCurrency(item.amount)}</div>
+                                  <div style={{ ...styles.drillAmount, color: '#EF4444' }}>Rp {formatCurrency(item.amount).replace('Rp ', '')}</div>
                                 </div>
                               ))}
                             </div>
@@ -518,41 +729,301 @@ export default function Home() {
           )}
 
           {/* ===== PEMASUKAN ===== */}
+          {/* Dua bagian:
+              1. Uang masuk NYATA per bulan (dari `pemasukanKas` di data.json).
+                 Inilah arus kas sebenarnya dan basis kas bersih.
+              2. Status setoran perwakilan per blok (dari `setoranBlok`).
+
+              Kami TIDAK memakai `payments` untuk arus kas: field itu hanya
+              menandai bulan mana yang sudah lunas per rumah, bukan kapan
+              uangnya diterima. Warga bisa bayar 3 bulan di muka atau menunggak
+              dulu, dan Blok B/F/G belum punya data per rumah sama sekali. */}
           {tab === 'pemasukan' && (
             <div>
+              {/* UANG MASUK NYATA */}
+              {/* Kalau ada jangkar kas (`kasMulai`), saldo dihitung dari uang
+                 fisik per bulan itu dan bulan sebelumnya hanya arsip. */}
+              <div style={styles.alurCard}>
+                <div style={styles.alurTitle}>
+                  {g?.kasMulai
+                    ? `Kas Sejak ${MONTH_FULL[g.kasMulai.month]} 2026`
+                    : 'Uang Masuk Diterima Bendahara'}
+                </div>
+                {g?.kasMulai ? (
+                  <>
+                    <div style={styles.alurRow}>
+                      <span style={{ ...styles.alurLabel, fontWeight: '800', color: '#111827' }}>
+                        Saldo awal {MONTH_FULL[g.kasMulai.month]}
+                      </span>
+                      <span style={{ ...styles.alurValue, color: '#0EA5E9' }}>{formatCurrency(g.kasMulai.total)}</span>
+                    </div>
+                    {(g.kasMulai.rincian || []).map((r, i) => (
+                      <div key={i} style={styles.alurRow}>
+                        <span style={{ ...styles.alurLabel, paddingLeft: '12px' }}>• {r.label}</span>
+                        <span style={styles.alurValue}>{formatCurrency(r.amount)}</span>
+                      </div>
+                    ))}
+                    <div style={styles.alurRow}>
+                      <span style={styles.alurLabel}>Pemasukan sejak {MONTH_FULL[g.kasMulai.month]}</span>
+                      <span style={{ ...styles.alurValue, color: '#128F55' }}>{formatCurrency(g?.pemasukanSejakJangkar)}</span>
+                    </div>
+                    <div style={styles.alurRow}>
+                      <span style={styles.alurLabel}>Pengeluaran sejak {MONTH_FULL[g.kasMulai.month]}</span>
+                      <span style={{ ...styles.alurValue, color: '#EF4444' }}>-{formatCurrency(g?.pengeluaranSejakJangkar)}</span>
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    {(g?.saldoAwal ?? 0) > 0 && (
+                      <div style={styles.alurRow}>
+                        <span style={styles.alurLabel}>Saldo awal (sisa 2025)</span>
+                        <span style={{ ...styles.alurValue, color: '#0EA5E9' }}>{formatCurrency(g?.saldoAwal)}</span>
+                      </div>
+                    )}
+                    <div style={styles.alurRow}>
+                      <span style={{ ...styles.alurLabel, fontWeight: '800', color: '#111827' }}>Total 2026</span>
+                      <span style={{ ...styles.alurValue, color: '#128F55' }}>{formatCurrency(g?.pemasukanKasTotal)}</span>
+                    </div>
+                    <div style={styles.alurRow}>
+                      <span style={styles.alurLabel}>Pengeluaran</span>
+                      <span style={{ ...styles.alurValue, color: '#EF4444' }}>-{formatCurrency(g?.totalPengeluaran)}</span>
+                    </div>
+                  </>
+                )}
+                <div style={styles.alurDivider} />
+                <div style={styles.alurRow}>
+                  <span style={{ ...styles.alurLabel, fontWeight: '800', color: '#111827' }}>Kas Bersih</span>
+                  <span style={{
+                    ...styles.alurValue,
+                    color: (g?.bendahara ?? 0) < 0 ? '#EF4444' : '#0EA5E9',
+                  }}>{formatCurrency(g?.bendahara)}</span>
+                </div>
+                <div style={styles.alurNote}>
+                  Angka ini uang yang benar-benar diterima, bukan hitungan dari status lunas per rumah.
+                  {g?.kasMulai
+                    ? ` ${g.kasMulai.catatan || ''}`
+                    : ((g?.saldoAwal ?? 0) > 0 && g?.saldoAwalCatatan ? ` ${g.saldoAwalCatatan}` : '')}
+                  {!g?.kasMulai && g?.saldoAwalPending ? ' Belum termasuk sisa kas tahun 2025 (angkanya belum diketahui).' : ''}
+                </div>
+              </div>
+
+              {/* ARSIP JANUARI-sebelum jangkar: ditampilkan apa adanya,
+                 tidak ikut menghitung saldo. */}
+              {g?.kasMulai && g.kasMulai.monthIdx > 0 && (
+                <div style={styles.alurCard}>
+                  <div style={styles.alurTitle}>
+                    Arsip Sebelum {MONTH_FULL[g.kasMulai.month]} 2026
+                  </div>
+                  <div style={styles.alurRow}>
+                    <span style={styles.alurLabel}>Uang masuk tercatat</span>
+                    <span style={{ ...styles.alurValue, color: '#128F55' }}>{formatCurrency(g?.pemasukanArsip)}</span>
+                  </div>
+                  <div style={styles.alurRow}>
+                    <span style={styles.alurLabel}>Pengeluaran tercatat</span>
+                    <span style={{ ...styles.alurValue, color: '#EF4444' }}>-{formatCurrency(g?.pengeluaranArsip)}</span>
+                  </div>
+                  <div style={styles.alurNote}>
+                    Catatan lama, hanya untuk riwayat. Tidak dipakai menghitung kas bersih
+                    karena ada uang iuran tahun 2025 yang angkanya belum diketahui.
+                  </div>
+                </div>
+              )}
+
+              {/* RINCIAN UANG MASUK PER BULAN */}
+              {kas?.rincian?.length > 0 && (
+                <>
+                  <div style={styles.sectionHeader}>
+                    <div style={styles.sectionTitle}>Rincian per Bulan</div>
+                    <div style={styles.sectionAction}>{kas.rincian.length} bulan</div>
+                  </div>
+                  <div style={isDesktop ? styles.listContainerDesktop : styles.listContainer}>
+                    {kas.rincian.map(r => {
+                      const openKas = pemasukanBlock === `kas-${r.month}`;
+                      const blokEntries = Object.entries(r.perBlock).sort(([a], [b]) => a.localeCompare(b));
+                      return (
+                        <div key={r.month}>
+                          <div
+                            style={styles.listItem}
+                            role="button"
+                            tabIndex={0}
+                            onClick={() => setPemasukanBlock(openKas ? null : `kas-${r.month}`)}
+                            onKeyDown={e => {
+                              if (e.key === 'Enter' || e.key === ' ') {
+                                e.preventDefault();
+                                setPemasukanBlock(openKas ? null : `kas-${r.month}`);
+                              }
+                            }}
+                          >
+                            <div style={{
+                              ...styles.listBadge,
+                              background: '#ECFDF5',
+                              color: '#128F55',
+                            }}>{MONTH_NAMES[r.month]}</div>
+                            <div style={styles.listContent}>
+                              <div style={styles.listTitle}>{MONTH_FULL[r.month]} 2026</div>
+                              <div style={styles.listSub}>
+                                {blokEntries.length > 0
+                                  ? (r.lainnyaTotal > 0
+                                      ? `${blokEntries.length} blok terinci + gabungan`
+                                      : `${blokEntries.length} blok`)
+                                  : 'Total semua blok'}
+                              </div>
+                            </div>
+                            <div style={styles.listRight}>
+                              <div style={{ ...styles.listAmount, color: '#128F55' }}>{formatCurrency(r.total)}</div>
+                              <div style={styles.listChevron}>{openKas ? 'Tutup ▲' : 'Rincian ▼'}</div>
+                            </div>
+                          </div>
+
+                          {openKas && (
+                            <div style={styles.drillBox}>
+                              <div style={{ ...styles.drillItem, borderBottom: 'none', justifyContent: 'center', padding: '8px 0' }}>
+                                <a href={`/api/pdf-bulan?month=${r.month}`} target="_blank" rel="noopener noreferrer"
+                                   style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: '#ECFDF5', border: '1px solid #A7F3D0', borderRadius: 8, padding: '6px 12px', fontSize: 12, fontWeight: 600, color: '#065f46', textDecoration: 'none' }}>
+                                  ⬇️ Download PDF Kas {MONTH_NAMES[r.month]}
+                                </a>
+                              </div>
+                              {blokEntries.map(([blok, nominal]) => (
+                                <div key={blok} style={styles.drillItem}>
+                                  <div style={styles.drillContent}>
+                                    <div style={styles.drillTitle}>Blok {blok}</div>
+                                  </div>
+                                  <div style={{ ...styles.drillAmount, color: '#128F55' }}>
+                                    {formatCurrency(nominal)}
+                                  </div>
+                                </div>
+                              ))}
+                              {r.lainnyaTotal > 0 && (
+                                <div style={styles.drillItem}>
+                                  <div style={styles.drillContent}>
+                                    <div style={styles.drillTitle}>Blok lainnya (gabungan)</div>
+                                    <div style={styles.drillSub}>
+                                      {r.lainnyaNote || 'Rincian per blok belum tersedia'}
+                                    </div>
+                                  </div>
+                                  <div style={{ ...styles.drillAmount, color: '#F59E0B' }}>
+                                    {formatCurrency(r.lainnyaTotal)}
+                                  </div>
+                                </div>
+                              )}
+                              {blokEntries.length === 0 && r.lainnyaTotal === 0 && (
+                                <div style={styles.drillItem}>
+                                  <div style={styles.drillContent}>
+                                    <div style={styles.drillTitle}>Semua blok (gabungan)</div>
+                                    <div style={styles.drillSub}>
+                                      {r.catatan || 'Rincian per blok belum tersedia'}
+                                    </div>
+                                  </div>
+                                  <div style={{ ...styles.drillAmount, color: '#128F55' }}>
+                                    {formatCurrency(r.total)}
+                                  </div>
+                                </div>
+                              )}
+                            </div>
+                          )}
+                        </div>
+                      );
+                    })}
+                  </div>
+                </>
+              )}
+
+              {/* STATUS SETORAN PER BLOK */}
               <div style={styles.sectionHeader}>
-                <div style={styles.sectionTitle}>Pemasukan Per Blok</div>
-                <div style={styles.sectionAction}>{formatCurrency(g?.totalPaid)}</div>
+                <div style={styles.sectionTitle}>Setoran {MONTH_FULL[thisMonth]} 2026</div>
+                <div style={styles.sectionAction}>{sudahSetorBulanIni}/{blockList.length} blok</div>
               </div>
               <div style={isDesktop ? styles.listContainerDesktop : styles.listContainer}>
                 {blockList.map(b => {
+                  const riwayat = setoranBlok[b.block] || [];
+                  const bulanIni = riwayat.find(s => s.month === thisMonth);
                   const open = pemasukanBlock === b.block;
-                  const perBulan = globalStats?.blocks?.[b.block]?.pemasukanPerBulan || [];
-                  const rows = MONTHS.map((mo, mi) => ({ mo, mi, amount: perBulan[mi] || 0 }))
-                    .filter(r => r.amount > 0);
+                  const terkumpul = kas?.perBlockTotal?.[b.block]
+                    ?? globalStats?.blocks?.[b.block]?.totalPaid
+                    ?? 0;
+                  const disetor = riwayat.reduce((s, x) => s + Number(x.amount || 0), 0);
+                  const sisa = Math.max(0, terkumpul - disetor);
+
                   return (
                     <div key={b.block}>
-                      <div style={styles.listItem} onClick={() => setPemasukanBlock(open ? null : b.block)}>
-                        <div style={styles.listBadge}>{b.block}</div>
+                      <div
+                        style={styles.listItem}
+                        role="button"
+                        tabIndex={0}
+                        onClick={() => setPemasukanBlock(open ? null : b.block)}
+                        onKeyDown={e => {
+                          if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            setPemasukanBlock(open ? null : b.block);
+                          }
+                        }}
+                      >
+                        <div style={{
+                          ...styles.listBadge,
+                          background: bulanIni ? '#ECFDF5' : '#FEF2F2',
+                          color: bulanIni ? '#128F55' : '#EF4444',
+                        }}>{b.block}</div>
                         <div style={styles.listContent}>
                           <div style={styles.listTitle}>{b.label}</div>
-                          <div style={styles.listSub}>{b.memberCount} Rumah • ketuk untuk detail</div>
+                          <div style={{
+                            ...styles.listSub,
+                            color: bulanIni ? '#128F55' : '#EF4444',
+                            fontWeight: '700',
+                          }}>
+                            {bulanIni
+                              ? `Sudah disetor${bulanIni.date ? ` · ${formatTanggal(bulanIni.date)}` : ''}`
+                              : 'Belum disetor bulan ini'}
+                          </div>
                         </div>
-                        <div style={{...styles.listAmount, color: '#128F55'}}>{formatCurrency(globalStats?.blocks?.[b.block]?.totalPaid)}</div>
+                        <div style={styles.listRight}>
+                          <div style={{
+                            ...styles.listAmount,
+                            color: bulanIni ? '#128F55' : '#9CA3AF',
+                          }}>{bulanIni ? formatCurrency(bulanIni.amount) : '—'}</div>
+                          <div style={styles.listChevron}>{open ? 'Tutup ▲' : 'Riwayat ▼'}</div>
+                        </div>
                       </div>
+
                       {open && (
                         <div style={styles.drillBox}>
-                          {rows.length === 0 ? (
-                            <div style={styles.drillEmpty}>Belum ada pemasukan.</div>
-                          ) : rows.map(r => (
-                            <div key={r.mo} style={styles.drillItem}>
-                              <div style={styles.drillContent}>
-                                <div style={styles.drillTitle}>{MONTH_NAMES[r.mo]} 2026</div>
-                                <div style={styles.drillSub}>Iuran warga</div>
+                          {MONTHS.map(mo => {
+                            const rec = riwayat.find(s => s.month === mo);
+                            const lewat = MONTHS.indexOf(mo) <= MONTHS.indexOf(thisMonth);
+                            return (
+                              <div key={mo} style={styles.drillItem}>
+                                <div style={styles.drillContent}>
+                                  <div style={styles.drillTitle}>{MONTH_FULL[mo]} 2026</div>
+                                  <div style={{
+                                    ...styles.drillSub,
+                                    color: rec ? '#128F55' : lewat ? '#EF4444' : '#9CA3AF',
+                                  }}>
+                                    {rec
+                                      ? `Disetor${rec.date ? ` ${formatTanggal(rec.date)}` : ''}`
+                                      : lewat ? 'Belum disetor' : 'Belum waktunya'}
+                                  </div>
+                                </div>
+                                <div style={{
+                                  ...styles.drillAmount,
+                                  color: rec ? '#128F55' : '#D1D5DB',
+                                }}>{rec ? formatCurrency(rec.amount) : '—'}</div>
                               </div>
-                              <div style={{...styles.drillAmount, color: '#128F55'}}>+{formatCurrency(r.amount)}</div>
+                            );
+                          })}
+
+                          <div style={styles.drillRekap}>
+                            <div style={styles.drillRekapRow}>
+                              <span>Terkumpul dari warga {b.label}</span>
+                              <strong style={{ color: '#128F55' }}>{formatCurrency(terkumpul)}</strong>
                             </div>
-                          ))}
+                            <div style={styles.drillRekapRow}>
+                              <span>Total disetor sepanjang 2026</span>
+                              <strong style={{ color: '#0EA5E9' }}>{formatCurrency(disetor)}</strong>
+                            </div>
+                            <div style={styles.drillRekapRow}>
+                              <span>Masih di perwakilan</span>
+                              <strong style={{ color: sisa > 0 ? '#F59E0B' : '#9CA3AF' }}>{formatCurrency(sisa)}</strong>
+                            </div>
+                          </div>
                         </div>
                       )}
                     </div>
@@ -575,8 +1046,8 @@ export default function Home() {
             </div>
             {NAV.map(n => (
               <div key={n.key} style={tab === n.key ? styles.navSideActive : styles.navSideItem} onClick={() => goTab(n.key)}>
-                <div style={styles.navIcon}><NavIcon name={n.icon} /></div>
-                <div style={styles.navLabel}>{n.label}</div>
+                <div style={styles.navSideIcon}><NavIcon name={n.icon} /></div>
+                <div style={styles.navSideLabel}>{n.label}</div>
               </div>
             ))}
           </div>
@@ -633,7 +1104,7 @@ const styles = {
     boxShadow: '0 2px 8px rgba(0,0,0,0.04)', fontSize: '18px', cursor: 'pointer', position: 'relative',
   },
 
-  content: { padding: '0 16px 140px', position: 'relative', zIndex: 1 },
+  content: { padding: '0 16px 190px', position: 'relative', zIndex: 1 },
 
   heroCard: {
     background: 'linear-gradient(135deg, #128F55 0%, #16A34A 100%)',
@@ -686,6 +1157,9 @@ const styles = {
   ringkasanRow: { display: 'flex', justifyContent: 'space-between', alignItems: 'center' },
   ringkasanLabel: { fontSize: '13px', color: '#6B7280', fontWeight: '600' },
   ringkasanValueBig: { fontSize: '24px', fontWeight: '800', color: '#111827', letterSpacing: '-0.5px' },
+  ringkasanWarn: { marginTop: '8px', fontSize: '11px', lineHeight: '1.5', color: '#B45309', background: '#FFFBEB', border: '1px solid #FDE68A', borderRadius: '8px', padding: '8px 10px' },
+  ringkasanInfo: { marginTop: '8px', fontSize: '11px', lineHeight: '1.5', color: '#0369A1', background: '#F0F9FF', border: '1px solid #BAE6FD', borderRadius: '8px', padding: '8px 10px' },
+  trackingNote: { margin: '10px 2px 0', fontSize: '11px', lineHeight: '1.5', color: '#0369A1', background: '#F0F9FF', border: '1px solid #BAE6FD', borderRadius: '8px', padding: '8px 10px' },
   ringkasanDivider: { height: '1px', background: '#F0F0F0', margin: '16px 0' },
   ringkasanStatsRow: {  },
   ringkasanStatRow: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '6px 0' },
@@ -727,6 +1201,7 @@ const styles = {
   listSub: { fontSize: '12px', color: '#9CA3AF', marginTop: '1px' },
   listRight: { display: 'flex', alignItems: 'center', gap: '8px' },
   listAmount: { fontSize: '14px', fontWeight: '700', color: '#128F55' },
+  listChevron: { fontSize: '10px', color: '#9CA3AF', fontWeight: '600', whiteSpace: 'nowrap' },
   listArrow: { fontSize: '20px', color: '#D1D5DB' },
 
   // Block card with progress bar
@@ -761,6 +1236,32 @@ const styles = {
   emptyBox: {
     background: '#FFF', borderRadius: '16px', padding: '32px 20px',
     textAlign: 'center', color: '#9CA3AF', fontSize: '14px', fontWeight: '500',
+  },
+  // Kartu ringkasan alur uang di tab Pemasukan
+  alurCard: {
+    background: '#FFF', borderRadius: '20px', padding: '18px 18px 14px',
+    boxShadow: '0 2px 12px rgba(0,0,0,0.03)', marginTop: '4px',
+  },
+  alurTitle: { fontSize: '15px', fontWeight: '800', color: '#111827', marginBottom: '12px' },
+  alurRow: {
+    display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+    padding: '5px 0', gap: '12px',
+  },
+  alurLabel: { fontSize: '13px', color: '#6B7280', fontWeight: '500' },
+  alurValue: { fontSize: '15px', fontWeight: '800' },
+  alurDivider: { height: '1px', background: '#EEF2F6', margin: '8px 0' },
+  alurNote: {
+    fontSize: '11px', color: '#9CA3AF', fontWeight: '500',
+    marginTop: '10px', lineHeight: 1.5,
+  },
+
+  // Rekap kumulatif di dalam drill-down blok
+  drillRekap: {
+    borderTop: '1px dashed #D1D5DB', marginTop: '6px', paddingTop: '10px', paddingBottom: '4px',
+  },
+  drillRekapRow: {
+    display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+    fontSize: '12px', color: '#6B7280', padding: '3px 0', gap: '12px',
   },
   drillBox: {
     background: '#F8FAFC', borderRadius: '14px', padding: '4px 14px',
@@ -899,6 +1400,9 @@ const styles = {
   },
   navIcon: { fontSize: '19px', marginBottom: '3px' },
   navLabel: { fontSize: '10px', fontWeight: '600' },
+  // Sidebar PC: ikon & label sejajar horizontal, jadi ukurannya beda dari bottom-nav HP.
+  navSideIcon: { display: 'flex', alignItems: 'center', fontSize: '19px' },
+  navSideLabel: { fontSize: '14px', fontWeight: 'inherit', lineHeight: 1.2 },
 
   // NOTIFIKASI
   notifOverlay: {
