@@ -1323,36 +1323,35 @@
         },
         {
           "houseNumber": "C3",
-          "name": "-",
-          "amount": 50000,
-          "isException": false,
-          "payments": {
-            "jan": false,
-            "feb": false,
-            "mar": false,
-            "apr": false,
-            "may": false,
-            "jun": false,
-            "jul": false,
-            "aug": false,
-            "sep": false,
-            "oct": false,
-            "nov": false,
-            "dec": false
-          },
-          "vacant": true
-        },
-        {
-          "houseNumber": "C4",
-          "name": "-",
+          "name": "Uban",
           "amount": 50000,
           "isException": false,
           "payments": {
             "jan": true,
             "feb": true,
             "mar": true,
-            "apr": false,
-            "may": false,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": false,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "C4",
+          "name": "Ihya",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": true,
             "jun": false,
             "jul": false,
             "aug": false,
@@ -1364,17 +1363,17 @@
         },
         {
           "houseNumber": "C5",
-          "name": "-",
+          "name": "Rahman",
           "amount": 50000,
           "isException": false,
           "payments": {
             "jan": true,
             "feb": true,
             "mar": true,
-            "apr": false,
-            "may": false,
-            "jun": false,
-            "jul": false,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": true,
             "aug": false,
             "sep": false,
             "oct": false,
@@ -1384,7 +1383,7 @@
         },
         {
           "houseNumber": "C6",
-          "name": "-",
+          "name": "Qayah",
           "amount": 30000,
           "isException": true,
           "payments": {
@@ -1432,10 +1431,10 @@
             "feb": true,
             "mar": true,
             "apr": true,
-            "may": false,
-            "jun": false,
-            "jul": false,
-            "aug": false,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
             "sep": false,
             "oct": false,
             "nov": false,
@@ -1472,11 +1471,11 @@
             "feb": true,
             "mar": true,
             "apr": true,
-            "may": false,
-            "jun": false,
-            "jul": false,
-            "aug": false,
-            "sep": false,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
+            "sep": true,
             "oct": false,
             "nov": false,
             "dec": false
@@ -1484,7 +1483,37 @@
         },
         {
           "houseNumber": "C11",
-          "name": "-",
+          "name": "Recky",
+          "amount": 50000,
+          "isException": true,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
+            "sep": false,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          },
+          "paidAmounts": {
+            "jan": 50000,
+            "feb": 50000,
+            "mar": 50000,
+            "apr": 50000,
+            "may": 30000,
+            "jun": 50000,
+            "jul": 50000,
+            "aug": 50000
+          }
+        },
+        {
+          "houseNumber": "C12",
+          "name": "Saleh",
           "amount": 50000,
           "isException": false,
           "payments": {
@@ -1492,28 +1521,8 @@
             "feb": true,
             "mar": true,
             "apr": true,
-            "may": false,
-            "jun": false,
-            "jul": false,
-            "aug": false,
-            "sep": false,
-            "oct": false,
-            "nov": false,
-            "dec": false
-          }
-        },
-        {
-          "houseNumber": "C12",
-          "name": "-",
-          "amount": 50000,
-          "isException": false,
-          "payments": {
-            "jan": true,
-            "feb": true,
-            "mar": false,
-            "apr": false,
-            "may": false,
-            "jun": false,
+            "may": true,
+            "jun": true,
             "jul": false,
             "aug": false,
             "sep": false,
@@ -1524,7 +1533,7 @@
         },
         {
           "houseNumber": "C13",
-          "name": "-",
+          "name": "Rizky",
           "amount": 30000,
           "isException": true,
           "payments": {
@@ -1532,9 +1541,9 @@
             "feb": true,
             "mar": true,
             "apr": true,
-            "may": false,
-            "jun": false,
-            "jul": false,
+            "may": true,
+            "jun": true,
+            "jul": true,
             "aug": false,
             "sep": false,
             "oct": false,
@@ -1584,7 +1593,7 @@
         },
         {
           "houseNumber": "C16",
-          "name": "-",
+          "name": "Indra",
           "amount": 50000,
           "isException": false,
           "payments": {
@@ -1593,10 +1602,10 @@
             "mar": true,
             "apr": true,
             "may": true,
-            "jun": false,
-            "jul": false,
-            "aug": false,
-            "sep": false,
+            "jun": true,
+            "jul": true,
+            "aug": true,
+            "sep": true,
             "oct": false,
             "nov": false,
             "dec": false
@@ -1604,17 +1613,17 @@
         },
         {
           "houseNumber": "C17",
-          "name": "-",
+          "name": "Erna",
           "amount": 50000,
           "isException": false,
           "payments": {
             "jan": true,
             "feb": true,
             "mar": true,
-            "apr": false,
-            "may": false,
-            "jun": false,
-            "jul": false,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": true,
             "aug": false,
             "sep": false,
             "oct": false,
@@ -1624,7 +1633,7 @@
         },
         {
           "houseNumber": "C18",
-          "name": "-",
+          "name": "Sri",
           "amount": 50000,
           "isException": false,
           "payments": {
@@ -1632,11 +1641,11 @@
             "feb": true,
             "mar": true,
             "apr": true,
-            "may": false,
-            "jun": false,
-            "jul": false,
-            "aug": false,
-            "sep": false,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
+            "sep": true,
             "oct": false,
             "nov": false,
             "dec": false
@@ -1644,18 +1653,18 @@
         },
         {
           "houseNumber": "C19",
-          "name": "-",
+          "name": "Sandi",
           "amount": 50000,
           "isException": false,
           "payments": {
             "jan": true,
             "feb": true,
             "mar": true,
-            "apr": false,
-            "may": false,
-            "jun": false,
-            "jul": false,
-            "aug": false,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
             "sep": false,
             "oct": false,
             "nov": false,
@@ -1664,7 +1673,7 @@
         },
         {
           "houseNumber": "C20",
-          "name": "-",
+          "name": "Nisa",
           "amount": 50000,
           "isException": false,
           "payments": {
@@ -1672,10 +1681,10 @@
             "feb": true,
             "mar": true,
             "apr": true,
-            "may": false,
-            "jun": false,
-            "jul": false,
-            "aug": false,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
             "sep": false,
             "oct": false,
             "nov": false,
@@ -1684,7 +1693,7 @@
         },
         {
           "houseNumber": "C21",
-          "name": "-",
+          "name": "Arif",
           "amount": 50000,
           "isException": false,
           "payments": {
@@ -1692,9 +1701,9 @@
             "feb": true,
             "mar": true,
             "apr": true,
-            "may": false,
-            "jun": false,
-            "jul": false,
+            "may": true,
+            "jun": true,
+            "jul": true,
             "aug": false,
             "sep": false,
             "oct": false,
@@ -1704,7 +1713,7 @@
         },
         {
           "houseNumber": "C22",
-          "name": "-",
+          "name": "Rania",
           "amount": 30000,
           "isException": true,
           "payments": {
@@ -1714,9 +1723,9 @@
             "apr": true,
             "may": true,
             "jun": true,
-            "jul": false,
-            "aug": false,
-            "sep": false,
+            "jul": true,
+            "aug": true,
+            "sep": true,
             "oct": false,
             "nov": false,
             "dec": false
@@ -1724,17 +1733,17 @@
         },
         {
           "houseNumber": "C23",
-          "name": "-",
+          "name": "Nazar",
           "amount": 50000,
           "isException": false,
           "payments": {
             "jan": true,
             "feb": true,
             "mar": true,
-            "apr": false,
-            "may": false,
-            "jun": false,
-            "jul": false,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": true,
             "aug": false,
             "sep": false,
             "oct": false,
@@ -1751,10 +1760,10 @@
             "jan": true,
             "feb": true,
             "mar": true,
-            "apr": false,
-            "may": false,
-            "jun": false,
-            "jul": false,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": true,
             "aug": false,
             "sep": false,
             "oct": false,
@@ -1764,7 +1773,7 @@
         },
         {
           "houseNumber": "C25",
-          "name": "-",
+          "name": "Aulia R",
           "amount": 50000,
           "isException": false,
           "payments": {
@@ -1773,8 +1782,8 @@
             "mar": true,
             "apr": true,
             "may": true,
-            "jun": false,
-            "jul": false,
+            "jun": true,
+            "jul": true,
             "aug": false,
             "sep": false,
             "oct": false,
@@ -1804,7 +1813,7 @@
         },
         {
           "houseNumber": "C27",
-          "name": "-",
+          "name": "Dhani",
           "amount": 50000,
           "isException": false,
           "payments": {
@@ -1812,11 +1821,11 @@
             "feb": true,
             "mar": true,
             "apr": true,
-            "may": false,
-            "jun": false,
-            "jul": false,
-            "aug": false,
-            "sep": false,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
+            "sep": true,
             "oct": false,
             "nov": false,
             "dec": false
@@ -1824,16 +1833,16 @@
         },
         {
           "houseNumber": "C28",
-          "name": "-",
+          "name": "Faridi",
           "amount": 50000,
           "isException": false,
           "payments": {
             "jan": true,
             "feb": true,
             "mar": true,
-            "apr": false,
-            "may": false,
-            "jun": false,
+            "apr": true,
+            "may": true,
+            "jun": true,
             "jul": false,
             "aug": false,
             "sep": false,
@@ -1850,11 +1859,11 @@
           "payments": {
             "jan": true,
             "feb": true,
-            "mar": false,
-            "apr": false,
-            "may": false,
-            "jun": false,
-            "jul": false,
+            "mar": true,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": true,
             "aug": false,
             "sep": false,
             "oct": false,
@@ -1864,7 +1873,7 @@
         },
         {
           "houseNumber": "C30",
-          "name": "-",
+          "name": "Laili",
           "amount": 50000,
           "isException": false,
           "payments": {
@@ -1872,10 +1881,10 @@
             "feb": true,
             "mar": true,
             "apr": true,
-            "may": false,
-            "jun": false,
-            "jul": false,
-            "aug": false,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
             "sep": false,
             "oct": false,
             "nov": false,
@@ -1884,7 +1893,7 @@
         },
         {
           "houseNumber": "C31",
-          "name": "-",
+          "name": "Ahid",
           "amount": 50000,
           "isException": false,
           "payments": {
@@ -1892,10 +1901,10 @@
             "feb": true,
             "mar": true,
             "apr": true,
-            "may": false,
-            "jun": false,
-            "jul": false,
-            "aug": false,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
             "sep": false,
             "oct": false,
             "nov": false,
@@ -1904,18 +1913,18 @@
         },
         {
           "houseNumber": "C32",
-          "name": "-",
+          "name": "Dafit",
           "amount": 50000,
           "isException": false,
           "payments": {
             "jan": true,
             "feb": true,
             "mar": true,
-            "apr": false,
-            "may": false,
-            "jun": false,
-            "jul": false,
-            "aug": false,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
             "sep": false,
             "oct": false,
             "nov": false,
@@ -1924,16 +1933,16 @@
         },
         {
           "houseNumber": "C33",
-          "name": "-",
+          "name": "Daeng",
           "amount": 50000,
           "isException": false,
           "payments": {
             "jan": true,
             "feb": true,
-            "mar": false,
-            "apr": false,
-            "may": false,
-            "jun": false,
+            "mar": true,
+            "apr": true,
+            "may": true,
+            "jun": true,
             "jul": false,
             "aug": false,
             "sep": false,
@@ -1944,7 +1953,7 @@
         },
         {
           "houseNumber": "C34",
-          "name": "-",
+          "name": "Riduan",
           "amount": 50000,
           "isException": false,
           "payments": {
@@ -1952,9 +1961,9 @@
             "feb": true,
             "mar": true,
             "apr": true,
-            "may": false,
-            "jun": false,
-            "jul": false,
+            "may": true,
+            "jun": true,
+            "jul": true,
             "aug": false,
             "sep": false,
             "oct": false,
@@ -1964,7 +1973,7 @@
         },
         {
           "houseNumber": "C35",
-          "name": "-",
+          "name": "Syakhbud",
           "amount": 50000,
           "isException": false,
           "payments": {
@@ -1973,10 +1982,10 @@
             "mar": true,
             "apr": true,
             "may": true,
-            "jun": false,
-            "jul": false,
-            "aug": false,
-            "sep": false,
+            "jun": true,
+            "jul": true,
+            "aug": true,
+            "sep": true,
             "oct": false,
             "nov": false,
             "dec": false
@@ -1984,7 +1993,7 @@
         },
         {
           "houseNumber": "C36",
-          "name": "-",
+          "name": "Luthfi",
           "amount": 50000,
           "isException": false,
           "payments": {
@@ -1993,10 +2002,10 @@
             "mar": true,
             "apr": true,
             "may": true,
-            "jun": false,
-            "jul": false,
-            "aug": false,
-            "sep": false,
+            "jun": true,
+            "jul": true,
+            "aug": true,
+            "sep": true,
             "oct": false,
             "nov": false,
             "dec": false
@@ -2024,7 +2033,7 @@
         },
         {
           "houseNumber": "C38",
-          "name": "-",
+          "name": "Yuli",
           "amount": 50000,
           "isException": false,
           "payments": {
@@ -2032,10 +2041,10 @@
             "feb": true,
             "mar": true,
             "apr": true,
-            "may": false,
-            "jun": false,
-            "jul": false,
-            "aug": false,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
             "sep": false,
             "oct": false,
             "nov": false,
@@ -2052,10 +2061,10 @@
             "feb": true,
             "mar": true,
             "apr": true,
-            "may": false,
-            "jun": false,
-            "jul": false,
-            "aug": false,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
             "sep": false,
             "oct": false,
             "nov": false,
@@ -2064,7 +2073,7 @@
         },
         {
           "houseNumber": "C40",
-          "name": "-",
+          "name": "Ikhwan",
           "amount": 50000,
           "isException": false,
           "payments": {
@@ -2072,9 +2081,9 @@
             "feb": true,
             "mar": true,
             "apr": true,
-            "may": false,
-            "jun": false,
-            "jul": false,
+            "may": true,
+            "jun": true,
+            "jul": true,
             "aug": false,
             "sep": false,
             "oct": false,
@@ -2111,9 +2120,9 @@
             "jan": true,
             "feb": true,
             "mar": true,
-            "apr": false,
-            "may": false,
-            "jun": false,
+            "apr": true,
+            "may": true,
+            "jun": true,
             "jul": false,
             "aug": false,
             "sep": false,
@@ -2124,7 +2133,7 @@
         },
         {
           "houseNumber": "C43",
-          "name": "-",
+          "name": "Wawan",
           "amount": 50000,
           "isException": false,
           "payments": {
@@ -2132,10 +2141,10 @@
             "feb": true,
             "mar": true,
             "apr": true,
-            "may": false,
-            "jun": false,
-            "jul": false,
-            "aug": false,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
             "sep": false,
             "oct": false,
             "nov": false,
@@ -2144,7 +2153,7 @@
         },
         {
           "houseNumber": "C44",
-          "name": "-",
+          "name": "Ade",
           "amount": 50000,
           "isException": false,
           "payments": {
@@ -2152,10 +2161,10 @@
             "feb": true,
             "mar": true,
             "apr": true,
-            "may": false,
-            "jun": false,
-            "jul": false,
-            "aug": false,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
             "sep": false,
             "oct": false,
             "nov": false,
@@ -2164,7 +2173,7 @@
         },
         {
           "houseNumber": "C45",
-          "name": "-",
+          "name": "Tamami",
           "amount": 50000,
           "isException": false,
           "payments": {
@@ -2172,10 +2181,10 @@
             "feb": true,
             "mar": true,
             "apr": true,
-            "may": false,
-            "jun": false,
-            "jul": false,
-            "aug": false,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
             "sep": false,
             "oct": false,
             "nov": false,
@@ -2184,7 +2193,7 @@
         },
         {
           "houseNumber": "C46",
-          "name": "-",
+          "name": "Azzahra",
           "amount": 50000,
           "isException": false,
           "payments": {
@@ -2192,10 +2201,10 @@
             "feb": true,
             "mar": true,
             "apr": true,
-            "may": false,
-            "jun": false,
-            "jul": false,
-            "aug": false,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
             "sep": false,
             "oct": false,
             "nov": false,
@@ -2204,27 +2213,7 @@
         },
         {
           "houseNumber": "C47",
-          "name": "-",
-          "amount": 50000,
-          "isException": false,
-          "payments": {
-            "jan": true,
-            "feb": true,
-            "mar": true,
-            "apr": false,
-            "may": false,
-            "jun": false,
-            "jul": false,
-            "aug": false,
-            "sep": false,
-            "oct": false,
-            "nov": false,
-            "dec": false
-          }
-        },
-        {
-          "houseNumber": "C48",
-          "name": "-",
+          "name": "Ali",
           "amount": 50000,
           "isException": false,
           "payments": {
@@ -2232,10 +2221,30 @@
             "feb": true,
             "mar": true,
             "apr": true,
-            "may": false,
-            "jun": false,
-            "jul": false,
-            "aug": false,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
+            "sep": true,
+            "oct": false,
+            "nov": false,
+            "dec": false
+          }
+        },
+        {
+          "houseNumber": "C48",
+          "name": "Eko",
+          "amount": 50000,
+          "isException": false,
+          "payments": {
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
             "sep": false,
             "oct": false,
             "nov": false,
@@ -2244,7 +2253,7 @@
         },
         {
           "houseNumber": "C49",
-          "name": "-",
+          "name": "Sayyidah",
           "amount": 50000,
           "isException": false,
           "payments": {
@@ -2252,9 +2261,9 @@
             "feb": true,
             "mar": true,
             "apr": true,
-            "may": false,
-            "jun": false,
-            "jul": false,
+            "may": true,
+            "jun": true,
+            "jul": true,
             "aug": false,
             "sep": false,
             "oct": false,
@@ -2324,7 +2333,7 @@
         },
         {
           "houseNumber": "C53",
-          "name": "-",
+          "name": "Mardiyani",
           "amount": 50000,
           "isException": false,
           "payments": {
@@ -2332,10 +2341,10 @@
             "feb": true,
             "mar": true,
             "apr": true,
-            "may": false,
-            "jun": false,
-            "jul": false,
-            "aug": false,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
             "sep": false,
             "oct": false,
             "nov": false,
@@ -2344,7 +2353,7 @@
         },
         {
           "houseNumber": "C54",
-          "name": "-",
+          "name": "Sary",
           "amount": 50000,
           "isException": false,
           "payments": {
@@ -2352,11 +2361,11 @@
             "feb": true,
             "mar": true,
             "apr": true,
-            "may": false,
-            "jun": false,
-            "jul": false,
-            "aug": false,
-            "sep": false,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
+            "sep": true,
             "oct": false,
             "nov": false,
             "dec": false
@@ -2942,8 +2951,8 @@
             "apr": true,
             "may": true,
             "jun": true,
-            "jul": false,
-            "aug": false,
+            "jul": true,
+            "aug": true,
             "sep": false,
             "oct": false,
             "nov": false,
@@ -3299,7 +3308,7 @@
       "members": [
         {
           "houseNumber": "E1",
-          "name": "-",
+          "name": "RIFANI",
           "amount": 30000,
           "isException": true,
           "payments": {
@@ -3307,10 +3316,10 @@
             "feb": true,
             "mar": true,
             "apr": true,
-            "may": false,
-            "jun": false,
-            "jul": false,
-            "aug": false,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
             "sep": false,
             "oct": false,
             "nov": false,
@@ -3319,7 +3328,7 @@
         },
         {
           "houseNumber": "E2",
-          "name": "-",
+          "name": "ILMI",
           "amount": 50000,
           "isException": false,
           "payments": {
@@ -3327,10 +3336,10 @@
             "feb": true,
             "mar": true,
             "apr": true,
-            "may": false,
-            "jun": false,
-            "jul": false,
-            "aug": false,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
             "sep": false,
             "oct": false,
             "nov": false,
@@ -3339,7 +3348,7 @@
         },
         {
           "houseNumber": "E3",
-          "name": "-",
+          "name": "RIZA",
           "amount": 50000,
           "isException": false,
           "payments": {
@@ -3347,10 +3356,10 @@
             "feb": true,
             "mar": true,
             "apr": true,
-            "may": false,
-            "jun": false,
-            "jul": false,
-            "aug": false,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
             "sep": false,
             "oct": false,
             "nov": false,
@@ -3359,7 +3368,7 @@
         },
         {
           "houseNumber": "E4",
-          "name": "-",
+          "name": "AHMAD",
           "amount": 50000,
           "isException": false,
           "payments": {
@@ -3367,10 +3376,10 @@
             "feb": true,
             "mar": true,
             "apr": true,
-            "may": false,
-            "jun": false,
-            "jul": false,
-            "aug": false,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
             "sep": false,
             "oct": false,
             "nov": false,
@@ -3379,18 +3388,18 @@
         },
         {
           "houseNumber": "E5",
-          "name": "-",
+          "name": "FADIL",
           "amount": 50000,
           "isException": false,
           "payments": {
             "jan": true,
             "feb": true,
             "mar": true,
-            "apr": false,
-            "may": false,
-            "jun": false,
-            "jul": false,
-            "aug": false,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
             "sep": false,
             "oct": false,
             "nov": false,
@@ -3399,17 +3408,17 @@
         },
         {
           "houseNumber": "E6",
-          "name": "-",
+          "name": "SYARIF",
           "amount": 50000,
           "isException": true,
           "payments": {
             "jan": true,
             "feb": true,
             "mar": true,
-            "apr": false,
-            "may": false,
-            "jun": false,
-            "jul": false,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": true,
             "aug": false,
             "sep": false,
             "oct": false,
@@ -3419,12 +3428,16 @@
           "paidAmounts": {
             "jan": 50000,
             "feb": 30000,
-            "mar": 30000
+            "mar": 30000,
+            "apr": 30000,
+            "may": 30000,
+            "jun": 30000,
+            "jul": 30000
           }
         },
         {
           "houseNumber": "E7",
-          "name": "-",
+          "name": "ROMA",
           "amount": 50000,
           "isException": false,
           "payments": {
@@ -3444,7 +3457,7 @@
         },
         {
           "houseNumber": "E8",
-          "name": "-",
+          "name": "RIZA",
           "amount": 50000,
           "isException": false,
           "payments": {
@@ -3452,10 +3465,10 @@
             "feb": true,
             "mar": true,
             "apr": true,
-            "may": false,
-            "jun": false,
-            "jul": false,
-            "aug": false,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
             "sep": false,
             "oct": false,
             "nov": false,
@@ -3464,7 +3477,7 @@
         },
         {
           "houseNumber": "E9",
-          "name": "-",
+          "name": "ABDI",
           "amount": 50000,
           "isException": false,
           "payments": {
@@ -3472,10 +3485,10 @@
             "feb": true,
             "mar": true,
             "apr": true,
-            "may": false,
-            "jun": false,
-            "jul": false,
-            "aug": false,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
             "sep": false,
             "oct": false,
             "nov": false,
@@ -3484,7 +3497,7 @@
         },
         {
           "houseNumber": "E10",
-          "name": "-",
+          "name": "RAHIM",
           "amount": 50000,
           "isException": false,
           "payments": {
@@ -3492,10 +3505,10 @@
             "feb": true,
             "mar": true,
             "apr": true,
-            "may": false,
-            "jun": false,
-            "jul": false,
-            "aug": false,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
             "sep": false,
             "oct": false,
             "nov": false,
@@ -3504,16 +3517,16 @@
         },
         {
           "houseNumber": "E11",
-          "name": "-",
+          "name": "ELSA",
           "amount": 50000,
           "isException": true,
           "payments": {
             "jan": true,
             "feb": true,
             "mar": true,
-            "apr": false,
-            "may": false,
-            "jun": false,
+            "apr": true,
+            "may": true,
+            "jun": true,
             "jul": false,
             "aug": false,
             "sep": false,
@@ -3524,12 +3537,15 @@
           "paidAmounts": {
             "jan": 50000,
             "feb": 50000,
-            "mar": 30000
+            "mar": 30000,
+            "apr": 30000,
+            "may": 30000,
+            "jun": 50000
           }
         },
         {
           "houseNumber": "E12",
-          "name": "-",
+          "name": "RUBY",
           "amount": 50000,
           "isException": false,
           "payments": {
@@ -3537,10 +3553,10 @@
             "feb": true,
             "mar": true,
             "apr": true,
-            "may": false,
-            "jun": false,
-            "jul": false,
-            "aug": false,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
             "sep": false,
             "oct": false,
             "nov": false,
@@ -3549,7 +3565,7 @@
         },
         {
           "houseNumber": "E13",
-          "name": "-",
+          "name": "HASMI",
           "amount": 30000,
           "isException": true,
           "payments": {
@@ -3557,10 +3573,10 @@
             "feb": true,
             "mar": true,
             "apr": true,
-            "may": false,
-            "jun": false,
-            "jul": false,
-            "aug": false,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
             "sep": false,
             "oct": false,
             "nov": false,
@@ -3569,7 +3585,7 @@
         },
         {
           "houseNumber": "E14",
-          "name": "-",
+          "name": "USUP",
           "amount": 50000,
           "isException": false,
           "payments": {
@@ -3590,7 +3606,7 @@
         },
         {
           "houseNumber": "E15",
-          "name": "-",
+          "name": "HUSNI",
           "amount": 50000,
           "isException": false,
           "payments": {
@@ -3598,8 +3614,8 @@
             "feb": true,
             "mar": true,
             "apr": true,
-            "may": false,
-            "jun": false,
+            "may": true,
+            "jun": true,
             "jul": false,
             "aug": false,
             "sep": false,
@@ -3618,8 +3634,8 @@
             "feb": true,
             "mar": true,
             "apr": true,
-            "may": false,
-            "jun": false,
+            "may": true,
+            "jun": true,
             "jul": false,
             "aug": false,
             "sep": false,
@@ -3631,7 +3647,9 @@
             "jan": 50000,
             "feb": 30000,
             "mar": 30000,
-            "apr": 30000
+            "apr": 30000,
+            "may": 30000,
+            "jun": 30000
           }
         },
         {
@@ -3656,7 +3674,7 @@
         },
         {
           "houseNumber": "E18",
-          "name": "-",
+          "name": "MEMEL",
           "amount": 50000,
           "isException": false,
           "payments": {
@@ -3696,7 +3714,7 @@
         },
         {
           "houseNumber": "E20",
-          "name": "-",
+          "name": "IRFAN",
           "amount": 50000,
           "isException": false,
           "payments": {
@@ -3716,7 +3734,7 @@
         },
         {
           "houseNumber": "E21",
-          "name": "-",
+          "name": "QIMAL",
           "amount": 50000,
           "isException": true,
           "payments": {
@@ -3724,10 +3742,10 @@
             "feb": true,
             "mar": true,
             "apr": true,
-            "may": false,
-            "jun": false,
-            "jul": false,
-            "aug": false,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
             "sep": false,
             "oct": false,
             "nov": false,
@@ -3736,12 +3754,16 @@
           "paidAmounts": {
             "feb": 30000,
             "mar": 50000,
-            "apr": 50000
+            "apr": 50000,
+            "may": 50000,
+            "jun": 50000,
+            "jul": 50000,
+            "aug": 50000
           }
         },
         {
           "houseNumber": "E22",
-          "name": "-",
+          "name": "IMA",
           "amount": 50000,
           "isException": false,
           "payments": {
@@ -3749,10 +3771,10 @@
             "feb": true,
             "mar": true,
             "apr": true,
-            "may": false,
-            "jun": false,
-            "jul": false,
-            "aug": false,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
             "sep": false,
             "oct": false,
             "nov": false,
@@ -3761,7 +3783,7 @@
         },
         {
           "houseNumber": "E23",
-          "name": "-",
+          "name": "DAYAT",
           "amount": 50000,
           "isException": false,
           "payments": {
@@ -3781,7 +3803,7 @@
         },
         {
           "houseNumber": "E24",
-          "name": "-",
+          "name": "MUTIA",
           "amount": 50000,
           "isException": false,
           "payments": {
@@ -3791,8 +3813,8 @@
             "apr": true,
             "may": true,
             "jun": true,
-            "jul": false,
-            "aug": false,
+            "jul": true,
+            "aug": true,
             "sep": false,
             "oct": false,
             "nov": false,
@@ -3801,7 +3823,7 @@
         },
         {
           "houseNumber": "E25",
-          "name": "-",
+          "name": "ICAL",
           "amount": 50000,
           "isException": false,
           "payments": {
@@ -3809,10 +3831,10 @@
             "feb": true,
             "mar": true,
             "apr": true,
-            "may": false,
-            "jun": false,
-            "jul": false,
-            "aug": false,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
             "sep": false,
             "oct": false,
             "nov": false,
@@ -3821,7 +3843,7 @@
         },
         {
           "houseNumber": "E26",
-          "name": "-",
+          "name": "RISKA",
           "amount": 50000,
           "isException": false,
           "payments": {
@@ -3829,10 +3851,10 @@
             "feb": true,
             "mar": true,
             "apr": true,
-            "may": false,
-            "jun": false,
-            "jul": false,
-            "aug": false,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
             "sep": false,
             "oct": false,
             "nov": false,
@@ -3861,7 +3883,7 @@
         },
         {
           "houseNumber": "E28",
-          "name": "-",
+          "name": "YUSNI",
           "amount": 50000,
           "isException": false,
           "payments": {
@@ -3869,10 +3891,10 @@
             "feb": true,
             "mar": true,
             "apr": true,
-            "may": false,
-            "jun": false,
-            "jul": false,
-            "aug": false,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
             "sep": false,
             "oct": false,
             "nov": false,
@@ -3881,7 +3903,7 @@
         },
         {
           "houseNumber": "E29",
-          "name": "-",
+          "name": "ZULKIPLI",
           "amount": 50000,
           "isException": false,
           "payments": {
@@ -3889,10 +3911,10 @@
             "feb": true,
             "mar": true,
             "apr": true,
-            "may": false,
-            "jun": false,
-            "jul": false,
-            "aug": false,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
             "sep": false,
             "oct": false,
             "nov": false,
@@ -3922,7 +3944,7 @@
         },
         {
           "houseNumber": "E31",
-          "name": "-",
+          "name": "MADNOR",
           "amount": 50000,
           "isException": false,
           "payments": {
@@ -3930,10 +3952,10 @@
             "feb": true,
             "mar": true,
             "apr": true,
-            "may": false,
-            "jun": false,
-            "jul": false,
-            "aug": false,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
             "sep": false,
             "oct": false,
             "nov": false,
@@ -3942,7 +3964,7 @@
         },
         {
           "houseNumber": "E32",
-          "name": "-",
+          "name": "RIADI",
           "amount": 50000,
           "isException": false,
           "payments": {
@@ -3952,18 +3974,18 @@
             "apr": false,
             "may": false,
             "jun": false,
-            "jul": false,
-            "aug": false,
+            "jul": true,
+            "aug": true,
             "sep": false,
             "oct": false,
             "nov": false,
             "dec": false
           },
-          "vacant": true
+          "vacant": false
         },
         {
           "houseNumber": "E33",
-          "name": "-",
+          "name": "DIANA",
           "amount": 50000,
           "isException": false,
           "payments": {
@@ -3971,10 +3993,10 @@
             "feb": true,
             "mar": true,
             "apr": true,
-            "may": false,
-            "jun": false,
-            "jul": false,
-            "aug": false,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
             "sep": false,
             "oct": false,
             "nov": false,
@@ -4004,7 +4026,7 @@
         },
         {
           "houseNumber": "E35",
-          "name": "-",
+          "name": "SAHA",
           "amount": 50000,
           "isException": false,
           "payments": {
@@ -4012,10 +4034,10 @@
             "feb": true,
             "mar": true,
             "apr": true,
-            "may": false,
-            "jun": false,
-            "jul": false,
-            "aug": false,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
             "sep": false,
             "oct": false,
             "nov": false,
@@ -4024,7 +4046,7 @@
         },
         {
           "houseNumber": "E36",
-          "name": "-",
+          "name": "IYAY",
           "amount": 50000,
           "isException": false,
           "payments": {
@@ -4032,10 +4054,10 @@
             "feb": true,
             "mar": true,
             "apr": true,
-            "may": false,
-            "jun": false,
-            "jul": false,
-            "aug": false,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
             "sep": false,
             "oct": false,
             "nov": false,
@@ -4044,7 +4066,7 @@
         },
         {
           "houseNumber": "E37",
-          "name": "-",
+          "name": "YUDHA",
           "amount": 50000,
           "isException": false,
           "payments": {
@@ -4052,10 +4074,10 @@
             "feb": false,
             "mar": true,
             "apr": true,
-            "may": false,
-            "jun": false,
-            "jul": false,
-            "aug": false,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
             "sep": false,
             "oct": false,
             "nov": false,
@@ -4064,7 +4086,7 @@
         },
         {
           "houseNumber": "E38",
-          "name": "-",
+          "name": "SYARIF/UNA",
           "amount": 50000,
           "isException": false,
           "payments": {
@@ -4072,20 +4094,20 @@
             "feb": false,
             "mar": false,
             "apr": false,
-            "may": false,
-            "jun": false,
-            "jul": false,
-            "aug": false,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
             "sep": false,
             "oct": false,
             "nov": false,
             "dec": false
           },
-          "vacant": true
+          "vacant": false
         },
         {
           "houseNumber": "E39",
-          "name": "-",
+          "name": "NI'MAH",
           "amount": 50000,
           "isException": false,
           "payments": {
@@ -4095,14 +4117,14 @@
             "apr": false,
             "may": false,
             "jun": false,
-            "jul": false,
-            "aug": false,
+            "jul": true,
+            "aug": true,
             "sep": false,
             "oct": false,
             "nov": false,
             "dec": false
           },
-          "vacant": true
+          "vacant": false
         },
         {
           "houseNumber": "E40",
@@ -4127,7 +4149,7 @@
         },
         {
           "houseNumber": "E41",
-          "name": "-",
+          "name": "RENALDI",
           "amount": 50000,
           "isException": false,
           "payments": {
@@ -4137,14 +4159,14 @@
             "apr": false,
             "may": false,
             "jun": false,
-            "jul": false,
-            "aug": false,
+            "jul": true,
+            "aug": true,
             "sep": false,
             "oct": false,
             "nov": false,
             "dec": false
           },
-          "vacant": true
+          "vacant": false
         },
         {
           "houseNumber": "E42",
@@ -4169,7 +4191,7 @@
         },
         {
           "houseNumber": "E43",
-          "name": "-",
+          "name": "ANGGI",
           "amount": 50000,
           "isException": false,
           "payments": {
@@ -5645,15 +5667,74 @@
       "setorHistory": []
     }
   },
-  "activityLog": [],
+  "activityLog": [
+    {
+      "icon": "💰",
+      "text": "Blok D D29 Apri bayar iuran Juli & Agustus 2026",
+      "date": "26 Agu 2026",
+      "ts": 1787681220000
+    },
+    {
+      "icon": "💰",
+      "text": "Blok C: Setoran perwakilan Rp 1.930.000",
+      "date": "26 Agu 2026",
+      "ts": 1787681220000
+    },
+    {
+      "icon": "💰",
+      "text": "Blok B: Setoran perwakilan Rp 790.000",
+      "date": "26 Agu 2026",
+      "ts": 1787681220000
+    },
+    {
+      "icon": "📤",
+      "text": "Kompleks: Wakar - Rp 3.600.000",
+      "date": "26 Agu 2026",
+      "ts": 1787681220000
+    },
+    {
+      "icon": "📤",
+      "text": "Kompleks: Sampah - Rp 1.300.000",
+      "date": "26 Agu 2026",
+      "ts": 1787681220000
+    }
+  ],
   "setoranBlok": {
     "A": [],
-    "B": [],
-    "C": [],
+    "B": [
+      {
+        "month": "aug",
+        "amount": 790000,
+        "date": "2026-08-26",
+        "keterangan": "Setoran Blok B"
+      }
+    ],
+    "C": [
+      {
+        "month": "aug",
+        "amount": 1930000,
+        "date": "2026-08-26",
+        "keterangan": "Setoran Blok C"
+      }
+    ],
     "D": [],
-    "E": [],
+    "E": [
+      {
+        "month": "aug",
+        "amount": 1540000,
+        "date": "2026-08-26",
+        "keterangan": "Setoran Blok E"
+      }
+    ],
     "F": [],
-    "G": []
+    "G": [
+      {
+        "month": "aug",
+        "amount": 450000,
+        "date": "2026-08-26",
+        "keterangan": "Setoran Blok G"
+      }
+    ]
   },
   "pengeluaran": [
     {
@@ -5795,6 +5876,21 @@
       "date": "2026-08-20",
       "amount": 1387000,
       "keterangan": "Beli taso untuk tiang lampu lapangan"
+    },
+    {
+      "date": "2026-08-20",
+      "amount": 465700,
+      "keterangan": "Beli 2 lampu sorot lapangan"
+    },
+    {
+      "date": "2026-08-26",
+      "amount": 3600000,
+      "keterangan": "Wakar"
+    },
+    {
+      "date": "2026-08-26",
+      "amount": 1300000,
+      "keterangan": "Sampah"
     }
   ],
   "pemasukanKas": {
@@ -5830,9 +5926,26 @@
         "catatan": "Rekap resmi bendahara, gabungan seluruh blok (A-G)"
       },
       "aug": {
-        "total": 50000,
-        "catatan": "D42 (Wahidi) bayar iuran 1 bulan"
+        "perBlock": {
+          "B": 790000,
+          "C": 1930000,
+          "D": 150000
+        },
+        "catatan": "Setoran perwakilan Blok C & B, plus iuran Blok D (D42 Wahidi 1 bulan, D29 Apri 2 bulan) yang diterima langsung bendahara umum."
       }
+    },
+    "aug": {
+      "total": 4810000,
+      "perBlock": {
+        "B": 790000,
+        "C": 1930000,
+        "E": 1540000,
+        "G": 450000
+      },
+      "directPayment": {
+        "D": 100000
+      },
+      "catatan": "Setoran perwakilan Blok B, C, E, G. Plus iuran langsung D29 Apri 2 bulan (Jul+Aug)."
     }
   },
   "trackingMulai": "aug",
