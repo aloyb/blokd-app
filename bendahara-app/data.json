@@ -230,20 +230,8 @@
           "name": "M Virgiawan Riyandi",
           "amount": 50000,
           "isException": false,
-          "payments": {
-            "jan": true,
-            "feb": false,
-            "mar": false,
-            "apr": false,
-            "may": false,
-            "jun": false,
-            "jul": false,
-            "aug": false,
-            "sep": false,
-            "oct": false,
-            "nov": false,
-            "dec": false
-          }
+          "payments": {},
+          "vacant": true
         },
         {
           "houseNumber": "A13",
@@ -1062,20 +1050,8 @@
           "name": "ARIA",
           "amount": 50000,
           "isException": false,
-          "payments": {
-            "jan": false,
-            "feb": false,
-            "mar": false,
-            "apr": false,
-            "may": false,
-            "jun": false,
-            "jul": false,
-            "aug": false,
-            "sep": false,
-            "oct": false,
-            "nov": false,
-            "dec": false
-          }
+          "payments": {},
+          "vacant": true
         },
         {
           "houseNumber": "B21",
@@ -1371,20 +1347,8 @@
           "name": "Rahman",
           "amount": 50000,
           "isException": false,
-          "payments": {
-            "jan": true,
-            "feb": true,
-            "mar": true,
-            "apr": true,
-            "may": true,
-            "jun": true,
-            "jul": true,
-            "aug": false,
-            "sep": false,
-            "oct": false,
-            "nov": false,
-            "dec": false
-          }
+          "payments": {},
+          "vacant": true
         },
         {
           "houseNumber": "C6",
@@ -3791,20 +3755,8 @@
           "name": "DAYAT",
           "amount": 50000,
           "isException": false,
-          "payments": {
-            "jan": true,
-            "feb": false,
-            "mar": false,
-            "apr": false,
-            "may": false,
-            "jun": false,
-            "jul": false,
-            "aug": false,
-            "sep": false,
-            "oct": false,
-            "nov": false,
-            "dec": false
-          }
+          "payments": {},
+          "vacant": true
         },
         {
           "houseNumber": "E24",
@@ -5632,20 +5584,8 @@
           "name": "-",
           "amount": 50000,
           "isException": false,
-          "payments": {
-            "jan": false,
-            "feb": false,
-            "mar": false,
-            "apr": false,
-            "may": false,
-            "jun": false,
-            "jul": false,
-            "aug": false,
-            "sep": false,
-            "oct": false,
-            "nov": false,
-            "dec": false
-          }
+          "payments": {},
+          "vacant": true
         },
         {
           "houseNumber": "G42",
