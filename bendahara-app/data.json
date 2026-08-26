@@ -5719,7 +5719,14 @@
     }
   ],
   "setoranBlok": {
-    "A": [],
+    "A": [
+      {
+        "month": "aug",
+        "amount": 700000,
+        "date": "2026-08-26",
+        "keterangan": "Setoran Blok A"
+      }
+    ],
     "B": [
       {
         "month": "aug",
@@ -5945,16 +5952,17 @@
         "catatan": "Rekap resmi bendahara, gabungan seluruh blok (A-G)"
       },
       "aug": {
-        "total": 4810000,
+        "total": 5510000,
         "perBlock": {
           "B": 790000,
           "C": 1930000,
           "E": 1540000,
-          "G": 450000
+          "G": 450000,
+          "A": 700000
         },
         "lainnyaTotal": 100000,
         "lainnyaNote": "D29 Apri 2 bulan (Jul+Aug)",
-        "catatan": "Setoran perwakilan Blok B, C, E, G + iuran langsung D29 Apri 2 bulan."
+        "catatan": "Setoran perwakilan Blok A, B, C, E, G + iuran langsung D29 Apri 2 bulan."
       }
     }
   },
