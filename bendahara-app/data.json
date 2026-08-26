@@ -5926,26 +5926,17 @@
         "catatan": "Rekap resmi bendahara, gabungan seluruh blok (A-G)"
       },
       "aug": {
+        "total": 4810000,
         "perBlock": {
           "B": 790000,
           "C": 1930000,
-          "D": 150000
+          "E": 1540000,
+          "G": 450000
         },
-        "catatan": "Setoran perwakilan Blok C & B, plus iuran Blok D (D42 Wahidi 1 bulan, D29 Apri 2 bulan) yang diterima langsung bendahara umum."
+        "lainnyaTotal": 100000,
+        "lainnyaNote": "D29 Apri 2 bulan (Jul+Aug)",
+        "catatan": "Setoran perwakilan Blok B, C, E, G + iuran langsung D29 Apri 2 bulan."
       }
-    },
-    "aug": {
-      "total": 4810000,
-      "perBlock": {
-        "B": 790000,
-        "C": 1930000,
-        "E": 1540000,
-        "G": 450000
-      },
-      "directPayment": {
-        "D": 100000
-      },
-      "catatan": "Setoran perwakilan Blok B, C, E, G. Plus iuran langsung D29 Apri 2 bulan (Jul+Aug)."
     }
   },
   "trackingMulai": "aug",
