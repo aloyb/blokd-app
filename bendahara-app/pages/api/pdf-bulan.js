@@ -20,9 +20,43 @@ function pengeluaranBulanTotal(data, monthIdx) {
     .reduce((s, i) => s + (Number(i.amount) || 0), 0);
 }
 
-// Pemasukan riil untuk 1 bulan
-function pemasukanBulanTotal(data, monthKey) {
-  return Number(data.pemasukanKas?.months?.[monthKey]?.total || 0);
+// Pemasukan riil untuk 1 bulan.
+// Prioritas: rekap manual `pemasukanKas.months[bulan]` kalau ada (Jan-Ags pakai rekap resmi bendahara).
+// Kalau belum ada entri (mis. September dst), AUTO hitung dari pembayaran per rumah (sum amount tiap member
+// yang `payments[monthKey]` true) — jadi tiap deploy/update data, PDF otomatis ikut berubah.
+function pemasukanFromMember(data, monthKey) {
+  let total = 0;
+  for (const bk of Object.keys(data.blocks || {})) {
+    const blk = data.blocks[bk];
+    for (const m of blk.members || []) {
+      if (m.payments && m.payments[monthKey]) {
+        total += Number(m.amount) || Number(blk.iuranDefault) || 50000;
+      }
+    }
+  }
+  return total;
+}
+
+// Pemasukan per-blok utk bulan ini: rekap manual kalau ada, kalau tidak hitung dari member.
+function pemasukanPerBlokBulan(data, monthKey) {
+  const manualBlock = data.pemasukanKas?.months?.[monthKey]?.perBlock;
+  if (manualBlock && Object.keys(manualBlock).length > 0) {
+    return Object.entries(manualBlock)
+      .filter(([, amt]) => Number(amt) > 0)
+      .map(([key, amt]) => ({ label: data.blocks?.[key]?.label || `Blok ${key}`, amount: Number(amt) }));
+  }
+  const totals = {};
+  for (const bk of Object.keys(data.blocks || {})) {
+    const blk = data.blocks[bk];
+    let sum = 0;
+    for (const m of blk.members || []) {
+      if (m.payments && m.payments[monthKey]) {
+        sum += Number(m.amount) || Number(blk.iuranDefault) || 50000;
+      }
+    }
+    if (sum > 0) totals[bk] = sum;
+  }
+  return Object.entries(totals).map(([key, amt]) => ({ label: data.blocks?.[key]?.label || `Blok ${key}`, amount: amt }));
 }
 
 export default function handler(req, res) {
@@ -42,28 +76,16 @@ export default function handler(req, res) {
   const pengeluaranBulan = (data.pengeluaran || []).filter(item =>
     item.date && item.date.startsWith(`2026-${bulanStr}-`)
   );
-  const totalPemasukan = Number(pemasukanData.total || 0);
-  const catatanPemasukan = pemasukanData.catatan || '';
+  const totalPemasukan = pemasukanData && Number(pemasukanData.total) > 0
+    ? Number(pemasukanData.total)
+    : pemasukanFromMember(data, monthKey);
   const totalPengeluaran = pengeluaranBulan.reduce((s, i) => s + (Number(i.amount) || 0), 0);
   const kasBersihBulan = totalPemasukan - totalPengeluaran;
 
-  // ---- Pemasukan per-blok (parse dari catatan) ----
-  // Contoh catatan: "D42 (Wahidi) bayar iuran 1 bulan" -> Blok D, jumlah = amount member * bulan
-  const blockTotals = {};
-  const re = /([A-G])(\d+)\s*\(([^)]+)\)\s*bayar\s*iuran\s*(\d+)\s*bulan/gi;
-  let m;
-  while ((m = re.exec(catatanPemasukan)) !== null) {
-    const blockKey = m[1].toUpperCase();
-    const houseNum = m[1].toUpperCase() + m[2];
-    const bulan = Number(m[4]) || 1;
-    const block = data.blocks?.[blockKey];
-    const member = block?.members?.find(x => x.houseNumber === houseNum);
-    const amount = (member ? Number(member.amount) || 0 : 0) * bulan;
-    blockTotals[blockKey] = (blockTotals[blockKey] || 0) + amount;
-  }
-  const pemasukanPerBlok = Object.entries(blockTotals)
-    .filter(([, amt]) => amt > 0)
-    .map(([key, amt]) => ({ label: data.blocks?.[key]?.label || `Blok ${key}`, amount: amt }));
+  // ---- Pemasukan per-blok ----
+  // Pakai perBlock dari rekap manual kalau ada; kalau tidak, hitung dari data pembayaran per rumah
+  // (auto ikut deploy/update).
+  const pemasukanPerBlok = pemasukanPerBlokBulan(data, monthKey);
 
   // ---- Total Saldo (uang riil yang dipegang bendahara) di akhir bulan ini ----
   // Jangkar (kasMulai) = saldo fisik per awal bulan tertentu.
