@@ -2418,11 +2418,12 @@
             "jun": true,
             "jul": true,
             "aug": true,
-            "sep": false,
+            "sep": true,
             "oct": false,
             "nov": false,
             "dec": false
-          }
+          },
+          "paidCount": 1
         },
         {
           "houseNumber": "D5",
@@ -2698,11 +2699,12 @@
             "jun": true,
             "jul": true,
             "aug": true,
-            "sep": false,
+            "sep": true,
             "oct": false,
             "nov": false,
             "dec": false
-          }
+          },
+          "paidCount": 1
         },
         {
           "houseNumber": "D19",
@@ -5557,91 +5559,91 @@
   },
   "activityLog": [
     {
-      "icon": "\ud83d\udcb0",
+      "icon": "💰",
       "text": "Blok D D37 Hendy bayar iuran Juli & Agustus 2026 (Rp 100.000)",
       "date": "2 Sep 2026",
       "ts": 1788320400000
     },
     {
-      "icon": "\ud83d\udcb0",
+      "icon": "💰",
       "text": "Blok D D27 Windy bayar iuran Juli, Agustus & September 2026 (Rp 150.000)",
       "date": "2 Sep 2026",
       "ts": 1788320400000
     },
     {
-      "icon": "\ud83d\udce4",
+      "icon": "📤",
       "text": "Kompleks: Perbaikan jalan utama - Rp 2.300.000",
       "date": "2 Sep 2026",
       "ts": 1788320400000
     },
     {
-      "icon": "\ud83d\udcb0",
+      "icon": "💰",
       "text": "Blok D D37 Hendy bayar iuran Mei, Juni 2026 (Rp 100.000)",
       "date": "2 Sep 2026",
       "ts": 1788357600000
     },
     {
-      "icon": "\ud83d\udcb0",
+      "icon": "💰",
       "text": "Blok D D33 Hanafi bayar iuran September 2026 (Rp 50.000)",
       "date": "2 Sep 2026",
       "ts": 1788345600000
     },
     {
-      "icon": "\ud83d\udcb0",
+      "icon": "💰",
       "text": "Blok D D45 Mahrita bayar iuran Agustus, September 2026 (Rp 100.000)",
       "date": "2 Sep 2026",
       "ts": 1788345600000
     },
     {
-      "icon": "\ud83d\udcb0",
+      "icon": "💰",
       "text": "Blok D D22 Lina bayar iuran September 2026 (Rp 50.000)",
       "date": "2 Sep 2026",
       "ts": 1788345600000
     },
     {
-      "icon": "\ud83c\udfe0",
+      "icon": "🏠",
       "text": "Blok C C39 nama penghuni ditambahkan -> Afdhal",
       "date": "2 Sep 2026",
       "ts": 1788331200000
     },
     {
-      "icon": "\ud83c\udfe0",
+      "icon": "🏠",
       "text": "Blok C C42 nama penghuni ditambahkan -> Nova",
       "date": "2 Sep 2026",
       "ts": 1788331200000
     },
     {
-      "icon": "\ud83c\udfe0",
+      "icon": "🏠",
       "text": "Blok C C53 nama penghuni diperbaiki dari \"Mardiyani\" -> Mardiyanto",
       "date": "2 Sep 2026",
       "ts": 1788331200000
     },
     {
-      "icon": "\ud83d\udce4",
+      "icon": "📤",
       "text": "Kompleks: Keperluan wakar - Rp 249.000",
       "date": "2 Sep 2026",
       "ts": 1788320400000
     },
     {
-      "icon": "\ud83d\udcb0",
+      "icon": "💰",
       "text": "Blok F F27 Ervansyah bayar iuran Agustus 2026 (Rp 50.000)",
       "date": "2 Sep 2026",
       "ts": 1788320400000
     },
     {
-      "icon": "\ud83d\udcb0",
+      "icon": "💰",
       "text": "Blok F F20 Akbar bayar iuran Juli & Agustus 2026 (Rp 100.000)",
       "date": "2 Sep 2026",
       "ts": 1788320400000
     },
     {
-      "icon": "\ud83d\udcb0",
+      "icon": "💰",
       "text": "Blok D D12 Ayu bayar iuran Agustus 2026 (Rp 50.000)",
       "date": "2 Sep 2026",
       "ts": 1788320400000
     },
     {
-      "icon": "\ud83d\udcb0",
+      "icon": "💰",
       "text": "Blok D D43 Rifka bayar iuran September & Oktober 2026 (Rp 100.000)",
       "date": "2 Sep 2026",
       "ts": 1788320400000
@@ -5652,31 +5654,31 @@
       "text": "Perwakilan Blok F setor Rp 1.600.000"
     },
     {
-      "icon": "\ud83d\udcb0",
+      "icon": "💰",
       "text": "Blok D D29 Apri bayar iuran Juli & Agustus 2026",
       "date": "26 Agu 2026",
       "ts": 1787681220000
     },
     {
-      "icon": "\ud83d\udcb0",
+      "icon": "💰",
       "text": "Blok C: Setoran perwakilan Rp 1.930.000",
       "date": "26 Agu 2026",
       "ts": 1787681220000
     },
     {
-      "icon": "\ud83d\udcb0",
+      "icon": "💰",
       "text": "Blok B: Setoran perwakilan Rp 790.000",
       "date": "26 Agu 2026",
       "ts": 1787681220000
     },
     {
-      "icon": "\ud83d\udce4",
+      "icon": "📤",
       "text": "Kompleks: Wakar - Rp 3.600.000",
       "date": "26 Agu 2026",
       "ts": 1787681220000
     },
     {
-      "icon": "\ud83d\udce4",
+      "icon": "📤",
       "text": "Kompleks: Sampah - Rp 1.300.000",
       "date": "26 Agu 2026",
       "ts": 1787681220000
