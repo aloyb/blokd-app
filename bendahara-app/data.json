@@ -2498,8 +2498,8 @@
             "may": true,
             "jun": true,
             "jul": true,
-            "aug": false,
-            "sep": false,
+            "aug": true,
+            "sep": true,
             "oct": false,
             "nov": false,
             "dec": false
@@ -5558,6 +5558,18 @@
     }
   },
   "activityLog": [
+    {
+      "icon": "💰",
+      "text": "Blok D D8 Fathur bayar iuran Agustus 2026 (Rp 50.000)",
+      "date": "21 Sep 2026",
+      "ts": 1789973964341
+    },
+    {
+      "icon": "💰",
+      "text": "Blok D D8 Fathur bayar iuran September 2026 (Rp 50.000)",
+      "date": "21 Sep 2026",
+      "ts": 1789973965341
+    },
     {
       "icon": "💰",
       "text": "Blok B B29 IMAN bayar iuran September 2026 (Rp 50.000)",
