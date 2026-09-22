@@ -44,6 +44,23 @@ function formatCurrency(num) {
   return `Rp ${(num || 0).toLocaleString('id-ID')}`;
 }
 
+// Rangkum iuran yang sudah dibayar per nominal -> "6x 50rb" atau "1x 50rb 9x 30rb".
+// Nominal tiap bulan diambil dari `paidAmounts[bulan]` kalau ada (kasus nominal berubah),
+// kalau tidak pakai `amount` member. Urut dari nominal terbesar.
+function paymentBreakdown(member) {
+  const counts = {};
+  for (const mo of MONTHS) {
+    if (!member.payments || !member.payments[mo]) continue;
+    const ov = member.paidAmounts && member.paidAmounts[mo];
+    const amt = (typeof ov === 'number' && ov > 0) ? ov : (Number(member.amount) || 50000);
+    counts[amt] = (counts[amt] || 0) + 1;
+  }
+  return Object.entries(counts)
+    .sort((a, b) => b[0] - a[0])
+    .map(([amt, n]) => `${n}x ${Math.round(amt / 1000)}rb`)
+    .join(' ');
+}
+
 // Target tahunan sekarang dihitung di /api/stats berdasarkan tarif masing-masing
 // rumah (ada yang Rp 30.000/40.000), bukan asumsi rata Rp 50.000.
 function pct(paid, target) {
@@ -555,7 +572,9 @@ export default function Home() {
                             belum ada nama
                           </div>
                         )}
-                        {!m.vacant && <div style={styles.memberCount}>{paidMonths.length}x</div>}
+                        {!m.vacant && paymentBreakdown(m) && (
+                          <div style={styles.memberCount}>{paymentBreakdown(m)}</div>
+                        )}
                       </div>
                       {m.vacant ? (
                         /* Rumah kosong belum wajib iuran, jadi jangan dilabeli Nunggak. */
