@@ -2538,8 +2538,8 @@
             "may": true,
             "jun": true,
             "jul": true,
-            "aug": false,
-            "sep": false,
+            "aug": true,
+            "sep": true,
             "oct": false,
             "nov": false,
             "dec": false
@@ -5561,6 +5561,18 @@
     }
   },
   "activityLog": [
+    {
+      "icon": "💰",
+      "text": "Blok D D10 Ajay bayar iuran September 2026 (Rp 50.000)",
+      "date": "2026-09-23",
+      "ts": 1790100402341
+    },
+    {
+      "icon": "💰",
+      "text": "Blok D D10 Ajay bayar iuran Agustus 2026 (Rp 50.000)",
+      "date": "2026-09-23",
+      "ts": 1790100402341
+    },
     {
       "icon": "💰",
       "text": "Blok E E16 - bayar iuran September 2026 (Rp 50.000)",
