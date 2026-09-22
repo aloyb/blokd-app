@@ -102,11 +102,12 @@ export default function handler(req, res) {
 
   const col = {
     rumah: { x: page.margin, w: 56, label: 'No Rumah' },
-    nama: { x: page.margin + 56, w: 108, label: 'Nama' },
-    iuran: { x: page.margin + 164, w: 48, label: 'Iuran' },
+    nama: { x: page.margin + 56, w: 114, label: 'Nama' },
   };
-  const MONTH_W = 33;
-  let monthX = page.margin + 212;
+  // Kolom 'Iuran' dihapus: nominal tiap rumah tidak tetap (mis. E6: Jan 50rb, sisanya 30rb).
+  // Ruang bekas kolom iuran dibagi ke kolom bulan & nama.
+  const MONTH_W = 37;
+  let monthX = page.margin + 170;
   for (const [, label] of months) {
     col[label.toLowerCase()] = { x: monthX, w: MONTH_W, label };
     monthX += MONTH_W;
@@ -160,7 +161,7 @@ export default function handler(req, res) {
   function drawTableHeader(y) {
     doc.rect(page.margin, y, tableW, headerH).fill(colors.brandDark);
     doc.font('Helvetica-Bold').fontSize(7.6).fillColor(colors.white);
-    for (const key of ['rumah', 'nama', 'iuran']) {
+    for (const key of ['rumah', 'nama']) {
       doc.text(col[key].label, col[key].x + 3, y + 5, { width: col[key].w - 6, align: key === 'nama' ? 'left' : 'center' });
     }
     for (const [, label] of months) {
@@ -196,7 +197,6 @@ export default function handler(req, res) {
     doc.font('Helvetica-Bold').fontSize(7.8).fillColor(colors.ink);
     doc.text(member.houseNumber, col.rumah.x + 2, y + 4.2, { width: col.rumah.w - 4, align: 'center' });
     doc.font('Helvetica').text(member.name || '-', col.nama.x + 4, y + 4.2, { width: col.nama.w - 8, ellipsis: true });
-    doc.text(member.isException ? `${Math.round(member.amount / 1000)}rb` : '50rb', col.iuran.x + 2, y + 4.2, { width: col.iuran.w - 4, align: 'center' });
 
     for (const [key, label] of months) {
       const amt = paidAmountOf(member, key);
@@ -243,7 +243,7 @@ export default function handler(req, res) {
     doc.text(`Halaman ${pageNo}`, page.margin, y, { width: contentW, align: 'right', lineBreak: false });
     doc.font('Helvetica').fontSize(7).fillColor(colors.muted);
     doc.text(
-      "Catatan: warna centang = nominal iuran yang dibayar (kuning 30rb, biru 40rb, hijau 50rb). Kolom 'Bayar' = rincian jumlah bulan per nominal (mis. 1x50rb 9x30rb).",
+      "Catatan: warna centang = nominal iuran yang dibayar (kuning 30rb, biru 40rb, hijau 50rb).",
       page.margin, y + 12, { width: contentW, lineBreak: false }
     );
   }
