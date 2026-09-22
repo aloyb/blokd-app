@@ -3356,7 +3356,7 @@
         {
           "houseNumber": "E6",
           "name": "SYARIF",
-          "amount": 50000,
+          "amount": 30000,
           "isException": true,
           "payments": {
             "jan": true,
@@ -5692,19 +5692,19 @@
     },
     {
       "icon": "💰",
-      "text": "Blok E E6 SYARIF bayar iuran Oktober 2026 (Rp 50.000)",
+      "text": "Blok E E6 SYARIF bayar iuran Oktober 2026 (Rp 30.000)",
       "date": "2026-09-22",
       "ts": 1790070788867
     },
     {
       "icon": "💰",
-      "text": "Blok E E6 SYARIF bayar iuran September 2026 (Rp 50.000)",
+      "text": "Blok E E6 SYARIF bayar iuran September 2026 (Rp 30.000)",
       "date": "2026-09-22",
       "ts": 1790070788867
     },
     {
       "icon": "💰",
-      "text": "Blok E E6 SYARIF bayar iuran Agustus 2026 (Rp 50.000)",
+      "text": "Blok E E6 SYARIF bayar iuran Agustus 2026 (Rp 30.000)",
       "date": "2026-09-22",
       "ts": 1790070788867
     },
