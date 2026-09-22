@@ -20,6 +20,14 @@ function pengeluaranBulanTotal(data, monthIdx) {
     .reduce((s, i) => s + (Number(i.amount) || 0), 0);
 }
 
+// Total pemasukan untuk 1 bulan (index 0-11): rekap manual kalau ada, kalau tidak dari member.
+function pemasukanBulanTotal(data, monthIdx) {
+  const monthKey = MONTHS[monthIdx];
+  const manual = Number(data.pemasukanKas?.months?.[monthKey]?.total);
+  if (manual > 0) return manual;
+  return pemasukanFromMember(data, monthKey);
+}
+
 // Pemasukan riil untuk 1 bulan.
 // Prioritas: rekap manual `pemasukanKas.months[bulan]` kalau ada (Jan-Ags pakai rekap resmi bendahara).
 // Kalau belum ada entri (mis. September dst), AUTO hitung dari pembayaran per rumah (sum amount tiap member
@@ -131,53 +139,53 @@ export default function handler(req, res) {
   let y = M;
 
   // Title
-  doc.font('Helvetica-Bold').fontSize(22).fillColor(ink);
+  doc.font('Helvetica-Bold').fontSize(18).fillColor(ink);
   doc.text('LAPORAN KAS BULANAN', M, y, { width: CONTENT_W, align: 'center' });
-  y += 28;
-  doc.font('Helvetica-Bold').fontSize(15).fillColor(accent);
+  y += 22;
+  doc.font('Helvetica-Bold').fontSize(13).fillColor(accent);
   doc.text(bulanNama.toUpperCase() + ' 2026', M, y, { width: CONTENT_W, align: 'center' });
-  y += 34;
+  y += 24;
 
   // ---- PEMASUKAN ----
-  doc.font('Helvetica-Bold').fontSize(13).fillColor(ink);
+  doc.font('Helvetica-Bold').fontSize(12).fillColor(ink);
   doc.text('PEMASUKAN', M, y);
-  y += 18;
+  y += 15;
   line(y);
-  y += 9;
+  y += 7;
 
   if (pemasukanPerBlok.length > 0) {
     for (const b of pemasukanPerBlok) {
-      doc.font('Helvetica').fontSize(11).fillColor(ink);
+      doc.font('Helvetica').fontSize(10.5).fillColor(ink);
       doc.text(`Pemasukan ${b.label}`, M, y);
-      textRight(rupiah(b.amount), y, green, 'Helvetica', 11);
-      y += 17;
+      textRight(rupiah(b.amount), y, green, 'Helvetica', 10.5);
+      y += 15;
     }
   } else if (totalPemasukan > 0) {
-    doc.font('Helvetica').fontSize(11).fillColor(ink);
+    doc.font('Helvetica').fontSize(10.5).fillColor(ink);
     doc.text('Pemasukan (gabungan seluruh blok)', M, y);
-    textRight(rupiah(totalPemasukan), y, green, 'Helvetica', 11);
-    y += 17;
+    textRight(rupiah(totalPemasukan), y, green, 'Helvetica', 10.5);
+    y += 15;
   } else {
     doc.font('Helvetica-Oblique').fontSize(10).fillColor(muted);
     doc.text('Belum ada pemasukan bulan ini.', M, y);
-    y += 17;
+    y += 15;
   }
 
   // Total Pemasukan
-  y += 3;
+  y += 2;
   line(y);
-  y += 8;
-  doc.font('Helvetica-Bold').fontSize(12).fillColor(ink);
+  y += 7;
+  doc.font('Helvetica-Bold').fontSize(11.5).fillColor(ink);
   doc.text('Total Pemasukan', M, y);
-  textRight(rupiah(totalPemasukan), y, green, 'Helvetica-Bold', 12);
-  y += 26;
+  textRight(rupiah(totalPemasukan), y, green, 'Helvetica-Bold', 11.5);
+  y += 20;
 
   // ---- PENGELUARAN ----
-  doc.font('Helvetica-Bold').fontSize(13).fillColor(ink);
+  doc.font('Helvetica-Bold').fontSize(12).fillColor(ink);
   doc.text('PENGELUARAN', M, y);
-  y += 18;
+  y += 15;
   line(y);
-  y += 9;
+  y += 7;
 
   const colTgl = M;
   const colKet = M + 95;
@@ -185,13 +193,13 @@ export default function handler(req, res) {
   const amountBoxW = RIGHT - amountBoxX;
   const ketW = amountBoxX - colKet - 12;
 
-  doc.font('Helvetica-Bold').fontSize(9.5).fillColor(muted);
+  doc.font('Helvetica-Bold').fontSize(9).fillColor(muted);
   doc.text('TANGGAL', colTgl, y);
   doc.text('KETERANGAN', colKet, y);
   doc.text('JUMLAH', amountBoxX, y, { width: amountBoxW, align: 'right' });
-  y += 15;
+  y += 13;
   line(y);
-  y += 8;
+  y += 6;
 
   for (const item of pengeluaranBulan) {
     const tgl = new Date(item.date).toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric' });
@@ -200,47 +208,49 @@ export default function handler(req, res) {
     doc.text(item.keterangan || '-', colKet, y, { width: ketW });
     doc.font('Helvetica').fontSize(10).fillColor(ink);
     doc.text(rupiah(item.amount), amountBoxX, y, { width: amountBoxW, align: 'right' });
-    const rowH = Math.max(16, doc.heightOfString(item.keterangan || '-', { width: ketW }) + 4);
+    const rowH = Math.max(14, doc.heightOfString(item.keterangan || '-', { width: ketW }) + 3);
     y += rowH;
     doc.strokeColor(border).lineWidth(0.3).moveTo(M, y - 2).lineTo(RIGHT, y - 2).stroke();
-    y += 4;
+    y += 3;
   }
 
   if (pengeluaranBulan.length > 0) {
-    y += 4;
-    doc.font('Helvetica-Bold').fontSize(12).fillColor(ink);
+    y += 3;
+    doc.font('Helvetica-Bold').fontSize(11.5).fillColor(ink);
     doc.text('Total Pengeluaran', M, y);
-    textRight(rupiah(totalPengeluaran), y, red, 'Helvetica-Bold', 12);
-    y += 24;
+    textRight(rupiah(totalPengeluaran), y, red, 'Helvetica-Bold', 11.5);
+    y += 20;
   } else {
     doc.font('Helvetica-Oblique').fontSize(9).fillColor(muted);
     doc.text('Tidak ada pengeluaran tercatat bulan ini.', M, y);
-    y += 24;
+    y += 20;
   }
 
   // ---- KAS BERSIH BULAN INI (net arus kas) ----
-  doc.font('Helvetica-Bold').fontSize(11).fillColor(ink);
+  doc.font('Helvetica-Bold').fontSize(10.5).fillColor(ink);
   doc.text('Kas Bersih Bulan Ini (masuk - keluar)', M, y);
-  textRight(rupiah(kasBersihBulan), y, kasBersihBulan >= 0 ? green : red, 'Helvetica-Bold', 11);
-  y += 22;
+  textRight(rupiah(kasBersihBulan), y, kasBersihBulan >= 0 ? green : red, 'Helvetica-Bold', 10.5);
+  y += 18;
 
   // ---- TOTAL SALDO (uang riil yang dipegang) ----
   if (totalSaldo !== null) {
-    const cardH = 52;
+    const cardH = 46;
     doc.rect(M, y, CONTENT_W, cardH).fill(accent);
-    doc.font('Helvetica-Bold').fontSize(14).fillColor('#ffffff');
-    doc.text('TOTAL SALDO', M + 16, y + 11);
-    doc.font('Helvetica-Bold').fontSize(17).fillColor('#ffffff');
-    doc.text(rupiah(totalSaldo), M, y + 10, { width: CONTENT_W - 16, align: 'right' });
-    doc.font('Helvetica').fontSize(9).fillColor('#d1fae5');
-    doc.text(`Saldo yang dipegang bendahara per akhir ${bulanNama} 2026`, M + 16, y + 32);
-    y += cardH + 20;
+    doc.font('Helvetica-Bold').fontSize(13).fillColor('#ffffff');
+    doc.text('TOTAL SALDO', M + 16, y + 9);
+    doc.font('Helvetica-Bold').fontSize(16).fillColor('#ffffff');
+    doc.text(rupiah(totalSaldo), M, y + 8, { width: CONTENT_W - 16, align: 'right' });
+    doc.font('Helvetica').fontSize(8.5).fillColor('#d1fae5');
+    doc.text(`Saldo yang dipegang bendahara per akhir ${bulanNama} 2026`, M + 16, y + 28);
+    y += cardH + 12;
   }
 
-  // Footer
+  // Footer — JANGAN pakai y di dekat batas bawah (<=796.89) tanpa lineBreak:false,
+  // kalau tidak pdfkit otomatis menambah halaman kosong.
   doc.font('Helvetica').fontSize(8).fillColor(muted);
-  doc.text('Laporan Kas IHM Rukun Manggallo', M, 792);
-  doc.text(`Dicetak ${new Date().toLocaleDateString('id-ID')}`, M, 792, { width: CONTENT_W, align: 'right' });
+  const footerY = y < 770 ? 782 : y + 6;
+  doc.text('Laporan Kas Perumahan IAMR', M, footerY, { lineBreak: false });
+  doc.text(`Dicetak ${new Date().toLocaleDateString('id-ID')}`, M, footerY, { width: CONTENT_W, align: 'right', lineBreak: false });
 
   doc.end();
 }
