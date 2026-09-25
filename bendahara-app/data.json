@@ -1011,7 +1011,7 @@
             "jun": false,
             "jul": false,
             "aug": false,
-            "sep": false,
+            "sep": true,
             "oct": false,
             "nov": false,
             "dec": false
@@ -3246,7 +3246,7 @@
             "jun": true,
             "jul": true,
             "aug": true,
-            "sep": false,
+            "sep": true,
             "oct": false,
             "nov": false,
             "dec": false
@@ -5567,6 +5567,24 @@
     }
   },
   "activityLog": [
+    {
+      "icon": "💰",
+      "text": "Blok D D47 + Blok B B18 lapor iuran September 2026 (Rp 50.000 x 2 = Rp 100.000)",
+      "date": "2026-09-25",
+      "ts": 1790330478635
+    },
+    {
+      "icon": "💰",
+      "text": "Blok B B18 - bayar iuran September 2026 (Rp 50.000)",
+      "date": "2026-09-25",
+      "ts": 1790330478634
+    },
+    {
+      "icon": "💰",
+      "text": "Blok D D47 Boy bayar iuran September 2026 (Rp 50.000)",
+      "date": "2026-09-25",
+      "ts": 1790330478633
+    },
     {
       "icon": "💰",
       "text": "Blok C: Setoran perwakilan Rp 1.940.000 (iuran Sep 2026 + pelunasan tunggakan Jul-Agu)",
