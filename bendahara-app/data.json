@@ -5568,6 +5568,18 @@
   },
   "activityLog": [
     {
+      "icon": "📤",
+      "text": "Kompleks: Sampah - Rp 1.300.000",
+      "date": "2026-09-25",
+      "ts": 1790331557289
+    },
+    {
+      "icon": "📤",
+      "text": "Kompleks: Wakar - Rp 3.600.000",
+      "date": "2026-09-25",
+      "ts": 1790331557289
+    },
+    {
       "icon": "💰",
       "text": "Blok D D47 + Blok B B18 lapor iuran September 2026 (Rp 50.000 x 2 = Rp 100.000)",
       "date": "2026-09-25",
@@ -6557,6 +6569,16 @@
       "date": "2026-09-02",
       "amount": 2300000,
       "keterangan": "Perbaikan jalan utama"
+    },
+    {
+      "date": "2026-09-25",
+      "amount": 3600000,
+      "keterangan": "Wakar"
+    },
+    {
+      "date": "2026-09-25",
+      "amount": 1300000,
+      "keterangan": "Sampah"
     }
   ],
   "pemasukanKas": {
