@@ -2805,8 +2805,8 @@
             "may": true,
             "jun": true,
             "jul": true,
-            "aug": false,
-            "sep": false,
+            "aug": true,
+            "sep": true,
             "oct": false,
             "nov": false,
             "dec": false
@@ -5567,6 +5567,18 @@
     }
   },
   "activityLog": [
+    {
+      "icon": "💰",
+      "text": "Blok D D24 Nazar bayar iuran September 2026 (Rp 50.000)",
+      "date": "2026-09-26",
+      "ts": 1790410323477
+    },
+    {
+      "icon": "💰",
+      "text": "Blok D D24 Nazar bayar iuran Agustus 2026 (Rp 50.000)",
+      "date": "2026-09-26",
+      "ts": 1790410323477
+    },
     {
       "icon": "📤",
       "text": "Kompleks: Sampah - Rp 1.300.000",
