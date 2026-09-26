@@ -463,7 +463,7 @@ export default function Home() {
               {(() => {
                 const nonPayers = globalStats?.nunggakList || [];
                 if (!nonPayers.length) return null;
-                const dur = Math.max(25, Math.round(nonPayers.length * 0.5));
+                const dur = Math.max(30, Math.round(nonPayers.length * 1.2));
                 return (
                   <div style={styles.nunggakStrip}>
                     <div style={styles.nunggakStripHead}>
