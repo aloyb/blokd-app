@@ -239,7 +239,7 @@ export default function Home() {
           </div>
 
           <div style={styles.headerTop}>
-            <div style={styles.headerLeft}>
+            <div style={styles.headerLeft} onClick={() => goTab('beranda')} role="button" tabIndex={0} onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); goTab('beranda'); } }} aria-label="Ke beranda">
               <img src="/logo.png" alt="Logo" style={styles.logo} />
               <div style={styles.headerText}>
                 <div style={styles.usernameText}>LAPORAN KAS PERUMAHAN IAMR</div>
@@ -1089,7 +1089,7 @@ export default function Home() {
         {/* NAVIGATION: HP = bottom bar, PC = fixed sidebar kiri */}
         {isDesktop ? (
           <div style={styles.navSidebar}>
-            <div style={styles.sidebarBrand}>
+            <div style={{ ...styles.sidebarBrand, cursor: 'pointer' }} onClick={() => goTab('beranda')} role="button" tabIndex={0} onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); goTab('beranda'); } }} aria-label="Ke beranda">
               <img src="/logo.png" alt="Logo" style={{ width: '40px', height: '40px', borderRadius: '10px' }} />
               <div>
                 <div style={{ fontSize: '13px', fontWeight: '800', color: '#111827' }}>LAPORAN KAS IAMR</div>
@@ -1145,7 +1145,7 @@ const styles = {
     display: 'flex', justifyContent: 'space-between', alignItems: 'center',
     position: 'relative', zIndex: 1,
   },
-  headerLeft: { display: 'flex', alignItems: 'center', gap: '12px' },
+  headerLeft: { display: 'flex', alignItems: 'center', gap: '12px', cursor: 'pointer' },
   logo: { width: '44px', height: '44px', borderRadius: '12px', objectFit: 'contain' },
   headerText: {},
   greetingText: { fontSize: '11px', color: '#6B7280', fontWeight: '500' },
