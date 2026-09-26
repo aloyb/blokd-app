@@ -459,6 +459,39 @@ export default function Home() {
                 );
               })()}
 
+              {/* STRIP BERJALAN: rumah yang belum pernah bayar sama sekali (gulir kanan → kiri) */}
+              {(() => {
+                const nonPayers = globalStats?.nunggakList || [];
+                if (!nonPayers.length) return null;
+                const dur = Math.max(25, Math.round(nonPayers.length * 0.5));
+                return (
+                  <div style={styles.nunggakStrip}>
+                    <div style={styles.nunggakStripHead}>
+                      <span style={styles.nunggakStripTitle}>⚠️ Belum pernah bayar</span>
+                      <span style={styles.nunggakStripCount}>{nonPayers.length} rumah</span>
+                    </div>
+                    <div style={{ ...styles.blockCardMarquee, marginTop: '8px' }}
+                         aria-label={`${nonPayers.length} rumah belum pernah bayar`}>
+                      <div style={{ ...styles.marqueeTrack, animationDuration: `${dur}s` }}>
+                        {nonPayers.map((e, i) => (
+                          <span key={i} style={styles.marqueeChip}>
+                            <span style={styles.marqueeNum}>{e.houseNumber}</span>
+                            {e.name && e.name !== '-' ? <span style={styles.marqueeName}>{e.name}</span> : null}
+                          </span>
+                        ))}
+                        {/* Salinan 2x biar loop mulus */}
+                        {nonPayers.map((e, i) => (
+                          <span key={`dup-${i}`} style={styles.marqueeChip} aria-hidden="true">
+                            <span style={styles.marqueeNum}>{e.houseNumber}</span>
+                            {e.name && e.name !== '-' ? <span style={styles.marqueeName}>{e.name}</span> : null}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                );
+              })()}
+
               {/* LIST: LAPORAN PER BLOK */}
               <div style={styles.sectionHeader}>
                 <div style={styles.sectionTitle}>Laporan Per Blok</div>
@@ -1263,6 +1296,33 @@ const styles = {
   },
   blockPaid: { fontSize: '14px', fontWeight: '700', color: '#128F55' },
   blockTarget: { fontSize: '12px', color: '#9CA3AF', fontWeight: '500' },
+  // Strip berjalan rumah belum bayar (kanan → kiri). Keyframe di globals.css.
+  nunggakStrip: {
+    background: '#FFF', borderRadius: '22px', padding: '14px 16px',
+    boxShadow: '0 2px 10px rgba(0,0,0,0.02)', margin: '0 0 4px',
+  },
+  nunggakStripHead: {
+    display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+  },
+  nunggakStripTitle: { fontSize: '13px', fontWeight: '700', color: '#B91C1C' },
+  nunggakStripCount: { fontSize: '12px', color: '#9CA3AF', fontWeight: '600' },
+  blockCardMarquee: {
+    overflow: 'hidden',
+    WebkitMaskImage: 'linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent)',
+    maskImage: 'linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent)',
+  },
+  marqueeTrack: {
+    display: 'inline-flex', gap: '6px', width: 'max-content',
+    animation: 'marqueeScroll 40s linear infinite',
+  },
+  marqueeChip: {
+    display: 'inline-flex', alignItems: 'center', gap: '5px',
+    background: '#FEF2F2', border: '1px solid #FECACA',
+    borderRadius: '999px', padding: '3px 10px',
+    fontSize: '11px', whiteSpace: 'nowrap',
+  },
+  marqueeNum: { fontWeight: '800', color: '#B91C1C', fontSize: '11px' },
+  marqueeName: { color: '#7F1D1D', fontSize: '11px' },
   monthGroup: { marginBottom: '18px' },
   monthGroupHeader: {
     display: 'flex', justifyContent: 'space-between', alignItems: 'center',
