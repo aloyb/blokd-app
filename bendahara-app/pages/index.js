@@ -472,12 +472,12 @@ export default function Home() {
                     {e.name && e.name !== '-' ? <span style={styles.marqueeName}>{e.name}</span> : null}
                   </span>
                 );
-                const dur1 = Math.max(20, Math.round(row1.length * 0.9));
-                const dur2 = Math.max(20, Math.round(row2.length * 0.9));
+                const dur1 = Math.max(50, Math.round(row1.length * 2.2));
+                const dur2 = Math.max(50, Math.round(row2.length * 2.2));
                 return (
                   <div style={styles.nunggakStrip}>
                     <div style={styles.nunggakStripHead}>
-                      <span style={styles.nunggakStripTitle}>⚠️ Belum pernah bayar</span>
+                      <span style={styles.nunggakStripTitle}>⚠️ BELUM PERNAH MELAKUKAN IURAN</span>
                       <span style={styles.nunggakStripCount}>{nonPayers.length} rumah</span>
                     </div>
                     {/* Baris 1: kanan → kiri */}
