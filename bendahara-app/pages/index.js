@@ -459,33 +459,41 @@ export default function Home() {
                 );
               })()}
 
-              {/* STRIP BERJALAN: rumah yang belum pernah bayar sama sekali (gulir kanan → kiri) */}
+              {/* STRIP BERJALAN: rumah yang belum pernah bayar sama sekali (2 baris zigzag) */}
               {(() => {
                 const nonPayers = globalStats?.nunggakList || [];
                 if (!nonPayers.length) return null;
-                const dur = Math.max(30, Math.round(nonPayers.length * 1.2));
+                const half = Math.ceil(nonPayers.length / 2);
+                const row1 = nonPayers.slice(0, half);
+                const row2 = nonPayers.slice(half);
+                const chip = (e, i, prefix) => (
+                  <span key={`${prefix}-${i}`} style={styles.marqueeChip}>
+                    <span style={styles.marqueeNum}>{e.houseNumber}</span>
+                    {e.name && e.name !== '-' ? <span style={styles.marqueeName}>{e.name}</span> : null}
+                  </span>
+                );
+                const dur1 = Math.max(20, Math.round(row1.length * 0.9));
+                const dur2 = Math.max(20, Math.round(row2.length * 0.9));
                 return (
                   <div style={styles.nunggakStrip}>
                     <div style={styles.nunggakStripHead}>
                       <span style={styles.nunggakStripTitle}>⚠️ Belum pernah bayar</span>
                       <span style={styles.nunggakStripCount}>{nonPayers.length} rumah</span>
                     </div>
+                    {/* Baris 1: kanan → kiri */}
                     <div style={{ ...styles.blockCardMarquee, marginTop: '8px' }}
-                         aria-label={`${nonPayers.length} rumah belum pernah bayar`}>
-                      <div style={{ ...styles.marqueeTrack, animationDuration: `${dur}s` }}>
-                        {nonPayers.map((e, i) => (
-                          <span key={i} style={styles.marqueeChip}>
-                            <span style={styles.marqueeNum}>{e.houseNumber}</span>
-                            {e.name && e.name !== '-' ? <span style={styles.marqueeName}>{e.name}</span> : null}
-                          </span>
-                        ))}
-                        {/* Salinan 2x biar loop mulus */}
-                        {nonPayers.map((e, i) => (
-                          <span key={`dup-${i}`} style={styles.marqueeChip} aria-hidden="true">
-                            <span style={styles.marqueeNum}>{e.houseNumber}</span>
-                            {e.name && e.name !== '-' ? <span style={styles.marqueeName}>{e.name}</span> : null}
-                          </span>
-                        ))}
+                         aria-label={`${row1.length} rumah (baris atas) belum pernah bayar`}>
+                      <div style={{ ...styles.marqueeTrack, animationDuration: `${dur1}s` }}>
+                        {row1.map((e, i) => chip(e, i, 'a'))}
+                        {row1.map((e, i) => chip(e, i, 'a2'))}
+                      </div>
+                    </div>
+                    {/* Baris 2: kiri → kanan */}
+                    <div style={{ ...styles.blockCardMarquee, marginTop: '6px' }}
+                         aria-label={`${row2.length} rumah (baris bawah) belum pernah bayar`}>
+                      <div style={{ ...styles.marqueeTrack, animationName: 'marqueeScrollReverse', animationDuration: `${dur2}s` }}>
+                        {row2.map((e, i) => chip(e, i, 'b'))}
+                        {row2.map((e, i) => chip(e, i, 'b2'))}
                       </div>
                     </div>
                   </div>

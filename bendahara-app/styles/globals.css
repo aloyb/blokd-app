@@ -34,8 +34,14 @@ a {
   }
 }
 
-/* Marquee rumah belum bayar: teks gulir dari kanan ke kiri, lalu loop mulus */
+/* Marquee rumah belum bayar: baris ATAS = kanan → kiri */
 @keyframes marqueeScroll {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
+}
+
+/* Baris BAWAH (zigzag) = kiri → kanan */
+@keyframes marqueeScrollReverse {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
 }
