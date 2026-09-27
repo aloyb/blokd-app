@@ -4825,7 +4825,7 @@
             "jun": true,
             "jul": true,
             "aug": true,
-            "sep": false,
+            "sep": true,
             "oct": false,
             "nov": false,
             "dec": false
@@ -5567,6 +5567,12 @@
     }
   },
   "activityLog": [
+    {
+      "icon": "💰",
+      "text": "Blok G G6 Vitaa bayar iuran September 2026 (Rp 30.000)",
+      "date": "2026-09-27",
+      "ts": 1790482676782
+    },
     {
       "icon": "💰",
       "text": "Blok G G32 Rifki bayar iuran September 2026 (Rp 50.000)",
