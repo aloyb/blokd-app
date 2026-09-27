@@ -4729,7 +4729,7 @@
           "amount": 50000,
           "isException": false,
           "payments": {
-            "jan": true,
+            "jan": false,
             "feb": true,
             "mar": true,
             "apr": true,
@@ -4737,7 +4737,7 @@
             "jun": true,
             "jul": true,
             "aug": true,
-            "sep": false,
+            "sep": true,
             "oct": false,
             "nov": false,
             "dec": false
@@ -4754,7 +4754,7 @@
           "amount": 50000,
           "isException": false,
           "payments": {
-            "jan": true,
+            "jan": false,
             "feb": false,
             "mar": false,
             "apr": false,
@@ -4762,7 +4762,7 @@
             "jun": false,
             "jul": false,
             "aug": false,
-            "sep": false,
+            "sep": true,
             "oct": false,
             "nov": false,
             "dec": false
@@ -5097,7 +5097,7 @@
           "amount": 50000,
           "isException": false,
           "payments": {
-            "jan": true,
+            "jan": false,
             "feb": false,
             "mar": true,
             "apr": true,
@@ -5105,7 +5105,7 @@
             "jun": true,
             "jul": true,
             "aug": true,
-            "sep": false,
+            "sep": true,
             "oct": false,
             "nov": false,
             "dec": false
@@ -5141,16 +5141,16 @@
           "amount": 50000,
           "isException": false,
           "payments": {
-            "jan": true,
+            "jan": false,
             "feb": true,
             "mar": true,
             "apr": true,
             "may": true,
             "jun": true,
             "jul": true,
-            "aug": true,
-            "sep": false,
-            "oct": false,
+            "aug": false,
+            "sep": true,
+            "oct": true,
             "nov": false,
             "dec": false
           },
@@ -5348,7 +5348,7 @@
           "amount": 50000,
           "isException": false,
           "payments": {
-            "jan": true,
+            "jan": false,
             "feb": false,
             "mar": false,
             "apr": false,
@@ -5356,7 +5356,7 @@
             "jun": true,
             "jul": true,
             "aug": true,
-            "sep": false,
+            "sep": true,
             "oct": false,
             "nov": false,
             "dec": false
@@ -5569,45 +5569,45 @@
   "activityLog": [
     {
       "icon": "💰",
-      "text": "Blok G G32 Rifki bayar iuran Januari 2026 (Rp 50.000)",
+      "text": "Blok G G32 Rifki bayar iuran September 2026 (Rp 50.000)",
       "date": "2026-09-27",
-      "ts": 1790454695590
+      "ts": 1790481407465
     },
     {
       "icon": "💰",
-      "text": "Blok G G22 Abdurrahman bayar iuran Agustus 2026 (Rp 50.000)",
+      "text": "Blok G G22 Abdurrahman bayar iuran Oktober 2026 (Rp 50.000)",
       "date": "2026-09-27",
-      "ts": 1790454695590
+      "ts": 1790481407465
     },
     {
       "icon": "💰",
-      "text": "Blok G G22 Abdurrahman bayar iuran Januari 2026 (Rp 50.000)",
+      "text": "Blok G G22 Abdurrahman bayar iuran September 2026 (Rp 50.000)",
       "date": "2026-09-27",
-      "ts": 1790454695590
+      "ts": 1790481407465
     },
     {
       "icon": "💰",
-      "text": "Blok G G20 Nurul bayar iuran Januari 2026 (Rp 50.000)",
+      "text": "Blok G G20 Nurul bayar iuran September 2026 (Rp 50.000)",
       "date": "2026-09-27",
-      "ts": 1790454695590
+      "ts": 1790481407465
     },
     {
       "icon": "💰",
       "text": "Blok G G4 Hartati bayar iuran September 2026 (Rp 50.000)",
       "date": "2026-09-27",
-      "ts": 1790454695590
+      "ts": 1790481407465
     },
     {
       "icon": "💰",
-      "text": "Blok G G3 Yuli bayar iuran Januari 2026 (Rp 50.000)",
+      "text": "Blok G G3 Yuli bayar iuran September 2026 (Rp 50.000)",
       "date": "2026-09-27",
-      "ts": 1790454695590
+      "ts": 1790481407465
     },
     {
       "icon": "💰",
-      "text": "Blok G G2 Fikri bayar iuran Januari 2026 (Rp 50.000)",
+      "text": "Blok G G2 Fikri bayar iuran September 2026 (Rp 50.000)",
       "date": "2026-09-27",
-      "ts": 1790454695590
+      "ts": 1790481407459
     },
     {
       "icon": "💰",
