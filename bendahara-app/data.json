@@ -4759,13 +4759,17 @@
             "mar": false,
             "apr": false,
             "may": false,
-            "jun": false,
-            "jul": false,
-            "aug": false,
+            "jun": true,
+            "jul": true,
+            "aug": true,
             "sep": true,
             "oct": false,
             "nov": false,
             "dec": false
+          },
+          "paidAmounts": {
+            "jun": 30000,
+            "jul": 30000
           }
         },
         {
@@ -5567,6 +5571,24 @@
     }
   },
   "activityLog": [
+    {
+      "icon": "💰",
+      "text": "Blok G G3 Yuli bayar iuran Juni 2026 (Rp 30.000)",
+      "date": "2026-09-27",
+      "ts": 1790483879240
+    },
+    {
+      "icon": "💰",
+      "text": "Blok G G3 Yuli bayar iuran Juli 2026 (Rp 30.000)",
+      "date": "2026-09-27",
+      "ts": 1790483879240
+    },
+    {
+      "icon": "💰",
+      "text": "Blok G G3 Yuli bayar iuran Agustus 2026 (Rp 50.000)",
+      "date": "2026-09-27",
+      "ts": 1790483879240
+    },
     {
       "icon": "💰",
       "text": "Blok G G6 Vitaa bayar iuran September 2026 (Rp 30.000)",
