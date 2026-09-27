@@ -5148,9 +5148,9 @@
             "may": true,
             "jun": true,
             "jul": true,
-            "aug": false,
+            "aug": true,
             "sep": true,
-            "oct": true,
+            "oct": false,
             "nov": false,
             "dec": false
           },
@@ -5571,43 +5571,43 @@
       "icon": "💰",
       "text": "Blok G G32 Rifki bayar iuran September 2026 (Rp 50.000)",
       "date": "2026-09-27",
-      "ts": 1790481407465
-    },
-    {
-      "icon": "💰",
-      "text": "Blok G G22 Abdurrahman bayar iuran Oktober 2026 (Rp 50.000)",
-      "date": "2026-09-27",
-      "ts": 1790481407465
+      "ts": 1790481654660
     },
     {
       "icon": "💰",
       "text": "Blok G G22 Abdurrahman bayar iuran September 2026 (Rp 50.000)",
       "date": "2026-09-27",
-      "ts": 1790481407465
+      "ts": 1790481654660
+    },
+    {
+      "icon": "💰",
+      "text": "Blok G G22 Abdurrahman bayar iuran Agustus 2026 (Rp 50.000)",
+      "date": "2026-09-27",
+      "ts": 1790481654660
     },
     {
       "icon": "💰",
       "text": "Blok G G20 Nurul bayar iuran September 2026 (Rp 50.000)",
       "date": "2026-09-27",
-      "ts": 1790481407465
+      "ts": 1790481654660
     },
     {
       "icon": "💰",
       "text": "Blok G G4 Hartati bayar iuran September 2026 (Rp 50.000)",
       "date": "2026-09-27",
-      "ts": 1790481407465
+      "ts": 1790481654660
     },
     {
       "icon": "💰",
       "text": "Blok G G3 Yuli bayar iuran September 2026 (Rp 50.000)",
       "date": "2026-09-27",
-      "ts": 1790481407465
+      "ts": 1790481654660
     },
     {
       "icon": "💰",
       "text": "Blok G G2 Fikri bayar iuran September 2026 (Rp 50.000)",
       "date": "2026-09-27",
-      "ts": 1790481407459
+      "ts": 1790481654654
     },
     {
       "icon": "💰",
