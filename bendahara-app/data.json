@@ -2967,7 +2967,7 @@
             "jul": true,
             "aug": true,
             "sep": true,
-            "oct": false,
+            "oct": true,
             "nov": false,
             "dec": false
           }
@@ -5571,6 +5571,12 @@
     }
   },
   "activityLog": [
+    {
+      "icon": "💰",
+      "text": "Blok D D33 Hanafi bayar iuran Oktober 2026 (Rp 50.000)",
+      "date": "2026-10-02",
+      "ts": 1790940248403
+    },
     {
       "icon": "💰",
       "text": "Blok F F29 Idil bayar iuran September 2026 (Rp 50.000)",
