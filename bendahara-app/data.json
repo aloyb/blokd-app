@@ -2727,9 +2727,9 @@
             "jul": true,
             "aug": true,
             "sep": true,
-            "oct": false,
-            "nov": false,
-            "dec": false
+            "oct": true,
+            "nov": true,
+            "dec": true
           }
         },
         {
@@ -5571,6 +5571,24 @@
     }
   },
   "activityLog": [
+    {
+      "icon": "💰",
+      "text": "Blok D D19 Huda bayar iuran Oktober 2026 (Rp 50.000)",
+      "date": "2026-10-02",
+      "ts": 1790942888121
+    },
+    {
+      "icon": "💰",
+      "text": "Blok D D19 Huda bayar iuran November 2026 (Rp 50.000)",
+      "date": "2026-10-02",
+      "ts": 1790942888121
+    },
+    {
+      "icon": "💰",
+      "text": "Blok D D19 Huda bayar iuran Desember 2026 (Rp 50.000)",
+      "date": "2026-10-02",
+      "ts": 1790942888121
+    },
     {
       "icon": "💰",
       "text": "Blok D D33 Hanafi bayar iuran Oktober 2026 (Rp 50.000)",
