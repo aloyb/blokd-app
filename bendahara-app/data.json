@@ -2969,7 +2969,7 @@
             "sep": true,
             "oct": true,
             "nov": true,
-            "dec": true
+            "dec": false
           }
         },
         {
@@ -5573,19 +5573,13 @@
   "activityLog": [
     {
       "icon": "💰",
-      "text": "Blok D D33 Hanafi bayar iuran Oktober 2026 (Rp 50.000)",
-      "date": "2026-10-02",
-      "ts": 1790942967858
-    },
-    {
-      "icon": "💰",
       "text": "Blok D D33 Hanafi bayar iuran November 2026 (Rp 50.000)",
       "date": "2026-10-02",
-      "ts": 1790942967858
+      "ts": 1790943291057
     },
     {
       "icon": "💰",
-      "text": "Blok D D33 Hanafi bayar iuran Desember 2026 (Rp 50.000)",
+      "text": "Blok D D33 Hanafi bayar iuran Oktober 2026 (Rp 50.000)",
       "date": "2026-10-02",
       "ts": 1790942967858
     },
@@ -5606,12 +5600,6 @@
       "text": "Blok D D19 Huda bayar iuran Desember 2026 (Rp 50.000)",
       "date": "2026-10-02",
       "ts": 1790942888121
-    },
-    {
-      "icon": "💰",
-      "text": "Blok D D33 Hanafi bayar iuran Oktober 2026 (Rp 50.000)",
-      "date": "2026-10-02",
-      "ts": 1790940248403
     },
     {
       "icon": "💰",
