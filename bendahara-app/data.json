@@ -5574,6 +5574,12 @@
   },
   "activityLog": [
     {
+      "icon": "✅",
+      "text": "Koreksi miskom: E11 Elsa jul+aug sudah lunas (uang masuk setoran Blok E, bukan kas lain). Catatan saldo 16.612.000 = 16.712.000 minus 100rb ini.",
+      "date": "2026-10-03",
+      "ts": 1791020402063
+    },
+    {
       "icon": "💰",
       "text": "Blok D D33 Hanafi bayar iuran Oktober 2026 (Rp 50.000)",
       "date": "2026-10-02",
