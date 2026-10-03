@@ -5574,6 +5574,18 @@
   },
   "activityLog": [
     {
+      "icon": "📤",
+      "text": "Kompleks: Beli gembok untuk pos - Rp 44.000",
+      "date": "2026-10-03",
+      "ts": 1791037522860
+    },
+    {
+      "icon": "📤",
+      "text": "Kompleks: Konsumsi wakar - Rp 250.000",
+      "date": "2026-10-03",
+      "ts": 1791037522860
+    },
+    {
       "icon": "✅",
       "text": "Koreksi: E11 Elsa & D29 Apri keduanya sudah lunas s/d Agustus. Saldo awal kas per Jan 2026 dikoreksi ke Rp 16.612.000.",
       "date": "2026-10-03",
@@ -6801,6 +6813,16 @@
       "date": "2026-09-25",
       "amount": 1300000,
       "keterangan": "Sampah"
+    },
+    {
+      "date": "2026-10-03",
+      "amount": 250000,
+      "keterangan": "Konsumsi wakar"
+    },
+    {
+      "date": "2026-10-03",
+      "amount": 44000,
+      "keterangan": "Beli gembok untuk pos"
     }
   ],
   "pemasukanKas": {
