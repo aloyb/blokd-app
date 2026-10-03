@@ -3483,8 +3483,8 @@
             "apr": true,
             "may": true,
             "jun": true,
-            "jul": false,
-            "aug": false,
+            "jul": true,
+            "aug": true,
             "sep": false,
             "oct": false,
             "nov": false,
@@ -3496,7 +3496,9 @@
             "mar": 30000,
             "apr": 30000,
             "may": 30000,
-            "jun": 50000
+            "jun": 50000,
+            "jul": 50000,
+            "aug": 50000
           }
         },
         {
