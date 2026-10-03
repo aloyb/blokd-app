@@ -5575,7 +5575,7 @@
   "activityLog": [
     {
       "icon": "✅",
-      "text": "Koreksi miskom: E11 Elsa jul+aug sudah lunas (uang masuk setoran Blok E, bukan kas lain). Catatan saldo 16.612.000 = 16.712.000 minus 100rb ini.",
+      "text": "Koreksi: E11 Elsa Juli+Agustus sudah lunas (uang sudah disetor ke bendahara). Saldo awal kas per Jan 2026 dikoreksi ke Rp 16.612.000.",
       "date": "2026-10-03",
       "ts": 1791020402063
     },
@@ -6860,7 +6860,7 @@
     "rincian": [],
     "catatan": "Total kas perumahan yang dipegang bendahara umum per awal Agustus 2026, gabungan seluruh blok. Bulan sebelumnya hanya arsip dan tidak ikut menghitung saldo."
   },
-  "saldoAwal": 16712000,
+  "saldoAwal": 16612000,
   "saldoAwalPending": false,
-  "saldoAwalCatatan": "Sisa kas sebelum Januari 2026 (dihitung mundur: kas bersih terkini dikurangi selisih pemasukan-pengeluaran 2026). Mulai 2026 semua iuran dicatat per rumah."
+  "saldoAwalCatatan": "Sisa kas per 2026-01-01 = Rp 16.612.000 (koreksi 2026-10-03 sesuai laporan bendahara). Sebelumnya tertulis 16.712.000 karena iuran E11 Elsa Juli+Agustus (Rp 100.000) belum tercatat; setelah E11 ditandai lunas, saldo awal yang benar 100rb lebih rendah dan kas bersih tidak berubah."
 }
