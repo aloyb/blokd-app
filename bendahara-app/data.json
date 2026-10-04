@@ -2444,9 +2444,9 @@
             "may": true,
             "jun": true,
             "jul": true,
-            "aug": false,
-            "sep": false,
-            "oct": false,
+            "aug": true,
+            "sep": true,
+            "oct": true,
             "nov": false,
             "dec": false
           }
@@ -5575,6 +5575,36 @@
   "activityLog": [
     {
       "icon": "📤",
+      "text": "Kompleks: Konsumsi wakar - Rp 250.000",
+      "date": "2026-10-04",
+      "ts": 1791074415349
+    },
+    {
+      "icon": "📤",
+      "text": "Kompleks: Beli gembok untuk pos - Rp 44.000",
+      "date": "2026-10-04",
+      "ts": 1791074415349
+    },
+    {
+      "icon": "💰",
+      "text": "Blok D D5 Rif'at bayar iuran Agustus 2026 (Rp 50.000)",
+      "date": "2026-10-04",
+      "ts": 1791074415349
+    },
+    {
+      "icon": "💰",
+      "text": "Blok D D5 Rif'at bayar iuran September 2026 (Rp 50.000)",
+      "date": "2026-10-04",
+      "ts": 1791074415349
+    },
+    {
+      "icon": "💰",
+      "text": "Blok D D5 Rif'at bayar iuran Oktober 2026 (Rp 50.000)",
+      "date": "2026-10-04",
+      "ts": 1791074415349
+    },
+    {
+      "icon": "📤",
       "text": "Kompleks: Beli gembok untuk pos - Rp 44.000",
       "date": "2026-10-03",
       "ts": 1791037522860
@@ -6639,6 +6669,16 @@
     ]
   },
   "pengeluaran": [
+    {
+      "date": "2026-10-04",
+      "amount": 44000,
+      "keterangan": "Beli gembok untuk pos"
+    },
+    {
+      "date": "2026-10-04",
+      "amount": 250000,
+      "keterangan": "Konsumsi wakar"
+    },
     {
       "date": "2026-01-01",
       "amount": 1300000,
