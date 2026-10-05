@@ -2984,12 +2984,12 @@
             "apr": true,
             "may": true,
             "jun": true,
-            "jul": false,
-            "aug": false,
-            "sep": false,
-            "oct": false,
-            "nov": false,
-            "dec": false
+            "jul": true,
+            "aug": true,
+            "sep": true,
+            "oct": true,
+            "nov": true,
+            "dec": true
           }
         },
         {
@@ -5573,6 +5573,42 @@
     }
   },
   "activityLog": [
+    {
+      "icon": "💰",
+      "text": "Blok D D34 Raisa bayar iuran Desember 2026 (Rp 50.000)",
+      "date": "2026-10-05",
+      "ts": 1791172971492
+    },
+    {
+      "icon": "💰",
+      "text": "Blok D D34 Raisa bayar iuran November 2026 (Rp 50.000)",
+      "date": "2026-10-05",
+      "ts": 1791172971492
+    },
+    {
+      "icon": "💰",
+      "text": "Blok D D34 Raisa bayar iuran Oktober 2026 (Rp 50.000)",
+      "date": "2026-10-05",
+      "ts": 1791172971492
+    },
+    {
+      "icon": "💰",
+      "text": "Blok D D34 Raisa bayar iuran September 2026 (Rp 50.000)",
+      "date": "2026-10-05",
+      "ts": 1791172971492
+    },
+    {
+      "icon": "💰",
+      "text": "Blok D D34 Raisa bayar iuran Agustus 2026 (Rp 50.000)",
+      "date": "2026-10-05",
+      "ts": 1791172971492
+    },
+    {
+      "icon": "💰",
+      "text": "Blok D D34 Raisa bayar iuran Juli 2026 (Rp 50.000)",
+      "date": "2026-10-05",
+      "ts": 1791172971492
+    },
     {
       "icon": "📤",
       "text": "Kompleks: Konsumsi wakar - Rp 250.000",
