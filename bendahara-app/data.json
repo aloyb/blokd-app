@@ -1317,7 +1317,7 @@
             "mar": true,
             "apr": true,
             "may": true,
-            "jun": false,
+            "jun": true,
             "jul": true,
             "aug": true,
             "sep": true,
@@ -1468,7 +1468,7 @@
             "apr": true,
             "may": true,
             "jun": true,
-            "jul": false,
+            "jul": true,
             "aug": true,
             "sep": true,
             "oct": false,
@@ -5573,6 +5573,18 @@
     }
   },
   "activityLog": [
+    {
+      "icon": "💰",
+      "text": "Blok C C12 Saleh bayar iuran Juli 2026 (Rp 50.000)",
+      "date": "2026-10-11",
+      "ts": 1791720283990
+    },
+    {
+      "icon": "💰",
+      "text": "Blok C C4 Ihya bayar iuran Juni 2026 (Rp 50.000)",
+      "date": "2026-10-11",
+      "ts": 1791720283990
+    },
     {
       "icon": "💰",
       "text": "Blok D D45 Mahrita bayar iuran Oktober 2026 (Rp 50.000)",
