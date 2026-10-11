@@ -5622,18 +5622,6 @@
       "ts": 1791172971492
     },
     {
-      "icon": "📤",
-      "text": "Kompleks: Konsumsi wakar - Rp 250.000",
-      "date": "2026-10-04",
-      "ts": 1791074415349
-    },
-    {
-      "icon": "📤",
-      "text": "Kompleks: Beli gembok untuk pos - Rp 44.000",
-      "date": "2026-10-04",
-      "ts": 1791074415349
-    },
-    {
       "icon": "💰",
       "text": "Blok D D5 Rif'at bayar iuran Agustus 2026 (Rp 50.000)",
       "date": "2026-10-04",
@@ -6717,16 +6705,6 @@
     ]
   },
   "pengeluaran": [
-    {
-      "date": "2026-10-04",
-      "amount": 44000,
-      "keterangan": "Beli gembok untuk pos"
-    },
-    {
-      "date": "2026-10-04",
-      "amount": 250000,
-      "keterangan": "Konsumsi wakar"
-    },
     {
       "date": "2026-01-01",
       "amount": 1300000,
