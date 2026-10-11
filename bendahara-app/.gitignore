@@ -1,3 +1,6 @@
 .vercel
 node_modules
 .next
+
+# guard anti-dobel lapor.cjs
+.lapor-recent.json
