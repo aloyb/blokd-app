@@ -3207,7 +3207,7 @@
             "jul": true,
             "aug": true,
             "sep": true,
-            "oct": false,
+            "oct": true,
             "nov": false,
             "dec": false
           }
@@ -5574,6 +5574,18 @@
   },
   "activityLog": [
     {
+      "icon": "📤",
+      "text": "Kompleks: Perbaikan kipas pos - Rp 40.000",
+      "date": "2026-10-11",
+      "ts": 1791717795391
+    },
+    {
+      "icon": "💰",
+      "text": "Blok D D45 Mahrita bayar iuran Oktober 2026 (Rp 50.000)",
+      "date": "2026-10-11",
+      "ts": 1791717795391
+    },
+    {
       "icon": "💰",
       "text": "Blok D D34 Raisa bayar iuran Desember 2026 (Rp 50.000)",
       "date": "2026-10-05",
@@ -6899,6 +6911,11 @@
       "date": "2026-10-03",
       "amount": 44000,
       "keterangan": "Beli gembok untuk pos"
+    },
+    {
+      "date": "2026-10-11",
+      "amount": 40000,
+      "keterangan": "Perbaikan kipas pos"
     }
   ],
   "pemasukanKas": {
