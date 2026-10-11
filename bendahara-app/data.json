@@ -5574,12 +5574,6 @@
   },
   "activityLog": [
     {
-      "icon": "📤",
-      "text": "Kompleks: Perbaikan kipas pos - Rp 40.000",
-      "date": "2026-10-11",
-      "ts": 1791717795391
-    },
-    {
       "icon": "💰",
       "text": "Blok D D45 Mahrita bayar iuran Oktober 2026 (Rp 50.000)",
       "date": "2026-10-11",
@@ -5638,18 +5632,6 @@
       "text": "Blok D D5 Rif'at bayar iuran Oktober 2026 (Rp 50.000)",
       "date": "2026-10-04",
       "ts": 1791074415349
-    },
-    {
-      "icon": "📤",
-      "text": "Kompleks: Beli gembok untuk pos - Rp 44.000",
-      "date": "2026-10-03",
-      "ts": 1791037522860
-    },
-    {
-      "icon": "📤",
-      "text": "Kompleks: Konsumsi wakar - Rp 250.000",
-      "date": "2026-10-03",
-      "ts": 1791037522860
     },
     {
       "icon": "✅",
@@ -5866,18 +5848,6 @@
       "text": "Blok D D24 Nazar bayar iuran Agustus 2026 (Rp 50.000)",
       "date": "2026-09-26",
       "ts": 1790410323477
-    },
-    {
-      "icon": "📤",
-      "text": "Kompleks: Sampah - Rp 1.300.000",
-      "date": "2026-09-25",
-      "ts": 1790331557289
-    },
-    {
-      "icon": "📤",
-      "text": "Kompleks: Wakar - Rp 3.600.000",
-      "date": "2026-09-25",
-      "ts": 1790331557289
     },
     {
       "icon": "💰",
@@ -6534,12 +6504,6 @@
       "ts": 1788320400000
     },
     {
-      "icon": "📤",
-      "text": "Kompleks: Perbaikan jalan utama - Rp 2.300.000",
-      "date": "2 Sep 2026",
-      "ts": 1788320400000
-    },
-    {
       "icon": "💰",
       "text": "Blok D D37 Hendy bayar iuran Mei, Juni 2026 (Rp 100.000)",
       "date": "2 Sep 2026",
@@ -6580,12 +6544,6 @@
       "text": "Blok C C53 nama penghuni diperbaiki dari \"Mardiyani\" -> Mardiyanto",
       "date": "2 Sep 2026",
       "ts": 1788331200000
-    },
-    {
-      "icon": "📤",
-      "text": "Kompleks: Keperluan wakar - Rp 249.000",
-      "date": "2 Sep 2026",
-      "ts": 1788320400000
     },
     {
       "icon": "💰",
@@ -6631,18 +6589,6 @@
     {
       "icon": "💰",
       "text": "Blok B: Setoran perwakilan Rp 790.000",
-      "date": "26 Agu 2026",
-      "ts": 1787681220000
-    },
-    {
-      "icon": "📤",
-      "text": "Kompleks: Wakar - Rp 3.600.000",
-      "date": "26 Agu 2026",
-      "ts": 1787681220000
-    },
-    {
-      "icon": "📤",
-      "text": "Kompleks: Sampah - Rp 1.300.000",
       "date": "26 Agu 2026",
       "ts": 1787681220000
     }
