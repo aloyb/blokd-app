@@ -3084,10 +3084,10 @@
             "apr": true,
             "may": true,
             "jun": true,
-            "jul": false,
-            "aug": false,
-            "sep": false,
-            "oct": false,
+            "jul": true,
+            "aug": true,
+            "sep": true,
+            "oct": true,
             "nov": false,
             "dec": false
           }
@@ -5573,6 +5573,30 @@
     }
   },
   "activityLog": [
+    {
+      "icon": "💰",
+      "text": "Blok D D39 Aulia bayar iuran Oktober 2026 (Rp 50.000)",
+      "date": "2026-10-15",
+      "ts": 1792071457724
+    },
+    {
+      "icon": "💰",
+      "text": "Blok D D39 Aulia bayar iuran September 2026 (Rp 50.000)",
+      "date": "2026-10-15",
+      "ts": 1792071457724
+    },
+    {
+      "icon": "💰",
+      "text": "Blok D D39 Aulia bayar iuran Agustus 2026 (Rp 50.000)",
+      "date": "2026-10-15",
+      "ts": 1792071457724
+    },
+    {
+      "icon": "💰",
+      "text": "Blok D D39 Aulia bayar iuran Juli 2026 (Rp 50.000)",
+      "date": "2026-10-15",
+      "ts": 1792071457724
+    },
     {
       "icon": "💰",
       "text": "Blok C C12 Saleh bayar iuran Juli 2026 (Rp 50.000)",
