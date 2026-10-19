@@ -2425,7 +2425,7 @@
             "jul": true,
             "aug": true,
             "sep": true,
-            "oct": false,
+            "oct": true,
             "nov": false,
             "dec": false
           },
@@ -2706,7 +2706,7 @@
             "jul": true,
             "aug": true,
             "sep": true,
-            "oct": false,
+            "oct": true,
             "nov": false,
             "dec": false
           },
@@ -2767,8 +2767,8 @@
             "jul": true,
             "aug": true,
             "sep": true,
-            "oct": false,
-            "nov": false,
+            "oct": true,
+            "nov": true,
             "dec": false
           }
         },
@@ -5573,6 +5573,30 @@
     }
   },
   "activityLog": [
+    {
+      "icon": "💰",
+      "text": "Blok D D18 Rizal bayar iuran Oktober 2026 (Rp 50.000)",
+      "date": "2026-10-19",
+      "ts": 1792411550537
+    },
+    {
+      "icon": "💰",
+      "text": "Blok D D4 Melly bayar iuran Oktober 2026 (Rp 50.000)",
+      "date": "2026-10-19",
+      "ts": 1792411550537
+    },
+    {
+      "icon": "💰",
+      "text": "Blok D D22 Lina bayar iuran November 2026 (Rp 50.000)",
+      "date": "2026-10-19",
+      "ts": 1792411550537
+    },
+    {
+      "icon": "💰",
+      "text": "Blok D D22 Lina bayar iuran Oktober 2026 (Rp 50.000)",
+      "date": "2026-10-19",
+      "ts": 1792411550537
+    },
     {
       "icon": "💰",
       "text": "Blok D D1 Adit bayar iuran Oktober 2026 (Rp 50.000)",
