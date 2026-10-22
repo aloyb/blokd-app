@@ -2945,9 +2945,9 @@
             "may": true,
             "jun": true,
             "jul": true,
-            "aug": false,
-            "sep": false,
-            "oct": false,
+            "aug": true,
+            "sep": true,
+            "oct": true,
             "nov": false,
             "dec": false
           }
@@ -5573,6 +5573,24 @@
     }
   },
   "activityLog": [
+    {
+      "icon": "💰",
+      "text": "Blok D D32 Syifa bayar iuran Oktober 2026 (Rp 50.000)",
+      "date": "2026-10-22",
+      "ts": 1792680040647
+    },
+    {
+      "icon": "💰",
+      "text": "Blok D D32 Syifa bayar iuran September 2026 (Rp 50.000)",
+      "date": "2026-10-22",
+      "ts": 1792680040647
+    },
+    {
+      "icon": "💰",
+      "text": "Blok D D32 Syifa bayar iuran Agustus 2026 (Rp 50.000)",
+      "date": "2026-10-22",
+      "ts": 1792680040647
+    },
     {
       "icon": "💰",
       "text": "Blok D D18 Rizal bayar iuran Oktober 2026 (Rp 50.000)",
