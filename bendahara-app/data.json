@@ -2948,8 +2948,8 @@
             "aug": true,
             "sep": true,
             "oct": true,
-            "nov": true,
-            "dec": true
+            "nov": false,
+            "dec": false
           }
         },
         {
@@ -5588,18 +5588,6 @@
     {
       "icon": "💰",
       "text": "Blok D D11 Ahmad bayar iuran Agustus 2026 (Rp 50.000)",
-      "date": "2026-10-23",
-      "ts": 1792789106901
-    },
-    {
-      "icon": "💰",
-      "text": "Blok D D32 Syifa bayar iuran Desember 2026 (Rp 50.000)",
-      "date": "2026-10-23",
-      "ts": 1792789106901
-    },
-    {
-      "icon": "💰",
-      "text": "Blok D D32 Syifa bayar iuran November 2026 (Rp 50.000)",
       "date": "2026-10-23",
       "ts": 1792789106901
     },
