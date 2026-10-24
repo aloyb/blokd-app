@@ -4,3 +4,6 @@ node_modules
 
 # guard anti-dobel lapor.cjs
 .lapor-recent.json
+
+# lock proses lapor.cjs
+.lapor.lock

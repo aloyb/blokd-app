@@ -43,9 +43,38 @@ const MONTH_ALIAS = {
 const args = process.argv.slice(2);
 const DRY = args.includes('--dry') || args.includes('--test');
 const NO_DEPLOY = args.includes('--no-deploy') || process.env.LAPOR_NO_DEPLOY === '1';
+const FORCE = args.includes('--force') || process.env.LAPOR_FORCE === '1';
 const rawInput = args.filter((a) => !a.startsWith('--')).join(' ').trim();
 
+const LOCK_PATH = process.env.LAPOR_LOCK || path.join(__dirname, '.lapor.lock');
+const GUARD_PATH = process.env.LAPOR_GUARD || path.join(__dirname, '.lapor-recent.json');
+const LOCK_MAX_AGE_MS = 10 * 60 * 1000;   // lock lebih tua dari 10 menit dianggap basi
+const FP_WINDOW_MS = 24 * 60 * 60 * 1000; // tolak isi laporan identik dalam 24 jam
+
+let lockHeld = false;
+function acquireLock(p) {
+  try {
+    const st = fs.statSync(p);
+    if (Date.now() - st.mtimeMs > LOCK_MAX_AGE_MS) fs.unlinkSync(p); // basi -> buang
+  } catch (e) { /* tidak ada lock */ }
+  try {
+    fs.writeFileSync(p, JSON.stringify({ pid: process.pid, at: Date.now(), input: rawInput }), { flag: 'wx' });
+    lockHeld = true;
+  } catch (e) {
+    let info = '';
+    try { info = fs.readFileSync(p, 'utf8'); } catch (e2) { /* noop */ }
+    fail('SEDANG DIPROSES: ada proses lapor.cjs lain yang masih jalan (lock: ' + p + '). Isi: ' + info + '\nTunggu sampai selesai, lalu ulangi.');
+  }
+}
+function releaseLock() {
+  if (!lockHeld) return;
+  try { fs.unlinkSync(LOCK_PATH); } catch (e) { /* noop */ }
+  lockHeld = false;
+}
+process.on('exit', releaseLock);
+
 function fail(msg) {
+  releaseLock();
   console.log('\n===LAPOR-RESULT===');
   console.log('STATUS: GAGAL');
   console.log('ALASAN: ' + msg);
@@ -197,6 +226,8 @@ function amountFor(member) {
 function main() {
   if (!rawInput) fail('Tidak ada teks laporan. Contoh: node lapor.cjs "pemasukan D45 1"');
 
+  acquireLock(LOCK_PATH);
+
   const data = JSON.parse(fs.readFileSync(DATA_PATH, 'utf8'));
   const { pemasukanStr, pengeluaranStr } = splitSections(rawInput);
   const pemasukan = parsePemasukan(pemasukanStr);
@@ -230,10 +261,61 @@ function main() {
     plan.expenses.push({ keterangan: e.keterangan, amount: e.amount, date: e.date || tglISO });
   }
 
+  // --- GUARD 1: idempotensi per bulan (pakai data FRESH dari disk) ---
+  // Kalau bulan yang mau ditandai SUDAH true -> berarti sudah pernah dicatat. Buang, jangan dobel.
+  const fresh = JSON.parse(fs.readFileSync(DATA_PATH, 'utf8'));
+  const skipped = [];
+  for (const p of plan.payments) {
+    const fm = findMember(fresh, p.house);
+    const kept = [];
+    for (const mk of p.months) {
+      if (fm && fm.payments[mk]) skipped.push(p.house + ' ' + MONTH_LABEL[mk]);
+      else kept.push(mk);
+    }
+    p.months = kept;
+  }
+  plan.payments = plan.payments.filter((p) => p.months.length > 0);
+  if (skipped.length) {
+    console.log('Dilewati (SUDAH tercatat sebelumnya, tidak dicatat ulang): ' + skipped.join(', '));
+  }
+  if (plan.payments.length === 0 && plan.expenses.length === 0) {
+    fail('TIDAK ADA PERUBAHAN: semua bulan yang diminta sudah tercatat/dicentang di data.json -> ' + skipped.join(', ') + '. Kalau memang mau paksa, pakai --force.');
+  }
+
+  // --- GUARD 2: tolak isi laporan identik dalam 24 jam (bukan cuma teks) ---
+  const fpKey = fingerprint(plan);
+  const normKey = 'teks:' + rawInput.toLowerCase().replace(/\s+/g, ' ').trim();
+  let recent = {};
+  try { recent = JSON.parse(fs.readFileSync(GUARD_PATH, 'utf8')); } catch (e) { recent = {}; }
+  const nowMs = Date.now();
+  Object.keys(recent).forEach((k) => { if (nowMs - recent[k] > FP_WINDOW_MS) delete recent[k]; });
+  if (!FORCE) {
+    if (recent[fpKey]) {
+      fail('DUPLIKAT: isi laporan ini IDENTIK dengan yang sudah dicatat ' + Math.round((nowMs - recent[fpKey]) / 60000) + ' menit lalu (' + fpKey + '). Tidak diproses ulang. Pakai --force kalau benar-benar mau ulang.');
+    }
+    if (recent[normKey]) {
+      fail('DUPLIKAT: teks laporan ini sudah diproses ' + Math.round((nowMs - recent[normKey]) / 60000) + ' menit lalu. Tidak diproses ulang. Pakai --force kalau benar-benar mau ulang.');
+    }
+    // GUARD 3: input sekarang MENGANDUNG laporan lama yang sudah diproses.
+    // Ini pola bug "riwayat chat ikut diproses ulang" (mis. D33 lalu D19).
+    const normNow = rawInput.toLowerCase().replace(/\s+/g, ' ').trim();
+    for (const k of Object.keys(recent)) {
+      if (!k.startsWith('teks:')) continue;
+      const oldText = k.slice(5);
+      if (oldText.length < 4 || !/[a-g]\d/i.test(oldText) || oldText === normNow) continue;
+      if (normNow.includes(oldText)) {
+        fail('BEKAS RIWAYAT: teks laporan sekarang MENGANDUNG laporan lama yang sudah diproses (' + Math.round((nowMs - recent[k]) / 60000) + ' menit lalu): "' + oldText + '".\nKemungkinan riwayat chat ikut terbaca. Kirim HANYA laporan baru saja. Kalau memang sengaja, pakai --force.');
+      }
+    }
+  }
+  recent[fpKey] = nowMs;
+  recent[normKey] = nowMs;
+
   // ---- apply ----
   for (const p of plan.payments) {
+    const target = findMember(data, p.house) || p.member;
     for (const mk of p.months) {
-      p.member.payments[mk] = true;
+      target.payments[mk] = true;
       data.activityLog.unshift({
         icon: '💰',
         text: 'Blok ' + p.house[0] + ' ' + p.house + ' ' + p.name + ' bayar iuran ' + MONTH_LABEL[mk] + ' 2026 (Rp ' + p.nominal.toLocaleString('id-ID') + ')',
@@ -265,19 +347,19 @@ function main() {
     return;
   }
 
-  // --- guard anti-dobel: tolak teks laporan identik yang baru saja diproses ---
-  const normKey = rawInput.toLowerCase().replace(/\s+/g, ' ').trim();
-  const GUARD_PATH = process.env.LAPOR_GUARD || path.join(__dirname, '.lapor-recent.json');
-  let recent = {};
-  try { recent = JSON.parse(fs.readFileSync(GUARD_PATH, 'utf8')); } catch (e) { recent = {}; }
-  const nowMs = Date.now();
-  const prev = recent[normKey];
-  if (prev && nowMs - prev < 5 * 60 * 1000) {
-    fail('DUPLIKAT: laporan ini sudah diproses ' + Math.round((nowMs - prev) / 1000) + ' detik lalu. Tidak diproses ulang. (Kalau memang mau ulang, tunggu 5 menit atau ubah teksnya.)');
+  // --- GUARD 4 (peringatan, tidak memblokir): rumah yang baru dilaporkan < 60 menit ---
+  const warn = [];
+  for (const p of plan.payments) {
+    for (const k of Object.keys(recent)) {
+      if (!k.startsWith('isi:') || k === fpKey) continue;
+      if (k.includes(p.house + ':') && nowMs - recent[k] < 60 * 60 * 1000) {
+        warn.push(p.house + ' sudah dilaporkan ' + Math.round((nowMs - recent[k]) / 60000) + ' menit lalu');
+      }
+    }
   }
-  recent[normKey] = nowMs;
-  // buang entri lama > 1 hari
-  Object.keys(recent).forEach((k) => { if (nowMs - recent[k] > 86400000) delete recent[k]; });
+  if (warn.length) {
+    console.log('PERINGATAN (cek dulu, jangan-jangan laporan dobel): ' + [...new Set(warn)].join('; '));
+  }
 
   fs.writeFileSync(DATA_PATH, JSON.stringify(data, null, 2) + '\n');
   try { fs.writeFileSync(GUARD_PATH, JSON.stringify(recent, null, 1)); } catch (e) { /* noop */ }
@@ -287,20 +369,26 @@ function main() {
   // path relatif terhadap repo root (biar aman & fleksibel)
   const relData = path.relative(REPO_ROOT, DATA_PATH) || 'data.json';
   const addTargets = [relData];
+  const relDataSafe = relData.startsWith('..') ? null : relData;
+  if (!relDataSafe) addTargets.length = 0;
   [path.join(__dirname, 'lapor.cjs'), path.join(__dirname, '.gitignore')].forEach((f) => {
     const rel = path.relative(REPO_ROOT, f);
     if (rel && !rel.startsWith('..')) addTargets.push(rel);
   });
   try {
+    if (process.env.LAPOR_NO_GIT === '1') {
+      console.log('(--no-git: git dilewati)');
+    } else {
     execSync('git add ' + addTargets.map(shellQuote).join(' ') + ' && git commit -m ' + shellQuote(commitMsg) + " && git push origin master", { cwd: REPO_ROOT, stdio: 'pipe' });
+    }
   } catch (err) {
-    fail('GIT gagal: ' + String(err.stderr || err.message).slice(0, 400));
+    fail('GIT gagal: ' + String(err.stderr || err.message).slice(0, 400) + '\nCATATAN: data.json SUDAH berubah di disk. Selesaikan manual: git add/commit/push + vercel --prod, JANGAN jalankan ulang laporan tanpa --force.');
   }
   if (!NO_DEPLOY) {
     try {
       deployLog = execSync('vercel --prod --yes 2>&1 | tail -5', { cwd: APP_DIR, stdio: 'pipe', timeout: 280000 }).toString();
     } catch (err) {
-      fail('VERCEL gagal: ' + String(err.stdout || err.stderr || err.message).slice(0, 500));
+      fail('VERCEL gagal: ' + String(err.stdout || err.stderr || err.message).slice(0, 500) + '\nCATATAN: data.json SUDAH berubah & ter-commit/push. Tinggal deploy: cd bendahara-app && vercel --prod --yes. JANGAN jalankan ulang laporan tanpa --force.');
     }
     if (!/Aliased:|Production:/i.test(deployLog)) {
       fail('VERCEL tidak melaporkan sukses. Log:\n' + deployLog);
@@ -333,6 +421,14 @@ function main() {
   console.log('STATUS: SUKSES');
   console.log('URL: ' + LIVE_URL);
   console.log('===END===');
+}
+
+// sidik jari ISI perubahan: rumah+bulan yang ditandai & pengeluaran (urut, stabil)
+function fingerprint(plan) {
+  const pay = [];
+  plan.payments.forEach((p) => p.months.forEach((mk) => pay.push(p.house + ':' + mk)));
+  const exp = plan.expenses.map((e) => (e.keterangan || '').toLowerCase() + ':' + e.amount).sort();
+  return 'isi:' + pay.sort().join(',') + '|' + exp.join(',');
 }
 
 function buildCommitMsg(plan, tglShort) {
