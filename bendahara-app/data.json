@@ -3273,7 +3273,7 @@
             "jun": true,
             "jul": true,
             "aug": true,
-            "sep": false,
+            "sep": true,
             "oct": false,
             "nov": false,
             "dec": false
@@ -3294,7 +3294,7 @@
             "jul": true,
             "aug": true,
             "sep": true,
-            "oct": false,
+            "oct": true,
             "nov": false,
             "dec": false
           }
@@ -3314,7 +3314,7 @@
             "jul": true,
             "aug": true,
             "sep": true,
-            "oct": false,
+            "oct": true,
             "nov": false,
             "dec": false
           }
@@ -3333,8 +3333,8 @@
             "jun": true,
             "jul": true,
             "aug": true,
-            "sep": false,
-            "oct": false,
+            "sep": true,
+            "oct": true,
             "nov": false,
             "dec": false
           }
@@ -3353,8 +3353,8 @@
             "jun": true,
             "jul": true,
             "aug": true,
-            "sep": false,
-            "oct": false,
+            "sep": true,
+            "oct": true,
             "nov": false,
             "dec": false
           }
@@ -3426,7 +3426,7 @@
             "jul": true,
             "aug": true,
             "sep": true,
-            "oct": false,
+            "oct": true,
             "nov": false,
             "dec": false
           }
@@ -3446,7 +3446,7 @@
             "jul": true,
             "aug": true,
             "sep": true,
-            "oct": false,
+            "oct": true,
             "nov": false,
             "dec": false
           }
@@ -3466,7 +3466,7 @@
             "jul": true,
             "aug": true,
             "sep": true,
-            "oct": false,
+            "oct": true,
             "nov": false,
             "dec": false
           }
@@ -3577,7 +3577,7 @@
             "jul": true,
             "aug": true,
             "sep": true,
-            "oct": false,
+            "oct": true,
             "nov": false,
             "dec": false
           }
@@ -3597,7 +3597,7 @@
             "jul": true,
             "aug": true,
             "sep": true,
-            "oct": false,
+            "oct": true,
             "nov": false,
             "dec": false
           },
@@ -3705,7 +3705,7 @@
             "jul": true,
             "aug": true,
             "sep": true,
-            "oct": false,
+            "oct": true,
             "nov": false,
             "dec": false
           },
@@ -3734,7 +3734,7 @@
             "jul": true,
             "aug": true,
             "sep": true,
-            "oct": false,
+            "oct": true,
             "nov": false,
             "dec": false
           }
@@ -3794,7 +3794,7 @@
             "jul": true,
             "aug": true,
             "sep": true,
-            "oct": false,
+            "oct": true,
             "nov": false,
             "dec": false
           }
@@ -3854,7 +3854,7 @@
             "jul": true,
             "aug": true,
             "sep": true,
-            "oct": false,
+            "oct": true,
             "nov": false,
             "dec": false
           }
@@ -3895,7 +3895,7 @@
             "jul": true,
             "aug": true,
             "sep": true,
-            "oct": false,
+            "oct": true,
             "nov": false,
             "dec": false
           }
@@ -3915,7 +3915,7 @@
             "jul": true,
             "aug": true,
             "sep": true,
-            "oct": false,
+            "oct": true,
             "nov": false,
             "dec": false
           },
@@ -3935,8 +3935,8 @@
             "jun": true,
             "jul": true,
             "aug": true,
-            "sep": false,
-            "oct": false,
+            "sep": true,
+            "oct": true,
             "nov": false,
             "dec": false
           }
@@ -3976,8 +3976,8 @@
             "jun": true,
             "jul": true,
             "aug": true,
-            "sep": false,
-            "oct": false,
+            "sep": true,
+            "oct": true,
             "nov": false,
             "dec": false
           }
@@ -3996,8 +3996,8 @@
             "jun": true,
             "jul": true,
             "aug": true,
-            "sep": false,
-            "oct": false,
+            "sep": true,
+            "oct": true,
             "nov": false,
             "dec": false
           }
@@ -4017,7 +4017,7 @@
             "jul": true,
             "aug": true,
             "sep": true,
-            "oct": false,
+            "oct": true,
             "nov": false,
             "dec": false
           }
@@ -4037,7 +4037,7 @@
             "jul": true,
             "aug": true,
             "sep": true,
-            "oct": false,
+            "oct": true,
             "nov": false,
             "dec": false
           },
@@ -4058,7 +4058,7 @@
             "jul": true,
             "aug": true,
             "sep": true,
-            "oct": false,
+            "oct": true,
             "nov": false,
             "dec": false
           },
@@ -4100,7 +4100,7 @@
             "jul": true,
             "aug": true,
             "sep": true,
-            "oct": false,
+            "oct": true,
             "nov": false,
             "dec": false
           },
@@ -5573,6 +5573,174 @@
     }
   },
   "activityLog": [
+    {
+      "icon": "💰",
+      "text": "Blok E E3 RIZA bayar iuran Oktober 2026 (Rp 50.000)",
+      "date": "2026-10-25",
+      "ts": 1792926853258
+    },
+    {
+      "icon": "💰",
+      "text": "Blok E E2 ILMI bayar iuran Oktober 2026 (Rp 50.000)",
+      "date": "2026-10-25",
+      "ts": 1792926853258
+    },
+    {
+      "icon": "💰",
+      "text": "Blok E E35 SAHA bayar iuran Oktober 2026 (Rp 50.000)",
+      "date": "2026-10-25",
+      "ts": 1792926853258
+    },
+    {
+      "icon": "💰",
+      "text": "Blok E E35 SAHA bayar iuran September 2026 (Rp 50.000)",
+      "date": "2026-10-25",
+      "ts": 1792926853258
+    },
+    {
+      "icon": "💰",
+      "text": "Blok E E33 DIANA bayar iuran Oktober 2026 (Rp 50.000)",
+      "date": "2026-10-25",
+      "ts": 1792926853258
+    },
+    {
+      "icon": "💰",
+      "text": "Blok E E33 DIANA bayar iuran September 2026 (Rp 50.000)",
+      "date": "2026-10-25",
+      "ts": 1792926853258
+    },
+    {
+      "icon": "💰",
+      "text": "Blok E E32 RIADI bayar iuran Oktober 2026 (Rp 50.000)",
+      "date": "2026-10-25",
+      "ts": 1792926853258
+    },
+    {
+      "icon": "💰",
+      "text": "Blok E E10 RAHIM bayar iuran Oktober 2026 (Rp 50.000)",
+      "date": "2026-10-25",
+      "ts": 1792926853258
+    },
+    {
+      "icon": "💰",
+      "text": "Blok E E4 AHMAD bayar iuran Oktober 2026 (Rp 50.000)",
+      "date": "2026-10-25",
+      "ts": 1792926853258
+    },
+    {
+      "icon": "💰",
+      "text": "Blok E E4 AHMAD bayar iuran September 2026 (Rp 50.000)",
+      "date": "2026-10-25",
+      "ts": 1792926853258
+    },
+    {
+      "icon": "💰",
+      "text": "Blok E E9 ABDI bayar iuran Oktober 2026 (Rp 50.000)",
+      "date": "2026-10-25",
+      "ts": 1792926853258
+    },
+    {
+      "icon": "💰",
+      "text": "Blok E E21 QIMAL bayar iuran Oktober 2026 (Rp 50.000)",
+      "date": "2026-10-25",
+      "ts": 1792926853258
+    },
+    {
+      "icon": "💰",
+      "text": "Blok E E1 RIFANI bayar iuran September 2026 (Rp 30.000)",
+      "date": "2026-10-25",
+      "ts": 1792926853258
+    },
+    {
+      "icon": "💰",
+      "text": "Blok E E31 MADNOR bayar iuran Oktober 2026 (Rp 50.000)",
+      "date": "2026-10-25",
+      "ts": 1792926853258
+    },
+    {
+      "icon": "💰",
+      "text": "Blok E E41 RENALDI bayar iuran Oktober 2026 (Rp 50.000)",
+      "date": "2026-10-25",
+      "ts": 1792926853258
+    },
+    {
+      "icon": "💰",
+      "text": "Blok E E37 YUDHA bayar iuran Oktober 2026 (Rp 50.000)",
+      "date": "2026-10-25",
+      "ts": 1792926853258
+    },
+    {
+      "icon": "💰",
+      "text": "Blok E E16 - bayar iuran Oktober 2026 (Rp 30.000)",
+      "date": "2026-10-25",
+      "ts": 1792926853258
+    },
+    {
+      "icon": "💰",
+      "text": "Blok E E15 HUSNI bayar iuran Oktober 2026 (Rp 50.000)",
+      "date": "2026-10-25",
+      "ts": 1792926853258
+    },
+    {
+      "icon": "💰",
+      "text": "Blok E E22 IMA bayar iuran Oktober 2026 (Rp 50.000)",
+      "date": "2026-10-25",
+      "ts": 1792926853258
+    },
+    {
+      "icon": "💰",
+      "text": "Blok E E8 RIZA bayar iuran Oktober 2026 (Rp 50.000)",
+      "date": "2026-10-25",
+      "ts": 1792926853258
+    },
+    {
+      "icon": "💰",
+      "text": "Blok E E29 ZULKIPLI bayar iuran Oktober 2026 (Rp 50.000)",
+      "date": "2026-10-25",
+      "ts": 1792926853258
+    },
+    {
+      "icon": "💰",
+      "text": "Blok E E5 FADIL bayar iuran Oktober 2026 (Rp 50.000)",
+      "date": "2026-10-25",
+      "ts": 1792926853258
+    },
+    {
+      "icon": "💰",
+      "text": "Blok E E5 FADIL bayar iuran September 2026 (Rp 50.000)",
+      "date": "2026-10-25",
+      "ts": 1792926853258
+    },
+    {
+      "icon": "💰",
+      "text": "Blok E E39 NI'MAH bayar iuran Oktober 2026 (Rp 50.000)",
+      "date": "2026-10-25",
+      "ts": 1792926853258
+    },
+    {
+      "icon": "💰",
+      "text": "Blok E E38 SYARIF/UNA bayar iuran Oktober 2026 (Rp 50.000)",
+      "date": "2026-10-25",
+      "ts": 1792926853258
+    },
+    {
+      "icon": "💰",
+      "text": "Blok E E36 IYAY bayar iuran Oktober 2026 (Rp 50.000)",
+      "date": "2026-10-25",
+      "ts": 1792926853258
+    },
+    {
+      "icon": "💰",
+      "text": "Blok E E36 IYAY bayar iuran September 2026 (Rp 50.000)",
+      "date": "2026-10-25",
+      "ts": 1792926853258
+    },
+    {
+      "icon": "💰",
+      "text": "Blok E E26 RISKA bayar iuran Oktober 2026 (Rp 50.000)",
+      "date": "2026-10-25",
+      "ts": 1792926853258
+    },
     {
       "icon": "💰",
       "text": "Blok D D27 Windy bayar iuran November 2026 (Rp 50.000)",
