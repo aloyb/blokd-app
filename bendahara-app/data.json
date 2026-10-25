@@ -4744,7 +4744,7 @@
             "jul": true,
             "aug": true,
             "sep": true,
-            "oct": false,
+            "oct": true,
             "nov": false,
             "dec": false
           },
@@ -4769,7 +4769,7 @@
             "jul": true,
             "aug": true,
             "sep": true,
-            "oct": false,
+            "oct": true,
             "nov": false,
             "dec": false
           },
@@ -4793,7 +4793,7 @@
             "jul": true,
             "aug": true,
             "sep": true,
-            "oct": false,
+            "oct": true,
             "nov": false,
             "dec": false
           },
@@ -5116,7 +5116,7 @@
             "jul": true,
             "aug": true,
             "sep": true,
-            "oct": false,
+            "oct": true,
             "nov": false,
             "dec": false
           },
@@ -5160,7 +5160,7 @@
             "jul": true,
             "aug": true,
             "sep": true,
-            "oct": false,
+            "oct": true,
             "nov": false,
             "dec": false
           },
@@ -5367,7 +5367,7 @@
             "jul": true,
             "aug": true,
             "sep": true,
-            "oct": false,
+            "oct": true,
             "nov": false,
             "dec": false
           }
@@ -5577,6 +5577,42 @@
     }
   },
   "activityLog": [
+    {
+      "icon": "💰",
+      "text": "Blok G G32 Rifki bayar iuran Oktober 2026 (Rp 50.000)",
+      "date": "2026-10-25",
+      "ts": 1792935654035
+    },
+    {
+      "icon": "💰",
+      "text": "Blok G G22 Abdurrahman bayar iuran Oktober 2026 (Rp 50.000)",
+      "date": "2026-10-25",
+      "ts": 1792935654035
+    },
+    {
+      "icon": "💰",
+      "text": "Blok G G20 Nurul bayar iuran Oktober 2026 (Rp 50.000)",
+      "date": "2026-10-25",
+      "ts": 1792935654035
+    },
+    {
+      "icon": "💰",
+      "text": "Blok G G4 Hartati bayar iuran Oktober 2026 (Rp 50.000)",
+      "date": "2026-10-25",
+      "ts": 1792935654035
+    },
+    {
+      "icon": "💰",
+      "text": "Blok G G3 Yuli bayar iuran Oktober 2026 (Rp 50.000)",
+      "date": "2026-10-25",
+      "ts": 1792935654035
+    },
+    {
+      "icon": "💰",
+      "text": "Blok G G2 Fikri bayar iuran Oktober 2026 (Rp 50.000)",
+      "date": "2026-10-25",
+      "ts": 1792935654035
+    },
     {
       "icon": "💰",
       "text": "Blok E E3 RIZA bayar iuran Oktober 2026 (Rp 50.000)",
