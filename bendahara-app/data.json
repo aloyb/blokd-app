@@ -7104,6 +7104,26 @@
       "date": "2026-10-11",
       "amount": 40000,
       "keterangan": "Perbaikan kipas pos"
+    },
+    {
+      "date": "2026-10-25",
+      "amount": 3600000,
+      "keterangan": "gajih wakar"
+    },
+    {
+      "date": "2026-10-25",
+      "amount": 1300000,
+      "keterangan": "sampah"
+    },
+    {
+      "date": "2026-10-25",
+      "amount": 150000,
+      "keterangan": "pembersihan blok E"
+    },
+    {
+      "date": "2026-10-25",
+      "amount": 2200000,
+      "keterangan": "perbaikan jalan utama"
     }
   ],
   "pemasukanKas": {
