@@ -3608,7 +3608,10 @@
             "apr": 30000,
             "may": 30000,
             "jun": 30000,
-            "oct": 30000
+            "oct": 30000,
+            "jul": 30000,
+            "aug": 30000,
+            "sep": 30000
           }
         },
         {
@@ -6560,19 +6563,19 @@
     },
     {
       "icon": "💰",
-      "text": "Blok E E16 - bayar iuran September 2026 (Rp 50.000)",
+      "text": "Blok E E16 - bayar iuran September 2026 (Rp 30.000)",
       "date": "2026-09-22",
       "ts": 1790070788867
     },
     {
       "icon": "💰",
-      "text": "Blok E E16 - bayar iuran Agustus 2026 (Rp 50.000)",
+      "text": "Blok E E16 - bayar iuran Agustus 2026 (Rp 30.000)",
       "date": "2026-09-22",
       "ts": 1790070788867
     },
     {
       "icon": "💰",
-      "text": "Blok E E16 - bayar iuran Juli 2026 (Rp 50.000)",
+      "text": "Blok E E16 - bayar iuran Juli 2026 (Rp 30.000)",
       "date": "2026-09-22",
       "ts": 1790070788867
     },
