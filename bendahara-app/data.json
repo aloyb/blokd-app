@@ -2867,8 +2867,8 @@
             "jul": true,
             "aug": true,
             "sep": true,
-            "oct": false,
-            "nov": false,
+            "oct": true,
+            "nov": true,
             "dec": false
           }
         },
@@ -5573,6 +5573,18 @@
     }
   },
   "activityLog": [
+    {
+      "icon": "💰",
+      "text": "Blok D D27 Windy bayar iuran November 2026 (Rp 50.000)",
+      "date": "2026-10-25",
+      "ts": 1792919568717
+    },
+    {
+      "icon": "💰",
+      "text": "Blok D D27 Windy bayar iuran Oktober 2026 (Rp 50.000)",
+      "date": "2026-10-25",
+      "ts": 1792919568717
+    },
     {
       "icon": "💰",
       "text": "Blok C C23 Nazar bayar iuran September 2026 (Rp 50.000)",
