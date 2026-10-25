@@ -314,11 +314,19 @@ function main() {
   // ---- apply ----
   for (const p of plan.payments) {
     const target = findMember(data, p.house) || p.member;
+    const base = amountFor(target);
     for (const mk of p.months) {
       target.payments[mk] = true;
+      // Nominal yang disebut user (mis. "30k", "40k") = nominal BULAN ITU, bukan sekadar teks.
+      // Disimpan ke paidAmounts supaya kas & PDF ikut benar. Field `amount` TIDAK diubah.
+      if (p.nominal != null && p.nominal > 0 && p.nominal !== base) {
+        target.paidAmounts = target.paidAmounts || {};
+        target.paidAmounts[mk] = p.nominal;
+      }
+      const eff = p.nominal || (target.paidAmounts && target.paidAmounts[mk]) || base;
       data.activityLog.unshift({
         icon: '💰',
-        text: 'Blok ' + p.house[0] + ' ' + p.house + ' ' + p.name + ' bayar iuran ' + MONTH_LABEL[mk] + ' 2026 (Rp ' + p.nominal.toLocaleString('id-ID') + ')',
+        text: 'Blok ' + p.house[0] + ' ' + p.house + ' ' + p.name + ' bayar iuran ' + MONTH_LABEL[mk] + ' 2026 (Rp ' + eff.toLocaleString('id-ID') + ')',
         date: tglISO,
         ts: ts,
       });
