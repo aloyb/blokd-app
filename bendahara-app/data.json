@@ -3485,8 +3485,8 @@
             "jun": true,
             "jul": true,
             "aug": true,
-            "sep": false,
-            "oct": false,
+            "sep": true,
+            "oct": true,
             "nov": false,
             "dec": false
           },
@@ -5577,6 +5577,18 @@
     }
   },
   "activityLog": [
+    {
+      "icon": "💰",
+      "text": "Blok E E11 ELSA bayar iuran Oktober 2026 (Rp 50.000)",
+      "date": "2026-10-26",
+      "ts": 1793058318360
+    },
+    {
+      "icon": "💰",
+      "text": "Blok E E11 ELSA bayar iuran September 2026 (Rp 50.000)",
+      "date": "2026-10-26",
+      "ts": 1793058318360
+    },
     {
       "icon": "💰",
       "text": "Blok A A33 Sutrisno bayar iuran Maret 2026 (Rp 50.000)",
