@@ -445,8 +445,8 @@
             "jul": true,
             "aug": true,
             "sep": true,
-            "oct": true,
-            "nov": true,
+            "oct": false,
+            "nov": false,
             "dec": false
           }
         },
