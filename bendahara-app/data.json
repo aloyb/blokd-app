@@ -639,8 +639,8 @@
             "jan": true,
             "feb": true,
             "mar": true,
-            "apr": true,
-            "may": true,
+            "apr": false,
+            "may": false,
             "jun": false,
             "jul": false,
             "aug": false,
@@ -5577,18 +5577,6 @@
     }
   },
   "activityLog": [
-    {
-      "icon": "💰",
-      "text": "Blok A A33 Sutrisno bayar iuran Mei 2026 (Rp 50.000)",
-      "date": "2026-10-26",
-      "ts": 1793057605114
-    },
-    {
-      "icon": "💰",
-      "text": "Blok A A33 Sutrisno bayar iuran April 2026 (Rp 50.000)",
-      "date": "2026-10-26",
-      "ts": 1793057605114
-    },
     {
       "icon": "💰",
       "text": "Blok A A33 Sutrisno bayar iuran Maret 2026 (Rp 50.000)",
