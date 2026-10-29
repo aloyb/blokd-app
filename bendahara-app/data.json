@@ -3247,7 +3247,7 @@
             "jul": true,
             "aug": true,
             "sep": true,
-            "oct": false,
+            "oct": true,
             "nov": false,
             "dec": false
           }
@@ -3274,7 +3274,7 @@
             "jul": true,
             "aug": true,
             "sep": true,
-            "oct": false,
+            "oct": true,
             "nov": false,
             "dec": false
           }
@@ -3487,8 +3487,8 @@
             "aug": true,
             "sep": true,
             "oct": true,
-            "nov": false,
-            "dec": false
+            "nov": true,
+            "dec": true
           },
           "paidAmounts": {
             "jan": 50000,
@@ -5577,6 +5577,30 @@
     }
   },
   "activityLog": [
+    {
+      "icon": "💰",
+      "text": "Blok E E1 RIFANI bayar iuran Oktober 2026 (Rp 30.000)",
+      "date": "2026-10-29",
+      "ts": 1793288477641
+    },
+    {
+      "icon": "💰",
+      "text": "Blok D D47 Boy bayar iuran Oktober 2026 (Rp 50.000)",
+      "date": "2026-10-29",
+      "ts": 1793288477641
+    },
+    {
+      "icon": "💰",
+      "text": "Blok E E11 ELSA bayar iuran Desember 2026 (Rp 50.000)",
+      "date": "2026-10-29",
+      "ts": 1793288477641
+    },
+    {
+      "icon": "💰",
+      "text": "Blok E E11 ELSA bayar iuran November 2026 (Rp 50.000)",
+      "date": "2026-10-29",
+      "ts": 1793288477641
+    },
     {
       "icon": "💰",
       "text": "Blok E E11 ELSA bayar iuran Oktober 2026 (Rp 50.000)",
