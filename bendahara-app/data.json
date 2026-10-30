@@ -3487,8 +3487,8 @@
             "aug": true,
             "sep": true,
             "oct": true,
-            "nov": true,
-            "dec": true
+            "nov": false,
+            "dec": false
           },
           "paidAmounts": {
             "jan": 50000,
@@ -5578,6 +5578,12 @@
   },
   "activityLog": [
     {
+      "icon": "✅",
+      "text": "Koreksi: batalkan E11 November/Desember (input ganda 29/10). E11 lunas s/d Oktober.",
+      "date": "2026-10-31",
+      "ts": 1793402187717
+    },
+    {
       "icon": "💰",
       "text": "Blok E E1 RIFANI bayar iuran Oktober 2026 (Rp 30.000)",
       "date": "2026-10-29",
@@ -5586,18 +5592,6 @@
     {
       "icon": "💰",
       "text": "Blok D D47 Boy bayar iuran Oktober 2026 (Rp 50.000)",
-      "date": "2026-10-29",
-      "ts": 1793288477641
-    },
-    {
-      "icon": "💰",
-      "text": "Blok E E11 ELSA bayar iuran Desember 2026 (Rp 50.000)",
-      "date": "2026-10-29",
-      "ts": 1793288477641
-    },
-    {
-      "icon": "💰",
-      "text": "Blok E E11 ELSA bayar iuran November 2026 (Rp 50.000)",
       "date": "2026-10-29",
       "ts": 1793288477641
     },
