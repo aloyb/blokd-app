@@ -4173,7 +4173,7 @@
             "jul": true,
             "aug": true,
             "sep": true,
-            "oct": false,
+            "oct": true,
             "nov": false,
             "dec": false
           }
@@ -4193,7 +4193,7 @@
             "jul": true,
             "aug": true,
             "sep": true,
-            "oct": false,
+            "oct": true,
             "nov": false,
             "dec": false
           }
@@ -4213,7 +4213,7 @@
             "jul": true,
             "aug": true,
             "sep": true,
-            "oct": false,
+            "oct": true,
             "nov": false,
             "dec": false
           }
@@ -4253,7 +4253,7 @@
             "jul": true,
             "aug": true,
             "sep": true,
-            "oct": false,
+            "oct": true,
             "nov": false,
             "dec": false
           }
@@ -4293,7 +4293,7 @@
             "jul": true,
             "aug": true,
             "sep": true,
-            "oct": false,
+            "oct": true,
             "nov": false,
             "dec": false
           }
@@ -4333,7 +4333,7 @@
             "jul": true,
             "aug": true,
             "sep": true,
-            "oct": false,
+            "oct": true,
             "nov": false,
             "dec": false
           }
@@ -4368,8 +4368,8 @@
             "jun": true,
             "jul": true,
             "aug": true,
-            "sep": false,
-            "oct": false,
+            "sep": true,
+            "oct": true,
             "nov": false,
             "dec": false
           }
@@ -4389,7 +4389,7 @@
             "jul": true,
             "aug": true,
             "sep": true,
-            "oct": false,
+            "oct": true,
             "nov": false,
             "dec": false
           }
@@ -4409,7 +4409,7 @@
             "jul": true,
             "aug": true,
             "sep": true,
-            "oct": false,
+            "oct": true,
             "nov": false,
             "dec": false
           }
@@ -4457,7 +4457,7 @@
             "jul": true,
             "aug": true,
             "sep": true,
-            "oct": false,
+            "oct": true,
             "nov": false,
             "dec": false
           }
@@ -4477,7 +4477,7 @@
             "jul": true,
             "aug": true,
             "sep": true,
-            "oct": false,
+            "oct": true,
             "nov": false,
             "dec": false
           }
@@ -4497,7 +4497,7 @@
             "jul": true,
             "aug": true,
             "sep": true,
-            "oct": false,
+            "oct": true,
             "nov": false,
             "dec": false
           }
@@ -4517,7 +4517,7 @@
             "jul": true,
             "aug": true,
             "sep": true,
-            "oct": false,
+            "oct": true,
             "nov": false,
             "dec": false
           }
@@ -4537,7 +4537,7 @@
             "jul": true,
             "aug": true,
             "sep": true,
-            "oct": false,
+            "oct": true,
             "nov": false,
             "dec": false
           }
@@ -4577,7 +4577,7 @@
             "jul": true,
             "aug": true,
             "sep": true,
-            "oct": false,
+            "oct": true,
             "nov": false,
             "dec": false
           }
@@ -4637,7 +4637,7 @@
             "jul": true,
             "aug": true,
             "sep": true,
-            "oct": false,
+            "oct": true,
             "nov": false,
             "dec": false
           }
@@ -4657,7 +4657,7 @@
             "jul": true,
             "aug": true,
             "sep": true,
-            "oct": false,
+            "oct": true,
             "nov": false,
             "dec": false
           }
@@ -4677,7 +4677,7 @@
             "jul": true,
             "aug": true,
             "sep": true,
-            "oct": false,
+            "oct": true,
             "nov": false,
             "dec": false
           }
@@ -5577,6 +5577,120 @@
     }
   },
   "activityLog": [
+    {
+      "icon": "💰",
+      "text": "Blok F F29 Idil bayar iuran Oktober 2026 (Rp 50.000)",
+      "date": "2026-11-01",
+      "ts": 1793575938642
+    },
+    {
+      "icon": "💰",
+      "text": "Blok F F28 Hikmah bayar iuran Oktober 2026 (Rp 50.000)",
+      "date": "2026-11-01",
+      "ts": 1793575938642
+    },
+    {
+      "icon": "💰",
+      "text": "Blok F F27 Ervansyah bayar iuran Oktober 2026 (Rp 50.000)",
+      "date": "2026-11-01",
+      "ts": 1793575938642
+    },
+    {
+      "icon": "💰",
+      "text": "Blok F F24 Bayu bayar iuran Oktober 2026 (Rp 50.000)",
+      "date": "2026-11-01",
+      "ts": 1793575938642
+    },
+    {
+      "icon": "💰",
+      "text": "Blok F F22 Fu'at bayar iuran Oktober 2026 (Rp 50.000)",
+      "date": "2026-11-01",
+      "ts": 1793575938642
+    },
+    {
+      "icon": "💰",
+      "text": "Blok F F21 Ari bayar iuran Oktober 2026 (Rp 50.000)",
+      "date": "2026-11-01",
+      "ts": 1793575938642
+    },
+    {
+      "icon": "💰",
+      "text": "Blok F F20 Akbar bayar iuran Oktober 2026 (Rp 50.000)",
+      "date": "2026-11-01",
+      "ts": 1793575938642
+    },
+    {
+      "icon": "💰",
+      "text": "Blok F F19 Iqbal bayar iuran Oktober 2026 (Rp 50.000)",
+      "date": "2026-11-01",
+      "ts": 1793575938642
+    },
+    {
+      "icon": "💰",
+      "text": "Blok F F18 Zeda bayar iuran Oktober 2026 (Rp 50.000)",
+      "date": "2026-11-01",
+      "ts": 1793575938642
+    },
+    {
+      "icon": "💰",
+      "text": "Blok F F14 Rizkan bayar iuran Oktober 2026 (Rp 50.000)",
+      "date": "2026-11-01",
+      "ts": 1793575938642
+    },
+    {
+      "icon": "💰",
+      "text": "Blok F F13 Fadil bayar iuran Oktober 2026 (Rp 50.000)",
+      "date": "2026-11-01",
+      "ts": 1793575938642
+    },
+    {
+      "icon": "💰",
+      "text": "Blok F F12 Fatma bayar iuran Oktober 2026 (Rp 50.000)",
+      "date": "2026-11-01",
+      "ts": 1793575938642
+    },
+    {
+      "icon": "💰",
+      "text": "Blok F F12 Fatma bayar iuran September 2026 (Rp 50.000)",
+      "date": "2026-11-01",
+      "ts": 1793575938642
+    },
+    {
+      "icon": "💰",
+      "text": "Blok F F9 Lia bayar iuran Oktober 2026 (Rp 50.000)",
+      "date": "2026-11-01",
+      "ts": 1793575938642
+    },
+    {
+      "icon": "💰",
+      "text": "Blok F F7 Helmy bayar iuran Oktober 2026 (Rp 50.000)",
+      "date": "2026-11-01",
+      "ts": 1793575938642
+    },
+    {
+      "icon": "💰",
+      "text": "Blok F F5 Selina bayar iuran Oktober 2026 (Rp 50.000)",
+      "date": "2026-11-01",
+      "ts": 1793575938642
+    },
+    {
+      "icon": "💰",
+      "text": "Blok F F3 Hamim bayar iuran Oktober 2026 (Rp 50.000)",
+      "date": "2026-11-01",
+      "ts": 1793575938642
+    },
+    {
+      "icon": "💰",
+      "text": "Blok F F2 Haikal bayar iuran Oktober 2026 (Rp 50.000)",
+      "date": "2026-11-01",
+      "ts": 1793575938642
+    },
+    {
+      "icon": "💰",
+      "text": "Blok F F1 Santoso bayar iuran Oktober 2026 (Rp 50.000)",
+      "date": "2026-11-01",
+      "ts": 1793575938642
+    },
     {
       "icon": "✅",
       "text": "Koreksi: batalkan E11 November/Desember (input ganda 29/10). E11 lunas s/d Oktober.",
