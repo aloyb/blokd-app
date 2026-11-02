@@ -2707,7 +2707,7 @@
             "aug": true,
             "sep": true,
             "oct": true,
-            "nov": false,
+            "nov": true,
             "dec": false
           },
           "paidCount": 1
@@ -2968,7 +2968,7 @@
             "aug": true,
             "sep": true,
             "oct": true,
-            "nov": false,
+            "nov": true,
             "dec": false
           }
         },
@@ -3515,10 +3515,10 @@
             "jun": true,
             "jul": true,
             "aug": true,
-            "sep": false,
-            "oct": false,
-            "nov": false,
-            "dec": false
+            "sep": true,
+            "oct": true,
+            "nov": true,
+            "dec": true
           }
         },
         {
@@ -5577,6 +5577,42 @@
     }
   },
   "activityLog": [
+    {
+      "icon": "💰",
+      "text": "Blok D D33 Hanafi bayar iuran November 2026 (Rp 50.000)",
+      "date": "2026-11-02",
+      "ts": 1793602589058
+    },
+    {
+      "icon": "💰",
+      "text": "Blok D D18 Rizal bayar iuran November 2026 (Rp 50.000)",
+      "date": "2026-11-02",
+      "ts": 1793602589058
+    },
+    {
+      "icon": "💰",
+      "text": "Blok E E12 RUBY bayar iuran Desember 2026 (Rp 50.000)",
+      "date": "2026-11-02",
+      "ts": 1793602589058
+    },
+    {
+      "icon": "💰",
+      "text": "Blok E E12 RUBY bayar iuran November 2026 (Rp 50.000)",
+      "date": "2026-11-02",
+      "ts": 1793602589058
+    },
+    {
+      "icon": "💰",
+      "text": "Blok E E12 RUBY bayar iuran Oktober 2026 (Rp 50.000)",
+      "date": "2026-11-02",
+      "ts": 1793602589058
+    },
+    {
+      "icon": "💰",
+      "text": "Blok E E12 RUBY bayar iuran September 2026 (Rp 50.000)",
+      "date": "2026-11-02",
+      "ts": 1793602589058
+    },
     {
       "icon": "💰",
       "text": "Blok B B29 IMAN bayar iuran Oktober 2026 (Rp 50.000)",
