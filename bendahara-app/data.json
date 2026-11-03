@@ -2744,12 +2744,12 @@
             "apr": true,
             "may": true,
             "jun": true,
-            "jul": false,
-            "aug": false,
-            "sep": false,
-            "oct": false,
-            "nov": false,
-            "dec": false
+            "jul": true,
+            "aug": true,
+            "sep": true,
+            "oct": true,
+            "nov": true,
+            "dec": true
           }
         },
         {
@@ -2906,8 +2906,8 @@
             "jun": true,
             "jul": true,
             "aug": true,
-            "sep": false,
-            "oct": false,
+            "sep": true,
+            "oct": true,
             "nov": false,
             "dec": false
           }
@@ -5577,6 +5577,54 @@
     }
   },
   "activityLog": [
+    {
+      "icon": "💰",
+      "text": "Blok D D29 Apri bayar iuran Oktober 2026 (Rp 50.000)",
+      "date": "2026-11-03",
+      "ts": 1793735529204
+    },
+    {
+      "icon": "💰",
+      "text": "Blok D D29 Apri bayar iuran September 2026 (Rp 50.000)",
+      "date": "2026-11-03",
+      "ts": 1793735529204
+    },
+    {
+      "icon": "💰",
+      "text": "Blok D D21 Yazerin bayar iuran Desember 2026 (Rp 50.000)",
+      "date": "2026-11-03",
+      "ts": 1793735529204
+    },
+    {
+      "icon": "💰",
+      "text": "Blok D D21 Yazerin bayar iuran November 2026 (Rp 50.000)",
+      "date": "2026-11-03",
+      "ts": 1793735529204
+    },
+    {
+      "icon": "💰",
+      "text": "Blok D D21 Yazerin bayar iuran Oktober 2026 (Rp 50.000)",
+      "date": "2026-11-03",
+      "ts": 1793735529204
+    },
+    {
+      "icon": "💰",
+      "text": "Blok D D21 Yazerin bayar iuran September 2026 (Rp 50.000)",
+      "date": "2026-11-03",
+      "ts": 1793735529204
+    },
+    {
+      "icon": "💰",
+      "text": "Blok D D21 Yazerin bayar iuran Agustus 2026 (Rp 50.000)",
+      "date": "2026-11-03",
+      "ts": 1793735529204
+    },
+    {
+      "icon": "💰",
+      "text": "Blok D D21 Yazerin bayar iuran Juli 2026 (Rp 50.000)",
+      "date": "2026-11-03",
+      "ts": 1793735529204
+    },
     {
       "icon": "💰",
       "text": "Blok D D33 Hanafi bayar iuran November 2026 (Rp 50.000)",
