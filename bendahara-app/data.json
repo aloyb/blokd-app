@@ -2586,7 +2586,7 @@
             "jul": true,
             "aug": true,
             "sep": true,
-            "oct": false,
+            "oct": true,
             "nov": false,
             "dec": false
           }
@@ -2707,7 +2707,7 @@
             "aug": true,
             "sep": true,
             "oct": true,
-            "nov": true,
+            "nov": false,
             "dec": false
           },
           "paidCount": 1
