@@ -2017,8 +2017,8 @@
             "jul": true,
             "aug": true,
             "sep": true,
-            "oct": false,
-            "nov": false,
+            "oct": true,
+            "nov": true,
             "dec": false
           }
         },
@@ -2824,12 +2824,12 @@
             "apr": true,
             "may": true,
             "jun": true,
-            "jul": false,
-            "aug": false,
-            "sep": false,
-            "oct": false,
-            "nov": false,
-            "dec": false
+            "jul": true,
+            "aug": true,
+            "sep": true,
+            "oct": true,
+            "nov": true,
+            "dec": true
           }
         },
         {
@@ -2869,7 +2869,7 @@
             "sep": true,
             "oct": true,
             "nov": true,
-            "dec": false
+            "dec": true
           }
         },
         {
@@ -5577,6 +5577,60 @@
     }
   },
   "activityLog": [
+    {
+      "icon": "💰",
+      "text": "Blok C C39 Afdhal bayar iuran November 2026 (Rp 50.000)",
+      "date": "2026-11-04",
+      "ts": 1793801747228
+    },
+    {
+      "icon": "💰",
+      "text": "Blok C C39 Afdhal bayar iuran Oktober 2026 (Rp 50.000)",
+      "date": "2026-11-04",
+      "ts": 1793801747228
+    },
+    {
+      "icon": "💰",
+      "text": "Blok D D27 Windy bayar iuran Desember 2026 (Rp 50.000)",
+      "date": "2026-11-04",
+      "ts": 1793801747228
+    },
+    {
+      "icon": "💰",
+      "text": "Blok D D25 Wahyu bayar iuran Desember 2026 (Rp 50.000)",
+      "date": "2026-11-04",
+      "ts": 1793801747228
+    },
+    {
+      "icon": "💰",
+      "text": "Blok D D25 Wahyu bayar iuran November 2026 (Rp 50.000)",
+      "date": "2026-11-04",
+      "ts": 1793801747228
+    },
+    {
+      "icon": "💰",
+      "text": "Blok D D25 Wahyu bayar iuran Oktober 2026 (Rp 50.000)",
+      "date": "2026-11-04",
+      "ts": 1793801747228
+    },
+    {
+      "icon": "💰",
+      "text": "Blok D D25 Wahyu bayar iuran September 2026 (Rp 50.000)",
+      "date": "2026-11-04",
+      "ts": 1793801747228
+    },
+    {
+      "icon": "💰",
+      "text": "Blok D D25 Wahyu bayar iuran Agustus 2026 (Rp 50.000)",
+      "date": "2026-11-04",
+      "ts": 1793801747228
+    },
+    {
+      "icon": "💰",
+      "text": "Blok D D25 Wahyu bayar iuran Juli 2026 (Rp 50.000)",
+      "date": "2026-11-04",
+      "ts": 1793801747228
+    },
     {
       "icon": "💰",
       "text": "Blok D D29 Apri bayar iuran Oktober 2026 (Rp 50.000)",
