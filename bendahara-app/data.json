@@ -7836,6 +7836,16 @@
       "date": "2026-10-25",
       "amount": 2200000,
       "keterangan": "perbaikan jalan utama"
+    },
+    {
+      "date": "2026-11-04",
+      "amount": 250000,
+      "keterangan": "keperluan wakar"
+    },
+    {
+      "date": "2026-11-04",
+      "amount": 151000,
+      "keterangan": "keperluan rapat"
     }
   ],
   "pemasukanKas": {
