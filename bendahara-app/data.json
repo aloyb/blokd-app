@@ -2546,7 +2546,7 @@
             "jul": true,
             "aug": true,
             "sep": true,
-            "oct": false,
+            "oct": true,
             "nov": false,
             "dec": false
           }
@@ -3168,8 +3168,8 @@
             "aug": true,
             "sep": true,
             "oct": true,
-            "nov": false,
-            "dec": false
+            "nov": true,
+            "dec": true
           }
         },
         {
@@ -5577,6 +5577,24 @@
     }
   },
   "activityLog": [
+    {
+      "icon": "💰",
+      "text": "Blok D D10 Ajay bayar iuran Oktober 2026 (Rp 50.000)",
+      "date": "2026-11-04",
+      "ts": 1793804945843
+    },
+    {
+      "icon": "💰",
+      "text": "Blok D D43 Rifka bayar iuran Desember 2026 (Rp 50.000)",
+      "date": "2026-11-04",
+      "ts": 1793804945843
+    },
+    {
+      "icon": "💰",
+      "text": "Blok D D43 Rifka bayar iuran November 2026 (Rp 50.000)",
+      "date": "2026-11-04",
+      "ts": 1793804945843
+    },
     {
       "icon": "💰",
       "text": "Blok D D47 Boy bayar iuran Desember 2026 (Rp 50.000)",
