@@ -153,12 +153,12 @@ function parsePengeluaran(str) {
   const tokens = str.replace(/,/g, '').split(/\s+/).filter(Boolean);
   const out = [];
   let words = [];
+  let pending = null; // nominal yang muncul SEBELUM keterangannya ("250.000 keperluan wakar")
   let date = null;
   for (let i = 0; i < tokens.length; i++) {
     const t = tokens[i];
     const low = t.toLowerCase();
     if (low === 'tanggal' || low === 'tgl') {
-      // bentuk: tanggal 20 juni 2026 / 20-06-2026 / 2026-06-20
       const nxt = tokens[i + 1];
       if (/^\d{4}-\d{2}-\d{2}$/.test(nxt)) { date = nxt; i += 1; }
       continue;
@@ -166,26 +166,51 @@ function parsePengeluaran(str) {
     if (isAmountTok(t)) {
       const amt = parseAmount(t);
       const label = words.join(' ').trim();
-      if (label) out.push({ keterangan: label, amount: amt, date });
+      if (label && pending != null) {
+        // pola "250.000 wakar 151.000 rapat": label milik nominal pending
+        out.push({ keterangan: label, amount: pending, date });
+        pending = amt;
+      } else if (label) {
+        out.push({ keterangan: label, amount: amt, date });
+        pending = null;
+      } else {
+        pending = amt;
+      }
       words = [];
       continue;
     }
     if (['pengeluaran', 'keluar'].includes(low)) continue;
     words.push(t);
   }
-  // sisa kata tanpa nominal -> abaikan (bukan pengeluaran valid)
+  // pola "250.000 keperluan wakar" (nominal di depan, label di akhir)
+  const tailLabel = words.join(' ').trim();
+  if (pending != null && tailLabel) out.push({ keterangan: tailLabel, amount: pending, date });
   return out;
 }
 
 function splitSections(text) {
-  // pisahkan berdasarkan kata kunci "pengeluaran"
-  const m = text.match(/\bpengeluaran\b/i);
-  if (!m) return { pemasukanStr: text, pengeluaranStr: '' };
-  const idx = m.index;
-  return {
-    pemasukanStr: text.slice(0, idx).replace(/\bpemasukan\b/i, ''),
-    pengeluaranStr: text.slice(idx + m[0].length),
-  };
+  // Pisahkan per bagian. Header yang dikenali: "pemasukan" / "pengeluaran".
+  // Penting: bagian bisa muncul berapa pun urutannya (pengeluaran dulu lalu pemasukan,
+  // atau sebaliknya). Kalau hanya di-split sekali di kata "pengeluaran", baris
+  // pemasukan SESUDAHNYA ikut terbaca sebagai pengeluaran (bug 2026-11-05).
+  const parts = [];
+  const re = /\b(pemasukan|pengeluaran|keluar|masuk)\b/gi;
+  let m;
+  let lastIdx = 0;
+  let lastType = 'pemasukan';
+  while ((m = re.exec(text)) !== null) {
+    const before = text.slice(lastIdx, m.index).trim();
+    if (before) parts.push({ type: lastType, text: before });
+    const w = m[1].toLowerCase();
+    lastType = (w === 'pemasukan' || w === 'masuk') ? 'pemasukan' : 'pengeluaran';
+    lastIdx = re.lastIndex;
+  }
+  const tail = text.slice(lastIdx).trim();
+  if (tail) parts.push({ type: lastType, text: tail });
+
+  const pemasukanStr = parts.filter((x) => x.type === 'pemasukan').map((x) => x.text).join(' ');
+  const pengeluaranStr = parts.filter((x) => x.type === 'pengeluaran').map((x) => x.text).join(' ');
+  return { pemasukanStr, pengeluaranStr };
 }
 
 // ---- data ops --------------------------------------------------------------
