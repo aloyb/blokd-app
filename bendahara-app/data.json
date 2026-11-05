@@ -2074,10 +2074,10 @@
             "apr": true,
             "may": true,
             "jun": true,
-            "jul": false,
-            "aug": false,
-            "sep": false,
-            "oct": false,
+            "jul": true,
+            "aug": true,
+            "sep": true,
+            "oct": true,
             "nov": false,
             "dec": false
           }
@@ -5577,6 +5577,30 @@
     }
   },
   "activityLog": [
+    {
+      "icon": "💰",
+      "text": "Blok C C42 Nova bayar iuran Oktober 2026 (Rp 50.000)",
+      "date": "2026-11-05",
+      "ts": 1793889140170
+    },
+    {
+      "icon": "💰",
+      "text": "Blok C C42 Nova bayar iuran September 2026 (Rp 50.000)",
+      "date": "2026-11-05",
+      "ts": 1793889140170
+    },
+    {
+      "icon": "💰",
+      "text": "Blok C C42 Nova bayar iuran Agustus 2026 (Rp 50.000)",
+      "date": "2026-11-05",
+      "ts": 1793889140170
+    },
+    {
+      "icon": "💰",
+      "text": "Blok C C42 Nova bayar iuran Juli 2026 (Rp 50.000)",
+      "date": "2026-11-05",
+      "ts": 1793889140170
+    },
     {
       "icon": "💰",
       "text": "Blok D D28 Syarif bayar iuran Juli 2026 (Rp 50.000)",
