@@ -1838,8 +1838,8 @@
             "aug": true,
             "sep": true,
             "oct": true,
-            "nov": false,
-            "dec": false
+            "nov": true,
+            "dec": true
           }
         },
         {
@@ -2156,9 +2156,9 @@
             "jun": true,
             "jul": true,
             "aug": true,
-            "sep": false,
-            "oct": false,
-            "nov": false,
+            "sep": true,
+            "oct": true,
+            "nov": true,
             "dec": false
           }
         },
@@ -2426,7 +2426,7 @@
             "aug": true,
             "sep": true,
             "oct": true,
-            "nov": false,
+            "nov": true,
             "dec": false
           },
           "paidCount": 1
@@ -2707,7 +2707,7 @@
             "aug": true,
             "sep": true,
             "oct": true,
-            "nov": false,
+            "nov": true,
             "dec": false
           },
           "paidCount": 1
@@ -2881,10 +2881,10 @@
             "jan": true,
             "feb": true,
             "mar": true,
-            "apr": false,
-            "may": false,
-            "jun": false,
-            "jul": false,
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": true,
             "aug": false,
             "sep": false,
             "oct": false,
@@ -5579,6 +5579,72 @@
   "activityLog": [
     {
       "icon": "💰",
+      "text": "Blok D D28 Syarif bayar iuran Juli 2026 (Rp 50.000)",
+      "date": "2026-11-05",
+      "ts": 1793886732009
+    },
+    {
+      "icon": "💰",
+      "text": "Blok D D28 Syarif bayar iuran Juni 2026 (Rp 50.000)",
+      "date": "2026-11-05",
+      "ts": 1793886732009
+    },
+    {
+      "icon": "💰",
+      "text": "Blok D D28 Syarif bayar iuran Mei 2026 (Rp 50.000)",
+      "date": "2026-11-05",
+      "ts": 1793886732009
+    },
+    {
+      "icon": "💰",
+      "text": "Blok D D28 Syarif bayar iuran April 2026 (Rp 50.000)",
+      "date": "2026-11-05",
+      "ts": 1793886732009
+    },
+    {
+      "icon": "💰",
+      "text": "Blok D D18 Rizal bayar iuran November 2026 (Rp 50.000)",
+      "date": "2026-11-05",
+      "ts": 1793886732009
+    },
+    {
+      "icon": "💰",
+      "text": "Blok D D4 Melly bayar iuran November 2026 (Rp 50.000)",
+      "date": "2026-11-05",
+      "ts": 1793886732009
+    },
+    {
+      "icon": "💰",
+      "text": "Blok C C46 Azzahra bayar iuran November 2026 (Rp 50.000)",
+      "date": "2026-11-05",
+      "ts": 1793886732009
+    },
+    {
+      "icon": "💰",
+      "text": "Blok C C46 Azzahra bayar iuran Oktober 2026 (Rp 50.000)",
+      "date": "2026-11-05",
+      "ts": 1793886732009
+    },
+    {
+      "icon": "💰",
+      "text": "Blok C C46 Azzahra bayar iuran September 2026 (Rp 50.000)",
+      "date": "2026-11-05",
+      "ts": 1793886732009
+    },
+    {
+      "icon": "💰",
+      "text": "Blok C C30 Laili bayar iuran Desember 2026 (Rp 50.000)",
+      "date": "2026-11-05",
+      "ts": 1793886732009
+    },
+    {
+      "icon": "💰",
+      "text": "Blok C C30 Laili bayar iuran November 2026 (Rp 50.000)",
+      "date": "2026-11-05",
+      "ts": 1793886732009
+    },
+    {
+      "icon": "💰",
       "text": "Blok D D10 Ajay bayar iuran Oktober 2026 (Rp 50.000)",
       "date": "2026-11-04",
       "ts": 1793804945843
@@ -7846,36 +7912,6 @@
       "date": "2026-11-04",
       "amount": 151000,
       "keterangan": "keperluan rapat"
-    },
-    {
-      "date": "2026-11-05",
-      "amount": 151000,
-      "keterangan": "keperluan wakar"
-    },
-    {
-      "date": "2026-11-05",
-      "amount": 2,
-      "keterangan": "keperluan rapat Pemasukan C30"
-    },
-    {
-      "date": "2026-11-05",
-      "amount": 3,
-      "keterangan": "C46"
-    },
-    {
-      "date": "2026-11-05",
-      "amount": 1,
-      "keterangan": "D4"
-    },
-    {
-      "date": "2026-11-05",
-      "amount": 1,
-      "keterangan": "D18"
-    },
-    {
-      "date": "2026-11-05",
-      "amount": 4,
-      "keterangan": "D28"
     }
   ],
   "pemasukanKas": {
