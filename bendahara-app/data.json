@@ -7846,6 +7846,36 @@
       "date": "2026-11-04",
       "amount": 151000,
       "keterangan": "keperluan rapat"
+    },
+    {
+      "date": "2026-11-05",
+      "amount": 151000,
+      "keterangan": "keperluan wakar"
+    },
+    {
+      "date": "2026-11-05",
+      "amount": 2,
+      "keterangan": "keperluan rapat Pemasukan C30"
+    },
+    {
+      "date": "2026-11-05",
+      "amount": 3,
+      "keterangan": "C46"
+    },
+    {
+      "date": "2026-11-05",
+      "amount": 1,
+      "keterangan": "D4"
+    },
+    {
+      "date": "2026-11-05",
+      "amount": 1,
+      "keterangan": "D18"
+    },
+    {
+      "date": "2026-11-05",
+      "amount": 4,
+      "keterangan": "D28"
     }
   ],
   "pemasukanKas": {
