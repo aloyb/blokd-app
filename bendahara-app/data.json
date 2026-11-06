@@ -1918,8 +1918,8 @@
             "aug": true,
             "sep": true,
             "oct": true,
-            "nov": false,
-            "dec": false
+            "nov": true,
+            "dec": true
           }
         },
         {
@@ -5577,6 +5577,18 @@
     }
   },
   "activityLog": [
+    {
+      "icon": "💰",
+      "text": "Blok C C34 Riduan bayar iuran Desember 2026 (Rp 50.000)",
+      "date": "2026-11-06",
+      "ts": 1793928829000
+    },
+    {
+      "icon": "💰",
+      "text": "Blok C C34 Riduan bayar iuran November 2026 (Rp 50.000)",
+      "date": "2026-11-06",
+      "ts": 1793928829000
+    },
     {
       "icon": "💰",
       "text": "Blok C C21 Arif bayar iuran Desember 2026 (Rp 50.000)",
