@@ -2787,9 +2787,9 @@
             "jul": true,
             "aug": true,
             "sep": true,
-            "oct": false,
-            "nov": false,
-            "dec": false
+            "oct": true,
+            "nov": true,
+            "dec": true
           }
         },
         {
@@ -3656,7 +3656,7 @@
         },
         {
           "houseNumber": "E19",
-          "name": "-",
+          "name": "Jasmine",
           "amount": 50000,
           "isException": false,
           "payments": {
@@ -3669,7 +3669,7 @@
             "jul": false,
             "aug": false,
             "sep": false,
-            "oct": false,
+            "oct": true,
             "nov": false,
             "dec": false
           }
@@ -5577,6 +5577,30 @@
     }
   },
   "activityLog": [
+    {
+      "icon": "💰",
+      "text": "Blok D D23 Ulfan bayar iuran Desember 2026 (Rp 50.000)",
+      "date": "2026-11-10",
+      "ts": 1794291770026
+    },
+    {
+      "icon": "💰",
+      "text": "Blok D D23 Ulfan bayar iuran November 2026 (Rp 50.000)",
+      "date": "2026-11-10",
+      "ts": 1794291770026
+    },
+    {
+      "icon": "💰",
+      "text": "Blok D D23 Ulfan bayar iuran Oktober 2026 (Rp 50.000)",
+      "date": "2026-11-10",
+      "ts": 1794291770026
+    },
+    {
+      "icon": "💰",
+      "text": "Blok E E19 Jasmine bayar iuran Oktober 2026 (Rp 50.000)",
+      "date": "2026-11-10",
+      "ts": 1794291770026
+    },
     {
       "icon": "💰",
       "text": "Blok E E36 IYAY bayar iuran Desember 2026 (Rp 50.000)",
