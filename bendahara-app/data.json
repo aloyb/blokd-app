@@ -4678,8 +4678,8 @@
             "aug": true,
             "sep": true,
             "oct": true,
-            "nov": false,
-            "dec": false
+            "nov": true,
+            "dec": true
           }
         },
         {
@@ -5577,6 +5577,18 @@
     }
   },
   "activityLog": [
+    {
+      "icon": "💰",
+      "text": "Blok F F29 Idil bayar iuran Desember 2026 (Rp 50.000)",
+      "date": "2026-11-11",
+      "ts": 1794405138759
+    },
+    {
+      "icon": "💰",
+      "text": "Blok F F29 Idil bayar iuran November 2026 (Rp 50.000)",
+      "date": "2026-11-11",
+      "ts": 1794405138759
+    },
     {
       "icon": "💰",
       "text": "Blok D D23 Ulfan bayar iuran Desember 2026 (Rp 50.000)",
