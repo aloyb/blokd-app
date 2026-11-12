@@ -4410,7 +4410,7 @@
             "aug": true,
             "sep": true,
             "oct": true,
-            "nov": false,
+            "nov": true,
             "dec": false
           }
         },
@@ -5577,6 +5577,12 @@
     }
   },
   "activityLog": [
+    {
+      "icon": "💰",
+      "text": "Blok F F14 Rizkan bayar iuran November 2026 (Rp 50.000)",
+      "date": "2026-11-12",
+      "ts": 1794480870907
+    },
     {
       "icon": "💰",
       "text": "Blok F F29 Idil bayar iuran Desember 2026 (Rp 50.000)",
