@@ -767,7 +767,7 @@
             "feb": true,
             "mar": true,
             "apr": true,
-            "may": true,
+            "may": false,
             "jun": true,
             "jul": true,
             "aug": true,
@@ -775,7 +775,8 @@
             "oct": true,
             "nov": true,
             "dec": false
-          }
+          },
+          "notes": "Mei 2026 skip: perpindahan pemilik, rumah tidak ditempati"
         },
         {
           "houseNumber": "B7",
@@ -7871,12 +7872,6 @@
     },
     {
       "icon": "💰",
-      "text": "Blok B B6 DEPI bayar iuran Mei 2026 (Rp 50.000)",
-      "date": "20 Sep 2026",
-      "ts": 1789912248809
-    },
-    {
-      "icon": "💰",
       "text": "Blok B B3 GUNADI bayar iuran Juni 2026 (Rp 50.000)",
       "date": "20 Sep 2026",
       "ts": 1789912248809
@@ -7999,6 +7994,12 @@
       "text": "Blok A A33 Liza bayar iuran September & Oktober 2026 (Rp 50.000/bln) — koreksi: Maret dibatalkan (salah catat, pemilik lama)",
       "date": "2026-11-20",
       "ts": 1795165614674
+    },
+    {
+      "icon": "🔧",
+      "text": "Koreksi B6 DEPI: Mei 2026 dibatalkan (perpindahan pemilik, rumah tidak ditempati — tidak ada pembayaran)",
+      "date": "2026-11-20",
+      "ts": 1795178422934
     }
   ],
   "setoranBlok": {
