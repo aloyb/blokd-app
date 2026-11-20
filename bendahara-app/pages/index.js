@@ -1103,6 +1103,7 @@ export default function Home() {
                 <div style={{ fontSize: '13px', fontWeight: '800', color: '#111827' }}>LAPORAN KAS IAMR</div>
                 <div style={{ fontSize: '11px', color: '#9CA3AF', fontWeight: '500' }}>Tahun 2026</div>
               </div>
+              <div style={{ ...styles.headerRight, marginLeft: 'auto' }} onClick={(e) => { e.stopPropagation(); setShowNotif(v => !v); window.fetchNotif(); }}>🔔</div>
             </div>
             {NAV.map(n => (
               <div key={n.key} style={tab === n.key ? styles.navSideActive : styles.navSideItem} onClick={() => goTab(n.key)}>
