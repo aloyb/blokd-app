@@ -4372,7 +4372,7 @@
             "sep": true,
             "oct": true,
             "nov": true,
-            "dec": false
+            "dec": true
           }
         },
         {
@@ -4837,9 +4837,9 @@
             "jul": true,
             "aug": true,
             "sep": true,
-            "oct": false,
-            "nov": false,
-            "dec": false
+            "oct": true,
+            "nov": true,
+            "dec": true
           }
         },
         {
@@ -5578,6 +5578,30 @@
     }
   },
   "activityLog": [
+    {
+      "icon": "💰",
+      "text": "Blok G G6 Vitaa bayar iuran Desember 2026 (Rp 30.000)",
+      "date": "2026-11-20",
+      "ts": 1795181638281
+    },
+    {
+      "icon": "💰",
+      "text": "Blok G G6 Vitaa bayar iuran November 2026 (Rp 30.000)",
+      "date": "2026-11-20",
+      "ts": 1795181638281
+    },
+    {
+      "icon": "💰",
+      "text": "Blok G G6 Vitaa bayar iuran Oktober 2026 (Rp 30.000)",
+      "date": "2026-11-20",
+      "ts": 1795181638281
+    },
+    {
+      "icon": "💰",
+      "text": "Blok F F12 Fatma bayar iuran Desember 2026 (Rp 50.000)",
+      "date": "2026-11-20",
+      "ts": 1795181638281
+    },
     {
       "icon": "💰",
       "text": "Blok D D45 Mahrita bayar iuran November 2026 (Rp 50.000)",
