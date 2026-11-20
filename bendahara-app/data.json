@@ -774,7 +774,7 @@
             "sep": true,
             "oct": true,
             "nov": true,
-            "dec": false
+            "dec": true
           },
           "notes": "Mei 2026 skip: perpindahan pemilik, rumah tidak ditempati"
         },
@@ -5578,6 +5578,12 @@
     }
   },
   "activityLog": [
+    {
+      "icon": "💰",
+      "text": "Blok B B6 DEPI bayar iuran Desember 2026 (Rp 50.000)",
+      "date": "2026-11-20",
+      "ts": 1795178753357
+    },
     {
       "icon": "💰",
       "text": "Blok B B29 IMAN bayar iuran November 2026 (Rp 50.000)",
