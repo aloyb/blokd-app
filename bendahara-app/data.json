@@ -638,14 +638,14 @@
           "payments": {
             "jan": true,
             "feb": true,
-            "mar": true,
+            "mar": false,
             "apr": false,
             "may": false,
             "jun": false,
             "jul": false,
             "aug": false,
-            "sep": false,
-            "oct": false,
+            "sep": true,
+            "oct": true,
             "nov": false,
             "dec": false
           }
@@ -6203,12 +6203,6 @@
     },
     {
       "icon": "💰",
-      "text": "Blok A A33 Sutrisno bayar iuran Maret 2026 (Rp 50.000)",
-      "date": "2026-10-26",
-      "ts": 1793057605114
-    },
-    {
-      "icon": "💰",
       "text": "Blok A A31 Damanhuri Rahman bayar iuran September 2026 (Rp 50.000)",
       "date": "2026-10-26",
       "ts": 1793057605114
@@ -7765,6 +7759,12 @@
       "text": "Blok B: Setoran perwakilan Rp 790.000",
       "date": "26 Agu 2026",
       "ts": 1787681220000
+    },
+    {
+      "icon": "💰",
+      "text": "Blok A A33 Liza bayar iuran September & Oktober 2026 (Rp 50.000/bln) — koreksi: Maret dibatalkan (salah catat, pemilik lama)",
+      "date": "2026-11-20",
+      "ts": 1795165614674
     }
   ],
   "setoranBlok": {
