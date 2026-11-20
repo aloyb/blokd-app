@@ -6449,12 +6449,6 @@
       "ts": 1793575938642
     },
     {
-      "icon": "✅",
-      "text": "Koreksi: batalkan E11 November/Desember (input ganda 29/10). E11 lunas s/d Oktober.",
-      "date": "2026-10-31",
-      "ts": 1793402187717
-    },
-    {
       "icon": "💰",
       "text": "Blok E E1 RIFANI bayar iuran Oktober 2026 (Rp 30.000)",
       "date": "2026-10-29",
@@ -7077,12 +7071,6 @@
       "text": "Blok D D5 Rif'at bayar iuran Oktober 2026 (Rp 50.000)",
       "date": "2026-10-04",
       "ts": 1791074415349
-    },
-    {
-      "icon": "✅",
-      "text": "Koreksi: E11 Elsa & D29 Apri keduanya sudah lunas s/d Agustus. Saldo awal kas per Jan 2026 dikoreksi ke Rp 16.612.000.",
-      "date": "2026-10-03",
-      "ts": 1791020402063
     },
     {
       "icon": "💰",
@@ -7967,24 +7955,6 @@
       "ts": 1788345600000
     },
     {
-      "icon": "🏠",
-      "text": "Blok C C39 nama penghuni ditambahkan -> Afdhal",
-      "date": "2 Sep 2026",
-      "ts": 1788331200000
-    },
-    {
-      "icon": "🏠",
-      "text": "Blok C C42 nama penghuni ditambahkan -> Nova",
-      "date": "2 Sep 2026",
-      "ts": 1788331200000
-    },
-    {
-      "icon": "🏠",
-      "text": "Blok C C53 nama penghuni diperbaiki dari \"Mardiyani\" -> Mardiyanto",
-      "date": "2 Sep 2026",
-      "ts": 1788331200000
-    },
-    {
       "icon": "💰",
       "text": "Blok F F27 Ervansyah bayar iuran Agustus 2026 (Rp 50.000)",
       "date": "2 Sep 2026",
@@ -8030,18 +8000,6 @@
       "text": "Blok B: Setoran perwakilan Rp 790.000",
       "date": "26 Agu 2026",
       "ts": 1787681220000
-    },
-    {
-      "icon": "💰",
-      "text": "Blok A A33 Liza bayar iuran September & Oktober 2026 (Rp 50.000/bln) — koreksi: Maret dibatalkan (salah catat, pemilik lama)",
-      "date": "2026-11-20",
-      "ts": 1795165614674
-    },
-    {
-      "icon": "🔧",
-      "text": "Koreksi B6 DEPI: Mei 2026 dibatalkan (perpindahan pemilik, rumah tidak ditempati — tidak ada pembayaran)",
-      "date": "2026-11-20",
-      "ts": 1795178422934
     }
   ],
   "setoranBlok": {
