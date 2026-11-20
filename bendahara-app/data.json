@@ -404,10 +404,10 @@
             "jun": true,
             "jul": true,
             "aug": true,
-            "sep": false,
-            "oct": false,
-            "nov": false,
-            "dec": false
+            "sep": true,
+            "oct": true,
+            "nov": true,
+            "dec": true
           }
         },
         {
@@ -4174,7 +4174,7 @@
             "aug": true,
             "sep": true,
             "oct": true,
-            "nov": false,
+            "nov": true,
             "dec": false
           }
         },
@@ -5577,6 +5577,36 @@
     }
   },
   "activityLog": [
+    {
+      "icon": "💰",
+      "text": "Blok F F1 Santoso bayar iuran November 2026 (Rp 50.000)",
+      "date": "2026-11-20",
+      "ts": 1795164622748
+    },
+    {
+      "icon": "💰",
+      "text": "Blok A A21 Noor Ikhsan bayar iuran Desember 2026 (Rp 50.000)",
+      "date": "2026-11-20",
+      "ts": 1795164622748
+    },
+    {
+      "icon": "💰",
+      "text": "Blok A A21 Noor Ikhsan bayar iuran November 2026 (Rp 50.000)",
+      "date": "2026-11-20",
+      "ts": 1795164622748
+    },
+    {
+      "icon": "💰",
+      "text": "Blok A A21 Noor Ikhsan bayar iuran Oktober 2026 (Rp 50.000)",
+      "date": "2026-11-20",
+      "ts": 1795164622748
+    },
+    {
+      "icon": "💰",
+      "text": "Blok A A21 Noor Ikhsan bayar iuran September 2026 (Rp 50.000)",
+      "date": "2026-11-20",
+      "ts": 1795164622748
+    },
     {
       "icon": "💰",
       "text": "Blok F F14 Rizkan bayar iuran November 2026 (Rp 50.000)",
