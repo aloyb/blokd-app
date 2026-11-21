@@ -3839,7 +3839,7 @@
             "jul": true,
             "aug": true,
             "sep": true,
-            "oct": false,
+            "oct": true,
             "nov": false,
             "dec": false
           }
@@ -5578,6 +5578,12 @@
     }
   },
   "activityLog": [
+    {
+      "icon": "💰",
+      "text": "Blok E E28 YUSNI bayar iuran Oktober 2026 (Rp 50.000)",
+      "date": "2026-11-21",
+      "ts": 1795244308097
+    },
     {
       "icon": "💰",
       "text": "Blok G G6 Vitaa bayar iuran Desember 2026 (Rp 30.000)",
