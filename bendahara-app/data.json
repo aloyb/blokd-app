@@ -4391,7 +4391,7 @@
             "aug": true,
             "sep": true,
             "oct": true,
-            "nov": false,
+            "nov": true,
             "dec": false
           }
         },
@@ -5578,6 +5578,12 @@
     }
   },
   "activityLog": [
+    {
+      "icon": "💰",
+      "text": "Blok F F13 Fadil bayar iuran November 2026 (Rp 50.000)",
+      "date": "2026-11-24",
+      "ts": 1795506440326
+    },
     {
       "icon": "💰",
       "text": "Blok E E28 YUSNI bayar iuran Oktober 2026 (Rp 50.000)",
