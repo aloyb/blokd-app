@@ -1194,7 +1194,7 @@
             "aug": true,
             "sep": true,
             "oct": true,
-            "nov": false,
+            "nov": true,
             "dec": false
           }
         },
@@ -5578,6 +5578,12 @@
     }
   },
   "activityLog": [
+    {
+      "icon": "💰",
+      "text": "Blok B B28 RAHMAN bayar iuran November 2026 (Rp 50.000)",
+      "date": "2026-11-25",
+      "ts": 1795593406360
+    },
     {
       "icon": "💰",
       "text": "Blok C C54 Sary bayar iuran November 2026 (Rp 50.000)",
