@@ -48,10 +48,13 @@ export default function handler(req, res) {
   }
   // Nominal yang benar-benar dibayar untuk 1 bulan: hormati `paidAmounts` (nominal
   // berubah di tengah tahun), kalau tidak pakai `amount` default member.
+  // ATURAN DES (Desember 2026): kosong 20rb / dihuni 50rb (tidak ada 40rb/30rb).
   function paidAmountOf(member, key) {
     if (!member.payments || !member.payments[key]) return 0;
     const ov = member.paidAmounts && member.paidAmounts[key];
-    return (typeof ov === 'number' && ov > 0) ? ov : (Number(member.amount) || 50000);
+    if (typeof ov === 'number' && ov > 0) return ov;
+    if (key === 'dec') return member.vacant ? 20000 : 50000;
+    return Number(member.amount) || 50000;
   }
   function colorForAmount(amt) {
     if (amt && amt <= 30000) return colors.paid30;
@@ -72,10 +75,13 @@ export default function handler(req, res) {
   }
   function totalForMember(member) {
     // Sebagian rumah nominalnya berubah di tengah tahun -> hormati paidAmounts.
+    // Desember pakai tarif baru (kosong 20rb / dihuni 50rb).
     return months.reduce((sum, [key]) => {
       if (!member.payments[key]) return sum;
       const override = member.paidAmounts && member.paidAmounts[key];
-      return sum + (typeof override === 'number' && override > 0 ? override : member.amount);
+      if (typeof override === 'number' && override > 0) return sum + override;
+      if (key === 'dec') return sum + (member.vacant ? 20000 : 50000);
+      return sum + (Number(member.amount) || 50000);
     }, 0);
   }
   function isPaidThroughCurrentMonth(member) {

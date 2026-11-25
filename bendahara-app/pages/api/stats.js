@@ -14,9 +14,12 @@ function loadData() {
 // Nominal yang dipakai untuk satu bulan tertentu.
 // Sebagian rumah nominalnya berubah di tengah tahun (mis. Blok E: 50rb lalu
 // turun jadi 30rb), jadi `paidAmounts` per bulan menang atas `amount`.
+// ATURAN DES (mulai Desember 2026): tidak ada lagi 40rb/30rb — rumah kosong 20rb,
+// dihuni 50rb.
 function amountForMonth(member, month) {
   const override = member.paidAmounts && member.paidAmounts[month];
   if (typeof override === 'number' && override > 0) return override;
+  if (month === 'dec') return member.vacant ? 20000 : 50000;
   return member.isException ? member.amount : (member.amount || 50000);
 }
 
@@ -273,7 +276,9 @@ function hitungPemasukanPerRumah(data) {
       MONTHS.forEach((mo, mi) => {
         if (!(m.payments && m.payments[mo])) return;
         const ov = m.paidAmounts && m.paidAmounts[mo];
-        const amt = (typeof ov === 'number' && ov > 0) ? ov : fb;
+        // Desember: tarif baru (kosong 20rb / dihuni 50rb) kalau tidak ada override.
+        const fallback = mo === 'dec' ? (m.vacant ? 20000 : 50000) : fb;
+        const amt = (typeof ov === 'number' && ov > 0) ? ov : fallback;
         perBulan[mi] += amt;
         total += amt;
         perBlockTotal[bk] = (perBlockTotal[bk] || 0) + amt;

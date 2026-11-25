@@ -46,13 +46,16 @@ function formatCurrency(num) {
 
 // Rangkum iuran yang sudah dibayar per nominal -> "6x 50rb" atau "1x 50rb 9x 30rb".
 // Nominal tiap bulan diambil dari `paidAmounts[bulan]` kalau ada (kasus nominal berubah),
-// kalau tidak pakai `amount` member. Urut dari nominal terbesar.
+// kalau tidak pakai `amount` member. ATURAN DES (Desember 2026): kosong 20rb / dihuni 50rb.
 function paymentBreakdown(member) {
   const counts = {};
   for (const mo of MONTHS) {
     if (!member.payments || !member.payments[mo]) continue;
     const ov = member.paidAmounts && member.paidAmounts[mo];
-    const amt = (typeof ov === 'number' && ov > 0) ? ov : (Number(member.amount) || 50000);
+    let amt;
+    if (typeof ov === 'number' && ov > 0) amt = ov;
+    else if (mo === 'dec') amt = member.vacant ? 20000 : 50000;
+    else amt = Number(member.amount) || 50000;
     counts[amt] = (counts[amt] || 0) + 1;
   }
   return Object.entries(counts)

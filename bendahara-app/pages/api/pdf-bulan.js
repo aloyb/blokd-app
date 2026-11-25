@@ -32,13 +32,22 @@ function pemasukanBulanTotal(data, monthIdx) {
 // Prioritas: rekap manual `pemasukanKas.months[bulan]` kalau ada (Jan-Ags pakai rekap resmi bendahara).
 // Kalau belum ada entri (mis. September dst), AUTO hitung dari pembayaran per rumah (sum amount tiap member
 // yang `payments[monthKey]` true) — jadi tiap deploy/update data, PDF otomatis ikut berubah.
+// Nominal per bulan: hormati `paidAmounts`, lalu ATURAN DES (Desember 2026:
+// rumah kosong 20rb / dihuni 50rb), lalu `amount` member.
+function nominalForMonth(m, blk, monthKey) {
+  const ov = m.paidAmounts && m.paidAmounts[monthKey];
+  if (typeof ov === 'number' && ov > 0) return ov;
+  if (monthKey === 'dec') return m.vacant ? 20000 : 50000;
+  return Number(m.amount) || Number(blk.iuranDefault) || 50000;
+}
+
 function pemasukanFromMember(data, monthKey) {
   let total = 0;
   for (const bk of Object.keys(data.blocks || {})) {
     const blk = data.blocks[bk];
     for (const m of blk.members || []) {
       if (m.payments && m.payments[monthKey]) {
-        total += Number(m.amount) || Number(blk.iuranDefault) || 50000;
+        total += nominalForMonth(m, blk, monthKey);
       }
     }
   }
@@ -59,7 +68,7 @@ function pemasukanPerBlokBulan(data, monthKey) {
     let sum = 0;
     for (const m of blk.members || []) {
       if (m.payments && m.payments[monthKey]) {
-        sum += Number(m.amount) || Number(blk.iuranDefault) || 50000;
+        sum += nominalForMonth(m, blk, monthKey);
       }
     }
     if (sum > 0) totals[bk] = sum;

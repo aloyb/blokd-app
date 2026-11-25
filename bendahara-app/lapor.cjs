@@ -51,6 +51,15 @@ const GUARD_PATH = process.env.LAPOR_GUARD || path.join(__dirname, '.lapor-recen
 const LOCK_MAX_AGE_MS = 10 * 60 * 1000;   // lock lebih tua dari 10 menit dianggap basi
 const FP_WINDOW_MS = 24 * 60 * 60 * 1000; // tolak isi laporan identik dalam 24 jam
 
+// ---- ATURAN DES (mulai Desember 2026) -------------------------------------
+// Tidak ada lagi iuran 40rb / 30rb. Rumah kosong (vacant) = 20rb, dihuni = 50rb.
+const DES_RULE_MONTH = 'dec';
+const DES_VACANT = 20000;
+const DES_OCCUPIED = 50000;
+function desAmountFor(member) {
+  return member && member.vacant ? DES_VACANT : DES_OCCUPIED;
+}
+
 let lockHeld = false;
 function acquireLock(p) {
   try {
@@ -241,7 +250,9 @@ function monthsToMark(member, spec) {
   return out;
 }
 
-function amountFor(member) {
+function amountFor(member, monthKey) {
+  // Desember 2026: tarif baru (kosong 20rb / dihuni 50rb), 30rb & 40rb sudah tidak ada.
+  if (monthKey === DES_RULE_MONTH) return desAmountFor(member);
   if (member.isException && member.amount) return member.amount;
   return member.amount || 50000;
 }
@@ -274,11 +285,17 @@ function main() {
     const member = findMember(data, p.house);
     if (!member) fail('Rumah ' + p.house + ' tidak ditemukan di data.json');
     const months = monthsToMark(member, p);
-    const nominal = p.nominal || amountFor(member);
     if (months.length === 0) {
       fail('Rumah ' + p.house + ' (' + member.name + ') sudah lunas s.d. akhir tahun / tidak ada bulan tersisa untuk ditandai.');
     }
-    plan.payments.push({ house: p.house, name: member.name, months, nominal, member });
+    // Nominal PER BULAN (Desember bisa beda: kosong 20rb / dihuni 50rb).
+    const perMonth = {};
+    let total = 0;
+    for (const mk of months) {
+      perMonth[mk] = p.nominal || amountFor(member, mk);
+      total += perMonth[mk];
+    }
+    plan.payments.push({ house: p.house, name: member.name, months, perMonth, total, member });
   }
 
   // --- pengeluaran ---
@@ -339,16 +356,17 @@ function main() {
   // ---- apply ----
   for (const p of plan.payments) {
     const target = findMember(data, p.house) || p.member;
-    const base = amountFor(target);
     for (const mk of p.months) {
+      const eff = p.perMonth[mk];
+      const base = amountFor(target, mk);
       target.payments[mk] = true;
-      // Nominal yang disebut user (mis. "30k", "40k") = nominal BULAN ITU, bukan sekadar teks.
-      // Disimpan ke paidAmounts supaya kas & PDF ikut benar. Field `amount` TIDAK diubah.
-      if (p.nominal != null && p.nominal > 0 && p.nominal !== base) {
+      // Nominal yang disebut user (mis. "30k") ATAU tarif Desember (kosong 20rb / dihuni 50rb)
+      // = nominal BULAN ITU, bukan sekadar teks. Disimpan ke paidAmounts supaya kas & PDF ikut
+      // benar. Field `amount` TIDAK diubah.
+      if (eff != null && eff > 0 && eff !== base) {
         target.paidAmounts = target.paidAmounts || {};
-        target.paidAmounts[mk] = p.nominal;
+        target.paidAmounts[mk] = eff;
       }
-      const eff = p.nominal || (target.paidAmounts && target.paidAmounts[mk]) || base;
       data.activityLog.unshift({
         icon: '💰',
         text: 'Blok ' + p.house[0] + ' ' + p.house + ' ' + p.name + ' bayar iuran ' + MONTH_LABEL[mk] + ' 2026 (Rp ' + eff.toLocaleString('id-ID') + ')',
@@ -365,7 +383,7 @@ function main() {
   const lines = [];
   lines.push('LAPORAN DIPROSES:');
   for (const p of plan.payments) {
-    lines.push('  + Blok ' + p.house[0] + ' ' + p.house + ' ' + p.name + ': ' + p.months.map((m) => MONTH_LABEL[m]).join(', ') + ' (Rp ' + p.nominal.toLocaleString('id-ID') + '/bln)');
+    lines.push('  + Blok ' + p.house[0] + ' ' + p.house + ' ' + p.name + ': ' + p.months.map((m) => MONTH_LABEL[m] + ' Rp ' + p.perMonth[m].toLocaleString('id-ID')).join(', ') + ' = Rp ' + p.total.toLocaleString('id-ID'));
   }
   for (const e of plan.expenses) {
     lines.push('  - Pengeluaran: ' + e.keterangan + ' Rp ' + e.amount.toLocaleString('id-ID') + ' (' + e.date + ')');
@@ -404,7 +422,20 @@ function main() {
   const addTargets = [relData];
   const relDataSafe = relData.startsWith('..') ? null : relData;
   if (!relDataSafe) addTargets.length = 0;
-  [path.join(__dirname, 'lapor.cjs'), path.join(__dirname, '.gitignore')].forEach((f) => {
+  // Selalu ikutkan file aturan/perhitungan yang berubah (aturan Desember ada di sini).
+  const CODE_FILES = [
+    'lapor.cjs',
+    'pages/api/stats.js',
+    'pages/api/pdf.js',
+    'pages/api/pdf-bulan.js',
+    'pages/index.js',
+  ];
+  CODE_FILES.forEach((f) => {
+    const abs = path.join(APP_DIR, f);
+    const rel = path.relative(REPO_ROOT, abs);
+    if (rel && !rel.startsWith('..') && fs.existsSync(abs)) addTargets.push(rel);
+  });
+  [path.join(__dirname, '.gitignore')].forEach((f) => {
     const rel = path.relative(REPO_ROOT, f);
     if (rel && !rel.startsWith('..')) addTargets.push(rel);
   });
