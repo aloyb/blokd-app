@@ -3538,8 +3538,8 @@
             "aug": true,
             "sep": true,
             "oct": true,
-            "nov": false,
-            "dec": false
+            "nov": true,
+            "dec": true
           }
         },
         {
@@ -5578,6 +5578,18 @@
     }
   },
   "activityLog": [
+    {
+      "icon": "💰",
+      "text": "Blok E E13 HASMI bayar iuran Desember 2026 (Rp 30.000)",
+      "date": "2026-11-25",
+      "ts": 1795597287471
+    },
+    {
+      "icon": "💰",
+      "text": "Blok E E13 HASMI bayar iuran November 2026 (Rp 30.000)",
+      "date": "2026-11-25",
+      "ts": 1795597287471
+    },
     {
       "icon": "💰",
       "text": "Blok B B10 LIYULI bayar iuran Desember 2026 (Rp 50.000)",
