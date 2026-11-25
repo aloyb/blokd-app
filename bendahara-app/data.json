@@ -854,8 +854,8 @@
             "aug": true,
             "sep": true,
             "oct": true,
-            "nov": false,
-            "dec": false
+            "nov": true,
+            "dec": true
           }
         },
         {
@@ -5578,6 +5578,18 @@
     }
   },
   "activityLog": [
+    {
+      "icon": "💰",
+      "text": "Blok B B10 LIYULI bayar iuran Desember 2026 (Rp 50.000)",
+      "date": "2026-11-25",
+      "ts": 1795593542235
+    },
+    {
+      "icon": "💰",
+      "text": "Blok B B10 LIYULI bayar iuran November 2026 (Rp 50.000)",
+      "date": "2026-11-25",
+      "ts": 1795593542235
+    },
     {
       "icon": "💰",
       "text": "Blok B B28 RAHMAN bayar iuran November 2026 (Rp 50.000)",
