@@ -408,6 +408,9 @@
             "oct": true,
             "nov": true,
             "dec": true
+          },
+          "paidAmounts": {
+            "dec": 50000
           }
         },
         {
@@ -755,6 +758,9 @@
             "oct": true,
             "nov": true,
             "dec": true
+          },
+          "paidAmounts": {
+            "dec": 50000
           }
         },
         {
@@ -776,7 +782,10 @@
             "nov": true,
             "dec": true
           },
-          "notes": "Mei 2026 skip: perpindahan pemilik, rumah tidak ditempati"
+          "notes": "Mei 2026 skip: perpindahan pemilik, rumah tidak ditempati",
+          "paidAmounts": {
+            "dec": 50000
+          }
         },
         {
           "houseNumber": "B7",
@@ -856,6 +865,9 @@
             "oct": true,
             "nov": true,
             "dec": true
+          },
+          "paidAmounts": {
+            "dec": 50000
           }
         },
         {
@@ -876,6 +888,9 @@
             "oct": true,
             "nov": true,
             "dec": true
+          },
+          "paidAmounts": {
+            "dec": 50000
           }
         },
         {
@@ -896,6 +911,9 @@
             "oct": true,
             "nov": true,
             "dec": true
+          },
+          "paidAmounts": {
+            "dec": 50000
           }
         },
         {
@@ -1096,6 +1114,9 @@
             "oct": true,
             "nov": true,
             "dec": true
+          },
+          "paidAmounts": {
+            "dec": 50000
           }
         },
         {
@@ -1385,6 +1406,9 @@
             "oct": true,
             "nov": true,
             "dec": true
+          },
+          "paidAmounts": {
+            "dec": 50000
           }
         },
         {
@@ -1425,6 +1449,9 @@
             "oct": true,
             "nov": true,
             "dec": true
+          },
+          "paidAmounts": {
+            "dec": 50000
           }
         },
         {
@@ -1454,7 +1481,8 @@
             "may": 30000,
             "jun": 50000,
             "jul": 50000,
-            "aug": 50000
+            "aug": 50000,
+            "dec": 50000
           }
         },
         {
@@ -1497,7 +1525,8 @@
             "dec": true
           },
           "paidAmounts": {
-            "aug": 30000
+            "aug": 30000,
+            "dec": 30000
           }
         },
         {
@@ -1558,6 +1587,9 @@
             "oct": true,
             "nov": true,
             "dec": true
+          },
+          "paidAmounts": {
+            "dec": 50000
           }
         },
         {
@@ -1578,6 +1610,9 @@
             "oct": true,
             "nov": true,
             "dec": true
+          },
+          "paidAmounts": {
+            "dec": 50000
           }
         },
         {
@@ -1598,6 +1633,9 @@
             "oct": true,
             "nov": true,
             "dec": true
+          },
+          "paidAmounts": {
+            "dec": 50000
           }
         },
         {
@@ -1638,6 +1676,9 @@
             "oct": true,
             "nov": true,
             "dec": true
+          },
+          "paidAmounts": {
+            "dec": 50000
           }
         },
         {
@@ -1658,6 +1699,9 @@
             "oct": true,
             "nov": true,
             "dec": true
+          },
+          "paidAmounts": {
+            "dec": 50000
           }
         },
         {
@@ -1680,7 +1724,8 @@
             "dec": true
           },
           "paidAmounts": {
-            "sep": 30000
+            "sep": 30000,
+            "dec": 30000
           }
         },
         {
@@ -1841,6 +1886,9 @@
             "oct": true,
             "nov": true,
             "dec": true
+          },
+          "paidAmounts": {
+            "dec": 50000
           }
         },
         {
@@ -1921,6 +1969,9 @@
             "oct": true,
             "nov": true,
             "dec": true
+          },
+          "paidAmounts": {
+            "dec": 50000
           }
         },
         {
@@ -1941,6 +1992,9 @@
             "oct": true,
             "nov": true,
             "dec": true
+          },
+          "paidAmounts": {
+            "dec": 50000
           }
         },
         {
@@ -2731,6 +2785,9 @@
             "oct": true,
             "nov": true,
             "dec": true
+          },
+          "paidAmounts": {
+            "dec": 50000
           }
         },
         {
@@ -2751,6 +2808,9 @@
             "oct": true,
             "nov": true,
             "dec": true
+          },
+          "paidAmounts": {
+            "dec": 50000
           }
         },
         {
@@ -2791,6 +2851,9 @@
             "oct": true,
             "nov": true,
             "dec": true
+          },
+          "paidAmounts": {
+            "dec": 50000
           }
         },
         {
@@ -2831,6 +2894,9 @@
             "oct": true,
             "nov": true,
             "dec": true
+          },
+          "paidAmounts": {
+            "dec": 50000
           }
         },
         {
@@ -2871,6 +2937,9 @@
             "oct": true,
             "nov": true,
             "dec": true
+          },
+          "paidAmounts": {
+            "dec": 50000
           }
         },
         {
@@ -2991,6 +3060,9 @@
             "oct": true,
             "nov": true,
             "dec": true
+          },
+          "paidAmounts": {
+            "dec": 50000
           }
         },
         {
@@ -3011,6 +3083,9 @@
             "oct": true,
             "nov": true,
             "dec": true
+          },
+          "paidAmounts": {
+            "dec": 50000
           }
         },
         {
@@ -3171,6 +3246,9 @@
             "oct": true,
             "nov": true,
             "dec": true
+          },
+          "paidAmounts": {
+            "dec": 50000
           }
         },
         {
@@ -3191,6 +3269,9 @@
             "oct": true,
             "nov": true,
             "dec": true
+          },
+          "paidAmounts": {
+            "dec": 50000
           }
         },
         {
@@ -3251,6 +3332,9 @@
             "oct": true,
             "nov": true,
             "dec": true
+          },
+          "paidAmounts": {
+            "dec": 50000
           }
         }
       ],
@@ -3410,6 +3494,9 @@
             "oct": true,
             "nov": true,
             "dec": true
+          },
+          "paidAmounts": {
+            "dec": 50000
           }
         },
         {
@@ -3520,6 +3607,9 @@
             "oct": true,
             "nov": true,
             "dec": true
+          },
+          "paidAmounts": {
+            "dec": 50000
           }
         },
         {
@@ -3636,6 +3726,9 @@
             "oct": true,
             "nov": true,
             "dec": true
+          },
+          "paidAmounts": {
+            "dec": 50000
           }
         },
         {
@@ -3765,6 +3858,9 @@
             "oct": true,
             "nov": true,
             "dec": true
+          },
+          "paidAmounts": {
+            "dec": 50000
           }
         },
         {
@@ -3785,6 +3881,9 @@
             "oct": true,
             "nov": true,
             "dec": true
+          },
+          "paidAmounts": {
+            "dec": 50000
           }
         },
         {
@@ -4008,6 +4107,9 @@
             "oct": true,
             "nov": true,
             "dec": true
+          },
+          "paidAmounts": {
+            "dec": 50000
           }
         },
         {
@@ -4376,6 +4478,9 @@
             "oct": true,
             "nov": true,
             "dec": true
+          },
+          "paidAmounts": {
+            "dec": 50000
           }
         },
         {
@@ -4684,6 +4789,9 @@
             "oct": true,
             "nov": true,
             "dec": true
+          },
+          "paidAmounts": {
+            "dec": 50000
           }
         },
         {
@@ -4843,6 +4951,9 @@
             "oct": true,
             "nov": true,
             "dec": true
+          },
+          "paidAmounts": {
+            "dec": 30000
           }
         },
         {
@@ -4923,6 +5034,9 @@
             "oct": true,
             "nov": true,
             "dec": true
+          },
+          "paidAmounts": {
+            "dec": 50000
           }
         },
         {
