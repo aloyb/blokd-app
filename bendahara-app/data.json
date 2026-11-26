@@ -459,18 +459,18 @@
           "amount": 50000,
           "isException": false,
           "payments": {
-            "jan": false,
-            "feb": false,
-            "mar": false,
-            "apr": false,
-            "may": false,
-            "jun": false,
+            "jan": true,
+            "feb": true,
+            "mar": true,
+            "apr": true,
+            "may": true,
+            "jun": true,
             "jul": false,
             "aug": false,
             "sep": false,
             "oct": false,
-            "nov": true,
-            "dec": true
+            "nov": false,
+            "dec": false
           }
         },
         {
@@ -5758,18 +5758,6 @@
     {
       "icon": "💰",
       "text": "Blok A A27 Yarkasi bayar iuran November 2026 (Rp 50.000)",
-      "date": "2026-11-26",
-      "ts": 1795716300820
-    },
-    {
-      "icon": "💰",
-      "text": "Blok A A24 Zailani Amin bayar iuran Desember 2026 (Rp 50.000)",
-      "date": "2026-11-26",
-      "ts": 1795716300820
-    },
-    {
-      "icon": "💰",
-      "text": "Blok A A24 Zailani Amin bayar iuran November 2026 (Rp 50.000)",
       "date": "2026-11-26",
       "ts": 1795716300820
     },
