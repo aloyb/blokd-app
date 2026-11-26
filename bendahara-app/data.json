@@ -37,9 +37,9 @@
             "apr": true,
             "may": true,
             "jun": true,
-            "jul": false,
-            "aug": false,
-            "sep": false,
+            "jul": true,
+            "aug": true,
+            "sep": true,
             "oct": false,
             "nov": false,
             "dec": false
@@ -160,7 +160,7 @@
             "jul": true,
             "aug": true,
             "sep": true,
-            "oct": false,
+            "oct": true,
             "nov": false,
             "dec": false
           }
@@ -213,8 +213,8 @@
           "payments": {
             "jan": true,
             "feb": true,
-            "mar": false,
-            "apr": false,
+            "mar": true,
+            "apr": true,
             "may": false,
             "jun": false,
             "jul": false,
@@ -469,8 +469,8 @@
             "aug": false,
             "sep": false,
             "oct": false,
-            "nov": false,
-            "dec": false
+            "nov": true,
+            "dec": true
           }
         },
         {
@@ -529,8 +529,8 @@
             "aug": true,
             "sep": true,
             "oct": true,
-            "nov": false,
-            "dec": false
+            "nov": true,
+            "dec": true
           }
         },
         {
@@ -549,8 +549,8 @@
             "aug": true,
             "sep": true,
             "oct": true,
-            "nov": false,
-            "dec": false
+            "nov": true,
+            "dec": true
           }
         },
         {
@@ -569,8 +569,8 @@
             "aug": true,
             "sep": true,
             "oct": true,
-            "nov": false,
-            "dec": false
+            "nov": true,
+            "dec": true
           }
         },
         {
@@ -586,8 +586,8 @@
             "may": true,
             "jun": true,
             "jul": true,
-            "aug": false,
-            "sep": false,
+            "aug": true,
+            "sep": true,
             "oct": false,
             "nov": false,
             "dec": false
@@ -608,8 +608,8 @@
             "jul": true,
             "aug": true,
             "sep": true,
-            "oct": false,
-            "nov": false,
+            "oct": true,
+            "nov": true,
             "dec": false
           }
         },
@@ -649,7 +649,7 @@
             "aug": false,
             "sep": true,
             "oct": true,
-            "nov": false,
+            "nov": true,
             "dec": false
           }
         }
@@ -5695,6 +5695,120 @@
     }
   },
   "activityLog": [
+    {
+      "icon": "💰",
+      "text": "Blok A A33 Liza bayar iuran November 2026 (Rp 50.000)",
+      "date": "2026-11-26",
+      "ts": 1795716300820
+    },
+    {
+      "icon": "💰",
+      "text": "Blok A A31 Damanhuri Rahman bayar iuran November 2026 (Rp 50.000)",
+      "date": "2026-11-26",
+      "ts": 1795716300820
+    },
+    {
+      "icon": "💰",
+      "text": "Blok A A31 Damanhuri Rahman bayar iuran Oktober 2026 (Rp 50.000)",
+      "date": "2026-11-26",
+      "ts": 1795716300820
+    },
+    {
+      "icon": "💰",
+      "text": "Blok A A30 Ari Darlan bayar iuran September 2026 (Rp 30.000)",
+      "date": "2026-11-26",
+      "ts": 1795716300820
+    },
+    {
+      "icon": "💰",
+      "text": "Blok A A30 Ari Darlan bayar iuran Agustus 2026 (Rp 30.000)",
+      "date": "2026-11-26",
+      "ts": 1795716300820
+    },
+    {
+      "icon": "💰",
+      "text": "Blok A A29 Muhammad Bahid bayar iuran Desember 2026 (Rp 50.000)",
+      "date": "2026-11-26",
+      "ts": 1795716300820
+    },
+    {
+      "icon": "💰",
+      "text": "Blok A A29 Muhammad Bahid bayar iuran November 2026 (Rp 50.000)",
+      "date": "2026-11-26",
+      "ts": 1795716300820
+    },
+    {
+      "icon": "💰",
+      "text": "Blok A A28 Endang Sulistyawati bayar iuran Desember 2026 (Rp 50.000)",
+      "date": "2026-11-26",
+      "ts": 1795716300820
+    },
+    {
+      "icon": "💰",
+      "text": "Blok A A28 Endang Sulistyawati bayar iuran November 2026 (Rp 50.000)",
+      "date": "2026-11-26",
+      "ts": 1795716300820
+    },
+    {
+      "icon": "💰",
+      "text": "Blok A A27 Yarkasi bayar iuran Desember 2026 (Rp 50.000)",
+      "date": "2026-11-26",
+      "ts": 1795716300820
+    },
+    {
+      "icon": "💰",
+      "text": "Blok A A27 Yarkasi bayar iuran November 2026 (Rp 50.000)",
+      "date": "2026-11-26",
+      "ts": 1795716300820
+    },
+    {
+      "icon": "💰",
+      "text": "Blok A A24 Zailani Amin bayar iuran Desember 2026 (Rp 50.000)",
+      "date": "2026-11-26",
+      "ts": 1795716300820
+    },
+    {
+      "icon": "💰",
+      "text": "Blok A A24 Zailani Amin bayar iuran November 2026 (Rp 50.000)",
+      "date": "2026-11-26",
+      "ts": 1795716300820
+    },
+    {
+      "icon": "💰",
+      "text": "Blok A A11 Alpian Rinjani bayar iuran April 2026 (Rp 50.000)",
+      "date": "2026-11-26",
+      "ts": 1795716300820
+    },
+    {
+      "icon": "💰",
+      "text": "Blok A A11 Alpian Rinjani bayar iuran Maret 2026 (Rp 50.000)",
+      "date": "2026-11-26",
+      "ts": 1795716300820
+    },
+    {
+      "icon": "💰",
+      "text": "Blok A A8 M Akbar Maula bayar iuran Oktober 2026 (Rp 50.000)",
+      "date": "2026-11-26",
+      "ts": 1795716300820
+    },
+    {
+      "icon": "💰",
+      "text": "Blok A A2 Hidayatullah bayar iuran September 2026 (Rp 50.000)",
+      "date": "2026-11-26",
+      "ts": 1795716300820
+    },
+    {
+      "icon": "💰",
+      "text": "Blok A A2 Hidayatullah bayar iuran Agustus 2026 (Rp 50.000)",
+      "date": "2026-11-26",
+      "ts": 1795716300820
+    },
+    {
+      "icon": "💰",
+      "text": "Blok A A2 Hidayatullah bayar iuran Juli 2026 (Rp 50.000)",
+      "date": "2026-11-26",
+      "ts": 1795716300820
+    },
     {
       "icon": "💰",
       "text": "Blok C C12 Saleh bayar iuran Oktober 2026 (Rp 50.000)",
