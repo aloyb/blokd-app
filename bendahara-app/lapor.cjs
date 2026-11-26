@@ -232,15 +232,6 @@ function findMember(data, house) {
 }
 
 function monthsToMark(member, spec) {
-  // --- tambahan: daftar bulan eksplisit (dipakai bot WA) -------------------
-  // LAPOR_MONTHS="jan,feb" -> tandai tepat bulan itu, jangan menebak urutan.
-  if (process.env.LAPOR_MONTHS) {
-    const wanted = String(process.env.LAPOR_MONTHS).split(',')
-      .map((s) => s.trim().toLowerCase()).filter(Boolean);
-    const bad = wanted.filter((m) => !MONTHS.includes(m));
-    if (bad.length) fail('LAPOR_MONTHS tidak valid: ' + bad.join(','));
-    return wanted;
-  }
   // spec: {months, month} -> daftar key bulan yang akan ditandai
   if (spec.month) return [spec.month];
   const lastIdx = MONTHS.reduce((acc, k, i) => (member.payments[k] ? i : acc), -1);
