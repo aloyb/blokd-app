@@ -1500,7 +1500,7 @@
             "jul": true,
             "aug": true,
             "sep": true,
-            "oct": false,
+            "oct": true,
             "nov": false,
             "dec": false
           }
@@ -5695,6 +5695,12 @@
     }
   },
   "activityLog": [
+    {
+      "icon": "💰",
+      "text": "Blok C C12 Saleh bayar iuran Oktober 2026 (Rp 50.000)",
+      "date": "2026-11-26",
+      "ts": 1795679360976
+    },
     {
       "icon": "💰",
       "text": "Blok E E13 HASMI bayar iuran Desember 2026 (Rp 30.000)",
