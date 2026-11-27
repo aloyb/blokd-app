@@ -4855,7 +4855,7 @@
             "aug": true,
             "sep": true,
             "oct": true,
-            "nov": false,
+            "nov": true,
             "dec": false
           },
           "paidAmounts": {
@@ -4880,7 +4880,7 @@
             "aug": true,
             "sep": true,
             "oct": true,
-            "nov": false,
+            "nov": true,
             "dec": false
           },
           "paidAmounts": {
@@ -4904,7 +4904,7 @@
             "aug": true,
             "sep": true,
             "oct": true,
-            "nov": false,
+            "nov": true,
             "dec": false
           },
           "paidAmounts": {
@@ -5233,7 +5233,7 @@
             "aug": true,
             "sep": true,
             "oct": true,
-            "nov": false,
+            "nov": true,
             "dec": false
           },
           "paidAmounts": {
@@ -5484,7 +5484,7 @@
             "aug": true,
             "sep": true,
             "oct": true,
-            "nov": false,
+            "nov": true,
             "dec": false
           }
         },
@@ -5693,6 +5693,36 @@
     }
   },
   "activityLog": [
+    {
+      "icon": "💰",
+      "text": "Blok G G32 Rifki bayar iuran November 2026 (Rp 50.000)",
+      "date": "2026-11-27",
+      "ts": 1795743582747
+    },
+    {
+      "icon": "💰",
+      "text": "Blok G G20 Nurul bayar iuran November 2026 (Rp 50.000)",
+      "date": "2026-11-27",
+      "ts": 1795743582747
+    },
+    {
+      "icon": "💰",
+      "text": "Blok G G4 Hartati bayar iuran November 2026 (Rp 50.000)",
+      "date": "2026-11-27",
+      "ts": 1795743582747
+    },
+    {
+      "icon": "💰",
+      "text": "Blok G G3 Yuli bayar iuran November 2026 (Rp 50.000)",
+      "date": "2026-11-27",
+      "ts": 1795743582747
+    },
+    {
+      "icon": "💰",
+      "text": "Blok G G2 Fikri bayar iuran November 2026 (Rp 50.000)",
+      "date": "2026-11-27",
+      "ts": 1795743582747
+    },
     {
       "icon": "💰",
       "text": "Blok A A33 Liza bayar iuran November 2026 (Rp 50.000)",
