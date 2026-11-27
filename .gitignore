@@ -1,0 +1,10 @@
+.vercel
+node_modules
+.next
+
+# guard anti-dobel lapor.cjs
+.lapor-recent.json
+
+# lock proses lapor.cjs
+.lapor.lock
+.env*
