@@ -423,6 +423,12 @@ export default function Home() {
                   <div style={{...styles.gridValue, color: '#EF4444'}}>{g?.belumAdaBayar}</div>
                 </div>
               </div>
+              {g && Number(g.totalPaid || 0) === 0 && (
+                <div style={styles.trackingNote}>
+                  Tahun 2027 baru dimulai — belum ada pembayaran tercatat. Status per rumah
+                  terisi otomatis begitu laporan iuran masuk.
+                </div>
+              )}
               {g?.trackingMulai && g.trackingMulaiIdx > 0 && (
                 <div style={styles.trackingNote}>
                   Status per rumah dihitung mulai {MONTH_FULL[g.trackingMulai]} 2027.
@@ -467,6 +473,7 @@ export default function Home() {
               {(() => {
                 const nonPayers = globalStats?.nunggakList || [];
                 if (!nonPayers.length) return null;
+                if (Number(g?.totalPaid || 0) === 0) return null;
                 const half = Math.ceil(nonPayers.length / 2);
                 const row1 = nonPayers.slice(0, half);
                 const row2 = nonPayers.slice(half);
