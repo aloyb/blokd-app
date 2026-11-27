@@ -729,13 +729,13 @@
       "mar": true,
       "apr": true,
       "may": true,
-      "jun": true,
+      "jun": false,
       "jul": true,
       "aug": true,
       "sep": true,
       "oct": true,
       "nov": true,
-      "dec": false
+      "dec": true
      }
     },
     {
@@ -1051,7 +1051,7 @@
       "sep": true,
       "oct": true,
       "nov": true,
-      "dec": false
+      "dec": true
      }
     },
     {
