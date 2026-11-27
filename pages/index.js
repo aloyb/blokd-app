@@ -92,7 +92,6 @@ export default function Home() {
   const [heroSlide, setHeroSlide] = useState(0);
   const [showRingkasan, setShowRingkasan] = useState(false);
   const [pemasukanBlock, setPemasukanBlock] = useState(null);
-  const [setoranBlok, setSetoranBlok] = useState({});
   const [pengeluaranMonth, setPengeluaranMonth] = useState(null);
   const [statusOpen, setStatusOpen] = useState(null);
   const [showNotif, setShowNotif] = useState(false);
@@ -119,7 +118,6 @@ export default function Home() {
         setBlockList((await blocksRes.json()).blocks || []);
         setGlobalStats(statsJson);
         setNotifList(statsJson.activityLog || []);
-        setSetoranBlok(statsJson.setoranBlok || {});
         setLoading(false);
       } catch (err) {
         setError('Gagal memuat data');
@@ -200,17 +198,6 @@ export default function Home() {
 
   const g = globalStats?.global;
 
-  // Bulan berjalan dipakai sebagai tampilan default tab Pemasukan:
-  // status setoran bulan ini tampil di depan, bulan lain disembunyikan
-  // sampai kartu bloknya diklik.
-  const thisMonth = MONTHS[Math.min(11, new Date().getMonth())];
-  const sudahSetorBulanIni = blockList.filter(
-    b => (setoranBlok[b.block] || []).some(s => s.month === thisMonth)
-  ).length;
-
-  // Section Setoran (perwakilan blok -> bendahara) hanya ditampilkan kalau ada catatannya.
-  // Di 2027 warga lapor langsung ke bendahara, jadi setoranBlok biasanya kosong.
-  const adaSetoran = Object.values(setoranBlok || {}).some(a => Array.isArray(a) && a.length > 0);
 
   // Blok dianggap "terdata" kalau sudah ada catatan uang masuk per rumah.
   // Blok B/F/G baru punya angka total, belum tahu rumah mana yang setor.
@@ -804,10 +791,10 @@ export default function Home() {
           )}
 
           {/* ===== PEMASUKAN ===== */}
-          {/* Dua bagian:
-              1. Uang masuk NYATA per bulan (dari `pemasukanKas` di data.json).
-                 Inilah arus kas sebenarnya dan basis kas bersih.
-              2. Status setoran perwakilan per blok (dari `setoranBlok`).
+          {/* Satu bagian: uang masuk NYATA per bulan (dari `pemasukanKas` di
+              data.json). Inilah arus kas sebenarnya dan basis kas bersih.
+              2027 tidak lagi punya perwakilan blok, jadi `setoranBlok` tidak
+              ditampilkan (warga lapor & bayar langsung ke bendahara).
 
               Kami TIDAK memakai `payments` untuk arus kas: field itu hanya
               menandai bulan mana yang sudah lunas per rumah, bukan kapan
@@ -1003,110 +990,6 @@ export default function Home() {
                 </>
               )}
 
-              {adaSetoran && (<>
-              {/* STATUS SETORAN PER BLOK */}
-              <div style={styles.sectionHeader}>
-                <div style={styles.sectionTitle}>Setoran {MONTH_FULL[thisMonth]} 2027</div>
-                <div style={styles.sectionAction}>{sudahSetorBulanIni}/{blockList.length} blok</div>
-              </div>
-              <div style={isDesktop ? styles.listContainerDesktop : styles.listContainer}>
-                {blockList.map(b => {
-                  const riwayat = setoranBlok[b.block] || [];
-                  const bulanIni = riwayat.find(s => s.month === thisMonth);
-                  const open = pemasukanBlock === b.block;
-                  const terkumpul = kas?.perBlockTotal?.[b.block]
-                    ?? globalStats?.blocks?.[b.block]?.totalPaid
-                    ?? 0;
-                  const disetor = riwayat.reduce((s, x) => s + Number(x.amount || 0), 0);
-                  const sisa = Math.max(0, terkumpul - disetor);
-
-                  return (
-                    <div key={b.block}>
-                      <div
-                        style={styles.listItem}
-                        role="button"
-                        tabIndex={0}
-                        onClick={() => setPemasukanBlock(open ? null : b.block)}
-                        onKeyDown={e => {
-                          if (e.key === 'Enter' || e.key === ' ') {
-                            e.preventDefault();
-                            setPemasukanBlock(open ? null : b.block);
-                          }
-                        }}
-                      >
-                        <div style={{
-                          ...styles.listBadge,
-                          background: bulanIni ? '#ECFDF5' : '#FEF2F2',
-                          color: bulanIni ? '#128F55' : '#EF4444',
-                        }}>{b.block}</div>
-                        <div style={styles.listContent}>
-                          <div style={styles.listTitle}>{b.label}</div>
-                          <div style={{
-                            ...styles.listSub,
-                            color: bulanIni ? '#128F55' : '#EF4444',
-                            fontWeight: '700',
-                          }}>
-                            {bulanIni
-                              ? `Sudah disetor${bulanIni.date ? ` · ${formatTanggal(bulanIni.date)}` : ''}`
-                              : 'Belum disetor bulan ini'}
-                          </div>
-                        </div>
-                        <div style={styles.listRight}>
-                          <div style={{
-                            ...styles.listAmount,
-                            color: bulanIni ? '#128F55' : '#9CA3AF',
-                          }}>{bulanIni ? formatCurrency(bulanIni.amount) : '—'}</div>
-                          <div style={styles.listChevron}>{open ? 'Tutup ▲' : 'Riwayat ▼'}</div>
-                        </div>
-                      </div>
-
-                      {open && (
-                        <div style={styles.drillBox}>
-                          {MONTHS.map(mo => {
-                            const rec = riwayat.find(s => s.month === mo);
-                            const lewat = MONTHS.indexOf(mo) <= MONTHS.indexOf(thisMonth);
-                            return (
-                              <div key={mo} style={styles.drillItem}>
-                                <div style={styles.drillContent}>
-                                  <div style={styles.drillTitle}>{MONTH_FULL[mo]} 2027</div>
-                                  <div style={{
-                                    ...styles.drillSub,
-                                    color: rec ? '#128F55' : lewat ? '#EF4444' : '#9CA3AF',
-                                  }}>
-                                    {rec
-                                      ? `Disetor${rec.date ? ` ${formatTanggal(rec.date)}` : ''}`
-                                      : lewat ? 'Belum disetor' : 'Belum waktunya'}
-                                  </div>
-                                </div>
-                                <div style={{
-                                  ...styles.drillAmount,
-                                  color: rec ? '#128F55' : '#D1D5DB',
-                                }}>{rec ? formatCurrency(rec.amount) : '—'}</div>
-                              </div>
-                            );
-                          })}
-
-                          <div style={styles.drillRekap}>
-                            <div style={styles.drillRekapRow}>
-                              <span>Terkumpul dari warga {b.label}</span>
-                              <strong style={{ color: '#128F55' }}>{formatCurrency(terkumpul)}</strong>
-                            </div>
-                            <div style={styles.drillRekapRow}>
-                              <span>Total disetor sepanjang 2027</span>
-                              <strong style={{ color: '#0EA5E9' }}>{formatCurrency(disetor)}</strong>
-                            </div>
-                            <div style={styles.drillRekapRow}>
-                              <span>Masih di perwakilan</span>
-                              <strong style={{ color: sisa > 0 ? '#F59E0B' : '#9CA3AF' }}>{formatCurrency(sisa)}</strong>
-                            </div>
-                          </div>
-                        </div>
-                      )}
-                    </div>
-                  );
-                })}
-              </div>
-              </>)}
             </div>
           )}
         </div>
