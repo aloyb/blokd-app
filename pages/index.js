@@ -288,11 +288,12 @@ export default function Home() {
               {/* HERO CARD: PERBENDAHARAAN KOMPLEK */}
               <div style={isDesktop ? { ...styles.heroCard, ...styles.heroCardDesktop } : styles.heroCard}>
                 <div style={styles.heroLeft}>
-                  <div style={isDesktop ? { ...styles.heroTitle, ...styles.heroTitleDesktop } : styles.heroTitle}>Perbendaharaan Komplek</div>
+                  <div style={isDesktop ? { ...styles.heroTitle, ...styles.heroTitleDesktop } : styles.heroTitle}>Perbendaharaan Kompleks</div>
                   <div style={isDesktop ? { ...styles.heroTagline, ...styles.heroTaglineDesktop } : styles.heroTagline}>Transparan, Teratur, dan Bersama</div>
                   <div style={isDesktop ? { ...styles.heroBtn, ...styles.heroBtnDesktop } : styles.heroBtn} onClick={() => setShowRingkasan(v => !v)}>
                     Lihat Ringkasan <span style={{ fontSize: isDesktop ? '18px' : '15px' }}>{showRingkasan ? '‹' : '›'}</span>
                   </div>
+                  <a href="https://bendahara-app.vercel.app" target="_blank" rel="noreferrer" style={{ display: 'inline-block', marginTop: '10px', fontSize: isDesktop ? '13px' : '12px', fontWeight: 700, color: '#065F46', background: 'rgba(255,255,255,0.9)', padding: '7px 12px', borderRadius: '999px', textDecoration: 'none' }}>Arsip laporan 2026 ›</a>
                 </div>
                 <div style={isDesktop ? { ...styles.heroSlideshow, ...styles.heroSlideshowDesktop } : styles.heroSlideshow}>
                   {HERO_PHOTOS.length > 0 ? (
@@ -335,7 +336,7 @@ export default function Home() {
                   )}
                   {g?.saldoAwalPending && !g?.kasMulai && (
                     <div style={styles.ringkasanWarn}>
-                      Angka ini murni arus kas 2027. Sisa kas dari tahun 2025 belum
+                      Angka ini murni arus kas 2027. Sisa kas dari tahun 2026 belum
                       diketahui, jadi belum termasuk di sini.
                     </div>
                   )}
@@ -383,7 +384,7 @@ export default function Home() {
                       <>
                         {(g?.saldoAwal ?? 0) > 0 && (
                           <div style={styles.ringkasanStatRow}>
-                            <span style={styles.ringkasanStatLabel}>Saldo awal (sisa 2025)</span>
+                            <span style={styles.ringkasanStatLabel}>Saldo awal (sisa 2026)</span>
                             <span style={{ ...styles.ringkasanStatValue, color: '#0EA5E9' }}>{formatCurrency(g?.saldoAwal)}</span>
                           </div>
                         )}
@@ -709,7 +710,7 @@ export default function Home() {
                   </div>
                   <div style={styles.alurNote}>
                     Catatan lama, hanya untuk riwayat. Tidak mengurangi kas bersih
-                    karena ada uang iuran tahun 2025 yang angkanya belum diketahui.
+                    karena ada uang iuran tahun 2026 yang angkanya belum diketahui.
                   </div>
                 </div>
               )}
@@ -839,7 +840,7 @@ export default function Home() {
                   <>
                     {(g?.saldoAwal ?? 0) > 0 && (
                       <div style={styles.alurRow}>
-                        <span style={styles.alurLabel}>Saldo awal (sisa 2025)</span>
+                        <span style={styles.alurLabel}>Saldo awal (sisa 2026)</span>
                         <span style={{ ...styles.alurValue, color: '#0EA5E9' }}>{formatCurrency(g?.saldoAwal)}</span>
                       </div>
                     )}
@@ -866,7 +867,7 @@ export default function Home() {
                   {g?.kasMulai
                     ? ` ${g.kasMulai.catatan || ''}`
                     : ((g?.saldoAwal ?? 0) > 0 && g?.saldoAwalCatatan ? ` ${g.saldoAwalCatatan}` : '')}
-                  {!g?.kasMulai && g?.saldoAwalPending ? ' Belum termasuk sisa kas tahun 2025 (angkanya belum diketahui).' : ''}
+                  {!g?.kasMulai && g?.saldoAwalPending ? ' Belum termasuk sisa kas tahun 2026 (angkanya belum diketahui).' : ''}
                 </div>
               </div>
 
@@ -887,7 +888,7 @@ export default function Home() {
                   </div>
                   <div style={styles.alurNote}>
                     Catatan lama, hanya untuk riwayat. Tidak dipakai menghitung kas bersih
-                    karena ada uang iuran tahun 2025 yang angkanya belum diketahui.
+                    karena ada uang iuran tahun 2026 yang angkanya belum diketahui.
                   </div>
                 </div>
               )}
