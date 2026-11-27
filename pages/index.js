@@ -208,6 +208,10 @@ export default function Home() {
     b => (setoranBlok[b.block] || []).some(s => s.month === thisMonth)
   ).length;
 
+  // Section Setoran (perwakilan blok -> bendahara) hanya ditampilkan kalau ada catatannya.
+  // Di 2027 warga lapor langsung ke bendahara, jadi setoranBlok biasanya kosong.
+  const adaSetoran = Object.values(setoranBlok || {}).some(a => Array.isArray(a) && a.length > 0);
+
   // Blok dianggap "terdata" kalau sudah ada catatan uang masuk per rumah.
   // Blok B/F/G baru punya angka total, belum tahu rumah mana yang setor.
   const blokTerdata = blockList.filter(
@@ -288,7 +292,7 @@ export default function Home() {
               {/* HERO CARD: PERBENDAHARAAN KOMPLEK */}
               <div style={isDesktop ? { ...styles.heroCard, ...styles.heroCardDesktop } : styles.heroCard}>
                 <div style={styles.heroLeft}>
-                  <div style={isDesktop ? { ...styles.heroTitle, ...styles.heroTitleDesktop } : styles.heroTitle}>Perbendaharaan Kompleks</div>
+                  <div style={isDesktop ? { ...styles.heroTitle, ...styles.heroTitleDesktop } : styles.heroTitle}>Perbendaharaan Komplek</div>
                   <div style={isDesktop ? { ...styles.heroTagline, ...styles.heroTaglineDesktop } : styles.heroTagline}>Transparan, Teratur, dan Bersama</div>
                   <div style={isDesktop ? { ...styles.heroBtn, ...styles.heroBtnDesktop } : styles.heroBtn} onClick={() => setShowRingkasan(v => !v)}>
                     Lihat Ringkasan <span style={{ fontSize: isDesktop ? '18px' : '15px' }}>{showRingkasan ? '‹' : '›'}</span>
@@ -999,6 +1003,7 @@ export default function Home() {
                 </>
               )}
 
+              {adaSetoran && (<>
               {/* STATUS SETORAN PER BLOK */}
               <div style={styles.sectionHeader}>
                 <div style={styles.sectionTitle}>Setoran {MONTH_FULL[thisMonth]} 2027</div>
@@ -1101,6 +1106,7 @@ export default function Home() {
                   );
                 })}
               </div>
+              </>)}
             </div>
           )}
         </div>
