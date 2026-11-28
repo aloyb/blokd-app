@@ -424,10 +424,10 @@
             "jun": true,
             "jul": true,
             "aug": true,
-            "sep": false,
-            "oct": false,
-            "nov": false,
-            "dec": false
+            "sep": true,
+            "oct": true,
+            "nov": true,
+            "dec": true
           },
           "paidAmounts": {}
         },
@@ -5876,6 +5876,30 @@
     }
   },
   "activityLog": [
+    {
+      "icon": "💰",
+      "text": "Blok A A21 Noor Ikhsan bayar iuran Desember 2026 (Rp 50.000)",
+      "date": "2026-11-28",
+      "ts": 1795850645461
+    },
+    {
+      "icon": "💰",
+      "text": "Blok A A21 Noor Ikhsan bayar iuran November 2026 (Rp 50.000)",
+      "date": "2026-11-28",
+      "ts": 1795850645461
+    },
+    {
+      "icon": "💰",
+      "text": "Blok A A21 Noor Ikhsan bayar iuran Oktober 2026 (Rp 50.000)",
+      "date": "2026-11-28",
+      "ts": 1795850645461
+    },
+    {
+      "icon": "💰",
+      "text": "Blok A A21 Noor Ikhsan bayar iuran September 2026 (Rp 50.000)",
+      "date": "2026-11-28",
+      "ts": 1795850645461
+    },
     {
       "icon": "💰",
       "text": "Blok B B6 DEPI bayar iuran Mei 2026 (Rp 50.000)",
