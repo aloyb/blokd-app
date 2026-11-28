@@ -464,7 +464,8 @@ function main() {
     } catch (err) {
       fail('VERCEL gagal: ' + String(err.stdout || err.stderr || err.message).slice(0, 500) + '\nCATATAN: data.json SUDAH berubah & ter-commit/push. Tinggal deploy: cd bendahara-app && vercel --prod --yes. JANGAN jalankan ulang laporan tanpa --force.');
     }
-    if (!/Aliased:|Production:/i.test(deployLog)) {
+    // CLI Vercel baru mengeluarkan JSON ("readyState":"READY"/"Production URL"); versi lama "Aliased:"
+    if (!/Aliased:|Production:|"readyState"\s*:\s*"READY"|Production URL/i.test(deployLog)) {
       fail('VERCEL tidak melaporkan sukses. Log:\n' + deployLog);
     }
   } else {
