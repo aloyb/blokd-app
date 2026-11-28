@@ -3319,11 +3319,11 @@
             "may": true,
             "jun": true,
             "jul": true,
-            "aug": false,
-            "sep": false,
-            "oct": false,
-            "nov": false,
-            "dec": false
+            "aug": true,
+            "sep": true,
+            "oct": true,
+            "nov": true,
+            "dec": true
           }
         },
         {
@@ -5876,6 +5876,36 @@
     }
   },
   "activityLog": [
+    {
+      "icon": "💰",
+      "text": "Blok D D42 Wahidi bayar iuran Desember 2026 (Rp 50.000)",
+      "date": "2026-11-28",
+      "ts": 1795846007949
+    },
+    {
+      "icon": "💰",
+      "text": "Blok D D42 Wahidi bayar iuran November 2026 (Rp 50.000)",
+      "date": "2026-11-28",
+      "ts": 1795846007949
+    },
+    {
+      "icon": "💰",
+      "text": "Blok D D42 Wahidi bayar iuran Oktober 2026 (Rp 50.000)",
+      "date": "2026-11-28",
+      "ts": 1795846007949
+    },
+    {
+      "icon": "💰",
+      "text": "Blok D D42 Wahidi bayar iuran September 2026 (Rp 50.000)",
+      "date": "2026-11-28",
+      "ts": 1795846007949
+    },
+    {
+      "icon": "💰",
+      "text": "Blok D D42 Wahidi bayar iuran Agustus 2026 (Rp 50.000)",
+      "date": "2026-11-28",
+      "ts": 1795846007949
+    },
     {
       "icon": "💰",
       "text": "Blok A A23 Nor Asna bayar iuran Desember 2026 (Rp 50.000)",
