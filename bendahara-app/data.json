@@ -791,7 +791,7 @@
             "feb": true,
             "mar": true,
             "apr": true,
-            "may": false,
+            "may": true,
             "jun": true,
             "jul": true,
             "aug": true,
@@ -5876,6 +5876,12 @@
     }
   },
   "activityLog": [
+    {
+      "icon": "💰",
+      "text": "Blok B B6 DEPI bayar iuran Mei 2026 (Rp 50.000)",
+      "date": "2026-11-28",
+      "ts": 1795847733859
+    },
     {
       "icon": "💰",
       "text": "Blok D D42 Wahidi bayar iuran Desember 2026 (Rp 50.000)",
