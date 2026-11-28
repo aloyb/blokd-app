@@ -2364,15 +2364,26 @@
             "jan": true,
             "feb": true,
             "mar": true,
-            "apr": false,
-            "may": false,
-            "jun": false,
-            "jul": false,
-            "aug": false,
-            "sep": false,
-            "oct": false,
-            "nov": false,
-            "dec": false
+            "apr": true,
+            "may": true,
+            "jun": true,
+            "jul": true,
+            "aug": true,
+            "sep": true,
+            "oct": true,
+            "nov": true,
+            "dec": true
+          },
+          "paidAmounts": {
+            "apr": 50000,
+            "may": 20000,
+            "jun": 20000,
+            "jul": 20000,
+            "aug": 20000,
+            "sep": 50000,
+            "oct": 50000,
+            "nov": 20000,
+            "dec": 20000
           }
         },
         {
