@@ -25,7 +25,7 @@ const { execSync } = require('child_process');
 const DATA_PATH = process.env.LAPOR_DATA || path.resolve(__dirname, 'data.json');
 const REPO_ROOT = process.env.LAPOR_REPO || path.resolve(__dirname, '..'); // /home/ubuntu/.openclaw/workspace
 const APP_DIR = process.env.LAPOR_APP || __dirname;                       // .../bendahara-app
-const LIVE_URL = process.env.LAPOR_URL || 'https://iamr-app.vercel.app';
+const LIVE_URL = process.env.LAPOR_URL || 'https://bendahara-app.vercel.app';
 
 const MONTHS = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
 const MONTH_LABEL = {
