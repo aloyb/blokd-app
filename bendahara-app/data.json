@@ -2422,7 +2422,7 @@
             "aug": true,
             "sep": true,
             "oct": true,
-            "nov": false,
+            "nov": true,
             "dec": false
           }
         },
@@ -4578,7 +4578,7 @@
             "jul": true,
             "aug": true,
             "sep": true,
-            "oct": false,
+            "oct": true,
             "nov": false,
             "dec": false
           }
@@ -5887,6 +5887,18 @@
     }
   },
   "activityLog": [
+    {
+      "icon": "💰",
+      "text": "Blok F F9 Lia bayar iuran Oktober 2026 (Rp 50.000)",
+      "date": "2026-11-28",
+      "ts": 1795857344356
+    },
+    {
+      "icon": "💰",
+      "text": "Blok C C53 Mardiyanto bayar iuran November 2026 (Rp 50.000)",
+      "date": "2026-11-28",
+      "ts": 1795857344356
+    },
     {
       "icon": "💰",
       "text": "Blok A A21 Noor Ikhsan bayar iuran Desember 2026 (Rp 50.000)",
