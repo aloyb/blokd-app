@@ -23,7 +23,12 @@ const path = require('path');
 const { execSync } = require('child_process');
 
 const DATA_PATH = process.env.LAPOR_DATA || path.resolve(__dirname, 'data.json');
-const REPO_ROOT = process.env.LAPOR_REPO || path.resolve(__dirname, '..'); // /home/ubuntu/.openclaw/workspace
+// root repo git dideteksi otomatis (folder app bisa jadi root repo, atau subfolder di dalamnya)
+function gitRootOf(dir) {
+  try { return execSync('git rev-parse --show-toplevel', { cwd: dir, encoding: 'utf8', stdio: ['ignore','pipe','ignore'] }).trim(); }
+  catch (e) { return path.resolve(dir, '..'); }
+}
+const REPO_ROOT = process.env.LAPOR_REPO || gitRootOf(__dirname);
 const APP_DIR = process.env.LAPOR_APP || __dirname;                       // .../bendahara-app
 const LIVE_URL = process.env.LAPOR_URL || 'https://iamr-app.vercel.app';
 
@@ -234,6 +239,11 @@ function findMember(data, house) {
 function monthsToMark(member, spec) {
   // spec: {months, month} -> daftar key bulan yang akan ditandai
   if (spec.month) return [spec.month];
+  // LAPOR_MONTHS dari bot: daftar bulan eksplisit (mis. "jan,feb").
+  // Tanpa ini bot menebak bulan berurutan dan bisa mencatat bulan yang salah.
+  const envMonths = String(process.env.LAPOR_MONTHS || '').split(',')
+    .map((x) => x.trim().toLowerCase()).filter((x) => MONTHS.includes(x));
+  if (envMonths.length) return envMonths;
   const lastIdx = MONTHS.reduce((acc, k, i) => (member.payments[k] ? i : acc), -1);
   const out = [];
   let i;
