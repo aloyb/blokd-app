@@ -466,9 +466,9 @@
             "jul": true,
             "aug": true,
             "sep": true,
-            "oct": false,
-            "nov": false,
-            "dec": false
+            "oct": true,
+            "nov": true,
+            "dec": true
           }
         },
         {
@@ -5876,6 +5876,24 @@
     }
   },
   "activityLog": [
+    {
+      "icon": "💰",
+      "text": "Blok A A23 Nor Asna bayar iuran Desember 2026 (Rp 50.000)",
+      "date": "2026-11-28",
+      "ts": 1795844195623
+    },
+    {
+      "icon": "💰",
+      "text": "Blok A A23 Nor Asna bayar iuran November 2026 (Rp 50.000)",
+      "date": "2026-11-28",
+      "ts": 1795844195623
+    },
+    {
+      "icon": "💰",
+      "text": "Blok A A23 Nor Asna bayar iuran Oktober 2026 (Rp 50.000)",
+      "date": "2026-11-28",
+      "ts": 1795844195623
+    },
     {
       "icon": "💰",
       "text": "Blok D D46 Rifqi bayar iuran Desember 2026 (Rp 50.000)",
